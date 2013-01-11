@@ -14,8 +14,8 @@ Requirements:
 	src/test/resources/test-persistance-config.xml
 
 2. Start postgres server,
-- create database testhellotwu :see test-persistance-config.xml, no need to create tables inside
-- create database hellotwu :see persistance-config.xml
+- create database testtrailblazers :see test-persistance-config.xml, no need to create tables inside
+- create database trailblazers :see persistance-config.xml
         - create table frame {CREATE TABLE frames
                               (
                                 id bigint NOT NULL,
@@ -36,7 +36,7 @@ Requirements:
     gradle jettyRun
     [http://localhost:8080/TrailBlazers/]
 
-Say HelloooTWU !
+Say HelloooTrailBlazers !
 
 
 Intellij:
