@@ -30,9 +30,9 @@
 					</div>
 	
 					<div class="field vertical">
-						<form:label for="email" path="email">Email:</form:label>
-						<form:errors path="email" cssClass="errors" />
-						<form:input path="email" />
+						<form:label for="price" path="price">Price:</form:label>
+						<form:errors path="price" cssClass="errors" />
+						<form:input path="price" />
 					</div>
 				</div>
 
@@ -50,7 +50,7 @@
 		</form:form>
 		<form:form action="" method="put" modelAttribute="thingGrid">
 			<table>
-				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Email</th><th>Description</th></tr></thead>
+				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Price</th><th>Description</th></tr></thead>
 				<tbody>
 					<c:forEach var="thingEntry" items="${thingGrid.thingMap}" varStatus="row">
 						<tr>
@@ -68,8 +68,8 @@
 								<form:input disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].name" />
 							</td>
 							<td>
-								<form:errors path="thingMap[${thingEntry.key}].email" cssClass="errors" />
-								<form:input disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].email" />
+								<form:errors path="thingMap[${thingEntry.key}].price" cssClass="errors" />
+								<form:input disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].price" />
 							</td>
 							<td>
 								<form:errors path="thingMap[${thingEntry.key}].description" cssClass="errors" />

@@ -37,7 +37,7 @@ public class ThingDaoImpl implements ThingDao {
 
 	public void save(Thing thing) {
 		sessionFactory.getCurrentSession().merge(thing);
-		
+
 	}
 	
 }

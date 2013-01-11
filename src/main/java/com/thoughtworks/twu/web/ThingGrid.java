@@ -1,6 +1,6 @@
 package com.thoughtworks.twu.web;
 
-import com.thoughtworks.twu.model.Thing;
+import com.thoughtworks.twu.model.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

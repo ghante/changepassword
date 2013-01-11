@@ -1,6 +1,6 @@
 package com.thoughtworks.twu.web;
 
-import com.thoughtworks.twu.model.Thing;
+import com.thoughtworks.twu.model.*;
 
 public class ThingCommand extends Thing {
 
@@ -13,7 +13,7 @@ public class ThingCommand extends Thing {
 	public ThingCommand(Thing thing) {
 		setId(thing.getId());
 		setName(thing.getName());
-		setEmail(thing.getEmail());
+		setPrice(thing.getPrice());
 		setDescription(thing.getDescription());
 	}
 
@@ -21,7 +21,7 @@ public class ThingCommand extends Thing {
 		Thing thing = new Thing();
 		thing.setId(getId());
 		thing.setName(getName());
-		thing.setEmail(getEmail());
+		thing.setPrice(getPrice());
 		thing.setDescription(getDescription());
 		return thing;
 	}

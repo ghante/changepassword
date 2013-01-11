@@ -1,6 +1,6 @@
 package com.thoughtworks.twu.dao.impl;
 
-import com.thoughtworks.twu.model.Thing;
+import com.thoughtworks.twu.model.*;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class ThingDaoImplTest extends DaoTest {
 	public void all_fields_are_persisted() {
 		Thing thing = new Thing();
 		thing.setName("Name1");
-		thing.setEmail("simon@domain.com");
+		thing.setPrice("13.99");
 		thing.setDescription("this thing is awesome");
 		thingDaoImpl.save(thing);
 		List<Thing> things = thingDaoImpl.findAll();
 		Assert.assertEquals("Name1", things.get(0).getName());
-		Assert.assertEquals("simon@domain.com", things.get(0).getEmail());
-		Assert.assertEquals("31 My Street\nTown, TN 38103", things.get(0).getDescription());
+		Assert.assertEquals("13.99", things.get(0).getPrice());
+		Assert.assertEquals("this thing is awesome", things.get(0).getDescription());
 		thingDaoImpl.delete(thing);
 	}
 	

@@ -1,6 +1,6 @@
 package com.thoughtworks.twu.dao;
 
-import com.thoughtworks.twu.model.Thing;
+import com.thoughtworks.twu.model.*;
 
 import java.util.List;
 

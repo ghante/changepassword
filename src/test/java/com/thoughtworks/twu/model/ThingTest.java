@@ -18,16 +18,8 @@ public class ThingTest {
 		Thing thing = new Thing();
 		Map<String, ConstraintViolation<Thing>> violationsMap = validate(thing);
 		assertTrue(violationsMap.get("name").getMessageTemplate().contains("NotEmpty"));
-		assertTrue(violationsMap.get("email").getMessageTemplate().contains("NotEmpty"));
+		assertTrue(violationsMap.get("price").getMessageTemplate().contains("NotNull"));
 		assertTrue(violationsMap.get("description").getMessageTemplate().contains("NotNull"));
-	}
-
-	@Test
-	public void assert_that_email_has_to_be_an_email() {
-		Thing thing = new Thing();
-		thing.setEmail("invalid@email@");
-		Map<String, ConstraintViolation<Thing>> violationsMap = validate(thing);
-		assertTrue(violationsMap.get("email").getMessageTemplate().contains("Email"));
 	}
 	
 	private <T> Map<String, ConstraintViolation<T>>  validate(T thing) {

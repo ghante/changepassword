@@ -61,7 +61,7 @@ public class ThingTest {
 	
 	private void addThing(String name) {
 		driver.findElement(By.name("name")).sendKeys(name);
-		driver.findElement(By.name("email")).sendKeys(name + "@domain.com");
+		driver.findElement(By.name("price")).sendKeys("13.99");
 		driver.findElement(By.name("description")).sendKeys(name + " is awesome");
 		driver.findElement(By.id("thingCommand")).findElement(By.xpath("//input[@type='submit']")).click();
 	}
