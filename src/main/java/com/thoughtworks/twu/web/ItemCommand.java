@@ -1,13 +1,11 @@
 package com.thoughtworks.twu.web;
 
-import com.thoughtworks.twu.model.*;
+import com.thoughtworks.twu.model.Item;
 
 public class ItemCommand extends Item {
 
-	private static final long serialVersionUID = -4686811929329857418L;
-
 	private Boolean selected = false;
-	
+
 	public ItemCommand() {}
 
 	public ItemCommand(Item item) {
@@ -15,6 +13,7 @@ public class ItemCommand extends Item {
 		setName(item.getName());
 		setPrice(item.getPrice());
 		setDescription(item.getDescription());
+		setType(item.getType());
 	}
 
 	public Item toItem() {
@@ -23,9 +22,10 @@ public class ItemCommand extends Item {
 		item.setName(getName());
 		item.setPrice(getPrice());
 		item.setDescription(getDescription());
+		item.setType(getType());
 		return item;
 	}
-	
+
 	public Boolean getSelected() {
 		return selected;
 	}

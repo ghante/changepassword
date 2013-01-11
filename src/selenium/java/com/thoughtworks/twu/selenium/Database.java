@@ -11,8 +11,8 @@ public final class Database {
 		executeUpdate("DELETE FROM items;");
 	}
 
-    public static void insertIntoItems(String name, String price, String description) throws SQLException {
-         executeUpdate("INSERT INTO items(id, name, price, description) values ( 999, '"+name+"','"+price+"','"+description+"');" );
+    public static void insertIntoItems(String name, String price, String description, String type) throws SQLException {
+         executeUpdate("INSERT INTO items(id, name, price, description, type) values ( 999, '"+name+"','"+price+"','"+description+"','"+type+"');" );
     }
 
 	private static void executeUpdate(String query) throws SQLException {

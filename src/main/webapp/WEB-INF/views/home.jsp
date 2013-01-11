@@ -14,6 +14,7 @@
 		            <th>Name</th>
 		            <th>Price</th>
 		            <th>Description</th>
+		            <th>Type</th>
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -22,6 +23,7 @@
 		            <td><c:out value="${itemMap.value.name}"/></td>
 		            <td><c:out value="${itemMap.value.price}"/></td>
 		            <td><c:out value="${itemMap.value.description}"/></td>
+		            <td><c:out value="${itemMap.value.type}"/></td>
 		        </tr>
 		     </c:forEach>
 		    </tbody>

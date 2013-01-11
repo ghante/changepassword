@@ -28,21 +28,33 @@
 					</div>
 				</div>
 
-				<div class="field">
-					<form:label for="description" path="description">Description:</form:label>
-					<form:errors path="description" cssClass="errors" />
-					<form:textarea path="description" />
+					<div class="field vertical">
+                    	<form:label for="type" path="type">Type:</form:label>
+      					<form:errors path="type" cssClass="errors" />
+           				<form:select path="type">
+           				    <form:option value="" label="Select" />
+           				    <form:options items="${itemTypes}"/>
+           				</form:select>
+                    </div>
 				</div>
 
-				<div class="field vertical">
-					<input type="submit" value="Create new item">
+                <div class="block">
+				    <div class="field">
+					    <form:label for="description" path="description">Description:</form:label>
+					    <form:errors path="description" cssClass="errors" />
+					    <form:textarea path="description" />
+				    </div>
+
+				    <div class="field vertical">
+                	    <input type="submit" value="Create new item">
+               	    </div>
 				</div>
 
 			</fieldset>
 		</form:form>
 		<form:form action="" method="post" modelAttribute="itemGrid">
 			<table>
-				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Price</th><th>Description</th></tr></thead>
+				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Price</th><th>Description</th><th>ItemType</th></tr></thead>
 				<tbody>
 					<c:forEach var="itemEntry" items="${itemGrid.itemMap}" varStatus="row">
 						<tr>
@@ -67,6 +79,10 @@
 								<form:errors path="itemMap[${itemEntry.key}].description" cssClass="errors" />
 								<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].description" />
 							</td>
+							<td>
+                            	<form:errors path="itemMap[${itemEntry.key}].type" cssClass="errors" />
+       							<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].type" />
+     					    </td>
 						</tr>
 					</c:forEach>
 				</tbody>

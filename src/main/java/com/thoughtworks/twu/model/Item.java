@@ -2,20 +2,14 @@ package com.thoughtworks.twu.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "items")
-public class Item implements Serializable {
-
-	private static final long serialVersionUID = -4060739788760795254L;
+public class Item {
 
 	@Id
 	@GeneratedValue
@@ -33,7 +27,10 @@ public class Item implements Serializable {
 
 	@NotNull
 	private String description;
-	
+
+    @NotEmpty
+    @NotNull
+    private String type;
 
 	/* Getters and setters below this row */
 
@@ -67,5 +64,11 @@ public class Item implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
 	
 }

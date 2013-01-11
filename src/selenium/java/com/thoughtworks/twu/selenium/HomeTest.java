@@ -46,9 +46,12 @@ public class HomeTest {
 
     @Test
     public void shouldShowListOfItemsOnHomeScreen() throws SQLException {
-        Database.insertIntoItems("item1","14.99","I should see this item");
+        Database.insertIntoItems("frame1","14.99","I should see this item", "FRAMES");
         //refresh screen
         driver.get("http://localhost:8080/TrailBlazers/");
-        assertEquals("item1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
+        assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
+        assertEquals("14.99", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
+        assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());
+        assertEquals("FRAMES", driver.findElement(By.xpath("//tbody//tr[1]//td[4]")).getText());
     }
 }

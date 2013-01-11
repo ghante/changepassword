@@ -23,11 +23,13 @@ public class ItemGridTest {
 		items.get(0).setName("name1");
 		items.get(0).setPrice(BigDecimal.valueOf(13.99));
 		items.get(0).setDescription("description1");
+		items.get(0).setType(ItemType.TYPE.FRAME.toString());
 
 		items.add(new Item());
 		items.get(1).setName("name2");
 		items.get(1).setPrice(BigDecimal.valueOf(14.99));
 		items.get(1).setDescription("description2");
+		items.get(1).setType(ItemType.TYPE.ACCESSORIES.toString());
 
 		ItemGrid itemGrid = new ItemGrid(items);
 		
@@ -46,6 +48,7 @@ public class ItemGridTest {
         items.get(0).setName("name1");
         items.get(0).setPrice(BigDecimal.valueOf(13.99));
         items.get(0).setDescription("description1");
+        items.get(0).setType(ItemType.TYPE.FRAME.toString());
 
         ItemGrid itemsCommand = new ItemGrid(items);
 
@@ -63,6 +66,7 @@ public class ItemGridTest {
 		items.get(0).setName("name1");
 		items.get(0).setPrice(BigDecimal.valueOf(348324689));
 		items.get(0).setDescription("description1");
+        items.get(0).setType(ItemType.TYPE.FRAME.toString());
 
 		ItemGrid itemsCommand = new ItemGrid(items);
 		

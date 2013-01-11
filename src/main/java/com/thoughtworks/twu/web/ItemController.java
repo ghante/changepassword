@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.web;
 
+import com.thoughtworks.twu.model.ItemType;
 import com.thoughtworks.twu.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,16 +14,20 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping(ItemController.URL)
-public class ItemController {
+public class ItemController{
 
 	static final String URL = "/item";
-	
+
 	@Autowired
     ItemService itemService;
+
+    @Autowired
+    ItemType itemType;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public void get(Model model, @ModelAttribute ItemCommand itemCommand) {
 		model.addAttribute("itemGrid", itemService.findAll());
+        model.addAttribute("itemTypes", itemType.getTypes());
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
