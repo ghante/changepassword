@@ -12,24 +12,14 @@ public class UserCommand extends User {
 
 	public UserCommand(User user) {
 		setId(user.getId());
-		setFirstName(user.getFirstName());
-		setLastName(user.getLastName());
+		setName(user.getName());
 		setEmail(user.getEmail());
 		setAddress(user.getAddress());
 	}
 
 	public User toUser() {
-		User user = new User();
-		user.setId(getId());
-		user.setFirstName(getFirstName());
-		user.setLastName(getLastName());
-		user.setEmail(getEmail());
-		user.setAddress(getAddress());
-		return user;
+		return (User) this;
 	}
-	
-
-	/* Annoying Getters and Setters start here */
 	
 	public Boolean getSelected() {
 		return selected;
