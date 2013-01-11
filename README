@@ -1,10 +1,40 @@
-This is a clean Spring MVC application skeleton with Hibernate persistence. I'm building with Gradle and I'm using WebDriver to do functional testing.
+ideas- internal craigslist ?
+
+Spring MVC application skeleton with Hibernate persistence.
+Requirements:
+- java 6+
+- postgresql [database]
+- gradle [build tool]
+- junit4 [unit testing]
+- WebDriver [functional testing]
+- selenium [BDD cases]
+- log4j [logging]
+
 
 1. Edit the following files to reflect your environment:
 	src/main/webapp/WEB-INF/spring/persistence-config.xml
 	src/test/resources/test-persistance-config.xml
-2. Run the Selenium test (you will need to have Firefox installed):
+
+2. Start postgres server,
+- create database testhellotwu :see test-persistance-config.xml, no need to create tables inside
+- create database hellotwu :see persistance-config.xml
+    - create table users {CREATE TABLE users
+                          (
+                            id bigint NOT NULL,
+                            address character varying(255) NOT NULL,
+                            email character varying(255) NOT NULL,
+                            name character varying(255) NOT NULL,
+                            CONSTRAINT users_pkey PRIMARY KEY (id)
+                          )}
+]
+
+3. Run the unit tests:
+  	gradle clean build
+
+4. Run the Selenium tests (you will need to have Firefox installed):
 	gradle clean selenium
 
-Done.
+Say HelloooTWU !
 
+
+Credits: thanks https://github.com/shagstrom/ for the skeleton !

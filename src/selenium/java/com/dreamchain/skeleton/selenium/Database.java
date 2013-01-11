@@ -27,9 +27,9 @@ public final class Database {
 	}
 
 	private static Connection createConnection() throws SQLException {
-		String url = "jdbc:postgresql://localhost:5432/skeleton";
-		String user = "skeleton";
-		String password = "password";
+		String url = "jdbc:postgresql://localhost:5432/hellotwu";
+		String user = "postgres";
+		String password = "postgres";
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {

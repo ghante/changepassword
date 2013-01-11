@@ -14,9 +14,9 @@
 	<bean id="myDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://localhost:5432/skeleton" />
-		<property name="username" value="skeleton" />
-		<property name="password" value="password" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/hellotwu" />
+		<property name="username" value="postgres" />
+		<property name="password" value="postgres" />
 	</bean>
 
 	<!-- Hibernate -->
