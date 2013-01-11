@@ -2,10 +2,29 @@
 <html>
 	<head>
 		<title>TrailBlazers</title>
+		<script type="text/javascript" src="<c:url value='/scripts/home.js' />"></script>
 	</head>
 	<body>
 		<!--[if lt IE 9]>
 			<div class="legacy-browser">You are using a Legacy Browser - it is not supported. Please upgrade to <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">IE9</a>, Firefox, Safari, Chrome or Opera.</div>
 		<![endif]-->
+		<table id="homepage">
+		    <thead>
+		        <tr>
+		            <th>Name</th>
+		            <th>Price</th>
+		            <th>Description</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    <c:forEach var="frameMap" items="${frameGrid.frameMap}" varStatus="row">
+		        <tr>
+		            <td><c:out value="${frameMap.value.name}"/></td>
+		            <td><c:out value="${frameMap.value.price}"/></td>
+		            <td><c:out value="${frameMap.value.description}"/></td>
+		        </tr>
+		     </c:forEach>
+		    </tbody>
+		</table>
 	</body>
 </html>

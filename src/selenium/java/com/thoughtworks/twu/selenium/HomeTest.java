@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.sql.SQLException;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class HomeTest {
@@ -43,4 +44,11 @@ public class HomeTest {
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
     }
 
+    @Test
+    public void shouldShowListOfFramesOnHomeScreen() throws SQLException {
+        Database.insertIntoFrames("frame1","14.99","I should see this frame");
+        //refresh screen
+        driver.get("http://localhost:8080/TrailBlazers/");
+        assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
+    }
 }

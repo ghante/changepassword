@@ -64,6 +64,24 @@ td input[type="text"] {
 	box-sizing: border-box;
 }
 
+table#homepage {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table#homepage th {
+	border: 1px solid #ddd;
+	background: #eee;
+	padding: 1em;
+	text-align: left;
+}
+
+table#homepage td {
+   border: 1px solid #ddd;
+   padding: 1em;
+
+}
+
 form {
 	font-size: 100%;
 }
