@@ -34,6 +34,10 @@ Requirements:
 4. Run the Selenium tests (you will need to have Firefox installed):
 	gradle clean selenium
 
+5. Run application :
+    gradle jettyRun
+    [http://localhost:8080/spring-mvc-hibernate-skeleton/]
+
 Say HelloooTWU !
 
 
