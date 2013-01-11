@@ -16,13 +16,13 @@ Requirements:
 2. Start postgres server,
 - create database testhellotwu :see test-persistance-config.xml, no need to create tables inside
 - create database hellotwu :see persistance-config.xml
-    - create table users {CREATE TABLE users
+    - create table thing {CREATE TABLE things
                           (
                             id bigint NOT NULL,
-                            address character varying(255) NOT NULL,
+                            description character varying(255) NOT NULL,
                             email character varying(255) NOT NULL,
                             name character varying(255) NOT NULL,
-                            CONSTRAINT users_pkey PRIMARY KEY (id)
+                            CONSTRAINT things_pkey PRIMARY KEY (id)
                           )}
 ]
 

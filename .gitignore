@@ -9,3 +9,5 @@ target-eclipse
 .idea
 classes
 *.iml
+*.ipr
+*.iws

@@ -7,20 +7,20 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Users</title>
+		<title>Things</title>
 		<link rel="stylesheet" href="<c:url value='/styles/default.css' />" type="text/css" />
 		<script type="text/javascript" src="<c:url value='/scripts/lib/prototype.js' />"></script>
 		<script type="text/javascript" src="<c:url value='/scripts/lib/RowSelector.js' />"></script>
-		<script type="text/javascript" src="<c:url value='/scripts/user.js' />"></script>
+		<script type="text/javascript" src="<c:url value='/scripts/thing.js' />"></script>
 	</head>
 	<body>
 		<!--[if lt IE 9]>
 			<div class="legacy-browser">You are using a Legacy Browser - it is not supported. Please upgrade to <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">IE9</a>, Firefox, Safari, Chrome or Opera.</div>
 		<![endif]-->
-		<h1>Users</h1>
-		<form:form action="" method="post" modelAttribute="userCommand">
+		<h1>Things</h1>
+		<form:form action="" method="post" modelAttribute="thingCommand">
 			<fieldset class="fieldcontainer">
-				<legend>New User</legend>
+				<legend>New Thing</legend>
 
 				<div class="block">
 					<div class="field">
@@ -37,50 +37,50 @@
 				</div>
 
 				<div class="field">
-					<form:label for="address" path="address">Address:</form:label>
-					<form:errors path="address" cssClass="errors" />
-					<form:textarea path="address" />
+					<form:label for="description" path="description">Description:</form:label>
+					<form:errors path="description" cssClass="errors" />
+					<form:textarea path="description" />
 				</div>
 
 				<div class="field vertical">
-					<input type="submit" value="Create new user">
+					<input type="submit" value="Create new thing">
 				</div>
 
 			</fieldset>
 		</form:form>
-		<form:form action="" method="put" modelAttribute="userGrid">
+		<form:form action="" method="put" modelAttribute="thingGrid">
 			<table>
-				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Email</th><th>Address</th></tr></thead>
+				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Email</th><th>Description</th></tr></thead>
 				<tbody>
-					<c:forEach var="userEntry" items="${userGrid.userMap}" varStatus="row">
+					<c:forEach var="thingEntry" items="${thingGrid.thingMap}" varStatus="row">
 						<tr>
 							<td>
-								<form:input cssClass="disablable-hidden" disabled="${!userEntry.value.selected}" path="userMap[${userEntry.key}].id" />
-								<c:if test="${userMap[userEntry.key].selected}">
+								<form:input cssClass="disablable-hidden" disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].id" />
+								<c:if test="${thingMap[thingEntry.key].selected}">
 									<input type="checkbox" checked="checked" class="rowSelector" />
 								</c:if>
-								<c:if test="${!userMap[userEntry.key].selected}">
+								<c:if test="${!thingMap[thingEntry.key].selected}">
 									<input type="checkbox" class="rowSelector" />
 								</c:if>
 							</td>
 							<td>
-								<form:errors path="userMap[${userEntry.key}].name" cssClass="errors" />
-								<form:input disabled="${!userEntry.value.selected}" path="userMap[${userEntry.key}].name" />
+								<form:errors path="thingMap[${thingEntry.key}].name" cssClass="errors" />
+								<form:input disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].name" />
 							</td>
 							<td>
-								<form:errors path="userMap[${userEntry.key}].email" cssClass="errors" />
-								<form:input disabled="${!userEntry.value.selected}" path="userMap[${userEntry.key}].email" />
+								<form:errors path="thingMap[${thingEntry.key}].email" cssClass="errors" />
+								<form:input disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].email" />
 							</td>
 							<td>
-								<form:errors path="userMap[${userEntry.key}].address" cssClass="errors" />
-								<form:input disabled="${!userEntry.value.selected}" path="userMap[${userEntry.key}].address" />
+								<form:errors path="thingMap[${thingEntry.key}].description" cssClass="errors" />
+								<form:input disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].description" />
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<p>
-				<input type="submit" value="Update all enabled users">
+				<input type="submit" value="Update all enabled things">
 			</p>
 		</form:form>
 	</body>

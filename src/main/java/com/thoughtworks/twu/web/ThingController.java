@@ -1,7 +1,6 @@
 package com.thoughtworks.twu.web;
 
-import javax.validation.Valid;
-
+import com.thoughtworks.twu.service.ThingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,39 +9,39 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.thoughtworks.twu.service.UserService;
+import javax.validation.Valid;
 
 @Controller
-@RequestMapping(UserController.URL)
-public class UserController {
+@RequestMapping(ThingController.URL)
+public class ThingController {
 
-	static final String URL = "/user";
+	static final String URL = "/thing";
 	
 	@Autowired
-	UserService userService;
+    ThingService thingService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public void get(Model model, @ModelAttribute UserCommand userCommand) {
-		model.addAttribute("userGrid", userService.findAll());
+	public void get(Model model, @ModelAttribute ThingCommand thingCommand) {
+		model.addAttribute("thingGrid", thingService.findAll());
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(Model model, @Valid UserCommand userCommand, BindingResult result) {
+	public String post(Model model, @Valid ThingCommand thingCommand, BindingResult result) {
 		if (result.hasErrors()) {
-			model.addAttribute("userGrid", userService.findAll());
+			model.addAttribute("thingGrid", thingService.findAll());
 			return URL;
 		}
-		userService.save(userCommand);
+		thingService.save(thingCommand);
 		return "redirect:" + URL;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, params="_method=put")
-	public String put(Model model, @Valid UserGrid userGrid, BindingResult result) {
+	public String put(Model model, @Valid ThingGrid thingGrid, BindingResult result) {
 		if (result.hasErrors()) {
-			userService.updateWithAll(userGrid);
+			thingService.updateWithAll(thingGrid);
 			return URL;
 		}
-		userService.saveAll(userGrid);
+		thingService.saveAll(thingGrid);
 		return "redirect:" + URL;
 	}
 	

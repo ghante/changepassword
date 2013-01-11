@@ -15,6 +15,6 @@
 		<![endif]-->
 		<h1>Welcome to ThoughtWorks University !</h1>
 		<h2>This is your Spring MVC skeleton with Gradle build, Hibernate persistance and Selenium functional testing</h2>
-		<p>Go to <a href="<c:url value='/user' />">User</a> page.</p>
+		<p>Go to <a href="<c:url value='/thing' />">Thing</a> page.</p>
 	</body>
 </html>

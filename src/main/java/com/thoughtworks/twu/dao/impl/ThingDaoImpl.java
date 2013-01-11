@@ -1,43 +1,42 @@
 package com.thoughtworks.twu.dao.impl;
 
-import java.util.List;
-
+import com.thoughtworks.twu.dao.ThingDao;
+import com.thoughtworks.twu.model.Thing;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.thoughtworks.twu.dao.UserDao;
-import com.thoughtworks.twu.model.User;
+import java.util.List;
 
 @Repository
-public class UserDaoImpl implements UserDao {
+public class ThingDaoImpl implements ThingDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public User get(Long id) {
-		return (User) sessionFactory.getCurrentSession()
+	public Thing get(Long id) {
+		return (Thing) sessionFactory.getCurrentSession()
 			.createQuery(
-					"FROM User u " +
+					"FROM Thing u " +
 					"WHERE u.id = :id " +
 					"ORDER BY u.id")
 			.setLong("id", id).uniqueResult();
 	}
 
-	public void delete(User user) {
-		sessionFactory.getCurrentSession().delete(user);
+	public void delete(Thing thing) {
+		sessionFactory.getCurrentSession().delete(thing);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<User> findAll() {
+	public List<Thing> findAll() {
 		return sessionFactory.getCurrentSession().createQuery(
-				"FROM User " +
+				"FROM Thing " +
 				"ORDER BY id")
 			.list();
 	}
 
-	public void save(User user) {
-		sessionFactory.getCurrentSession().merge(user);
+	public void save(Thing thing) {
+		sessionFactory.getCurrentSession().merge(thing);
 		
 	}
 	
