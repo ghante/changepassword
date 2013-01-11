@@ -13,7 +13,7 @@
 		<!--[if lt IE 9]>
 			<div class="legacy-browser">You are using a Legacy Browser - it is not supported. Please upgrade to <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">IE9</a>, Firefox, Safari, Chrome or Opera.</div>
 		<![endif]-->
-		<h1>Welcome to ThoughtWorks University !</h1>
+		<h1><div class="heading">Welcome to ThoughtWorks University !</div></h1>
 		<h2>This is your Spring MVC skeleton with Gradle build, Hibernate persistance and Selenium functional testing</h2>
 		<p>Go to <a href="<c:url value='/thing' />">Thing</a> page.</p>
 	</body>

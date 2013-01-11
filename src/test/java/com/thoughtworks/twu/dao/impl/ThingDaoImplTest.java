@@ -19,7 +19,7 @@ public class ThingDaoImplTest extends DaoTest {
 		Thing thing = new Thing();
 		thing.setName("Name1");
 		thing.setEmail("simon@domain.com");
-		thing.setDescription("31 My Street\nTown, TN 38103");
+		thing.setDescription("this thing is awesome");
 		thingDaoImpl.save(thing);
 		List<Thing> things = thingDaoImpl.findAll();
 		Assert.assertEquals("Name1", things.get(0).getName());

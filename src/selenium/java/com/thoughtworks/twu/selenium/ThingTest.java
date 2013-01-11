@@ -29,18 +29,18 @@ public class ThingTest {
 	@Before
 	public void setup() throws SQLException {
 		Database.clean();
+        driver.get("http://localhost:8080/spring-mvc-hibernate-skeleton/thing");
 	}
 	
 	@Test
 	public void addingOneThing() {
-		driver.get("http://localhost:8080/spring-mvc-hibernate-skeleton/thing");
+
 		addThing("thing1");
 		assertEquals(1, driver.findElements(By.xpath("//table//tbody//tr")).size());
 	}
 
 	@Test
 	public void addingTwoThings() {
-		driver.get("http://localhost:8080/spring-mvc-hibernate-skeleton/thing");
 		addThing("thing1");
 		addThing("thing2");
 		assertEquals(2, driver.findElements(By.xpath("//table//tbody//tr")).size());
@@ -48,7 +48,6 @@ public class ThingTest {
 	
 	@Test
 	public void updatingTwoThings() {
-		driver.get("http://localhost:8080/spring-mvc-hibernate-skeleton/thing");
 		addThing("thing1");
 		addThing("thing2");
 		driver.findElement(By.xpath("//tbody//tr[1]//input[@type='checkbox']")).click();
@@ -63,7 +62,7 @@ public class ThingTest {
 	private void addThing(String name) {
 		driver.findElement(By.name("name")).sendKeys(name);
 		driver.findElement(By.name("email")).sendKeys(name + "@domain.com");
-		driver.findElement(By.name("description")).sendKeys("31 Some Street\nSome Town");
+		driver.findElement(By.name("description")).sendKeys(name + " is awesome");
 		driver.findElement(By.id("thingCommand")).findElement(By.xpath("//input[@type='submit']")).click();
 	}
 
