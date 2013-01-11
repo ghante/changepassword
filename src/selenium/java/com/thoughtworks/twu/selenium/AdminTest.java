@@ -60,4 +60,10 @@ public class AdminTest {
         driver.findElement(By.linkText("Admin")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
     }
+
+    @Test
+    public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
+        driver.findElement(By.linkText("Logout")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
+    }
 }

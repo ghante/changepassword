@@ -1,13 +1,15 @@
 package com.thoughtworks.twu.selenium;
 
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.sql.SQLException;
 
-import static junit.framework.Assert.assertFalse;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -50,7 +52,17 @@ public class LoginTest {
         driver.findElement(By.name("j_username")).sendKeys("user");
         driver.findElement(By.name("j_password")).sendKeys("user");
         submitForm();
-        assertFalse(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/accessDenied"));
+        assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
+    }
+
+    @Test
+    public void shouldLetUserLogoutBackToHomePageAfterBeingDeniedAcsess(){
+        driver.findElement(By.name("j_username")).sendKeys("user");
+        driver.findElement(By.name("j_password")).sendKeys("user");
+        submitForm();
+        assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
+        driver.findElement(By.linkText("Logout")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
     }
 
     @Test

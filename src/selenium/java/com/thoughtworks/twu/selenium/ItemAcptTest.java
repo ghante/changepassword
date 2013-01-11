@@ -124,6 +124,12 @@ public class ItemAcptTest {
 
     }
 
+    @Test
+    public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
+        driver.findElement(By.linkText("Logout")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
+    }
+
 
 
     private boolean isAlertPresent() {
