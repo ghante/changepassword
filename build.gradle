@@ -19,7 +19,7 @@ repositories {
 dependencies {
 
 	/* JDBC Driver */
-	compile 'postgresql:postgresql:8.4-702.jdbc3'
+	compile 'postgresql:postgresql:9.1-901.jdbc4'
 
 	/* Hibernate */
 	compile 'javassist:javassist:3.11.0.GA'
@@ -45,15 +45,14 @@ dependencies {
 
 	/* Test */
 	testCompile 'junit:junit:4.10'
-    testCompile 'postgresql:postgresql:8.4-702.jdbc3'
-    testCompile 'org.seleniumhq.selenium:selenium-java:2.25.0'
-    testCompile 'org.seleniumhq.selenium:selenium-firefox-driver:2.23.0'
+    testCompile 'postgresql:postgresql:9.1-901.jdbc4'
+    testCompile 'org.seleniumhq.selenium:selenium-java:2.28.0'
 
 
-    seleniumCompile 'postgresql:postgresql:8.4-702.jdbc3'
+    seleniumCompile 'postgresql:postgresql:9.1-901.jdbc4'
     seleniumCompile 'junit:junit:4.10'
-    seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.25.0'
-	
+    seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.28.0'
+
 }
 
 task jettyDaemon(type: org.gradle.api.plugins.jetty.JettyRun) {
