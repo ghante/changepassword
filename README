@@ -1,5 +1,3 @@
-ideas- internal craigslist ?
-
 Spring MVC application skeleton with Hibernate persistence.
 Requirements:
 - java 6+
@@ -41,4 +39,6 @@ Requirements:
 Say HelloooTWU !
 
 
-Credits: thanks https://github.com/shagstrom/ for the skeleton !
+Intellij:
+'gradle idea' sets up project files.
+
