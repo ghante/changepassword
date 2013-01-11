@@ -23,6 +23,7 @@
 		            <td><c:out value="${itemMap.value.price}"/></td>
 		            <td><c:out value="${itemMap.value.description}"/></td>
 		            <td><c:out value="${itemMap.value.type}"/></td>
+		            <td><input type="button" value="Reserve Item" id="reserve" onClick="location.href='reserve'"></td>
 		        </tr>
 		     </c:forEach>
 		    </tbody>

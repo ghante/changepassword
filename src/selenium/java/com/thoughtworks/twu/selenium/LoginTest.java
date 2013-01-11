@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.sql.SQLException;
 
@@ -17,6 +16,11 @@ import static org.junit.Assert.assertTrue;
 
 public class LoginTest {
     static WebDriver driver;
+    private final String USER = "UserCat";
+    private final String USERPASSWORD = "user";
+
+    private final String ADMIN = "AdminCat";
+    private final String ADMINPASSWORD = "admin";
 
     @BeforeClass
     public static void before() {
@@ -42,26 +46,19 @@ public class LoginTest {
 
     @Test
     public void shouldLoginIntoAdminScreenWithAdminCredentials(){
-        TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
-        driver.findElement(By.name("j_username")).sendKeys("admin");
-        driver.findElement(By.name("j_password")).sendKeys("admin");
-        submitForm();
+        LoginHelper.loginAs(ADMIN, ADMINPASSWORD, driver);
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
     }
 
     @Test
     public void shouldDenyAccessToAdminScreenWithUserCredentials(){
-        driver.findElement(By.name("j_username")).sendKeys("user");
-        driver.findElement(By.name("j_password")).sendKeys("user");
-        submitForm();
+        LoginHelper.loginAs(USER, USERPASSWORD, driver);
         assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
     }
 
     @Test
     public void shouldLetUserLogoutBackToHomePageAfterBeingDeniedAcsess(){
-        driver.findElement(By.name("j_username")).sendKeys("user");
-        driver.findElement(By.name("j_password")).sendKeys("user");
-        submitForm();
+        LoginHelper.loginAs(USER, USERPASSWORD, driver);
         assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
         driver.findElement(By.linkText("Logout")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
@@ -69,9 +66,7 @@ public class LoginTest {
 
     @Test
     public void shouldShowErrorWhenWrongCredentialsAreEntered(){
-        driver.findElement(By.name("j_username")).sendKeys("blah");
-        driver.findElement(By.name("j_password")).sendKeys("blah");
-        submitForm();
+        LoginHelper.loginAs("blah", "blah", driver);
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/login"));
         assertThat(1, is(driver.findElements(By.className("errorblock")).size()));
     }
@@ -91,10 +86,6 @@ public class LoginTest {
         logout();
         driver.get("http://localhost:8080/TrailBlazers/admin");
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/login"));
-    }
-
-    private void submitForm() {
-        driver.findElement(By.name("submit")).click();
     }
 
     private void resetForm() {

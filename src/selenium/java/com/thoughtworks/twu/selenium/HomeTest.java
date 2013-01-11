@@ -57,4 +57,16 @@ public class HomeTest {
         assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());
         assertEquals("FRAMES", driver.findElement(By.xpath("//tbody//tr[1]//td[4]")).getText());
     }
+
+    @Test
+    public void userShouldBeDirectedToLoginPageBeforeOrderPageWhenReservingItem() throws SQLException {
+        Database.insertIntoItems("frame1","14.99","I should see this item", "FRAMES");
+        //refresh screen
+        driver.get("http://localhost:8080/TrailBlazers/");
+        driver.findElement(By.id("reserve")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/login"));
+        LoginHelper.loginAs("UserCat", "user", driver);
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/reserve"));
+
+    }
 }

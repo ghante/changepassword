@@ -4,9 +4,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -46,14 +44,8 @@ public class ItemAcptTest {
     private void loginToItemScreen() {
         driver.get("http://localhost:8080/TrailBlazers/login");
         TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
-        driver.findElement(By.name("j_username")).sendKeys("admin");
-        driver.findElement(By.name("j_password")).sendKeys("admin");
-        loginFormSubmit();
+        LoginHelper.loginAs("AdminCat", "admin", driver);
         driver.get("http://localhost:8080/TrailBlazers/item");
-    }
-
-    private void loginFormSubmit() {
-        driver.findElement(By.name("submit")).click();
     }
 	
 	@Test
@@ -98,7 +90,7 @@ public class ItemAcptTest {
     @Test
     public void shouldShowAlertWhenNonNumberPriceIsEntered(){
         addAFrame("badItem", "omgImNotANumber");
-        assertTrue(isAlertPresent());
+        assertTrue(TestUtils.isAlertPresent(driver));
     }
 
     @Test
@@ -130,19 +122,6 @@ public class ItemAcptTest {
     public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
         driver.findElement(By.linkText("Logout")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
-    }
-
-
-
-    private boolean isAlertPresent() {
-        try {
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            return true;
-        }
-        catch (NoAlertPresentException e){
-            return false;
-        }
     }
 
     private void addAFrame(String name, String price) {

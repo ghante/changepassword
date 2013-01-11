@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 import static org.junit.Assert.assertTrue;
 
-public class AdminTest {
+public class ReserveTest {
 
     static WebDriver driver;
 
@@ -29,26 +29,12 @@ public class AdminTest {
     @Before
     public void setup() throws SQLException {
         Database.clean();
-        driver.get("http://localhost:8080/TrailBlazers/login");
-        LoginHelper.loginAs("AdminCat", "admin", driver);
+        loginIntoReserveScreen();
     }
 
-    @Test
-     public void  shouldTakeUserToItemPageFromAdminScreen(){
-        driver.findElement(By.linkText("Add a item")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/item"));
-    }
-
-    @Test
-    public void  shouldTakeUserToHomeScreen(){
-        driver.findElement(By.linkText("Home")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
-    }
-
-    @Test
-    public void  shouldTakeUserToAdminScreen(){
-        driver.findElement(By.linkText("Admin")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
+    private void loginIntoReserveScreen() {
+        driver.get("http://localhost:8080/TrailBlazers/reserve");
+        LoginHelper.loginAs("UserCat", "user", driver);
     }
 
     @Test
