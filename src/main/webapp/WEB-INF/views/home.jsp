@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>TrailBlazers</title>
-		<script type="text/javascript" src="<c:url value='/scripts/home.js' />"></script>
 	</head>
 	<body>
 		<!--[if lt IE 9]>
