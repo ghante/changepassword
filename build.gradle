@@ -1,8 +1,10 @@
 version = '1.0'
 
+apply plugin: 'java'
 apply plugin: 'jetty'
-apply plugin: 'eclipse'
-apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+apply plugin: 'idea'
+
 
 sourceCompatibility = 1.6
 
@@ -49,12 +51,6 @@ dependencies {
 	seleniumCompile 'junit:junit:4.10'
 	seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.25.0'
 	
-}
-
-eclipse {
-	classpath {
-		plusConfigurations += configurations.seleniumCompile
-	}
 }
 
 task jettyDaemon(type: org.gradle.api.plugins.jetty.JettyRun) {
