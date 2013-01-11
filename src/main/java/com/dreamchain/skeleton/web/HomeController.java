@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(HomeController.URL)
 public class HomeController {
 	
-	static final String URL = "/";
+	static final String URL = "/home";
 
 	@RequestMapping(method = RequestMethod.GET)
-	public void get(Model model) {
+	public String get(Model model) {
+        return URL;
 	}
 	
 }
