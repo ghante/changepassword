@@ -10,7 +10,7 @@
 			<div class="legacy-browser">You are using a Legacy Browser - it is not supported. Please upgrade to <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">IE9</a>, Firefox, Safari, Chrome or Opera.</div>
 		<![endif]-->
 		<h1>Frames</h1>
-		<form:form action="" method="post" modelAttribute="frameCommand">
+		<form:form name="addFrame" action="" method="post" modelAttribute="frameCommand" onsubmit="return validateForm()">
 			<fieldset class="fieldcontainer">
 				<legend>New Frame</legend>
 
