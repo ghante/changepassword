@@ -1,15 +1,7 @@
-<%@page contentType="text/html;charset=UTF-8"%>
-<%@page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<!DOCTYPE html>
+<%@ include file="header.jsp" %>
 <html>
 	<head>
-		<meta charset="utf-8">
 		<title>Frames</title>
-		<link rel="stylesheet" href="<c:url value='/styles/default.css' />" type="text/css" />
-		<script type="text/javascript" src="<c:url value='/scripts/lib/prototype.js' />"></script>
 		<script type="text/javascript" src="<c:url value='/scripts/lib/RowSelector.js' />"></script>
 		<script type="text/javascript" src="<c:url value='/scripts/frame.js' />"></script>
 	</head>

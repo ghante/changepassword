@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class FrameTest {
 	
@@ -58,6 +59,18 @@ public class FrameTest {
 		assertEquals("frame11", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
 		assertEquals("frame22", driver.findElement(By.xpath("//tbody//tr[2]//input[contains(@name, '.name')]")).getAttribute("value"));
 	}
+
+    @Test
+    public void  shouldTakeUserToHomecreen(){
+        driver.findElement(By.linkText("Home")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
+    }
+
+    @Test
+    public void  shouldTakeUserToAdminScreen(){
+        driver.findElement(By.linkText("Admin")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
+    }
 	
 	private void addFrame(String name) {
 		driver.findElement(By.name("name")).sendKeys(name);

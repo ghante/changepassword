@@ -6,7 +6,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.sql.SQLException;
@@ -33,13 +32,13 @@ public class HomeTest {
     }
 
     @Test
-    public void shouldShowWelcomeScreenAtStartup() {
-        WebElement bodyTag = driver.findElement(By.className("heading"));
-        assertTrue(bodyTag.getText().contains("Welcome to Trail Blazers !"));
+    public void  shouldTakeUserToHomeScreen(){
+        driver.findElement(By.linkText("Home")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
     }
 
     @Test
-    public void  shouldTakeUserToAdminPageFromHomeScreen(){
+    public void  shouldTakeUserToAdminScreen(){
         driver.findElement(By.linkText("Admin")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
     }

@@ -37,4 +37,16 @@ public class AdminTest {
         driver.findElement(By.linkText("Add a frame")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/frame"));
     }
+
+    @Test
+    public void  shouldTakeUserToHomeScreen(){
+        driver.findElement(By.linkText("Home")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
+    }
+
+    @Test
+    public void  shouldTakeUserToAdminScreen(){
+        driver.findElement(By.linkText("Admin")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
+    }
 }
