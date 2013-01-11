@@ -25,7 +25,6 @@ public class Item {
 	@NotNull
 	private String description;
 
-    @NotNull
     @NotEmpty(message = "Please select Item Type")
     private String type;
 
