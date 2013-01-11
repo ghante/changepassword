@@ -35,8 +35,8 @@ public class FrameController {
 		return "redirect:" + URL;
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, params="_method=put")
-	public String put(Model model, @Valid FrameGrid frameGrid, BindingResult result) {
+	@RequestMapping(method = RequestMethod.POST, params="update=Update all enabled frames")
+	public String updateFrame(Model model, @Valid FrameGrid frameGrid, BindingResult result) {
 		if (result.hasErrors()) {
 			frameService.updateWithAll(frameGrid);
 			return URL;
@@ -44,5 +44,15 @@ public class FrameController {
 		frameService.saveAll(frameGrid);
 		return "redirect:" + URL;
 	}
+
+    @RequestMapping(method = RequestMethod.POST, params="delete=Delete all enabled frames")
+    public String deleteFrame(Model model, @Valid FrameGrid frameGrid, BindingResult result) {
+        if (result.hasErrors()) {
+            frameService.updateWithAll(frameGrid);
+            return URL;
+        }
+        frameService.deleteAll(frameGrid);
+        return "redirect:" + URL;
+    }
 	
 }

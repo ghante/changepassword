@@ -40,7 +40,7 @@
 
 			</fieldset>
 		</form:form>
-		<form:form action="" method="put" modelAttribute="frameGrid">
+		<form:form action="" method="post" modelAttribute="frameGrid">
 			<table>
 				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Price</th><th>Description</th></tr></thead>
 				<tbody>
@@ -72,7 +72,8 @@
 				</tbody>
 			</table>
 			<p>
-				<input type="submit" value="Update all enabled frames">
+				<input type="submit" value="Update all enabled frames" name="update">
+				<input type="submit" value="Delete all enabled frames" name="delete">
 			</p>
 		</form:form>
 	</body>

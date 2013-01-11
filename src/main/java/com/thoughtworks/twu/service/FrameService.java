@@ -17,5 +17,6 @@ public interface FrameService {
 	void saveAll(FrameGrid frameGrid);
 
 	void updateWithAll(FrameGrid frameGrid);
-	
+
+    void deleteAll(FrameGrid frameGrid);
 }

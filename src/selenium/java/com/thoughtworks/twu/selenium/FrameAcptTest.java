@@ -1,9 +1,6 @@
 package com.thoughtworks.twu.selenium;
 
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
@@ -78,6 +75,15 @@ public class FrameAcptTest {
     public void shouldShowAlertWhenNonNumberPriceIsEntered(){
         addFrame("badFrame", "omgImNotANumber");
         assertTrue(isAlertPresent());
+    }
+
+    @Test
+    public void shouldDeleteSelectedFrameWhenDeleteIsPressed(){
+        addFrame("frame1", "13.99");
+        addFrame("frame2", "14.99");
+        driver.findElement(By.xpath("//tbody//tr[1]//input[@type='checkbox']")).click();
+        driver.findElement(By.xpath("id('frameGrid')//input[@name='delete']")).click();
+        assertEquals("frame2", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
     }
 
     private boolean isAlertPresent() {

@@ -47,4 +47,10 @@ public class FrameServiceImpl implements FrameService {
 		allFrames.getFrameMap().putAll(frameGrid.getFrameMap());
 		frameGrid.setFrameMap(allFrames.getFrameMap());
 	}
+
+    @Transactional
+    public void deleteAll(FrameGrid frameGrid) {
+        for (Frame frame : frameGrid.getFrame())
+            delete(frame);
+    }
 }
