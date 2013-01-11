@@ -1,6 +1,6 @@
 package com.thoughtworks.twu.web;
 
-import com.thoughtworks.twu.service.FrameService;
+import com.thoughtworks.twu.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +14,11 @@ public class HomeController {
 	static final String URL = "/home";
 
     @Autowired
-    FrameService frameService;
+    ItemService itemService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String get(Model model) {
-        model.addAttribute("frameGrid", frameService.findAll());
+        model.addAttribute("itemGrid", itemService.findAll());
         return URL;
 	}
 

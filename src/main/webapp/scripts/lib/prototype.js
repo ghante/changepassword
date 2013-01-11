@@ -2696,7 +2696,7 @@ else if (Prototype.Browser.IE) {
   Element._attributeTranslations.has = {};
 
   $w('colSpan rowSpan vAlign dateTime accessKey tabIndex ' +
-      'encType maxLength readOnly longDesc frameBorder').each(function(attr) {
+      'encType maxLength readOnly longDesc itemBorder').each(function(attr) {
     Element._attributeTranslations.write.names[attr.toLowerCase()] = attr;
     Element._attributeTranslations.has[attr.toLowerCase()] = attr;
   });
@@ -3036,8 +3036,8 @@ Element.addMethods = function(methods) {
       "INS": "Mod", "DEL": "Mod", "A": "Anchor", "IMG": "Image", "CAPTION":
       "TableCaption", "COL": "TableCol", "COLGROUP": "TableCol", "THEAD":
       "TableSection", "TFOOT": "TableSection", "TBODY": "TableSection", "TR":
-      "TableRow", "TH": "TableCell", "TD": "TableCell", "FRAMESET":
-      "FrameSet", "IFRAME": "IFrame"
+      "TableRow", "TH": "TableCell", "TD": "TableCell", "ITEMSET":
+      "ItemSet", "IITEM": "IItem"
     };
     if (trans[tagName]) klass = 'HTML' + trans[tagName] + 'Element';
     if (window[klass]) return window[klass];

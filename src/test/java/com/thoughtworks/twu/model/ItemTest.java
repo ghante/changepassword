@@ -11,21 +11,21 @@ import java.util.Map;
 import static org.junit.Assert.assertTrue;
 
 
-public class FrameTest {
+public class ItemTest {
 	
 	@Test
 	public void assert_that_certain_fields_cant_be_null_or_blank() {
-		Frame frame = new Frame();
-		Map<String, ConstraintViolation<Frame>> violationsMap = validate(frame);
+		Item item = new Item();
+		Map<String, ConstraintViolation<Item>> violationsMap = validate(item);
 		assertTrue(violationsMap.get("name").getMessageTemplate().contains("NotEmpty"));
 		assertTrue(violationsMap.get("price").getMessageTemplate().contains("NotNull"));
 		assertTrue(violationsMap.get("description").getMessageTemplate().contains("NotNull"));
 	}
 	
-	private <T> Map<String, ConstraintViolation<T>>  validate(T frame) {
+	private <T> Map<String, ConstraintViolation<T>>  validate(T item) {
 		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 		Map<String, ConstraintViolation<T>> violations = new HashMap<String, ConstraintViolation<T>>();
-		for (ConstraintViolation<T> violation : validator.validate(frame)) {
+		for (ConstraintViolation<T> violation : validator.validate(item)) {
 			violations.put(violation.getPropertyPath().toString(), violation);
 		}
 		return violations;

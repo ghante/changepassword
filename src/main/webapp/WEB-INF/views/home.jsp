@@ -17,11 +17,11 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-		    <c:forEach var="frameMap" items="${frameGrid.frameMap}" varStatus="row">
+		    <c:forEach var="itemMap" items="${itemGrid.itemMap}" varStatus="row">
 		        <tr>
-		            <td><c:out value="${frameMap.value.name}"/></td>
-		            <td><c:out value="${frameMap.value.price}"/></td>
-		            <td><c:out value="${frameMap.value.description}"/></td>
+		            <td><c:out value="${itemMap.value.name}"/></td>
+		            <td><c:out value="${itemMap.value.price}"/></td>
+		            <td><c:out value="${itemMap.value.description}"/></td>
 		        </tr>
 		     </c:forEach>
 		    </tbody>

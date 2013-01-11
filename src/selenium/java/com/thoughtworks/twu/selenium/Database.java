@@ -8,11 +8,11 @@ import java.sql.Statement;
 public final class Database {
 
 	public static void clean() throws SQLException {
-		executeUpdate("DELETE FROM frames;");
+		executeUpdate("DELETE FROM items;");
 	}
 
-    public static void insertIntoFrames(String name, String price, String description) throws SQLException {
-         executeUpdate("INSERT INTO frames(id, name, price, description) values ( 999, '"+name+"','"+price+"','"+description+"');" );
+    public static void insertIntoItems(String name, String price, String description) throws SQLException {
+         executeUpdate("INSERT INTO items(id, name, price, description) values ( 999, '"+name+"','"+price+"','"+description+"');" );
     }
 
 	private static void executeUpdate(String query) throws SQLException {
@@ -32,14 +32,14 @@ public final class Database {
 
 	private static Connection createConnection() throws SQLException {
 		String url = "jdbc:postgresql://localhost:5432/trailblazers";
-		String frame = "postgres";
+		String user = "postgres";
 		String password = "postgres";
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("Could not find driver");
 		}
-		return DriverManager.getConnection(url, frame, password);
+		return DriverManager.getConnection(url, user, password);
 	}
 
 }

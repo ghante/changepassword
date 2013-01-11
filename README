@@ -16,13 +16,13 @@ Requirements:
 2. Start postgres server,
 - create database testtrailblazers :see test-persistance-config.xml, no need to create tables inside
 - create database trailblazers :see persistance-config.xml
-        - create table frame {CREATE TABLE frames
+        - create table item {CREATE TABLE items
                               (
                                 id bigint NOT NULL,
                                 description character varying(255) NOT NULL,
                                 name character varying(255) NOT NULL,
                                 price numeric(19,2) NOT NULL,
-                                CONSTRAINT frames_pkey PRIMARY KEY (id)
+                                CONSTRAINT items_pkey PRIMARY KEY (id)
                               )}
 ]
 

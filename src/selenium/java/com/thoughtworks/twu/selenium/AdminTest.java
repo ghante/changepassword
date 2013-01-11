@@ -33,9 +33,9 @@ public class AdminTest {
     }
 
     @Test
-     public void  shouldTakeUserToFramePageFromAdminScreen(){
-        driver.findElement(By.linkText("Add a frame")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/frame"));
+     public void  shouldTakeUserToItemPageFromAdminScreen(){
+        driver.findElement(By.linkText("Add a item")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/item"));
     }
 
     @Test

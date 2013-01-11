@@ -6,6 +6,6 @@
 	<body>
 		<h1>You are in Admin page</h1>
 		<h2>Manage your bike parts here.</h2>
-		<p><a href="frame">Add a frame</a></p>
+		<p><a href="item">Add a item</a></p>
 	</body>
 </html>

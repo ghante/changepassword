@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class FrameAcptTest {
+public class ItemAcptTest {
 	
 	static WebDriver driver;
 	
@@ -29,34 +29,34 @@ public class FrameAcptTest {
 	@Before
 	public void setup() throws SQLException {
 		Database.clean();
-        driver.get("http://localhost:8080/TrailBlazers/frame");
+        driver.get("http://localhost:8080/TrailBlazers/item");
 	}
 	
 	@Test
-	public void addingOneFrame() {
+	public void addingOneItem() {
 
-		addFrame("frame1", "13.99");
+		addItem("item1", "13.99");
 		assertEquals(1, driver.findElements(By.xpath("//table//tbody//tr")).size());
 	}
 
 	@Test
-	public void addingTwoFrames() {
-		addFrame("frame1", "13.99");
-		addFrame("frame2", "13.99");
+	public void addingTwoItems() {
+		addItem("item1", "13.99");
+		addItem("item2", "13.99");
 		assertEquals(2, driver.findElements(By.xpath("//table//tbody//tr")).size());
 	}
 	
 	@Test
-	public void updatingTwoFrames() {
-		addFrame("frame1", "13.99");
-		addFrame("frame2", "13.99");
+	public void updatingTwoItems() {
+		addItem("item1", "13.99");
+		addItem("item2", "13.99");
 		driver.findElement(By.xpath("//tbody//tr[1]//input[@type='checkbox']")).click();
 		driver.findElement(By.xpath("//tbody//tr[2]//input[@type='checkbox']")).click();
 		driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).sendKeys("1");
 		driver.findElement(By.xpath("//tbody//tr[2]//input[contains(@name, '.name')]")).sendKeys("2");
-		driver.findElement(By.xpath("id('frameGrid')//input[@type='submit']")).click();
-		assertEquals("frame11", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
-		assertEquals("frame22", driver.findElement(By.xpath("//tbody//tr[2]//input[contains(@name, '.name')]")).getAttribute("value"));
+		driver.findElement(By.xpath("id('itemGrid')//input[@type='submit']")).click();
+		assertEquals("item11", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
+		assertEquals("item22", driver.findElement(By.xpath("//tbody//tr[2]//input[contains(@name, '.name')]")).getAttribute("value"));
 	}
 
     @Test
@@ -73,17 +73,17 @@ public class FrameAcptTest {
 
     @Test
     public void shouldShowAlertWhenNonNumberPriceIsEntered(){
-        addFrame("badFrame", "omgImNotANumber");
+        addItem("badItem", "omgImNotANumber");
         assertTrue(isAlertPresent());
     }
 
     @Test
-    public void shouldDeleteSelectedFrameWhenDeleteIsPressed(){
-        addFrame("frame1", "13.99");
-        addFrame("frame2", "14.99");
+    public void shouldDeleteSelectedItemWhenDeleteIsPressed(){
+        addItem("item1", "13.99");
+        addItem("item2", "14.99");
         driver.findElement(By.xpath("//tbody//tr[1]//input[@type='checkbox']")).click();
-        driver.findElement(By.xpath("id('frameGrid')//input[@name='delete']")).click();
-        assertEquals("frame2", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
+        driver.findElement(By.xpath("id('itemGrid')//input[@name='delete']")).click();
+        assertEquals("item2", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
     }
 
     private boolean isAlertPresent() {
@@ -97,11 +97,11 @@ public class FrameAcptTest {
         }
     }
 
-    private void addFrame(String name, String price) {
+    private void addItem(String name, String price) {
 		driver.findElement(By.name("name")).sendKeys(name);
 		driver.findElement(By.name("price")).sendKeys(price);
 		driver.findElement(By.name("description")).sendKeys(name + " is awesome");
-		driver.findElement(By.id("frameCommand")).findElement(By.xpath("//input[@type='submit']")).click();
+		driver.findElement(By.id("itemCommand")).findElement(By.xpath("//input[@type='submit']")).click();
 	}
 
 }

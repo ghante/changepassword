@@ -45,10 +45,10 @@ public class HomeTest {
     }
 
     @Test
-    public void shouldShowListOfFramesOnHomeScreen() throws SQLException {
-        Database.insertIntoFrames("frame1","14.99","I should see this frame");
+    public void shouldShowListOfItemsOnHomeScreen() throws SQLException {
+        Database.insertIntoItems("item1","14.99","I should see this item");
         //refresh screen
         driver.get("http://localhost:8080/TrailBlazers/");
-        assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
+        assertEquals("item1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
     }
 }

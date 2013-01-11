@@ -5,7 +5,7 @@ document.observe('dom:loaded', function() {
 
 function validateForm()
 {
-var x=document.forms["addFrame"]["price"].value;
+var x=document.forms["addItem"]["price"].value;
 var numbers = /^[0-9.]+$/;
 if (!x.match(numbers))
   {
