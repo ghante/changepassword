@@ -90,6 +90,26 @@ public class ItemAcptTest {
         assertEquals("item2", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
     }
 
+    //Test written after a bug
+    @Test
+    public void shouldNotCreateAnItemUntilTypeIsChosen(){
+        driver.findElement(By.name("name")).sendKeys("frameThing");
+        driver.findElement(By.name("price")).sendKeys("13.99");
+        driver.findElement(By.name("description")).sendKeys("frame thing needs a type, will not be added");
+        submitForm();
+        assertEquals(0, driver.findElements(By.xpath("//tbody//tr[1]")).size());
+
+        selectFromDropDown("FRAME");
+        submitForm();
+
+        assertEquals(1, driver.findElements(By.xpath("//tbody//tr[1]")).size());
+
+    }
+
+    private void submitForm() {
+        driver.findElement(By.id("itemCommand")).findElement(By.xpath("//input[@type='submit']")).click();
+    }
+
     private boolean isAlertPresent() {
         try {
             Alert alert = driver.switchTo().alert();
@@ -105,9 +125,13 @@ public class ItemAcptTest {
 		driver.findElement(By.name("name")).sendKeys(name);
 		driver.findElement(By.name("price")).sendKeys(price);
 		driver.findElement(By.name("description")).sendKeys(name + " is awesome");
+        selectFromDropDown("FRAME");
+        submitForm();
+    }
+
+    private void selectFromDropDown(String dropDownItem) {
         Select itemType = new Select(driver.findElement(By.id("type")));
-        itemType.selectByVisibleText("FRAME");
-		driver.findElement(By.id("itemCommand")).findElement(By.xpath("//input[@type='submit']")).click();
-	}
+        itemType.selectByVisibleText(dropDownItem);
+    }
 
 }

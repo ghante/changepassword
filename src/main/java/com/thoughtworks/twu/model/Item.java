@@ -15,11 +15,8 @@ public class Item {
 	@GeneratedValue
 	private Long id;
 
-	@NotEmpty
-	private String firstName;
-
-	@NotEmpty
-	private String lastName;
+	@NotEmpty(message = "Please enter Item Name")
+	private String name;
 
 	@DecimalMax("99999")
     @NotNull
@@ -28,11 +25,9 @@ public class Item {
 	@NotNull
 	private String description;
 
-    @NotEmpty
     @NotNull
+    @NotEmpty(message = "Please select Item Type")
     private String type;
-
-	/* Getters and setters below this row */
 
 	public Long getId() {
 		return id;

@@ -17,9 +17,10 @@ public class ItemTest {
 	public void assert_that_certain_fields_cant_be_null_or_blank() {
 		Item item = new Item();
 		Map<String, ConstraintViolation<Item>> violationsMap = validate(item);
-		assertTrue(violationsMap.get("name").getMessageTemplate().contains("NotEmpty"));
+		assertTrue(violationsMap.get("name").getMessageTemplate().contains("Please enter Item Name"));
 		assertTrue(violationsMap.get("price").getMessageTemplate().contains("NotNull"));
 		assertTrue(violationsMap.get("description").getMessageTemplate().contains("NotNull"));
+		assertTrue(violationsMap.get("type").getMessageTemplate().contains("Please select Item Type"));
 	}
 	
 	private <T> Map<String, ConstraintViolation<T>>  validate(T item) {

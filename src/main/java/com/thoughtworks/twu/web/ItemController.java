@@ -34,6 +34,7 @@ public class ItemController{
 	public String post(Model model, @Valid ItemCommand itemCommand, BindingResult result) {
 		if (result.hasErrors()) {
 			model.addAttribute("itemGrid", itemService.findAll());
+            model.addAttribute("itemTypes", itemType.getTypes());
 			return URL;
 		}
 		itemService.save(itemCommand);

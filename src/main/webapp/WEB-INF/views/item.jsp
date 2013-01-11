@@ -28,14 +28,15 @@
 					</div>
 				</div>
 
-					<div class="field vertical">
-                    	<form:label for="type" path="type">Type:</form:label>
-      					<form:errors path="type" cssClass="errors" />
-           				<form:select path="type">
-           				    <form:option value="" label="Select" />
-           				    <form:options items="${itemTypes}"/>
-           				</form:select>
-                    </div>
+				<div class="block">
+						<div class="field">
+                    	    <form:label for="type" path="type">Type:</form:label>
+      					    <form:errors path="type" cssClass="errors" />
+           				    <form:select path="type">
+           				        <form:option value="" label="Select" />
+           				        <form:options items="${itemTypes}"/>
+           				    </form:select>
+                        </div>
 				</div>
 
                 <div class="block">
