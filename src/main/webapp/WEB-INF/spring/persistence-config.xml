@@ -10,7 +10,6 @@
 
 	<context:annotation-config />
 
-	<!-- DataSource: hsqldb file -->
 	<bean id="myDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
