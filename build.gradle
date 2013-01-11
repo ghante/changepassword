@@ -45,12 +45,11 @@ dependencies {
 
 	/* Test */
 	testCompile 'junit:junit:4.10'
-
-    /* Selenium */
-    testCompile 'postgresql:postgresql:8.4-702.jdbc3'
-    testCompile 'junit:junit:4.10'
-    testCompile 'org.seleniumhq.selenium:selenium-java:2.25.0'
-    testCompile 'org.seleniumhq.selenium:selenium-firefox-driver:2.23.0'
+	
+	/* Selenium */
+	seleniumCompile 'postgresql:postgresql:8.4-702.jdbc3'
+	seleniumCompile 'junit:junit:4.10'
+	seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.25.0'
 	
 }
 
