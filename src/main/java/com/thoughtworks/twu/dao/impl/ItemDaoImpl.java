@@ -14,13 +14,13 @@ public class ItemDaoImpl implements ItemDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public Item get(Long id) {
+	public Item get(Long item_id) {
 		return (Item) sessionFactory.getCurrentSession()
 			.createQuery(
 					"FROM Item u " +
-					"WHERE u.id = :id " +
-					"ORDER BY u.id")
-			.setLong("id", id).uniqueResult();
+					"WHERE u.item_id = :item_id " +
+					"ORDER BY u.item_id")
+			.setLong("item_id", item_id).uniqueResult();
 	}
 
 	public void delete(Item item) {
@@ -31,7 +31,7 @@ public class ItemDaoImpl implements ItemDao {
 	public List<Item> findAll() {
 		return sessionFactory.getCurrentSession().createQuery(
 				"FROM Item " +
-				"ORDER BY id")
+				"ORDER BY item_id")
 			.list();
 	}
 

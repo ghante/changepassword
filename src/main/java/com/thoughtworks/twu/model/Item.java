@@ -8,12 +8,12 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "items")
+@Table(name = "item")
 public class Item {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long item_id;
 
 	@NotEmpty(message = "Please enter Item Name")
 	private String name;
@@ -28,11 +28,11 @@ public class Item {
     @NotEmpty(message = "Please select Item Type")
     private String type;
 
-	public Long getId() {
-		return id;
+	public Long getItem_id() {
+		return item_id;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setItem_id(Long item_id) {
+		this.item_id = item_id;
 	}
 	public String getFirstName() {
 		return firstName;

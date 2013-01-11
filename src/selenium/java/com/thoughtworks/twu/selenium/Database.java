@@ -8,11 +8,11 @@ import java.sql.Statement;
 public final class Database {
 
 	public static void clean() throws SQLException {
-		executeUpdate("DELETE FROM items;");
+		executeUpdate("DELETE FROM item;");
 	}
 
     public static void insertIntoItems(String name, String price, String description, String type) throws SQLException {
-         executeUpdate("INSERT INTO items(id, name, price, description, type) values ( 999, '"+name+"','"+price+"','"+description+"','"+type+"');" );
+         executeUpdate("INSERT INTO item(item_id, name, price, description, type) values ( 999, '"+name+"','"+price+"','"+description+"','"+type+"');" );
     }
 
 	private static void executeUpdate(String query) throws SQLException {

@@ -6,7 +6,7 @@ import com.thoughtworks.twu.web.ItemGrid;
 
 public interface ItemService {
 	
-	Item get(Long id);
+	Item get(Long item_id);
 	
 	void save(ItemCommand itemCommand);
 	

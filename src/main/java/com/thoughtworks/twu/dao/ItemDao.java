@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ItemDao {
 
-	Item get(Long id);
+	Item get(Long item_id);
 	void save(Item item);
 	void delete(Item item);
 	List<Item> findAll();

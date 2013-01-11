@@ -16,8 +16,8 @@ public class ItemServiceImpl implements ItemService {
     ItemDao itemDao;
 	
 	@Transactional(readOnly = true)
-	public Item get(Long id) {
-		return itemDao.get(id);
+	public Item get(Long item_id) {
+		return itemDao.get(item_id);
 	}
 
 	@Transactional
