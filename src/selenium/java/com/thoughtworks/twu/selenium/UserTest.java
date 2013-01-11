@@ -1,9 +1,5 @@
 package com.thoughtworks.twu.selenium;
 
-import static org.junit.Assert.assertEquals;
-
-import java.sql.SQLException;
-
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -11,6 +7,10 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.sql.SQLException;
+
+import static org.junit.Assert.assertEquals;
 
 public class UserTest {
 	
@@ -20,7 +20,7 @@ public class UserTest {
 	public static void before() {
 		driver = new FirefoxDriver();
 	}
-	
+
 	@AfterClass
 	public static void after() {
 		driver.close();
