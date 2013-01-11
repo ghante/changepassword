@@ -1,4 +1,5 @@
 <%@ include file="header.jsp" %>
+<%@ include file="logout.jsp" %>
 <html>
 	<head>
 		<title>Items</title>
@@ -47,7 +48,7 @@
 				    </div>
 
 				    <div class="field vertical">
-                	    <input type="submit" value="Create new item">
+                	    <input type="submit" value="Create new item" id="createItem">
                	    </div>
 				</div>
 

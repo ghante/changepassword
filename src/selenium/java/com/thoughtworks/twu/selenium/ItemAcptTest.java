@@ -32,9 +32,27 @@ public class ItemAcptTest {
 	
 	@Before
 	public void setup() throws SQLException {
+        logout();
 		Database.clean();
-        driver.get("http://localhost:8080/TrailBlazers/item");
+        loginToItemScreen();
 	}
+
+    private void logout() {
+        driver.get("http://localhost:8080/TrailBlazers/logout");
+        driver.findElement(By.linkText("Logout")).click();
+    }
+
+    private void loginToItemScreen() {
+        driver.get("http://localhost:8080/TrailBlazers/login");
+        driver.findElement(By.name("j_username")).sendKeys("admin");
+        driver.findElement(By.name("j_password")).sendKeys("admin");
+        loginFormSubmit();
+        driver.get("http://localhost:8080/TrailBlazers/item");
+    }
+
+    private void loginFormSubmit() {
+        driver.findElement(By.name("submit")).click();
+    }
 	
 	@Test
 	public void addingOneItem() {
@@ -96,19 +114,17 @@ public class ItemAcptTest {
         driver.findElement(By.name("name")).sendKeys("frameThing");
         driver.findElement(By.name("price")).sendKeys("13.99");
         driver.findElement(By.name("description")).sendKeys("frame thing needs a type, will not be added");
-        submitForm();
+        createItemSubmit();
         assertEquals(0, driver.findElements(By.xpath("//tbody//tr[1]")).size());
 
         selectFromDropDown("FRAME");
-        submitForm();
+        createItemSubmit();
 
         assertEquals(1, driver.findElements(By.xpath("//tbody//tr[1]")).size());
 
     }
 
-    private void submitForm() {
-        driver.findElement(By.id("itemCommand")).findElement(By.xpath("//input[@type='submit']")).click();
-    }
+
 
     private boolean isAlertPresent() {
         try {
@@ -126,12 +142,16 @@ public class ItemAcptTest {
 		driver.findElement(By.name("price")).sendKeys(price);
 		driver.findElement(By.name("description")).sendKeys(name + " is awesome");
         selectFromDropDown("FRAME");
-        submitForm();
+        createItemSubmit();
     }
 
     private void selectFromDropDown(String dropDownItem) {
         Select itemType = new Select(driver.findElement(By.id("type")));
         itemType.selectByVisibleText(dropDownItem);
+    }
+
+    private void createItemSubmit(){
+        driver.findElement(By.id("createItem")).click();
     }
 
 }

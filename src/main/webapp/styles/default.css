@@ -34,6 +34,11 @@ table {
 	width: 100%;
 }
 
+table#login{
+    border-collapse: collapse;
+	width: 30%;
+}
+
 th {
 	border: 1px solid #ddd;
 	background: #eee;
@@ -62,6 +67,12 @@ td input[disabled] {
 td input[type="text"] {
 	width: 100%;
 	box-sizing: border-box;
+}
+
+table#login td input[type="text"], input[type="password"] {
+    width: 100%;
+  	box-sizing: border-box;
+  	border: 2px solid #aaa;
 }
 
 table#homepage {
@@ -97,7 +108,7 @@ input, select, textarea {
 	padding: 0.25em;
 }
 
-input[type="submit"] {
+input[type="submit"], input[type="reset"] {
 	border: 2px solid #888;
 	border-radius: 5px;
 	background: #ddd;
@@ -108,10 +119,6 @@ input[type="submit"] {
 
 input.disablable-hidden {
 	display: none;
-}
-
-.errors {
-	color: red;
 }
 
 fieldset.fieldcontainer {
@@ -140,3 +147,14 @@ div.field label {
 	display: block;
 }
 
+.errorblock {
+	color: #ff0000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
+
+.errors {
+	color: red;
+}

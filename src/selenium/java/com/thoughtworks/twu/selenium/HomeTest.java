@@ -1,9 +1,6 @@
 package com.thoughtworks.twu.selenium;
 
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -28,8 +25,14 @@ public class HomeTest {
 
     @Before
     public void setup() throws SQLException {
+        logout();
         Database.clean();
         driver.get("http://localhost:8080/TrailBlazers/");
+    }
+
+    private void logout() {
+        driver.get("http://localhost:8080/TrailBlazers/logout");
+        driver.findElement(By.linkText("Logout")).click();
     }
 
     @Test
@@ -39,9 +42,9 @@ public class HomeTest {
     }
 
     @Test
-    public void  shouldTakeUserToAdminScreen(){
+    public void  shouldTakeUserToLoginScreen(){
         driver.findElement(By.linkText("Admin")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/login"));
     }
 
     @Test

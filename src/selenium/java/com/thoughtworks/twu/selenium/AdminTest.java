@@ -29,7 +29,18 @@ public class AdminTest {
     @Before
     public void setup() throws SQLException {
         Database.clean();
-        driver.get("http://localhost:8080/TrailBlazers/admin");
+        loginToAdminScreen();
+    }
+
+    private void loginToAdminScreen() {
+        driver.get("http://localhost:8080/TrailBlazers/login");
+        driver.findElement(By.name("j_username")).sendKeys("admin");
+        driver.findElement(By.name("j_password")).sendKeys("admin");
+        submitForm();
+    }
+
+    private void submitForm() {
+        driver.findElement(By.name("submit")).click();
     }
 
     @Test
