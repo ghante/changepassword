@@ -27,31 +27,31 @@ public class HomeTest {
     public void setup() throws SQLException {
         logout();
         Database.clean();
-        driver.get("http://localhost:8080/TrailBlazers/");
+        driver.get("http://localhost:8080/trunk/");
     }
 
     private void logout() {
-        driver.get("http://localhost:8080/TrailBlazers/logout");
+        driver.get("http://localhost:8080/trunk/logout");
         driver.findElement(By.linkText("Logout")).click();
     }
 
     @Test
     public void  shouldTakeUserToHomeScreen(){
         driver.findElement(By.linkText("Home")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
     }
 
     @Test
     public void  shouldTakeUserToLoginScreen(){
         driver.findElement(By.linkText("Admin")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/login"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
     }
 
     @Test
     public void shouldShowListOfItemsOnHomeScreen() throws SQLException {
         Database.insertIntoItems("frame1","14.99","I should see this item", "FRAMES");
         //refresh screen
-        driver.get("http://localhost:8080/TrailBlazers/");
+        driver.get("http://localhost:8080/trunk/");
         assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
         assertEquals("14.99", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
         assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());
@@ -62,11 +62,11 @@ public class HomeTest {
     public void userShouldBeDirectedToLoginPageBeforeOrderPageWhenReservingItem() throws SQLException {
         Database.insertIntoItems("frame1","14.99","I should see this item", "FRAMES");
         //refresh screen
-        driver.get("http://localhost:8080/TrailBlazers/");
+        driver.get("http://localhost:8080/trunk/");
         driver.findElement(By.id("reserve")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/login"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
         LoginHelper.loginAs("UserCat", "user", driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/reserve"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/reserve"));
 
     }
 }

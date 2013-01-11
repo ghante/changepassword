@@ -36,7 +36,7 @@ Requirements:
 
 5. Run application :
     gradle jettyRun
-    [http://localhost:8080/TrailBlazers/]
+    [http://localhost:8080/trunk/]
 
 Say HelloooTrailBlazers !
 

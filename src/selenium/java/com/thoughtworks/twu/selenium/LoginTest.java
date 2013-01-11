@@ -36,18 +36,18 @@ public class LoginTest {
     public void setup() throws SQLException {
         logout();
         Database.clean();
-        driver.get("http://localhost:8080/TrailBlazers/login");
+        driver.get("http://localhost:8080/trunk/login");
     }
 
     private void logout() {
-        driver.get("http://localhost:8080/TrailBlazers/logout");
+        driver.get("http://localhost:8080/trunk/logout");
         driver.findElement(By.linkText("Logout")).click();
     }
 
     @Test
     public void shouldLoginIntoAdminScreenWithAdminCredentials(){
         LoginHelper.loginAs(ADMIN, ADMINPASSWORD, driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/admin"));
     }
 
     @Test
@@ -61,13 +61,13 @@ public class LoginTest {
         LoginHelper.loginAs(USER, USERPASSWORD, driver);
         assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
         driver.findElement(By.linkText("Logout")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
     }
 
     @Test
     public void shouldShowErrorWhenWrongCredentialsAreEntered(){
         LoginHelper.loginAs("blah", "blah", driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/login"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
         assertThat(1, is(driver.findElements(By.className("errorblock")).size()));
     }
 
@@ -76,7 +76,7 @@ public class LoginTest {
         driver.findElement(By.name("j_username")).sendKeys("blah");
         driver.findElement(By.name("j_password")).sendKeys("blah");
         resetForm();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/login"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
         assertThat("", is(driver.findElement(By.name("j_username")).getText()));
         assertThat("", is(driver.findElement(By.name("j_password")).getText()));
     }
@@ -84,8 +84,8 @@ public class LoginTest {
     @Test
     public void shouldLogoutAndNotGiveAccessToAdmin(){
         logout();
-        driver.get("http://localhost:8080/TrailBlazers/admin");
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/login"));
+        driver.get("http://localhost:8080/trunk/admin");
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
     }
 
     private void resetForm() {

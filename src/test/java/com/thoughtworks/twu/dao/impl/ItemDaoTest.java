@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.dao.impl;
 
+import com.thoughtworks.twu.dao.ItemDao;
 import com.thoughtworks.twu.model.Item;
 import com.thoughtworks.twu.model.ItemType;
 import junit.framework.Assert;
@@ -11,16 +12,16 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Transactional
-public class ItemDaoImplTest extends DaoTest {
+public class ItemDaoTest extends DaoTest {
 	
 	@Autowired
-    ItemDaoImpl itemDaoImpl;
+    ItemDao itemDao;
 	
 	@Test
 	public void shouldSaveAllFields() {
         Item item = makeItem();
-		itemDaoImpl.save(item);
-		List<Item> items = itemDaoImpl.findAll();
+		itemDao.save(item);
+		List<Item> items = itemDao.findAll();
 		Assert.assertEquals("Frame1", items.get(0).getName());
 		Assert.assertEquals(BigDecimal.valueOf(13.99), items.get(0).getPrice());
 		Assert.assertEquals("this frame is awesome", items.get(0).getDescription());

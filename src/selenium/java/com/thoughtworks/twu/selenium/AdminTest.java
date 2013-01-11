@@ -29,31 +29,31 @@ public class AdminTest {
     @Before
     public void setup() throws SQLException {
         Database.clean();
-        driver.get("http://localhost:8080/TrailBlazers/login");
+        driver.get("http://localhost:8080/trunk/login");
         LoginHelper.loginAs("AdminCat", "admin", driver);
     }
 
     @Test
      public void  shouldTakeUserToItemPageFromAdminScreen(){
         driver.findElement(By.linkText("Add a item")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/item"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/item"));
     }
 
     @Test
     public void  shouldTakeUserToHomeScreen(){
         driver.findElement(By.linkText("Home")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
     }
 
     @Test
     public void  shouldTakeUserToAdminScreen(){
         driver.findElement(By.linkText("Admin")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/admin"));
     }
 
     @Test
     public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
         driver.findElement(By.linkText("Logout")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
     }
 }

@@ -33,13 +33,13 @@ public class ReserveTest {
     }
 
     private void loginIntoReserveScreen() {
-        driver.get("http://localhost:8080/TrailBlazers/reserve");
+        driver.get("http://localhost:8080/trunk/reserve");
         LoginHelper.loginAs("UserCat", "user", driver);
     }
 
     @Test
     public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
         driver.findElement(By.linkText("Logout")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
     }
 }
