@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.sql.SQLException;
@@ -44,6 +45,7 @@ public class ItemAcptTest {
 
     private void loginToItemScreen() {
         driver.get("http://localhost:8080/TrailBlazers/login");
+        TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
         driver.findElement(By.name("j_username")).sendKeys("admin");
         driver.findElement(By.name("j_password")).sendKeys("admin");
         loginFormSubmit();

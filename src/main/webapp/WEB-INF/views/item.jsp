@@ -2,7 +2,7 @@
 <%@ include file="logout.jsp" %>
 <html>
 	<head>
-		<title>Items</title>
+		<title>TrailBlazers - Items</title>
 		<script type="text/javascript" src="<c:url value='/scripts/lib/RowSelector.js' />"></script>
 		<script type="text/javascript" src="<c:url value='/scripts/item.js' />"></script>
 	</head>

@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.sql.SQLException;
 
@@ -41,6 +42,7 @@ public class LoginTest {
 
     @Test
     public void shouldLoginIntoAdminScreenWithAdminCredentials(){
+        TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
         driver.findElement(By.name("j_username")).sendKeys("admin");
         driver.findElement(By.name("j_password")).sendKeys("admin");
         submitForm();

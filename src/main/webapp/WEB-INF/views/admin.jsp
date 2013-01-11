@@ -2,7 +2,7 @@
 <%@ include file="logout.jsp" %>
 <html>
 	<head>
-		<title>Admin</title>
+		<title>TrailBlazers - Admin</title>
 	</head>
 	<body>
 		<h1>You are in Admin page</h1>

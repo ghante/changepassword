@@ -4,10 +4,10 @@
 <%@ include file="header.jsp" %>
 <html>
 	<head>
-		<title>TrailBlazers</title>
+		<title>TrailBlazers - Login</title>
 	</head>
 <body onload='document.f.j_username.focus();'>
-	<h1>Login with Username and Password</h1>
+	<h1 id="TrailBlazers - Login">Login with Username and Password</h1>
 
 	<c:if test="${not empty error}">
 		<div class="errorblock">
