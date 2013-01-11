@@ -6,14 +6,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.sql.SQLException;
 
 import static org.junit.Assert.assertTrue;
 
-public class HomeTest {
+public class AdminTest {
+
     static WebDriver driver;
 
     @BeforeClass
@@ -29,19 +29,12 @@ public class HomeTest {
     @Before
     public void setup() throws SQLException {
         Database.clean();
-        driver.get("http://localhost:8080/TrailBlazers/");
+        driver.get("http://localhost:8080/TrailBlazers/admin");
     }
 
     @Test
-    public void shouldShowWelcomeScreenAtStartup() {
-        WebElement bodyTag = driver.findElement(By.className("heading"));
-        assertTrue(bodyTag.getText().contains("Welcome to Trail Blazers !"));
+     public void  shouldTakeUserToFramePageFromAdminScreen(){
+        driver.findElement(By.linkText("Add a frame")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/frame"));
     }
-
-    @Test
-    public void  shouldTakeUserToAdminPageFromHomeScreen(){
-        driver.findElement(By.linkText("Admin")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/admin"));
-    }
-
 }
