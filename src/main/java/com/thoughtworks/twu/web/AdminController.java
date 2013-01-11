@@ -11,9 +11,8 @@ public class AdminController {
 
     static final String URL = "/admin";
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String get(Model model) {
-        return URL;
+    @RequestMapping(value="/admin", method = RequestMethod.GET)
+    public void get(Model model) {
     }
 
 }

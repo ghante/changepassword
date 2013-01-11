@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HomeController {
 
-	static final String URL = "/home";
+//	static final String URL = "/home";
 
     @Autowired
     ItemService itemService;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String get(Model model) {
+	@RequestMapping(value="/home", method = RequestMethod.GET)
+	public void get(Model model) {
         model.addAttribute("itemGrid", itemService.findAll());
-        return URL;
 	}
 
 }
