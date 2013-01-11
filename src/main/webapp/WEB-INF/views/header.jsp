@@ -12,7 +12,6 @@
 
 </head>
 <body>
-    <div id="header">
         <div class="header_container">
             <p><a href="<c:url value='/admin' />" class="afr">Admin</a></p>
             &nbsp;<p><a href="<c:url value='/' />" class="afr">Home</a></p>
@@ -20,6 +19,5 @@
             <h1><div class="heading">Trail Blazers</div></h1>
             <h2>Custom order bikes today !</h2>
         </div>
-    </div>
 </body>
 </html>
