@@ -1,1 +1,1 @@
-web: gradle jettyRun
+web: gradle clean build jettyRun
