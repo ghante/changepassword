@@ -1,2 +1,2 @@
-com\.dreamchain\.skeleton\.dao\..*
-com\.dreamchain\.skeleton\.selenium\..*
+com\.thoughtworks\.twu\.dao\..*
+com\.thoughtworks\.twu\.selenium\..*
