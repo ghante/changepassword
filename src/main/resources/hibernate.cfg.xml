@@ -5,7 +5,7 @@
 <hibernate-configuration>
 	<session-factory>
 
-		<mapping class="com.thoughtworks.twu.model.Thing" />
+		<mapping class="com.thoughtworks.twu.model.Frame" />
 
 	</session-factory>
 </hibernate-configuration>

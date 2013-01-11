@@ -29,7 +29,7 @@ public class HomeTest {
     @Before
     public void setup() throws SQLException {
         Database.clean();
-        driver.get("http://localhost:8080/spring-mvc-hibernate-skeleton/");
+        driver.get("http://localhost:8080/TrailBlazers/");
     }
 
     @Test
@@ -39,9 +39,9 @@ public class HomeTest {
     }
 
     @Test
-    public void  shouldTakeUserToThingPageFromHomeScreen(){
-        driver.findElement(By.linkText("Thing")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/spring-mvc-hibernate-skeleton/thing"));
+    public void  shouldTakeUserToFramePageFromHomeScreen(){
+        driver.findElement(By.linkText("Frame")).click();
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/TrailBlazers/frame"));
     }
 
 }

@@ -7,20 +7,20 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Things</title>
+		<title>Frames</title>
 		<link rel="stylesheet" href="<c:url value='/styles/default.css' />" type="text/css" />
 		<script type="text/javascript" src="<c:url value='/scripts/lib/prototype.js' />"></script>
 		<script type="text/javascript" src="<c:url value='/scripts/lib/RowSelector.js' />"></script>
-		<script type="text/javascript" src="<c:url value='/scripts/thing.js' />"></script>
+		<script type="text/javascript" src="<c:url value='/scripts/frame.js' />"></script>
 	</head>
 	<body>
 		<!--[if lt IE 9]>
 			<div class="legacy-browser">You are using a Legacy Browser - it is not supported. Please upgrade to <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">IE9</a>, Firefox, Safari, Chrome or Opera.</div>
 		<![endif]-->
-		<h1>Things</h1>
-		<form:form action="" method="post" modelAttribute="thingCommand">
+		<h1>Frames</h1>
+		<form:form action="" method="post" modelAttribute="frameCommand">
 			<fieldset class="fieldcontainer">
-				<legend>New Thing</legend>
+				<legend>New Frame</legend>
 
 				<div class="block">
 					<div class="field">
@@ -43,44 +43,44 @@
 				</div>
 
 				<div class="field vertical">
-					<input type="submit" value="Create new thing">
+					<input type="submit" value="Create new frame">
 				</div>
 
 			</fieldset>
 		</form:form>
-		<form:form action="" method="put" modelAttribute="thingGrid">
+		<form:form action="" method="put" modelAttribute="frameGrid">
 			<table>
 				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Price</th><th>Description</th></tr></thead>
 				<tbody>
-					<c:forEach var="thingEntry" items="${thingGrid.thingMap}" varStatus="row">
+					<c:forEach var="frameEntry" items="${frameGrid.frameMap}" varStatus="row">
 						<tr>
 							<td>
-								<form:input cssClass="disablable-hidden" disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].id" />
-								<c:if test="${thingMap[thingEntry.key].selected}">
+								<form:input cssClass="disablable-hidden" disabled="${!frameEntry.value.selected}" path="frameMap[${frameEntry.key}].id" />
+								<c:if test="${frameMap[frameEntry.key].selected}">
 									<input type="checkbox" checked="checked" class="rowSelector" />
 								</c:if>
-								<c:if test="${!thingMap[thingEntry.key].selected}">
+								<c:if test="${!frameMap[frameEntry.key].selected}">
 									<input type="checkbox" class="rowSelector" />
 								</c:if>
 							</td>
 							<td>
-								<form:errors path="thingMap[${thingEntry.key}].name" cssClass="errors" />
-								<form:input disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].name" />
+								<form:errors path="frameMap[${frameEntry.key}].name" cssClass="errors" />
+								<form:input disabled="${!frameEntry.value.selected}" path="frameMap[${frameEntry.key}].name" />
 							</td>
 							<td>
-								<form:errors path="thingMap[${thingEntry.key}].price" cssClass="errors" />
-								<form:input disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].price" />
+								<form:errors path="frameMap[${frameEntry.key}].price" cssClass="errors" />
+								<form:input disabled="${!frameEntry.value.selected}" path="frameMap[${frameEntry.key}].price" />
 							</td>
 							<td>
-								<form:errors path="thingMap[${thingEntry.key}].description" cssClass="errors" />
-								<form:input disabled="${!thingEntry.value.selected}" path="thingMap[${thingEntry.key}].description" />
+								<form:errors path="frameMap[${frameEntry.key}].description" cssClass="errors" />
+								<form:input disabled="${!frameEntry.value.selected}" path="frameMap[${frameEntry.key}].description" />
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<p>
-				<input type="submit" value="Update all enabled things">
+				<input type="submit" value="Update all enabled frames">
 			</p>
 		</form:form>
 	</body>

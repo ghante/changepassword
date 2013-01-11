@@ -1,6 +1,6 @@
 package com.thoughtworks.twu.web;
 
-import com.thoughtworks.twu.service.ThingService;
+import com.thoughtworks.twu.service.FrameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,36 +12,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping(ThingController.URL)
-public class ThingController {
+@RequestMapping(FrameController.URL)
+public class FrameController {
 
-	static final String URL = "/thing";
+	static final String URL = "/frame";
 	
 	@Autowired
-    ThingService thingService;
+    FrameService frameService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public void get(Model model, @ModelAttribute ThingCommand thingCommand) {
-		model.addAttribute("thingGrid", thingService.findAll());
+	public void get(Model model, @ModelAttribute FrameCommand frameCommand) {
+		model.addAttribute("frameGrid", frameService.findAll());
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(Model model, @Valid ThingCommand thingCommand, BindingResult result) {
+	public String post(Model model, @Valid FrameCommand frameCommand, BindingResult result) {
 		if (result.hasErrors()) {
-			model.addAttribute("thingGrid", thingService.findAll());
+			model.addAttribute("frameGrid", frameService.findAll());
 			return URL;
 		}
-		thingService.save(thingCommand);
+		frameService.save(frameCommand);
 		return "redirect:" + URL;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, params="_method=put")
-	public String put(Model model, @Valid ThingGrid thingGrid, BindingResult result) {
+	public String put(Model model, @Valid FrameGrid frameGrid, BindingResult result) {
 		if (result.hasErrors()) {
-			thingService.updateWithAll(thingGrid);
+			frameService.updateWithAll(frameGrid);
 			return URL;
 		}
-		thingService.saveAll(thingGrid);
+		frameService.saveAll(frameGrid);
 		return "redirect:" + URL;
 	}
 	
