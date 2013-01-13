@@ -19,7 +19,7 @@
 	<form name='f' action="<c:url value='j_spring_security_check' />" method="post">
 	    <table id="login">
 	            <tr>
-				    <td>User:<input type='text' name='j_username' value=''></td>
+				    <td>User:<input type='text' name='j_username'></td>
 				</tr>
 				<tr>
 				    <td>Password:<input type='password' name='j_password' /></td>

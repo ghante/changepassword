@@ -6,6 +6,8 @@
                     http://www.springframework.org/schema/security
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
+    <beans:import resource='persistence-config.xml'/>
+
     <http auto-config="true">
         <intercept-url pattern="/admin" access="ROLE_ADMIN"/>
         <intercept-url pattern="/item" access="ROLE_ADMIN"/>
@@ -18,10 +20,11 @@
 
     <authentication-manager>
         <authentication-provider>
-            <user-service>
-                <user name="AdminCat" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
-                <user name="UserCat" password="user" authorities="ROLE_USER" />
-            </user-service>
+            <jdbc-user-service data-source-ref="myDataSource"
+                               users-by-username-query="select account_name, password, enabled from account where account_name=?"
+                               authorities-by-username-query="select a.account_name, ar.role from account a,
+                                    account_role ar where a.account_name = ar.account_name and a.account_name=?"
+                    />
         </authentication-provider>
     </authentication-manager>
 

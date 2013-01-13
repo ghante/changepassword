@@ -16,6 +16,8 @@ public class ItemDaoTest extends DaoTest {
 	
 	@Autowired
     ItemDao itemDao;
+
+    //TODO: can't test delete even after session flush :(
 	
 	@Test
 	public void shouldSaveAllFields() {

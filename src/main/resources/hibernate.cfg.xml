@@ -6,6 +6,8 @@
 	<session-factory>
 
 		<mapping class="com.thoughtworks.twu.model.Item" />
+		<mapping class="com.thoughtworks.twu.model.Account" />
+		<mapping class="com.thoughtworks.twu.model.AccountRole" />
 
 	</session-factory>
 </hibernate-configuration>
