@@ -1,5 +1,4 @@
 <%@ include file="header.jsp" %>
-<%@ include file="logout.jsp" %>
 <html>
 	<head>
 		<title>TrailBlazers - Admin</title>

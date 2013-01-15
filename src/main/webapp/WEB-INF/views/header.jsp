@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +17,19 @@
             <p><a href="<c:url value='/admin' />" class="afr">Admin</a></p>
             &nbsp;<p><a href="<c:url value='/' />" class="afr">Home</a></p>
 
+            <security:authorize ifAnyGranted="ROLE_ADMIN">
+                  Welcome <security:authentication property="principal.username"/>!
+                  <p><a href="<c:url value="j_spring_security_logout" />" class="afr"> Logout</a>
+            </security:authorize>
+
+            <security:authorize ifAnyGranted="ROLE_USER">
+                   Welcome <security:authentication property="principal.username"/>!
+                   <p><a href="<c:url value="j_spring_security_logout" />" class="afr"> Logout</a>
+            </security:authorize>
+
             <h1><div class="heading">Trail Blazers</div></h1>
             <h2>Custom order bikes today !</h2>
+
         </div>
 </body>
 </html>
