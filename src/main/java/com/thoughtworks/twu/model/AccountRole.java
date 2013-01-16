@@ -14,6 +14,7 @@ public class AccountRole {
     @GeneratedValue
     private Long role_id;
 
+    //TODO: Apply foriegn key contraint from Account.account_name
     @NotNull
     private String account_name;
 

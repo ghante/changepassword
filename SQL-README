@@ -1,0 +1,33 @@
+CREATE TABLE item
+(
+       item_id bigint NOT NULL,
+       description character varying(255) NOT NULL,
+       name character varying(255) NOT NULL,
+       price numeric(19,2) NOT NULL,
+       type character varying(255) NOT NULL,
+       CONSTRAINT item_pkey PRIMARY KEY (item_id)
+ );
+
+CREATE TABLE account
+(
+      account_id bigint NOT NULL,
+      account_name character varying(255) NOT NULL,
+      password character varying(255) NOT NULL,
+      enabled integer NOT NULL,
+      CONSTRAINT account_pkey PRIMARY KEY (account_id)
+);
+
+CREATE TABLE account_role
+(
+        role_id bigint NOT NULL,
+        account_name character varying(255) NOT NULL,
+        role character varying(255) NOT NULL,
+        CONSTRAINT account_role_pkey PRIMARY KEY (role_id)
+);
+
+insert into account values (1,'AdminCat','admin',1);
+insert into account values (2,'UserCat','user',1);
+
+insert into account_role values (1, 'AdminCat', 'ROLE_ADMIN');
+insert into account_role values (2, 'UserCat', 'ROLE_USER');
+
