@@ -44,7 +44,7 @@ public class ItemController{
 	@RequestMapping(method = RequestMethod.POST, params="update=Update all enabled items")
 	public String updateItem(Model model, @Valid ItemGrid itemGrid, BindingResult result) {
 		if (result.hasErrors()) {
-			itemService.updateWithAll(itemGrid);
+			itemService.refreshItemList(itemGrid);
 			return URL;
 		}
 		itemService.saveAll(itemGrid);
@@ -54,7 +54,7 @@ public class ItemController{
     @RequestMapping(method = RequestMethod.POST, params="delete=Delete all enabled items")
     public String deleteItem(Model model, @Valid ItemGrid itemGrid, BindingResult result) {
         if (result.hasErrors()) {
-            itemService.updateWithAll(itemGrid);
+            itemService.refreshItemList(itemGrid);
             return URL;
         }
         itemService.deleteAll(itemGrid);

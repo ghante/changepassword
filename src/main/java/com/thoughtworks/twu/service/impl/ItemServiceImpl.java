@@ -42,7 +42,7 @@ public class ItemServiceImpl implements ItemService {
 	}
 	
 	@Transactional(readOnly = true)
-	public void updateWithAll(ItemGrid itemGrid) {
+	public void refreshItemList(ItemGrid itemGrid) {
 		ItemGrid allItems = findAll();
 		allItems.getItemMap().putAll(itemGrid.getItemMap());
 		itemGrid.setItemMap(allItems.getItemMap());

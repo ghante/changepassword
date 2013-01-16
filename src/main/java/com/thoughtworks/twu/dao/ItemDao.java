@@ -13,13 +13,14 @@ public class ItemDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public Item get(Long item_id) {
+    //itemId=variable name item_id=postgres columnName
+    public Item get(Long itemId) {
         return (Item) sessionFactory.getCurrentSession()
                 .createQuery(
                         "FROM Item u " +
-                                "WHERE u.item_id = :item_id " +
-                                "ORDER BY u.item_id")
-                .setLong("item_id", item_id).uniqueResult();
+                                "WHERE u.itemId = :itemId " +
+                                "ORDER BY u.itemId")
+                .setLong("itemId", itemId).uniqueResult();
     }
 
     public void delete(Item item) {
@@ -30,12 +31,13 @@ public class ItemDao {
     public List<Item> findAll() {
         return sessionFactory.getCurrentSession().createQuery(
                 "FROM Item " +
-                        "ORDER BY item_id")
+                        "ORDER BY itemId")
                 .list();
     }
 
-    public void save(Item item) {
-        sessionFactory.getCurrentSession().merge(item);
+    public Item save(Item item) {
+        Item inserteditem = (Item) sessionFactory.getCurrentSession().merge(item);
+        return inserteditem;
 
     }
 

@@ -3,6 +3,7 @@ package com.thoughtworks.twu.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+//postgres wont let you create table_name 'user'
 @Entity
 @Table(name = "account")
 public class Account {

@@ -9,7 +9,7 @@ public class ItemCommand extends Item {
 	public ItemCommand() {}
 
 	public ItemCommand(Item item) {
-		setItem_id(item.getItem_id());
+		setItemId(item.getItemId());
 		setName(item.getName());
 		setPrice(item.getPrice());
 		setDescription(item.getDescription());
@@ -18,7 +18,7 @@ public class ItemCommand extends Item {
 
 	public Item toItem() {
 		Item item = new Item();
-		item.setItem_id(getItem_id());
+		item.setItemId(getItemId());
 		item.setName(getName());
 		item.setPrice(getPrice());
 		item.setDescription(getDescription());

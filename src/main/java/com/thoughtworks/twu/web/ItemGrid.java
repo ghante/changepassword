@@ -19,7 +19,7 @@ public class ItemGrid {
 	public ItemGrid(List<Item> items) {
 		itemMap = new LinkedHashMap<Long, ItemCommand>();
 		for (Item item : items)
-			itemMap.put(item.getItem_id(), new ItemCommand(item));
+			itemMap.put(item.getItemId(), new ItemCommand(item));
 	}
 	
 	public List<Item> getItem() {

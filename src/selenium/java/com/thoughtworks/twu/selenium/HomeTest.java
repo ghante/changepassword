@@ -49,18 +49,18 @@ public class HomeTest {
 
     @Test
     public void shouldShowListOfItemsOnHomeScreen() throws SQLException {
-        Database.insertIntoItems("frame1","14.99","I should see this item", "FRAMES");
+        Database.insertIntoItems("frame1","14.99","I should see this item", "FRAME");
         //refresh screen
         driver.get("http://localhost:8080/trunk/");
         assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
         assertEquals("14.99", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
         assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());
-        assertEquals("FRAMES", driver.findElement(By.xpath("//tbody//tr[1]//td[4]")).getText());
+        assertEquals("FRAME", driver.findElement(By.xpath("//tbody//tr[1]//td[4]")).getText());
     }
 
     @Test
     public void userShouldBeDirectedToLoginPageBeforeOrderPageWhenReservingItem() throws SQLException {
-        Database.insertIntoItems("frame1","14.99","I should see this item", "FRAMES");
+        Database.insertIntoItems("frame1","14.99","I should see this item", "FRAME");
         //refresh screen
         driver.get("http://localhost:8080/trunk/");
         driver.findElement(By.id("reserve")).click();

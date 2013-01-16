@@ -75,19 +75,19 @@ table#login td input[type="text"], input[type="password"] {
   	border: 2px solid #aaa;
 }
 
-table#homepage {
+table#prettyTable {
 	border-collapse: collapse;
 	width: 100%;
 }
 
-table#homepage th {
+table#prettyTable th {
 	border: 1px solid #ddd;
 	background: #eee;
 	padding: 1em;
 	text-align: left;
 }
 
-table#homepage td {
+table#prettyTable td {
    border: 1px solid #ddd;
    padding: 1em;
 

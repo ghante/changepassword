@@ -7,7 +7,7 @@
 		<!--[if lt IE 9]>
 			<div class="legacy-browser">You are using a Legacy Browser - it is not supported. Please upgrade to <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">IE9</a>, Firefox, Safari, Chrome or Opera.</div>
 		<![endif]-->
-		<table id="homepage">
+		<table id="prettyTable">
 		    <thead>
 		        <tr>
 		            <th>Name</th>
@@ -17,13 +17,16 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-		    <c:forEach var="itemMap" items="${itemGrid.itemMap}" varStatus="row">
+		    <c:forEach var="itemEntry" items="${itemGrid.itemMap}" varStatus="row">
 		        <tr>
-		            <td><c:out value="${itemMap.value.name}"/></td>
-		            <td><c:out value="${itemMap.value.price}"/></td>
-		            <td><c:out value="${itemMap.value.description}"/></td>
-		            <td><c:out value="${itemMap.value.type}"/></td>
-		            <td><input type="button" value="Reserve Item" id="reserve" onClick="location.href='reserve'"></td>
+		        <form:form action="reserve" method="post" commandName="itemCommand">
+		            <td><c:out value="${itemEntry.value.name}"/></td>
+		            <td><c:out value="${itemEntry.value.price}"/></td>
+		            <td><c:out value="${itemEntry.value.description}"/></td>
+		            <td><c:out value="${itemEntry.value.type}"/></td>
+		            <form:hidden path="itemId" value="${itemEntry.value.itemId}"/>
+		            <td><input type="submit" value="Reserve Item" id="reserve" name="reserve"></td>
+		        </form:form>
 		        </tr>
 		     </c:forEach>
 		    </tbody>

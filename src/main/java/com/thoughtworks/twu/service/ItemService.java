@@ -16,7 +16,7 @@ public interface ItemService {
 	
 	void saveAll(ItemGrid itemGrid);
 
-	void updateWithAll(ItemGrid itemGrid);
+	void refreshItemList(ItemGrid itemGrid);
 
     void deleteAll(ItemGrid itemGrid);
 }

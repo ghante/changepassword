@@ -60,7 +60,7 @@
 					<c:forEach var="itemEntry" items="${itemGrid.itemMap}" varStatus="row">
 						<tr>
 							<td>
-								<form:input cssClass="disablable-hidden" disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].item_id" />
+								<form:input cssClass="disablable-hidden" disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].itemId" />
 								<c:if test="${itemMap[itemEntry.key].selected}">
 									<input type="checkbox" checked="checked" class="rowSelector" />
 								</c:if>

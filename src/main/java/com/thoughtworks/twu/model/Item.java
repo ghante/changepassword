@@ -13,7 +13,7 @@ public class Item {
 
     @Id
     @GeneratedValue
-    private Long item_id;
+    private Long itemId;
 
     @NotEmpty(message = "Please enter Item Name")
     private String name;
@@ -28,11 +28,11 @@ public class Item {
     @NotEmpty(message = "Please select Item Type")
     private String type;
 
-    public Long getItem_id() {
-        return item_id;
+    public Long getItemId() {
+        return itemId;
     }
-    public void setItem_id(Long item_id) {
-        this.item_id = item_id;
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
     public String getName() {
         return name;
