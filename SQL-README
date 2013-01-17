@@ -25,6 +25,15 @@ CREATE TABLE account_role
         CONSTRAINT account_role_pkey PRIMARY KEY (role_id)
 );
 
+CREATE TABLE reserve_order
+(
+  order_id bigint NOT NULL,
+  account_id bigint NOT NULL,
+  item_id bigint NOT NULL,
+  reservation_timestamp timestamp without time zone NOT NULL,
+  CONSTRAINT reserve_order_pkey PRIMARY KEY (order_id)
+);
+
 insert into account values (1,'AdminCat','admin',1);
 insert into account values (2,'UserCat','user',1);
 
