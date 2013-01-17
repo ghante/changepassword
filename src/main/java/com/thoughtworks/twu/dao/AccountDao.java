@@ -34,9 +34,16 @@ public class AccountDao {
                 .list();
     }
 
-    public void save(Account account) {
-        sessionFactory.getCurrentSession().merge(account);
-
+    public Account save(Account account) {
+        return (Account) sessionFactory.getCurrentSession().merge(account);
     }
 
+    public Account getAccountByAccountName(String userName) {
+
+        return (Account) sessionFactory.getCurrentSession()
+                .createQuery(
+                        "FROM Account " +
+                                "WHERE account_name = :account_name")
+                .setString("account_name", userName).uniqueResult();
+    }
 }

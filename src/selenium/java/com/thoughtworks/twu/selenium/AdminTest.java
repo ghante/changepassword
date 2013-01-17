@@ -28,7 +28,7 @@ public class AdminTest {
 
     @Before
     public void setup() throws SQLException {
-        Database.clean();
+        DatabaseTestUtil.clean();
         driver.get("http://localhost:8080/trunk/login");
         LoginHelper.loginAs("AdminCat", "admin", driver);
     }

@@ -15,6 +15,7 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountDao accountDao;
 
+    @Transactional
     public void save(Account account) {
         accountDao.save(account);
     }
@@ -22,5 +23,10 @@ public class AccountServiceImpl implements AccountService {
     @Transactional(readOnly = true)
     public List<Account> findAll() {
         return accountDao.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Account getAccountIdByName(String userName) {
+        return accountDao.getAccountByAccountName(userName);
     }
 }

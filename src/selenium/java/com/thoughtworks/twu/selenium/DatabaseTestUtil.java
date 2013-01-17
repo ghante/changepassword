@@ -5,14 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public final class Database {
+public final class DatabaseTestUtil {
 
 	public static void clean() throws SQLException {
 		executeUpdate("DELETE FROM item;");
+		executeUpdate("DELETE FROM reserve_order;");
 	}
 
-    public static void insertIntoItems(String name, String price, String description, String type) throws SQLException {
-         executeUpdate("INSERT INTO item(item_id, name, price, description, type) values ( 999, '"+name+"','"+price+"','"+description+"','"+type+"');" );
+    public static void insertIntoItems(Integer item_id, String name, String price, String description, String type) throws SQLException {
+         executeUpdate("INSERT INTO item(item_id, name, price, description, type) values ( "+item_id+", '"+name+"','"+price+"','"+description+"','"+type+"');" );
     }
 
 	private static void executeUpdate(String query) throws SQLException {

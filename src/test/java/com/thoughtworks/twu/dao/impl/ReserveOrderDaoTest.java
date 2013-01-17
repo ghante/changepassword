@@ -23,9 +23,7 @@ public class ReserveOrderDaoTest extends DaoTest{
 
         Date rightNow = new Date();
 
-        ReserveOrder order = new ReserveOrder();
-        order.setAccount_id(1L);
-        order.setReservation_timestamp(rightNow);
+        ReserveOrder order = new ReserveOrder(1L, 2L, rightNow);
 
         orderDao.save(order);
 
@@ -33,6 +31,7 @@ public class ReserveOrderDaoTest extends DaoTest{
         assertThat(orders.size(), is(1));
         assertThat(orders.get(0).getAccount_id(), is(1L));
         assertThat(orders.get(0).getReservation_timestamp(), is(rightNow));
+        assertThat(orders.get(0).getItem_id(), is(2L));
 
     }
 }

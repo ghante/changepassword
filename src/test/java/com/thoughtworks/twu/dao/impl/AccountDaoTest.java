@@ -27,12 +27,32 @@ public class AccountDaoTest extends DaoTest{
         assertThat(accountList.get(0).getPassword(), is("meow"));
     }
 
+    @Test
+    public void shouldGetAccountById(){
+        Account account = makeAccount();
+        Account insertedAccount = accountDao.save(account);
+
+        Account foundAccount = accountDao.get(insertedAccount.getAccount_id());
+        assertThat(foundAccount.getAccount_name(), is("octocat"));
+        assertThat(foundAccount.getPassword(), is("meow"));
+    }
+
+    @Test
+    public void shouldGetAccountByAccountName(){
+
+        Account account = makeAccount();
+        accountDao.save(account);
+
+        Account foundAccount = accountDao.getAccountByAccountName(account.getAccount_name());
+        assertThat(foundAccount.getAccount_name(), is("octocat"));
+        assertThat(foundAccount.getPassword(), is("meow"));
+
+    }
 
     private Account makeAccount() {
         Account account = new Account();
         account.setAccount_name("octocat");
         account.setPassword("meow");
-        account.setAccount_id(12L);
         account.setEnabled(1);
         return account;
     }

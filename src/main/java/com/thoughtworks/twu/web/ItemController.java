@@ -57,7 +57,7 @@ public class ItemController{
             itemService.refreshItemList(itemGrid);
             return URL;
         }
-        itemService.deleteAll(itemGrid);
+        itemService.deleteItems(itemGrid);
         return "redirect:" + URL;
     }
 	

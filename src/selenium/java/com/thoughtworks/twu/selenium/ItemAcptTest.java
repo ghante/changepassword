@@ -32,7 +32,7 @@ public class ItemAcptTest {
 	@Before
 	public void setup() throws SQLException {
         logout();
-		Database.clean();
+		DatabaseTestUtil.clean();
         loginToItemScreen();
 	}
 

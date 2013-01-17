@@ -36,9 +36,7 @@ public class ItemDao {
     }
 
     public Item save(Item item) {
-        Item inserteditem = (Item) sessionFactory.getCurrentSession().merge(item);
-        return inserteditem;
-
+        return  (Item) sessionFactory.getCurrentSession().merge(item);
     }
 
 }

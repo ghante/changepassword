@@ -18,5 +18,5 @@ public interface ItemService {
 
 	void refreshItemList(ItemGrid itemGrid);
 
-    void deleteAll(ItemGrid itemGrid);
+    void deleteItems(ItemGrid itemGrid);
 }

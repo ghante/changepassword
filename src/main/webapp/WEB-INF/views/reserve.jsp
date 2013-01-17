@@ -1,6 +1,5 @@
 <%@ include file="header.jsp" %>
-<h1>Your reserved items</h1>
-<h3>Item reservation pending......</h3>
+<h1>Item reserved !</h1>
 
 
 <table id="prettyTable">

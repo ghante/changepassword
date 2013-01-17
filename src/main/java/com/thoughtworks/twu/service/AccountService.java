@@ -9,4 +9,6 @@ public interface AccountService {
     void save(Account account);
 
     List<Account> findAll();
+
+    Account getAccountIdByName(String userName);
 }

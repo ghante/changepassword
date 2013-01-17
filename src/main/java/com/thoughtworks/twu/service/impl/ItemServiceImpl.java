@@ -49,7 +49,7 @@ public class ItemServiceImpl implements ItemService {
 	}
 
     @Transactional
-    public void deleteAll(ItemGrid itemGrid) {
+    public void deleteItems(ItemGrid itemGrid) {
         for (Item item : itemGrid.getItem())
             delete(item);
     }

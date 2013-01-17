@@ -35,7 +35,7 @@ public class LoginTest {
     @Before
     public void setup() throws SQLException {
         logout();
-        Database.clean();
+        DatabaseTestUtil.clean();
         //TODO: insert test users into database tables
         driver.get("http://localhost:8080/trunk/login");
     }

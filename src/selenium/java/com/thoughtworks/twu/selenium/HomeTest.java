@@ -23,10 +23,11 @@ public class HomeTest {
         driver.close();
     }
 
+    //TODO: goto screen methods need to be extracted
     @Before
     public void setup() throws SQLException {
         logout();
-        Database.clean();
+        DatabaseTestUtil.clean();
         driver.get("http://localhost:8080/trunk/");
     }
 
@@ -49,7 +50,7 @@ public class HomeTest {
 
     @Test
     public void shouldShowListOfItemsOnHomeScreen() throws SQLException {
-        Database.insertIntoItems("frame1","14.99","I should see this item", "FRAME");
+        DatabaseTestUtil.insertIntoItems(111, "frame1", "14.99", "I should see this item", "FRAME");
         //refresh screen
         driver.get("http://localhost:8080/trunk/");
         assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
@@ -60,13 +61,30 @@ public class HomeTest {
 
     @Test
     public void userShouldBeDirectedToLoginPageBeforeOrderPageWhenReservingItem() throws SQLException {
-        Database.insertIntoItems("frame1","14.99","I should see this item", "FRAME");
+        DatabaseTestUtil.insertIntoItems(111, "frame1", "14.99", "I should see this item", "FRAME");
         //refresh screen
         driver.get("http://localhost:8080/trunk/");
         driver.findElement(By.id("reserve")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
         LoginHelper.loginAs("UserCat", "user", driver);
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/reserve"));
+
+    }
+
+    @Test
+    public void itemShouldNotBeDisplayedAfterBeingReserved() throws SQLException {
+        DatabaseTestUtil.insertIntoItems(111, "frame1", "14.99", "I should see this item", "FRAME");
+        DatabaseTestUtil.insertIntoItems(222, "frame2", "14.99", "I should see this item", "FRAME");
+        //refresh screen
+        driver.get("http://localhost:8080/trunk/");
+        driver.findElement(By.id("reserve")).click();
+        LoginHelper.loginAs("UserCat", "user", driver);
+        driver.get("http://localhost:8080/trunk/");
+
+        assertEquals("frame2", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
+        assertEquals("14.99", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
+        assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());
+        assertEquals("FRAME", driver.findElement(By.xpath("//tbody//tr[1]//td[4]")).getText());
 
     }
 }
