@@ -17,7 +17,7 @@ public class HomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String get(Model model, @ModelAttribute("itemCommand") ItemCommand itemCommand) {
-        model.addAttribute("itemGrid", itemService.findAll());
+        model.addAttribute("itemGrid", itemService.getItemsWithNonZeroQuantity());
         return "home";
 	}
 

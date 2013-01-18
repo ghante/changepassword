@@ -39,4 +39,14 @@ public class ItemDao {
         return  (Item) sessionFactory.getCurrentSession().merge(item);
     }
 
+    public void reduceQuantityByOne(Item item) {
+        item.setQuantity(item.getQuantity()-1);
+        sessionFactory.getCurrentSession().update(item);
+    }
+
+    public List<Item> findItemWithNonZeroQuantity() {
+        return sessionFactory.getCurrentSession().createQuery(
+                "FROM Item WHERE quantity!=0 ORDER BY itemId")
+                .list();
+    }
 }

@@ -13,10 +13,14 @@ public interface ItemService {
 	void delete(Item item);
 	
 	ItemGrid findAll();
+
+    ItemGrid getItemsWithNonZeroQuantity();
 	
 	void saveAll(ItemGrid itemGrid);
 
 	void refreshItemList(ItemGrid itemGrid);
 
     void deleteItems(ItemGrid itemGrid);
+
+    void decreaseQuantityByOne(Item item);
 }

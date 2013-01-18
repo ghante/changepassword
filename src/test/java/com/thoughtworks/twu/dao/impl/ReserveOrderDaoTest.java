@@ -17,21 +17,47 @@ public class ReserveOrderDaoTest extends DaoTest{
 
     @Autowired
     ReserveOrderDao orderDao;
+    private final Long USER_ID = 1L;
+    private final Long ITEM_ID = 2L;
 
     @Test
     public void shouldInsertOrder(){
 
-        Date rightNow = new Date();
-
-        ReserveOrder order = new ReserveOrder(1L, 2L, rightNow);
-
-        orderDao.save(order);
+        Date reservationTime = reserveOrder(USER_ID, ITEM_ID);
 
         List<ReserveOrder> orders = orderDao.findAll();
         assertThat(orders.size(), is(1));
-        assertThat(orders.get(0).getAccount_id(), is(1L));
-        assertThat(orders.get(0).getReservation_timestamp(), is(rightNow));
-        assertThat(orders.get(0).getItem_id(), is(2L));
+        assertThat(orders.get(0).getAccount_id(), is(USER_ID));
+        assertThat(orders.get(0).getReservation_timestamp(), is(reservationTime));
+        assertThat(orders.get(0).getItem_id(), is(ITEM_ID));
+
+    }
+
+    private Date reserveOrder(Long account_id, Long order_id) {
+        Date rightNow = new Date();
+        ReserveOrder order = new ReserveOrder(account_id, order_id, rightNow);
+        orderDao.save(order);
+        return rightNow;
+    }
+
+    @Test
+    public void shouldFetchOrdersByAccountId(){
+
+        reserveOrder(USER_ID, ITEM_ID);
+        reserveOrder(USER_ID, ITEM_ID +1);
+        reserveOrder(USER_ID, ITEM_ID +2);
+        reserveOrder(2L, ITEM_ID +2);
+
+        List<ReserveOrder> reserveOrders = orderDao.getOrdersByAccountId(USER_ID);
+        assertThat(reserveOrders.get(0).getAccount_id(), is(USER_ID));
+        assertThat(reserveOrders.get(1).getAccount_id(), is(USER_ID));
+        assertThat(reserveOrders.get(2).getAccount_id(), is(USER_ID));
+
+        assertThat(reserveOrders.get(0).getItem_id(), is(ITEM_ID));
+        assertThat(reserveOrders.get(1).getItem_id(), is(ITEM_ID +1));
+        assertThat(reserveOrders.get(2).getItem_id(), is(ITEM_ID +2));
+
+        assertThat(reserveOrders.size(), is(3));
 
     }
 }

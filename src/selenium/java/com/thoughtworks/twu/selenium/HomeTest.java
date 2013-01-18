@@ -72,9 +72,8 @@ public class HomeTest {
 
     }
 
-    @Ignore
     @Test
-    public void itemShouldNotBeDisplayedAfterBeingReserved() throws SQLException {
+    public void itemsWithZeroCountShouldNotBeDisplayed() throws SQLException {
         DatabaseTestUtil.insertIntoItems(111, "frame1", "14.99", "I should see this item", "FRAME");
         DatabaseTestUtil.insertIntoItems(222, "frame2", "14.99", "I should see this item", "FRAME");
         //refresh screen
@@ -84,9 +83,6 @@ public class HomeTest {
         driver.get("http://localhost:8080/trunk/");
 
         assertEquals("frame2", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
-        assertEquals("14.99", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
-        assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());
-        assertEquals("FRAME", driver.findElement(By.xpath("//tbody//tr[1]//td[4]")).getText());
-
+        assertEquals("1", driver.findElement(By.xpath("//tbody//tr[1]//td[5]")).getText());
     }
 }

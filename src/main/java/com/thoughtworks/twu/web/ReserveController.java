@@ -46,7 +46,7 @@ public class ReserveController {
         ReserveOrder reserveOrder = new ReserveOrder(account.getAccount_id(), item.getItemId(), rightNow );
 
         reserveOrderService.save(reserveOrder);
-        itemService.delete(item);
+        itemService.decreaseQuantityByOne(item);
 
         model.addAttribute("item", item);
     }

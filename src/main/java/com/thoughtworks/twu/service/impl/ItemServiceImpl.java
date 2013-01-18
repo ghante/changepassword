@@ -30,7 +30,17 @@ public class ItemServiceImpl implements ItemService {
 		return new ItemGrid(itemDao.findAll());
 	}
 
-	@Transactional
+    @Transactional
+    public ItemGrid getItemsWithNonZeroQuantity() {
+        return new ItemGrid(itemDao.findItemWithNonZeroQuantity());
+    }
+
+    @Transactional
+    public void decreaseQuantityByOne(Item item) {
+        itemDao.reduceQuantityByOne(item);
+    }
+
+    @Transactional
 	public void save(ItemCommand itemCommand) {
 		itemDao.save(itemCommand.toItem());
 	}

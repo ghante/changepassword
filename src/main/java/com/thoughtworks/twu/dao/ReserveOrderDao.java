@@ -39,4 +39,11 @@ public class ReserveOrderDao {
         sessionFactory.getCurrentSession().merge(reserveOrder);
 
     }
+
+    public List<ReserveOrder> getOrdersByAccountId(Long account_id) {
+        return sessionFactory.getCurrentSession().createQuery(
+                "FROM ReserveOrder WHERE account_id = :account_id " +
+                        "ORDER BY reservation_timestamp")
+                .setLong("account_id", account_id).list();
+    }
 }
