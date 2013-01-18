@@ -108,6 +108,7 @@ public class ItemAcptTest {
         driver.findElement(By.name("name")).sendKeys("frameThing");
         driver.findElement(By.name("price")).sendKeys("13.99");
         driver.findElement(By.name("description")).sendKeys("frame thing needs a type, will not be added");
+        driver.findElement(By.name("quantity")).sendKeys("1");
         createItemSubmit();
         assertEquals(0, driver.findElements(By.xpath("//tbody//tr[1]")).size());
 
@@ -128,6 +129,7 @@ public class ItemAcptTest {
 		driver.findElement(By.name("name")).sendKeys(name);
 		driver.findElement(By.name("price")).sendKeys(price);
 		driver.findElement(By.name("description")).sendKeys(name + " is awesome");
+		driver.findElement(By.name("quantity")).sendKeys("1");
         selectFromDropDown("FRAME");
         createItemSubmit();
     }

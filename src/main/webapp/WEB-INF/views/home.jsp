@@ -14,6 +14,7 @@
 		            <th>Price</th>
 		            <th>Description</th>
 		            <th>Type</th>
+		            <th>Quantity</th>
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -24,6 +25,7 @@
 		            <td><c:out value="${itemEntry.value.price}"/></td>
 		            <td><c:out value="${itemEntry.value.description}"/></td>
 		            <td><c:out value="${itemEntry.value.type}"/></td>
+		            <td><c:out value="${itemEntry.value.quantity}"/></td>
 		            <form:hidden path="itemId" value="${itemEntry.value.itemId}"/>
 		            <td><input type="submit" value="Reserve Item" id="reserve" name="reserve"></td>
 		        </form:form>

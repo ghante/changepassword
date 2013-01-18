@@ -14,6 +14,7 @@ public class ItemCommand extends Item {
 		setPrice(item.getPrice());
 		setDescription(item.getDescription());
 		setType(item.getType());
+		setQuantity(item.getQuantity());
 	}
 
 	public Item toItem() {
@@ -23,6 +24,7 @@ public class ItemCommand extends Item {
 		item.setPrice(getPrice());
 		item.setDescription(getDescription());
 		item.setType(getType());
+		item.setQuantity(getQuantity());
 		return item;
 	}
 

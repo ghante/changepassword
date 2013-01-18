@@ -28,6 +28,9 @@ public class Item {
     @NotEmpty(message = "Please select Item Type")
     private String type;
 
+    @NotNull
+    private Long quantity;
+
     public Long getItemId() {
         return itemId;
     }
@@ -57,6 +60,12 @@ public class Item {
     }
     public void setType(String type) {
         this.type = type;
+    }
+    public Long getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
     }
 
 }

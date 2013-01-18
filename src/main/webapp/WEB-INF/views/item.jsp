@@ -46,6 +46,12 @@
 					    <form:textarea path="description" />
 				    </div>
 
+                    <div class="field">
+                        <form:label for="quantity" path="quantity">Quantity:</form:label>
+                        <form:errors path="quantity" cssClass="errors" />
+                        <form:input path="quantity" />
+                    </div>
+
 				    <div class="field vertical">
                 	    <input type="submit" value="Create new item" id="createItem">
                	    </div>
@@ -55,7 +61,13 @@
 		</form:form>
 		<form:form action="" method="post" modelAttribute="itemGrid">
 			<table>
-				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Price</th><th>Description</th><th>ItemType</th></tr></thead>
+				<thead><tr><th><input type="checkbox" class="toggleAll" /></th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Description</th>
+				<th>ItemType</th>
+				<th>Quantity</th>
+				</tr></thead>
 				<tbody>
 					<c:forEach var="itemEntry" items="${itemGrid.itemMap}" varStatus="row">
 						<tr>
@@ -84,6 +96,10 @@
                             	<form:errors path="itemMap[${itemEntry.key}].type" cssClass="errors" />
        							<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].type" />
      					    </td>
+     					    <td>
+                                <form:errors path="itemMap[${itemEntry.key}].quantity" cssClass="errors" />
+                                <form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].quantity" />
+                            </td>
 						</tr>
 					</c:forEach>
 				</tbody>

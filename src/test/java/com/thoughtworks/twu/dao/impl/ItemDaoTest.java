@@ -10,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 @Transactional
 public class ItemDaoTest extends DaoTest {
@@ -29,6 +31,7 @@ public class ItemDaoTest extends DaoTest {
 		assertEquals(BigDecimal.valueOf(13.99), items.get(0).getPrice());
 		assertEquals("this frame is awesome", items.get(0).getDescription());
 		assertEquals(ItemType.TYPE.FRAME.toString(), items.get(0).getType());
+        assertEquals(Long.valueOf(1), items.get(0).getQuantity());
 	}
 
     @Test
@@ -37,10 +40,12 @@ public class ItemDaoTest extends DaoTest {
         Item insertedItem = itemDao.save(item);
 
         Item foundItem = itemDao.get(insertedItem.getItemId());
+        assertThat(foundItem.getItemId(), is(insertedItem.getItemId()));
         assertEquals("Frame1", foundItem.getName());
         assertEquals(BigDecimal.valueOf(13.99), foundItem.getPrice());
         assertEquals("this frame is awesome", foundItem.getDescription());
         assertEquals(ItemType.TYPE.FRAME.toString(), foundItem.getType());
+        assertEquals(Long.valueOf(1), foundItem.getQuantity());
 
     }
 
@@ -50,6 +55,7 @@ public class ItemDaoTest extends DaoTest {
         item.setPrice(BigDecimal.valueOf(13.99));
         item.setDescription("this frame is awesome");
         item.setType(ItemType.TYPE.FRAME.toString());
+        item.setQuantity(1L);
         return item;
     }
 
