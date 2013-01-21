@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.selenium;
 
+import com.thoughtworks.twu.selenium.Screens.LoginScreen;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -67,7 +68,7 @@ public class HomeTest {
         driver.get("http://localhost:8080/trunk/");
         driver.findElement(By.id("reserve")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
-        LoginHelper.loginAs("UserCat", "user", driver);
+        LoginScreen.loginAs("UserCat", "user", driver);
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/reserve"));
 
     }
@@ -79,7 +80,7 @@ public class HomeTest {
         //refresh screen
         driver.get("http://localhost:8080/trunk/");
         driver.findElement(By.id("reserve")).click();
-        LoginHelper.loginAs("UserCat", "user", driver);
+        LoginScreen.loginAs("UserCat", "user", driver);
         driver.get("http://localhost:8080/trunk/");
 
         assertEquals("frame2", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());

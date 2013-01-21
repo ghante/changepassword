@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.selenium;
 
+import com.thoughtworks.twu.selenium.Screens.ReserveScreen;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -9,10 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.sql.SQLException;
-import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class UserProfileTest {
 
@@ -34,15 +33,14 @@ public class UserProfileTest {
     }
 
     @Test
-    public void userShouldSeeAllOrdersReservedByThem() throws SQLException {
-        DatabaseTestUtil.insertIntoItems(1, "framething", "13.44", "meh", "FRAME");
-        DatabaseTestUtil.reserveOrder(1, 1, 2, new Date());
+    public void userShouldSeeOrderReservedByThem() throws SQLException {
+
+        ReserveScreen.userReservesANewItem(driver);
         driver.get("http://localhost:8080/trunk/userProfile");
-        LoginHelper.loginAs("UserCat", "user", driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/userProfile"));
-        assertEquals("framething", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
-        assertEquals("13.44", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
-        assertEquals("meh", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());
+        assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
+        assertEquals("14.99", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
+        assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());
+        assertEquals("FRAME", driver.findElement(By.xpath("//tbody//tr[1]//td[4]")).getText());
     }
 
 

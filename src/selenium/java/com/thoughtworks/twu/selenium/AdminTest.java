@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.selenium;
 
+import com.thoughtworks.twu.selenium.Screens.LoginScreen;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -30,7 +31,7 @@ public class AdminTest {
     public void setup() throws SQLException {
         DatabaseTestUtil.clean();
         driver.get("http://localhost:8080/trunk/login");
-        LoginHelper.loginAs("AdminCat", "admin", driver);
+        LoginScreen.loginAs("AdminCat", "admin", driver);
     }
 
     @Test

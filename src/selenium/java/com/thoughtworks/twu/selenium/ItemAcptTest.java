@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.selenium;
 
+import com.thoughtworks.twu.selenium.Screens.LoginScreen;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -8,7 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 import java.sql.SQLException;
 
@@ -44,7 +44,7 @@ public class ItemAcptTest {
     private void loginToItemScreen() {
         driver.get("http://localhost:8080/trunk/login");
         TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
-        LoginHelper.loginAs("AdminCat", "admin", driver);
+        LoginScreen.loginAs("AdminCat", "admin", driver);
         driver.get("http://localhost:8080/trunk/item");
     }
 	
@@ -112,7 +112,7 @@ public class ItemAcptTest {
         createItemSubmit();
         assertEquals(0, driver.findElements(By.xpath("//tbody//tr[1]")).size());
 
-        selectFromDropDown("FRAME");
+        TestUtils.selectFromDropDown(driver, "type", "FRAME");
         createItemSubmit();
 
         assertEquals(1, driver.findElements(By.xpath("//tbody//tr[1]")).size());
@@ -130,14 +130,11 @@ public class ItemAcptTest {
 		driver.findElement(By.name("price")).sendKeys(price);
 		driver.findElement(By.name("description")).sendKeys(name + " is awesome");
 		driver.findElement(By.name("quantity")).sendKeys("1");
-        selectFromDropDown("FRAME");
+        TestUtils.selectFromDropDown(driver, "type", "FRAME");
         createItemSubmit();
     }
 
-    private void selectFromDropDown(String dropDownItem) {
-        Select itemType = new Select(driver.findElement(By.id("type")));
-        itemType.selectByVisibleText(dropDownItem);
-    }
+
 
     private void createItemSubmit(){
         driver.findElement(By.id("createItem")).click();

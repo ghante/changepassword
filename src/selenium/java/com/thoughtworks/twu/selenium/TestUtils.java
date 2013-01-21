@@ -1,6 +1,7 @@
 package com.thoughtworks.twu.selenium;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestUtils {
@@ -26,6 +27,11 @@ public class TestUtils {
         catch (NoAlertPresentException e){
             return false;
         }
+    }
+
+    public static void selectFromDropDown(WebDriver driver, String elementId, String dropDownItem) {
+        Select itemType = new Select(driver.findElement(By.id(elementId)));
+        itemType.selectByVisibleText(dropDownItem);
     }
 
 

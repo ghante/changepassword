@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.selenium;
 
+import com.thoughtworks.twu.selenium.Screens.LoginScreen;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -47,19 +48,19 @@ public class LoginTest {
 
     @Test
     public void shouldLoginIntoAdminScreenWithAdminCredentials(){
-        LoginHelper.loginAs(ADMIN, ADMINPASSWORD, driver);
+        LoginScreen.loginAs(ADMIN, ADMINPASSWORD, driver);
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/admin"));
     }
 
     @Test
     public void shouldDenyAccessToAdminScreenWithUserCredentials(){
-        LoginHelper.loginAs(USER, USERPASSWORD, driver);
+        LoginScreen.loginAs(USER, USERPASSWORD, driver);
         assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
     }
 
     @Test
     public void shouldLetUserLogoutBackToHomePageAfterBeingDeniedAcsess(){
-        LoginHelper.loginAs(USER, USERPASSWORD, driver);
+        LoginScreen.loginAs(USER, USERPASSWORD, driver);
         assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
         driver.findElement(By.linkText("Logout")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
@@ -67,7 +68,7 @@ public class LoginTest {
 
     @Test
     public void shouldShowErrorWhenWrongCredentialsAreEntered(){
-        LoginHelper.loginAs("blah", "blah", driver);
+        LoginScreen.loginAs("blah", "blah", driver);
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
         assertThat(1, is(driver.findElements(By.className("errorblock")).size()));
     }

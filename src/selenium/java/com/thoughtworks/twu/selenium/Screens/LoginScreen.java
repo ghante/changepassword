@@ -1,10 +1,11 @@
-package com.thoughtworks.twu.selenium;
+package com.thoughtworks.twu.selenium.Screens;
 
+import com.thoughtworks.twu.selenium.TestUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class LoginHelper {
+public class LoginScreen {
 
     public static void loginAs(String username, String password, WebDriver driver) {
         TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
