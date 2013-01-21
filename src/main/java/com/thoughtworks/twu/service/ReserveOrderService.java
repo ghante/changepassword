@@ -9,4 +9,6 @@ public interface ReserveOrderService {
     void save(ReserveOrder reserveOrder);
 
     List<ReserveOrder> findAllOrdersByAccountId(Long account_id);
+
+    List<ReserveOrder> getAllOrdersByAccount();
 }

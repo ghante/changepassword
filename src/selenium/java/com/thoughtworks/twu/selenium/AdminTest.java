@@ -1,10 +1,7 @@
 package com.thoughtworks.twu.selenium;
 
 import com.thoughtworks.twu.selenium.Screens.LoginScreen;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -56,5 +53,11 @@ public class AdminTest {
     public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
         driver.findElement(By.linkText("Logout")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
+    }
+
+    @Ignore
+    @Test
+    public void shouldShowAllOrdersByAllUsers(){
+
     }
 }

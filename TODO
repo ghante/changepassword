@@ -1,3 +1,5 @@
 1) Reserving multiple items
 2) Reserving same item multiple times
-3) Admin profile features
+3) Admin profile features [delete order, ship order] AND selenium test
+4) Add more information to account such as address, phone number
+5) Mocking !!

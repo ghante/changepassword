@@ -11,4 +11,6 @@ public interface AccountService {
     List<Account> findAll();
 
     Account getAccountIdByName(String userName);
+
+    Account get(Long account_id);
 }

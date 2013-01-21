@@ -29,4 +29,9 @@ public class AccountServiceImpl implements AccountService {
     public Account getAccountIdByName(String userName) {
         return accountDao.getAccountByAccountName(userName);
     }
+
+    @Transactional(readOnly = true)
+    public Account get(Long account_id) {
+        return accountDao.get(account_id);
+    }
 }

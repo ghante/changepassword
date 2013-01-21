@@ -46,4 +46,11 @@ public class ReserveOrderDao {
                         "ORDER BY reservation_timestamp")
                 .setLong("account_id", account_id).list();
     }
+
+    public List<ReserveOrder> getAllOrdersByAccount() {
+        return sessionFactory.getCurrentSession().createQuery(
+                "FROM ReserveOrder " +
+                        "ORDER BY account_id")
+                .list();
+    }
 }

@@ -25,4 +25,9 @@ public class ReserveOrderServiceImpl implements ReserveOrderService{
         return reserveOrderDao.getOrdersByAccountId(account_id);
     }
 
+    @Transactional(readOnly = true)
+    public List<ReserveOrder> getAllOrdersByAccount() {
+        return reserveOrderDao.getAllOrdersByAccount();
+    }
+
 }

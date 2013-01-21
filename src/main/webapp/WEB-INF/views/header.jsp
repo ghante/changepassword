@@ -14,9 +14,9 @@
 </head>
 <body>
         <div class="header_container">
-            <p><a href="<c:url value='/admin' />" class="afr">Admin</a></p>
+            <p><a href="<c:url value='/admin' />" class="afr">Admin Profile</a></p>
             &nbsp;<p><a href="<c:url value='/' />" class="afr">Home</a></p>
-            &nbsp;<p><a href="<c:url value='/userProfile' />" class="afr">User</a></p>
+            &nbsp;<p><a href="<c:url value='/userProfile' />" class="afr">User Profile</a></p>
 
             <security:authorize ifAnyGranted="ROLE_ADMIN">
                   Welcome <security:authentication property="principal.username"/>!
