@@ -83,7 +83,7 @@ public class ItemAcptTest {
 
     @Test
     public void  shouldTakeUserToAdminScreen(){
-        driver.findElement(By.linkText("Admin")).click();
+        driver.findElement(By.linkText("Admin Profile")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/admin"));
     }
 
