@@ -18,15 +18,6 @@ public class Account {
     @NotNull
     private String password;
 
-    //TODO: make this smallInt [or Boolean] with default as enabled
-    @NotNull
-    private Integer enabled;
-
-    
-    public void setEnabled(Integer enabled) {
-        this.enabled = enabled;
-    }
-
     public Long getAccount_id() {
         return account_id;
     }

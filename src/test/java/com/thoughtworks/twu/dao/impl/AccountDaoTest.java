@@ -53,7 +53,6 @@ public class AccountDaoTest extends DaoTest{
         Account account = new Account();
         account.setAccount_name("octocat");
         account.setPassword("meow");
-        account.setEnabled(1);
         return account;
     }
 
