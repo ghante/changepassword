@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class Item {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long itemId;
 
     @NotEmpty(message = "Please enter Item Name")
