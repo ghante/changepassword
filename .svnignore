@@ -10,5 +10,7 @@ build/*
 target-eclipse/*
 classes/*
 *.iws
+*.ipr
+*.iml
 .git
 
