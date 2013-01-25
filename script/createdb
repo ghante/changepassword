@@ -1,8 +1,18 @@
 #!/bin/bash
 
-PGPASSWORD=postgres psql -U postgres -h localhost -c "drop database trailblazers"
-PGPASSWORD=postgres psql -U postgres -h localhost -c "create database trailblazers"
-PGPASSWORD=postgres psql -U postgres -h localhost -d trailblazers < SQL-README
-PGPASSWORD=postgres psql -U postgres -h localhost -c "drop database testtrailblazers"
-PGPASSWORD=postgres psql -U postgres -h localhost -c "create database testtrailblazers"
+DATABASE=$1
+
+function createdb() {
+  DATABASE=$1
+  PGPASSWORD=postgres psql -U postgres -h localhost -c "drop database ${DATABASE}"
+  PGPASSWORD=postgres psql -U postgres -h localhost -c "create database ${DATABASE}"
+  PGPASSWORD=postgres psql -U postgres -h localhost -d ${DATABASE} < SQL-README
+}
+
+if [ "${DATABASE}" = "" ]; then
+  createdb "trailblazers"
+  createdb "testtrailblazers"
+else
+  createdb "${DATABASE}"
+fi
 
