@@ -1,9 +1,6 @@
 package com.thoughtworks.twu.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -11,7 +8,7 @@ import javax.validation.constraints.NotNull;
 public class AccountRole {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long role_id;
 
     //TODO: Apply foriegn key contraint from Account.account_name

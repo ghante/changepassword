@@ -18,10 +18,9 @@ CREATE TABLE account
 
 CREATE TABLE account_role
 (
-        role_id bigint NOT NULL,
+        role_id SERIAL PRIMARY KEY,
         account_name character varying(255) NOT NULL,
-        role character varying(255) NOT NULL,
-        CONSTRAINT account_role_pkey PRIMARY KEY (role_id)
+        role character varying(255) NOT NULL
 );
 
 CREATE TABLE reserve_order

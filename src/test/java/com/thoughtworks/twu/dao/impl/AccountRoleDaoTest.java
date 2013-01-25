@@ -22,9 +22,9 @@ public class AccountRoleDaoTest  extends DaoTest{
         AccountRole role = makeRole();
         accountRoleDao.save(role);
         List<AccountRole> roles = accountRoleDao.findAll();
-        assertThat(roles.size(), is(1));
-        assertThat(roles.get(0).getRole(), is("admin"));
-        assertThat(roles.get(0).getAccount_name(), is("AdminCat"));
+        assertThat(roles.size(), is(3));
+        assertThat(roles.get(2).getRole(), is("admin"));
+        assertThat(roles.get(2).getAccount_name(), is("AdminCat"));
     }
 
 
