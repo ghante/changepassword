@@ -9,7 +9,7 @@ import java.util.Date;
 public class ReserveOrder {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long order_id;
 
     @NotNull

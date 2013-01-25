@@ -25,16 +25,15 @@ CREATE TABLE account_role
 
 CREATE TABLE reserve_order
 (
-  order_id bigint NOT NULL,
-  account_id bigint NOT NULL,
-  item_id bigint NOT NULL,
-  reservation_timestamp timestamp without time zone NOT NULL,
-  CONSTRAINT reserve_order_pkey PRIMARY KEY (order_id)
+        order_id SERIAL PRIMARY KEY,
+        account_id bigint NOT NULL,
+        item_id bigint NOT NULL,
+        reservation_timestamp timestamp without time zone NOT NULL
 );
 
 insert into account (account_name, password, enabled) values ('AdminCat','admin', true);
 insert into account (account_name, password, enabled) values ('UserCat','user', true);
 
-insert into account_role values (1, 'AdminCat', 'ROLE_ADMIN');
-insert into account_role values (2, 'UserCat', 'ROLE_USER');
+insert into account_role (account_name, role) values ('AdminCat', 'ROLE_ADMIN');
+insert into account_role (account_name, role) values ('UserCat', 'ROLE_USER');
 
