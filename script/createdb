@@ -1,5 +1,8 @@
+#!/bin/bash
 
 PGPASSWORD=postgres psql -U postgres -h localhost -c "drop database trailblazers"
 PGPASSWORD=postgres psql -U postgres -h localhost -c "create database trailblazers"
 PGPASSWORD=postgres psql -U postgres -h localhost -d trailblazers < SQL-README
+PGPASSWORD=postgres psql -U postgres -h localhost -c "drop database testtrailblazers"
+PGPASSWORD=postgres psql -U postgres -h localhost -c "create database testtrailblazers"
 
