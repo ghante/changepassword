@@ -6,8 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -18,13 +17,11 @@ public class AccountDaoTest extends DaoTest{
     AccountDao accountDao;
 
     @Test
-    public void shouldInsertAccount(){
+    public void shouldInsertAccount() {
         Account account = makeAccount();
-        accountDao.save(account);
-        List<Account> accountList = accountDao.findAll();
-        assertThat(accountList.size(), is(1));
-        assertThat(accountList.get(0).getAccount_name(), is("octocat"));
-        assertThat(accountList.get(0).getPassword(), is("meow"));
+        long id = accountDao.save(account).getAccount_id();
+        Account retrievedAccount = accountDao.get(id);
+        assertThat(retrievedAccount.getAccount_name(), equalTo(account.getAccount_name()));
     }
 
     @Test
@@ -53,6 +50,7 @@ public class AccountDaoTest extends DaoTest{
         Account account = new Account();
         account.setAccount_name("octocat");
         account.setPassword("meow");
+        account.setEnabled(true);
         return account;
     }
 

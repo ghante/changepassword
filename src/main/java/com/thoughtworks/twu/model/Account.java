@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 public class Account {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long account_id;
 
     @NotNull
@@ -17,6 +17,13 @@ public class Account {
 
     @NotNull
     private String password;
+
+    @NotNull
+    private boolean enabled;
+
+    public Account() {
+        this.account_id = 0L;
+    }
 
     public Long getAccount_id() {
         return account_id;
@@ -36,6 +43,14 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
 }
