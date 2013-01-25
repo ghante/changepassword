@@ -1,7 +1,5 @@
 #!/bin/bash
 
-DATABASE=$1
-
 function createdb() {
   DATABASE=$1
   PGPASSWORD=postgres psql -U postgres -h localhost -c "drop database ${DATABASE}"
@@ -9,10 +7,5 @@ function createdb() {
   PGPASSWORD=postgres psql -U postgres -h localhost -d ${DATABASE} < SQL-README
 }
 
-if [ "${DATABASE}" = "" ]; then
-  createdb "trailblazers"
-  createdb "testtrailblazers"
-else
-  createdb "${DATABASE}"
-fi
+createdb "trailblazers"
 
