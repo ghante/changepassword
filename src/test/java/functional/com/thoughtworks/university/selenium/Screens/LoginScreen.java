@@ -1,4 +1,4 @@
-package com.thoughtworks.university.selenium.Screens;
+package functional.com.thoughtworks.university.selenium.Screens;
 
 import com.thoughtworks.university.selenium.TestUtils;
 import org.openqa.selenium.By;

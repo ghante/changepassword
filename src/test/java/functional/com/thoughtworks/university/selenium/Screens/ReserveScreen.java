@@ -1,6 +1,6 @@
-package com.thoughtworks.university.selenium.Screens;
+package functional.com.thoughtworks.university.selenium.Screens;
 
-import com.thoughtworks.university.selenium.DatabaseTestUtil;
+import functional.com.thoughtworks.university.selenium.DatabaseTestUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

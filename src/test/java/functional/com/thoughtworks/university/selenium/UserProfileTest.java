@@ -1,6 +1,6 @@
-package com.thoughtworks.university.selenium;
+package functional.com.thoughtworks.university.selenium;
 
-import com.thoughtworks.university.selenium.Screens.ReserveScreen;
+import functional.com.thoughtworks.university.selenium.Screens.ReserveScreen;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;

@@ -1,4 +1,4 @@
-package com.thoughtworks.university.selenium;
+package functional.com.thoughtworks.university.selenium;
 
 import com.thoughtworks.university.selenium.Screens.LoginScreen;
 import org.junit.*;
