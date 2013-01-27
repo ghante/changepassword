@@ -1,4 +1,4 @@
-package functional.com.thoughtworks.university.selenium;
+package functional.com.thoughtworks.university;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;

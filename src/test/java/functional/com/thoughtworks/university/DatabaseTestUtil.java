@@ -1,4 +1,4 @@
-package functional.com.thoughtworks.university.selenium;
+package functional.com.thoughtworks.university;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

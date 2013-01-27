@@ -1,6 +1,6 @@
-package functional.com.thoughtworks.university.selenium;
+package functional.com.thoughtworks.university;
 
-import com.thoughtworks.university.selenium.Screens.LoginScreen;
+import functional.com.thoughtworks.university.Screens.LoginScreen;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
