@@ -72,3 +72,24 @@ task selenium(type: Test, dependsOn: jettyDaemon) {
 	testClassesDir = sourceSets.selenium.output.classesDir
 	classpath = sourceSets.selenium.runtimeClasspath
 }
+
+test {
+    exclude '**/functional/com/thoughtworks/**/*.*'
+}
+
+task functionalTest(type: Test, dependsOn: ["test"]) {
+    include '**/functional/com/thoughtworks/**/*.*'
+}
+
+functionalTest.doFirst {
+    jettyRun.daemon = true
+    jettyRun.execute()
+}
+
+[jettyRunWar, jettyStop]*.stopPort = 8081
+[jettyRunWar, jettyStop]*.stopKey = 'stopKey'
+
+functionalTest.doLast {
+    jettyStop.execute()
+}
+
