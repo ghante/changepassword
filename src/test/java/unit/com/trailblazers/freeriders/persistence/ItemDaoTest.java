@@ -1,7 +1,8 @@
-package com.trailblazers.freeriders.persistence;
+package unit.com.trailblazers.freeriders.persistence;
 
 import com.trailblazers.freeriders.model.Item;
 import com.trailblazers.freeriders.model.ItemType;
+import com.trailblazers.freeriders.persistence.ItemDao;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

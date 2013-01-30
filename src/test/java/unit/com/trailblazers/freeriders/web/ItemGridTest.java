@@ -1,7 +1,8 @@
-package com.trailblazers.freeriders.web;
+package unit.com.trailblazers.freeriders.web;
 
 import com.trailblazers.freeriders.model.Item;
 import com.trailblazers.freeriders.model.ItemType;
+import com.trailblazers.freeriders.web.ItemGrid;
 import junit.framework.Assert;
 import org.junit.Test;
 

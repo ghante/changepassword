@@ -26,7 +26,7 @@ public class AdminTest {
 
     @Before
     public void setup() throws SQLException {
-        DatabaseTestUtil.clean();
+        functional.com.trailblazers.freeriders.DatabaseTestUtil.clean();
         driver.get("http://localhost:8080/trunk/login");
         LoginScreen.loginAs("AdminCat", "admin", driver);
     }

@@ -1,5 +1,6 @@
-package com.trailblazers.freeriders.model;
+package unit.com.trailblazers.freeriders.model;
 
+import com.trailblazers.freeriders.model.Item;
 import org.junit.Test;
 
 import javax.validation.ConstraintViolation;

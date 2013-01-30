@@ -1,6 +1,7 @@
-package com.trailblazers.freeriders.persistence;
+package unit.com.trailblazers.freeriders.persistence;
 
 import com.trailblazers.freeriders.model.ReserveOrder;
+import com.trailblazers.freeriders.persistence.ReserveOrderDao;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +13,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @Transactional
-public class ReserveOrderDaoTest extends DaoTest{
+public class ReserveOrderDaoTest extends DaoTest {
 
     @Autowired
     ReserveOrderDao orderDao;
