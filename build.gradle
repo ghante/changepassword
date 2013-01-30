@@ -97,6 +97,10 @@ task integrationTest(type: Test) {
     include '**/integration/**'
 }
 
+integrationTest.doFirst {
+    initDb.execute()
+}
+
 task functionalTest(type: Test) {
     include '**/functional/**'
 }
