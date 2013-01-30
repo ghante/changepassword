@@ -1,6 +1,6 @@
 package com.trailblazers.freeriders.service.impl;
 
-import com.trailblazers.freeriders.dao.ItemDao;
+import com.trailblazers.freeriders.persistence.ItemDao;
 import com.trailblazers.freeriders.model.Item;
 import com.trailblazers.freeriders.service.ItemService;
 import com.trailblazers.freeriders.web.ItemCommand;

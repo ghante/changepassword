@@ -1,6 +1,6 @@
 package com.trailblazers.freeriders.service.impl;
 
-import com.trailblazers.freeriders.dao.AccountDao;
+import com.trailblazers.freeriders.persistence.AccountDao;
 import com.trailblazers.freeriders.model.Account;
 import com.trailblazers.freeriders.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;

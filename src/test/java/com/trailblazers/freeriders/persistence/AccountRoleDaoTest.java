@@ -1,6 +1,5 @@
-package com.trailblazers.freeriders.dao.impl;
+package com.trailblazers.freeriders.persistence;
 
-import com.trailblazers.freeriders.dao.AccountRoleDao;
 import com.trailblazers.freeriders.model.AccountRole;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

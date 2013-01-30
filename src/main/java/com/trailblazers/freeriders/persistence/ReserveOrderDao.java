@@ -1,4 +1,4 @@
-package com.trailblazers.freeriders.dao;
+package com.trailblazers.freeriders.persistence;
 
 import com.trailblazers.freeriders.model.ReserveOrder;
 import org.hibernate.SessionFactory;

@@ -1,6 +1,5 @@
-package com.trailblazers.freeriders.dao.impl;
+package com.trailblazers.freeriders.persistence;
 
-import com.trailblazers.freeriders.dao.ItemDao;
 import com.trailblazers.freeriders.model.Item;
 import com.trailblazers.freeriders.model.ItemType;
 import org.junit.Test;

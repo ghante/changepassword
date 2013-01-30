@@ -1,6 +1,6 @@
 package com.trailblazers.freeriders.service.impl;
 
-import com.trailblazers.freeriders.dao.ReserveOrderDao;
+import com.trailblazers.freeriders.persistence.ReserveOrderDao;
 import com.trailblazers.freeriders.model.ReserveOrder;
 import com.trailblazers.freeriders.service.ReserveOrderService;
 import org.springframework.beans.factory.annotation.Autowired;

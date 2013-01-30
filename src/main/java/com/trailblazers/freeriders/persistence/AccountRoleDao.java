@@ -1,4 +1,4 @@
-package com.trailblazers.freeriders.dao;
+package com.trailblazers.freeriders.persistence;
 
 import com.trailblazers.freeriders.model.AccountRole;
 import org.hibernate.SessionFactory;

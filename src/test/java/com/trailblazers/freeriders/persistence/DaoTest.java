@@ -1,4 +1,4 @@
-package com.trailblazers.freeriders.dao.impl;
+package com.trailblazers.freeriders.persistence;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
