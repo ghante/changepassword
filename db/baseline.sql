@@ -8,6 +8,13 @@ CREATE TABLE item
        quantity bigint NOT NULL
  );
 
+CREATE TABLE item_type
+(
+       item_type_id SERIAL PRIMARY KEY,
+       name character varying(64) NOT NULL
+);
+
+
 CREATE TABLE account
 (
       account_id SERIAL PRIMARY KEY,
@@ -37,3 +44,5 @@ insert into account (account_name, password, enabled) values ('UserCat','user', 
 insert into account_role (account_name, role) values ('AdminCat', 'ROLE_ADMIN');
 insert into account_role (account_name, role) values ('UserCat', 'ROLE_USER');
 
+insert into item_type (name) values ('Frames');
+insert into item_type (name) values ('Accessories');
