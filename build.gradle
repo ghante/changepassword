@@ -74,11 +74,11 @@ task selenium(type: Test, dependsOn: jettyDaemon) {
 }
 
 test {
-    exclude '**/functional/com/thoughtworks/**/*.*'
+    exclude '**/functional/**/*.*'
 }
 
 task functionalTest(type: Test, dependsOn: ["test"]) {
-    include '**/functional/com/thoughtworks/**/*.*'
+    include '**/functional/**/*.*'
 }
 
 functionalTest.doFirst {

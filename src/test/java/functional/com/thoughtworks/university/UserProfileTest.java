@@ -1,6 +1,6 @@
-package functional.com.thoughtworks.university;
+package functional.com.trailblazers.freeriders;
 
-import functional.com.thoughtworks.university.Screens.ReserveScreen;
+import functional.com.trailblazers.freeriders.Screens.ReserveScreen;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;

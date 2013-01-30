@@ -1,6 +1,6 @@
-package functional.com.thoughtworks.university.Screens;
+package functional.com.trailblazers.freeriders.Screens;
 
-import functional.com.thoughtworks.university.TestUtils;
+import functional.com.trailblazers.freeriders.TestUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;

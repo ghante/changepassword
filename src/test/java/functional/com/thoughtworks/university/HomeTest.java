@@ -1,6 +1,6 @@
-package functional.com.thoughtworks.university;
+package functional.com.trailblazers.freeriders;
 
-import functional.com.thoughtworks.university.Screens.LoginScreen;
+import functional.com.trailblazers.freeriders.Screens.LoginScreen;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

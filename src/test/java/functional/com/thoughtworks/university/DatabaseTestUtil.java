@@ -1,4 +1,4 @@
-package functional.com.thoughtworks.university;
+package functional.com.trailblazers.freeriders;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

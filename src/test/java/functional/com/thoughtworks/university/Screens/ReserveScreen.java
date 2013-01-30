@@ -1,6 +1,6 @@
-package functional.com.thoughtworks.university.Screens;
+package functional.com.trailblazers.freeriders.Screens;
 
-import functional.com.thoughtworks.university.DatabaseTestUtil;
+import functional.com.trailblazers.freeriders.DatabaseTestUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
