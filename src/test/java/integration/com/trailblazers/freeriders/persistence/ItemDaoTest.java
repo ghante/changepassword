@@ -1,4 +1,4 @@
-package unit.com.trailblazers.freeriders.persistence;
+package integration.com.trailblazers.freeriders.persistence;
 
 import com.trailblazers.freeriders.model.Item;
 import com.trailblazers.freeriders.model.ItemType;

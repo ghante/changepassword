@@ -1,7 +1,8 @@
-package unit.com.trailblazers.freeriders.persistence;
+package integration.com.trailblazers.freeriders.persistence;
 
 import com.trailblazers.freeriders.model.AccountRole;
 import com.trailblazers.freeriders.persistence.AccountRoleDao;
+import integration.com.trailblazers.freeriders.persistence.DaoTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +13,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @Transactional
-public class AccountRoleDaoTest  extends DaoTest{
+public class AccountRoleDaoTest  extends DaoTest {
 
     @Autowired
     AccountRoleDao accountRoleDao;

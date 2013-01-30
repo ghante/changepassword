@@ -1,4 +1,4 @@
-package unit.com.trailblazers.freeriders.persistence;
+package integration.com.trailblazers.freeriders.persistence;
 
 import com.trailblazers.freeriders.model.Account;
 import com.trailblazers.freeriders.persistence.AccountDao;
@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @Transactional
-public class AccountDaoTest extends DaoTest{
+public class AccountDaoTest extends DaoTest {
 
     @Autowired
     AccountDao accountDao;

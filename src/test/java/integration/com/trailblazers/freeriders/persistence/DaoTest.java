@@ -1,4 +1,4 @@
-package unit.com.trailblazers.freeriders.persistence;
+package integration.com.trailblazers.freeriders.persistence;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
