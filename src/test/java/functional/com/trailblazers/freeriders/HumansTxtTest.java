@@ -3,13 +3,13 @@ package functional.com.trailblazers.freeriders;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.sql.SQLException;
-
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.matchers.JUnitMatchers.containsString;
 
 public class HumansTxtTest {
 
@@ -26,11 +26,14 @@ public class HumansTxtTest {
     }
 
     @Test
-    public void setup() throws SQLException {
+    public void shouldDisplayAllTheTeamMembers() {
         driver.get("http://localhost:8080/humans.txt");
-        String pageContents = driver.getPageSource();
-        assertThat(pageContents, containsString("Nishitha Ningegowda"));
-
+        WebElement element = driver.findElement(By.tagName("pre"));
+        String[] expectedTeamMembers = {"Nishitha Ningegowda",
+                                        "Peter Gibbons",
+                                        "Samir Nagheenanajar",
+                                        "Michael Bolton"};
+        assertThat(element.getText().split("\n"), is(expectedTeamMembers));
     }
 
 }
