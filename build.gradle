@@ -73,12 +73,28 @@ task selenium(type: Test, dependsOn: jettyDaemon) {
 	classpath = sourceSets.selenium.runtimeClasspath
 }
 
-test {
-    exclude '**/functional/**/*.*'
+task initDb(type:Exec) {
+    commandLine './db/create.sh'
 }
 
-task functionalTest(type: Test, dependsOn: ["test"]) {
-    include '**/functional/**/*.*'
+test {
+    exclude '**/functional/**'
+}
+
+test.doFirst {
+    initDb.execute()
+}
+
+task unitTest(type: Test) {
+    include '**/unit/**'
+}
+
+task integrationTest(type: Test) {
+    include '**/integration/**'
+}
+
+task functionalTest(type: Test) {
+    include '**/functional/**'
 }
 
 functionalTest.doFirst {
