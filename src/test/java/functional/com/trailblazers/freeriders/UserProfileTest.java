@@ -36,7 +36,7 @@ public class UserProfileTest {
     public void userShouldSeeOrderReservedByThem() throws SQLException {
 
         ReserveScreen.userReservesANewItem(driver);
-        driver.get("http://localhost:8080/trunk/userProfile");
+        driver.get("http://localhost:8080/userProfile");
         assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
         assertEquals("14.99", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
         assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());

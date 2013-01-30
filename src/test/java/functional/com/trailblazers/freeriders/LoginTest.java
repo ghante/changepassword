@@ -38,18 +38,18 @@ public class LoginTest {
         logout();
         DatabaseTestUtil.clean();
         //TODO: insert test users into database tables
-        driver.get("http://localhost:8080/trunk/login");
+        driver.get("http://localhost:8080/login");
     }
 
     private void logout() {
-        driver.get("http://localhost:8080/trunk/logout");
+        driver.get("http://localhost:8080/logout");
         driver.findElement(By.linkText("Logout")).click();
     }
 
     @Test
     public void shouldLoginIntoAdminScreenWithAdminCredentials(){
         LoginScreen.loginAs(ADMIN, ADMINPASSWORD, driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/admin"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/admin"));
     }
 
     @Test
@@ -63,13 +63,13 @@ public class LoginTest {
         LoginScreen.loginAs(USER, USERPASSWORD, driver);
         assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
         driver.findElement(By.linkText("Logout")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
     }
 
     @Test
     public void shouldShowErrorWhenWrongCredentialsAreEntered(){
         LoginScreen.loginAs("blah", "blah", driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
         assertThat(1, is(driver.findElements(By.className("errorblock")).size()));
     }
 
@@ -78,7 +78,7 @@ public class LoginTest {
         driver.findElement(By.name("j_username")).sendKeys("blah");
         driver.findElement(By.name("j_password")).sendKeys("blah");
         resetForm();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
         assertThat("", is(driver.findElement(By.name("j_username")).getText()));
         assertThat("", is(driver.findElement(By.name("j_password")).getText()));
     }
@@ -86,8 +86,8 @@ public class LoginTest {
     @Test
     public void shouldLogoutAndNotGiveAccessToAdmin(){
         logout();
-        driver.get("http://localhost:8080/trunk/admin");
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
+        driver.get("http://localhost:8080/admin");
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
     }
 
     private void resetForm() {

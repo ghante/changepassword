@@ -68,6 +68,10 @@ task jettyDaemon(type: org.gradle.api.plugins.jetty.JettyRun) {
 	daemon = true
 }
 
+jettyRun {
+    contextPath ''
+}
+
 task selenium(type: Test, dependsOn: jettyDaemon) {
 	testClassesDir = sourceSets.selenium.output.classesDir
 	classpath = sourceSets.selenium.runtimeClasspath

@@ -38,13 +38,13 @@ public class ReserveTest {
     public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
         ReserveScreen.loginIntoReserveScreenAsUser(driver);
         driver.findElement(By.linkText("Logout")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
     }
 
     @Test
     public void shouldShowReservedItemOnReservePage() throws SQLException {
         ReserveScreen.userReservesANewItem(driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/reserve"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/reserve"));
         assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
         assertEquals("14.99", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
         assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());

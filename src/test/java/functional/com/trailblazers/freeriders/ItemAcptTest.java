@@ -37,15 +37,15 @@ public class ItemAcptTest {
 	}
 
     private void logout() {
-        driver.get("http://localhost:8080/trunk/logout");
+        driver.get("http://localhost:8080/logout");
         driver.findElement(By.linkText("Logout")).click();
     }
 
     private void loginToItemScreen() {
-        driver.get("http://localhost:8080/trunk/login");
+        driver.get("http://localhost:8080/login");
         TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
         LoginScreen.loginAs("AdminCat", "admin", driver);
-        driver.get("http://localhost:8080/trunk/item");
+        driver.get("http://localhost:8080/item");
     }
 	
 	@Test
@@ -78,13 +78,13 @@ public class ItemAcptTest {
     @Test
     public void  shouldTakeUserToHomecreen(){
         driver.findElement(By.linkText("Home")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
     }
 
     @Test
     public void  shouldTakeUserToAdminScreen(){
         driver.findElement(By.linkText("Admin Profile")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/admin"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/admin"));
     }
 
     @Test
@@ -122,7 +122,7 @@ public class ItemAcptTest {
     @Test
     public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
         driver.findElement(By.linkText("Logout")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
     }
 
     private void addAFrame(String name, String price) {

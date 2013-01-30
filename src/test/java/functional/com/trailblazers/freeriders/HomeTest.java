@@ -29,31 +29,31 @@ public class HomeTest {
     public void setup() throws SQLException {
         logout();
         DatabaseTestUtil.clean();
-        driver.get("http://localhost:8080/trunk/");
+        driver.get("http://localhost:8080/");
     }
 
     private void logout() {
-        driver.get("http://localhost:8080/trunk/logout");
+        driver.get("http://localhost:8080/logout");
         driver.findElement(By.linkText("Logout")).click();
     }
 
     @Test
     public void  shouldTakeUserToHomeScreen(){
         driver.findElement(By.linkText("Home")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
     }
 
     @Test
     public void  shouldTakeUserToLoginScreen(){
         driver.findElement(By.linkText("Admin Profile")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
     }
 
     @Test
     public void shouldShowListOfItemsOnHomeScreen() throws SQLException {
         DatabaseTestUtil.insertIntoItems(111, "frame1", "14.99", "I should see this item", "FRAME");
         //refresh screen
-        driver.get("http://localhost:8080/trunk/");
+        driver.get("http://localhost:8080/");
         assertEquals("frame1", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
         assertEquals("14.99", driver.findElement(By.xpath("//tbody//tr[1]//td[2]")).getText());
         assertEquals("I should see this item", driver.findElement(By.xpath("//tbody//tr[1]//td[3]")).getText());
@@ -65,11 +65,11 @@ public class HomeTest {
     public void userShouldBeDirectedToLoginPageBeforeOrderPageWhenReservingItem() throws SQLException {
         DatabaseTestUtil.insertIntoItems(111, "frame1", "14.99", "I should see this item", "FRAME");
         //refresh screen
-        driver.get("http://localhost:8080/trunk/");
+        driver.get("http://localhost:8080/");
         driver.findElement(By.id("reserve")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/login"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
         LoginScreen.loginAs("UserCat", "user", driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/trunk/reserve"));
+        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/reserve"));
 
     }
 
@@ -78,10 +78,10 @@ public class HomeTest {
         DatabaseTestUtil.insertIntoItems(111, "frame1", "14.99", "I should see this item", "FRAME");
         DatabaseTestUtil.insertIntoItems(222, "frame2", "14.99", "I should see this item", "FRAME");
         //refresh screen
-        driver.get("http://localhost:8080/trunk/");
+        driver.get("http://localhost:8080/");
         driver.findElement(By.id("reserve")).click();
         LoginScreen.loginAs("UserCat", "user", driver);
-        driver.get("http://localhost:8080/trunk/");
+        driver.get("http://localhost:8080/");
 
         assertEquals("frame2", driver.findElement(By.xpath("//tbody//tr[1]//td[1]")).getText());
         assertEquals("1", driver.findElement(By.xpath("//tbody//tr[1]//td[5]")).getText());
