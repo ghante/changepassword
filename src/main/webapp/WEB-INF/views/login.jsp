@@ -15,19 +15,21 @@
 		</div>
 	</c:if>
 
-	<form name='f' action="<c:url value='j_spring_security_check' />" method="post">
-	    <table id="login">
-	            <tr>
-				    <td>User:<input type='text' name='j_username'></td>
-				</tr>
-				<tr>
-				    <td>Password:<input type='password' name='j_password' /></td>
-			    </tr>
-			    <tr>
-				    <td><div class="field"><input name="submit" type="submit" value="Submit" />
-				    <div class="field"><input name="reset" type="reset" /></td>
-		        </tr>
-	    </table>
+	<form class="pretty_form" name='f' action="<c:url value='j_spring_security_check' />" method="post">
+	    <label>
+	        <span>User</span>
+	        <input type='text' name='j_username'></td>
+	    </label>
+
+	    <label>
+	        <span>Password</span>
+	        <input type='password' name='j_password' />
+	    </label>
+
+	    <label>
+	        <input name="submit" type="submit" value="Submit" />
+	        <input name="reset" type="reset" value="Reset" />
+		</label>
+
 	</form>
-</body>
-</html>
+<%@ include file="footer.jsp" %>

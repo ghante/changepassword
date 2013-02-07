@@ -2,7 +2,6 @@
 <%@ include file="header.jsp" %>
 <h1>Item reserved !</h1>
 
-
 <table id="prettyTable">
         <thead>
             <tr>
@@ -21,3 +20,5 @@
             </tr>
         </tbody>
 </table>
+
+<%@ include file="footer.jsp" %>

@@ -10,6 +10,7 @@
    <meta charset="utf-8">
    <title>${pageTitle}</title>
    <link rel="stylesheet" href="<c:url value='/styles/default.css' />" type="text/css" />
+   <link rel="stylesheet" href="<c:url value='/styles/forms.css' />" type="text/css" />
    <script type="text/javascript" src="<c:url value='/scripts/lib/prototype.js' />"></script>
 </head>
 <body>
@@ -19,16 +20,16 @@
                 <li><a href="<c:url value='/' />" class="nav_link">Home</a></li>
                 <li><a href="<c:url value='/userProfile' />" class="nav_link">User Profile</a></li>
                 <li><a href="<c:url value='/account/create' />" class="nav_link">Create Account</a></li>
-            </ul>
             <security:authorize ifAnyGranted="ROLE_ADMIN">
                   Welcome <security:authentication property="principal.username"/>!
-                  <p><a href="<c:url value="j_spring_security_logout" />" class="afr"> Logout</a>
+                <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"> Logout</a></li>
             </security:authorize>
 
             <security:authorize ifAnyGranted="ROLE_USER">
                    Welcome <security:authentication property="principal.username"/>!
-                   <p><a href="<c:url value="j_spring_security_logout" />" class="afr"> Logout</a>
+                <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"> Logout</a></li>
             </security:authorize>
+            </ul>
 
             <h1><div class="heading">Trail Blazers</div></h1>
             <h2>Custom order bikes today !</h2>

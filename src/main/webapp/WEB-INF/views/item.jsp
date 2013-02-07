@@ -110,5 +110,4 @@
 				<input type="submit" value="Delete all enabled items" name="delete">
 			</p>
 		</form:form>
-	</body>
-</html>
+<%@ include file="footer.jsp" %>
