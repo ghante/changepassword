@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="" default="test-unit">
+
+
+	<!-- <dirname file="${ant.file.ant.build}" property="base.dir" /> -->
+
+    <property name="base.dir" value="." />
+    <property name="bin.dir" value="${base.dir}/bin" />
+	<property name="src.dir" value="${base.dir}/src" />
+	<property name="lib.dir" value="${base.dir}/lib" />
+	<property name="dist.dir" value="${base.dir}/dist" />
+
+	<target name="compile-main" depends="create-bin">
+
+        <!--
+		<delete dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}" />
+		    -->
+        <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
+			encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
+			failonerror="true" srcdir="${src.dir}/main" destdir="${bin.dir}/main">
+			<include name="**/**" />
+			<classpath>
+				<fileset dir="${lib.dir}/main" />
+			</classpath>
+		</javac>
+
+        <!--
+		<copy todir="${bin.dir}" overwrite="true">
+			<fileset dir="${src.dir}">
+				<include name="**/*.xml" />
+				<include name="**/*.properties" />
+			</fileset>
+		</copy>
+		-->
+	</target>
+
+    <path id="classpath.tests">
+        <fileset dir="${lib.dir}/test" />
+        <fileset dir="${lib.dir}/main" />
+        <pathelement location="${bin.dir}/main" />
+    </path>
+
+
+    <target name="compile-test" depends="compile-main">
+
+        <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
+               encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
+               failonerror="true" srcdir="${src.dir}/test/java" destdir="${bin.dir}/test">
+            <include name="**/**" />
+            <classpath>
+                <path refid="classpath.tests" />
+            </classpath>
+        </javac>
+
+    </target>
+
+
+    <fileset id="classpath.for.test" dir="./bin/test/unit">
+        <include name="**/*Test.class" />
+        <!--<include name="**/Test*.class" />-->
+    </fileset>
+
+
+    <target name="test-unit" depends="compile-test">
+
+        <mkdir dir="./target/tests" />
+        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m"> <!-- dir="@{run-test.test.root.dir}"> -->
+
+            <!--
+            <jvmarg
+                    value="-Demma.coverage.out.file=${copyTestCoverageResult.dir.var}/coverage.emma" />
+            <jvmarg value="-Demma.coverage.out.merge=true" />
+
+            <sysproperty key="px.base.dir" value="${base.dir}" />
+            <sysproperty key="px.is.hudson" value="${is.hudson.var}" />
+            <sysproperty key="px.hudson.WORKSPACE" value="${my.WORKSPACE}" />
+            <sysproperty key="px.hudson.BUILDTAG" value="${my.BUILDTAG}" />
+            -->
+            <classpath>
+                <path refid="classpath.tests" />
+            </classpath>
+            <!--<formatter type="xml" />-->
+            <batchtest todir="./target/tests">
+                <fileset refid="classpath.for.test" />
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="test-integration">
+
+    </target>
+    <target name="test-functional">
+
+    </target>
+
+	<target name="create-bin" depends="clean-bin">
+		<mkdir dir="${bin.dir}/main" />
+        <mkdir dir="${bin.dir}/test" />
+	</target>
+	<target name="clean-bin">
+		<delete dir="${bin.dir}"  />
+	</target>
+
+
+    <!--
+	<target name="jar" depends="compile">
+		<tstamp>
+			<format property="BUILD_VERSION" pattern="d-MMMM-yyyy_hh:mm" />
+		</tstamp>
+
+		<jar destfile="dist/ch.parametrix.ant.build.zip">
+			<zipfileset dir="${src.dir}" prefix="src" />
+			<zipfileset dir="${bin.dir}" prefix="bin" />
+			<zipfileset dir="${lib.dir}" prefix="lib" />
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${BUILD_VERSION}" />
+			</manifest>
+		</jar>
+	</target>
+    -->
+
+</project>
