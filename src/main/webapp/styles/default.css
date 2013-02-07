@@ -6,14 +6,21 @@
     background: #62587C;
 }
 
+.header_container ul {
+    list-style-type: none;
+    float: right;
+
+}
+
+a.nav_link {
+    color: orange;
+}
+
 .heading{
     color:orange;
     font-size: 50px;
 }
 
-a.afr { float: right;
-        color: orange;
-        display: inline; }
 
 body {
 	font-family: sans-serif;

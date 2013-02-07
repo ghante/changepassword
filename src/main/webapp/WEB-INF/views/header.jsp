@@ -14,10 +14,12 @@
 </head>
 <body>
         <div class="header_container">
-            <p><a href="<c:url value='/admin' />" class="afr">Admin Profile</a></p>
-            &nbsp;<p><a href="<c:url value='/' />" class="afr">Home</a></p>
-            &nbsp;<p><a href="<c:url value='/userProfile' />" class="afr">User Profile</a></p>
-
+            <ul>
+                <li><a href="<c:url value='/admin' />" class="nav_link">Admin Profile</a></li>
+                <li><a href="<c:url value='/' />" class="nav_link">Home</a></li>
+                <li><a href="<c:url value='/userProfile' />" class="nav_link">User Profile</a></li>
+                <li><a href="<c:url value='/account/create' />" class="nav_link">Create Account</a></li>
+            </ul>
             <security:authorize ifAnyGranted="ROLE_ADMIN">
                   Welcome <security:authentication property="principal.username"/>!
                   <p><a href="<c:url value="j_spring_security_logout" />" class="afr"> Logout</a>

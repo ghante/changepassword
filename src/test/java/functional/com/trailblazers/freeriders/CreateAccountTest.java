@@ -3,6 +3,7 @@ package functional.com.trailblazers.freeriders;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,8 +27,8 @@ public class CreateAccountTest {
 
     @Test
     public void testRouteToCreateAccountPage() {
-        driver.get("http://localhost:8080" + CreateAccountPage.PATH);
-        new CreateAccountPage(driver);
+        driver.get("http://localhost:8080" + HomePage.PATH);
+        new HomePage(driver).navigateToCreateAccountPage();
     }
 
     private class CreateAccountPage {
@@ -42,6 +43,20 @@ public class CreateAccountTest {
                     .pollingEvery(1, TimeUnit.SECONDS);
 
             wait.until(ExpectedConditions.titleIs("Create Account"));
+        }
+    }
+
+    private class HomePage {
+        public static final String PATH = "/";
+        private final WebDriver driver;
+
+        private HomePage(WebDriver driver) {
+            this.driver = driver;
+        }
+
+        public CreateAccountPage navigateToCreateAccountPage() {
+            driver.findElement(By.linkText("Create Account")).click();
+            return new CreateAccountPage(driver);
         }
     }
 }
