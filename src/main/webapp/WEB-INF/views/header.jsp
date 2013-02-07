@@ -1,16 +1,16 @@
-<%@page contentType="text/html;charset=UTF-8"%>
-<%@page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="<c:url value='/styles/default.css' />" type="text/css" />
-<script type="text/javascript" src="<c:url value='/scripts/lib/prototype.js' />"></script>
-
+   <meta charset="utf-8">
+   <title>${pageTitle}</title>
+   <link rel="stylesheet" href="<c:url value='/styles/default.css' />" type="text/css" />
+   <script type="text/javascript" src="<c:url value='/scripts/lib/prototype.js' />"></script>
 </head>
 <body>
         <div class="header_container">
@@ -32,5 +32,3 @@
             <h2>Custom order bikes today !</h2>
 
         </div>
-</body>
-</html>
