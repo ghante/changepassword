@@ -1,6 +1,6 @@
-package com.trailblazers.freeriders.web;
+package com.trailblazers.freewheelers.web;
 
-import com.trailblazers.freeriders.model.Item;
+import com.trailblazers.freewheelers.model.Item;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.trailblazers.freeriders.model;
+package com.trailblazers.freewheelers.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

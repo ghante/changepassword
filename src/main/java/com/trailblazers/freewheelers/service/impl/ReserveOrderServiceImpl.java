@@ -1,8 +1,8 @@
-package com.trailblazers.freeriders.service.impl;
+package com.trailblazers.freewheelers.service.impl;
 
-import com.trailblazers.freeriders.persistence.ReserveOrderDao;
-import com.trailblazers.freeriders.model.ReserveOrder;
-import com.trailblazers.freeriders.service.ReserveOrderService;
+import com.trailblazers.freewheelers.persistence.ReserveOrderDao;
+import com.trailblazers.freewheelers.model.ReserveOrder;
+import com.trailblazers.freewheelers.service.ReserveOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

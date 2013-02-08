@@ -1,6 +1,6 @@
-package com.trailblazers.freeriders.persistence;
+package com.trailblazers.freewheelers.persistence;
 
-import com.trailblazers.freeriders.model.AccountRole;
+import com.trailblazers.freewheelers.model.AccountRole;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

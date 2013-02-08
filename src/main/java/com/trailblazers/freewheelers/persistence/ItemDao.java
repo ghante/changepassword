@@ -1,6 +1,6 @@
-package com.trailblazers.freeriders.persistence;
+package com.trailblazers.freewheelers.persistence;
 
-import com.trailblazers.freeriders.model.Item;
+import com.trailblazers.freewheelers.model.Item;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

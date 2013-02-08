@@ -1,7 +1,7 @@
-package com.trailblazers.freeriders.web;
+package com.trailblazers.freewheelers.web;
 
-import com.trailblazers.freeriders.model.Account;
-import com.trailblazers.freeriders.model.Item;
+import com.trailblazers.freewheelers.model.Account;
+import com.trailblazers.freewheelers.model.Item;
 
 import java.util.Date;
 

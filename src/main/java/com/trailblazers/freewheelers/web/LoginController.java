@@ -1,4 +1,4 @@
-package com.trailblazers.freeriders.web;
+package com.trailblazers.freewheelers.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
