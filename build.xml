@@ -1,39 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="" default="test-unit">
 
-
-	<!-- <dirname file="${ant.file.ant.build}" property="base.dir" /> -->
-
     <property name="base.dir" value="." />
-    <property name="bin.dir" value="${base.dir}/bin" />
-	<property name="src.dir" value="${base.dir}/src" />
-	<property name="lib.dir" value="${base.dir}/lib" />
+    <property name="bin.dir"  value="${base.dir}/bin" />
+	<property name="src.dir"  value="${base.dir}/src" />
+	<property name="lib.dir"  value="${base.dir}/lib" />
 	<property name="dist.dir" value="${base.dir}/dist" />
-
-	<target name="compile-main" depends="create-bin">
-
-        <!--
-		<delete dir="${dist.dir}" />
-		<mkdir dir="${dist.dir}" />
-		    -->
-        <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
-			encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
-			failonerror="true" srcdir="${src.dir}/main" destdir="${bin.dir}/main">
-			<include name="**/**" />
-			<classpath>
-				<fileset dir="${lib.dir}/main" />
-			</classpath>
-		</javac>
-
-        <!--
-		<copy todir="${bin.dir}" overwrite="true">
-			<fileset dir="${src.dir}">
-				<include name="**/*.xml" />
-				<include name="**/*.properties" />
-			</fileset>
-		</copy>
-		-->
-	</target>
 
     <path id="classpath.tests">
         <fileset dir="${lib.dir}/test" />
@@ -41,6 +13,30 @@
         <pathelement location="${bin.dir}/main" />
     </path>
 
+    <fileset id="classpath.for.test" dir="./bin/test/unit">
+        <include name="**/*Test.class" />
+    </fileset>
+
+    <tstamp>
+        <format property="BUILD_TIME" pattern="d-MMMM-yyyy_hh:mm" />
+    </tstamp>
+
+    <target name="compile-main" depends="create-bin">
+        <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
+               encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
+               failonerror="true" srcdir="${src.dir}/main" destdir="${bin.dir}/main">
+            <include name="**/**" />
+            <classpath>
+                <fileset dir="${lib.dir}/main" />
+            </classpath>
+        </javac>
+        <copy todir="${bin.dir}/main" overwrite="true">
+            <fileset dir="${src.dir}/main/resources">
+                <include name="**/*.xml" />
+                <include name="**/*.properties" />
+            </fileset>
+        </copy>
+    </target>
 
     <target name="compile-test" depends="compile-main">
 
@@ -55,28 +51,9 @@
 
     </target>
 
-
-    <fileset id="classpath.for.test" dir="./bin/test/unit">
-        <include name="**/*Test.class" />
-        <!--<include name="**/Test*.class" />-->
-    </fileset>
-
-
     <target name="test-unit" depends="compile-test">
-
         <mkdir dir="./target/tests" />
-        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m"> <!-- dir="@{run-test.test.root.dir}"> -->
-
-            <!--
-            <jvmarg
-                    value="-Demma.coverage.out.file=${copyTestCoverageResult.dir.var}/coverage.emma" />
-            <jvmarg value="-Demma.coverage.out.merge=true" />
-
-            <sysproperty key="px.base.dir" value="${base.dir}" />
-            <sysproperty key="px.is.hudson" value="${is.hudson.var}" />
-            <sysproperty key="px.hudson.WORKSPACE" value="${my.WORKSPACE}" />
-            <sysproperty key="px.hudson.BUILDTAG" value="${my.BUILDTAG}" />
-            -->
+        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
             <classpath>
                 <path refid="classpath.tests" />
             </classpath>
@@ -98,27 +75,59 @@
 		<mkdir dir="${bin.dir}/main" />
         <mkdir dir="${bin.dir}/test" />
 	</target>
+
 	<target name="clean-bin">
 		<delete dir="${bin.dir}"  />
 	</target>
 
+    <target name="clean" depends="clean-bin">
+        <delete dir="${dist.dir}"  />
+    </target>
 
-    <!--
-	<target name="jar" depends="compile">
-		<tstamp>
-			<format property="BUILD_VERSION" pattern="d-MMMM-yyyy_hh:mm" />
-		</tstamp>
+    <target name="run" depends="compile-main" description="">
+        <java classname="com.trailblazers.freeriders.FreeWheelersServer"
+              fork="true"
+              failonerror="true"
+              maxmemory="128m">
+            <classpath refid="classpath.tests" />
+            <arg value="env=local"/>
+        </java>
+    </target>
 
-		<jar destfile="dist/ch.parametrix.ant.build.zip">
-			<zipfileset dir="${src.dir}" prefix="src" />
-			<zipfileset dir="${bin.dir}" prefix="bin" />
-			<zipfileset dir="${lib.dir}" prefix="lib" />
-			<manifest>
-				<attribute name="Built-By" value="${user.name}" />
-				<attribute name="Built-Date" value="${BUILD_VERSION}" />
-			</manifest>
-		</jar>
+	<target name="jar-main" depends="test-unit">
+        <jar jarfile="${dist.dir}/freewheelers.jar" basedir="${bin.dir}/main" update="true" >
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Built-Date" value="${BUILD_TIME}" />
+                <attribute name="main-class" value="com.trailblazers.freeriders.FreeWheelersServer"/>
+            </manifest>
+        </jar>
 	</target>
-    -->
+
+    <target name="jar-test" depends="compile-test">
+        <jar jarfile="${dist.dir}/freewheelers-test.jar" basedir="${bin.dir}/test" update="true" >
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Built-Date" value="${BUILD_TIME}" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="package-main" depends="jar-main" description="Create a package with the app.">
+        <zip destfile="${dist.dir}/freewheelers.zip">
+            <zipfileset dir="${src.dir}/main/webapp" prefix="webapp"/>
+            <zipfileset dir="${lib.dir}/main" prefix="lib"/>
+            <zipfileset dir="${dist.dir}" includes="freewheelers.jar" fullpath="freewheelers.jar"/>
+        </zip>
+    </target>
+
+    <target name="package-test" depends="jar-test" description="Create a package with the tests.">
+        <zip destfile="${dist.dir}/freewheelers-test.zip">
+            <zipfileset dir="${lib.dir}/test" prefix="lib-tests"/>
+            <zipfileset dir="${dist.dir}" includes="freewheelers-test.jar" fullpath="freewheelers-test.jar"/>
+        </zip>
+    </target>
+
+    <target name="package" depends="package-test, package-main" description="Create a packages for app and tests."/>
 
 </project>
