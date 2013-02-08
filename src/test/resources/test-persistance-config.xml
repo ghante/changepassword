@@ -10,7 +10,7 @@
 
 	<context:annotation-config />
 
-	<context:component-scan base-package="com.trailblazers.freeriders" />
+	<context:component-scan base-package="com.trailblazers.freewheelers" />
 
     <bean id="propertyPlaceholderConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

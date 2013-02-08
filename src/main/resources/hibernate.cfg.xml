@@ -5,10 +5,10 @@
 <hibernate-configuration>
 	<session-factory>
 
-		<mapping class="com.trailblazers.freeriders.model.Item" />
-		<mapping class="com.trailblazers.freeriders.model.Account" />
-		<mapping class="com.trailblazers.freeriders.model.AccountRole" />
-		<mapping class="com.trailblazers.freeriders.model.ReserveOrder" />
+		<mapping class="com.trailblazers.freewheelers.model.Item" />
+		<mapping class="com.trailblazers.freewheelers.model.Account" />
+		<mapping class="com.trailblazers.freewheelers.model.AccountRole" />
+		<mapping class="com.trailblazers.freewheelers.model.ReserveOrder" />
 
 	</session-factory>
 </hibernate-configuration>

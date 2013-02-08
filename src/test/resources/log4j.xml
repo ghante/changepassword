@@ -12,7 +12,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.trailblazers.freeriders">
+	<logger name="com.trailblazers.freewheelers">
 		<level value="debug" />
 	</logger>
 	
