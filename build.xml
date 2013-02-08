@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="" default="test-unit">
 
-    <property name="base.dir" value="." />
-    <property name="bin.dir"  value="${base.dir}/bin" />
-	<property name="src.dir"  value="${base.dir}/src" />
-	<property name="lib.dir"  value="${base.dir}/lib" />
-	<property name="dist.dir" value="${base.dir}/dist" />
+    <property name="base.dir" value="."/>
+    <property name="bin.dir" value="${base.dir}/bin"/>
+    <property name="src.dir" value="${base.dir}/src"/>
+    <property name="lib.dir" value="${base.dir}/lib"/>
+    <property name="dist.dir" value="${base.dir}/dist"/>
 
     <path id="classpath.tests">
-        <fileset dir="${lib.dir}/test" />
-        <fileset dir="${lib.dir}/main" />
-        <pathelement location="${bin.dir}/main" />
-        <pathelement location="${bin.dir}/test" />
+        <fileset dir="${lib.dir}/test"/>
+        <fileset dir="${lib.dir}/main"/>
+        <pathelement location="${bin.dir}/main"/>
+        <pathelement location="${bin.dir}/test"/>
     </path>
 
     <fileset id="classpath.for.unit.test" dir="./bin/test">
-        <include name="unit/**/*Test.class" />
+        <include name="unit/**/*Test.class"/>
     </fileset>
 
     <fileset id="classpath.for.integration.test" dir="./bin/test">
-        <include name="integration/**/*Test.class" />
+        <include name="integration/**/*Test.class"/>
     </fileset>
 
     <fileset id="classpath.for.functional.test" dir="./bin/test">
-        <include name="functional/**/*Test.class" />
+        <include name="functional/**/*Test.class"/>
     </fileset>
 
     <tstamp>
-        <format property="BUILD_TIME" pattern="d-MMMM-yyyy_hh:mm" />
+        <format property="BUILD_TIME" pattern="d-MMMM-yyyy_hh:mm"/>
     </tstamp>
 
     <target name="compile-main" depends="create-bin">
         <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
                encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
                failonerror="true" srcdir="${src.dir}/main" destdir="${bin.dir}/main">
-            <include name="**/**" />
+            <include name="**/**"/>
             <classpath>
-                <fileset dir="${lib.dir}/main" />
+                <fileset dir="${lib.dir}/main"/>
             </classpath>
         </javac>
         <copy todir="${bin.dir}/main" overwrite="true">
             <fileset dir="${src.dir}/main/resources">
-                <include name="**/*.xml" />
-                <include name="**/*.properties" />
+                <include name="**/*.xml"/>
+                <include name="**/*.properties"/>
             </fileset>
         </copy>
     </target>
@@ -51,87 +51,105 @@
         <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
                encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
                failonerror="true" srcdir="${src.dir}/test/java" destdir="${bin.dir}/test">
-            <include name="**/**" />
+            <include name="**/**"/>
             <classpath>
-                <path refid="classpath.tests" />
+                <path refid="classpath.tests"/>
             </classpath>
         </javac>
         <copy todir="${bin.dir}/test" overwrite="true">
             <fileset dir="${src.dir}/test/resources">
-                <include name="**/*.xml" />
+                <include name="**/*.xml"/>
             </fileset>
         </copy>
     </target>
 
     <target name="test-unit" depends="compile-test">
-        <mkdir dir="./target/tests" />
+        <mkdir dir="${dist.dir}/tests"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
             <classpath>
-                <path refid="classpath.tests" />
+                <path refid="classpath.tests"/>
             </classpath>
-            <formatter type="xml" />
-            <batchtest todir="./target/tests">
-                <fileset refid="classpath.for.unit.test" />
+            <formatter type="xml"/>
+            <batchtest todir="${dist.dir}/tests">
+                <fileset refid="classpath.for.unit.test"/>
             </batchtest>
         </junit>
     </target>
 
     <target name="test-integration" depends="compile-test">
-        <mkdir dir="./target/tests" />
+        <mkdir dir="${dist.dir}/tests"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
             <classpath>
-                <path refid="classpath.tests" />
+                <path refid="classpath.tests"/>
             </classpath>
-            <formatter type="xml" />
-            <batchtest todir="./target/tests">
-                <fileset refid="classpath.for.integration.test" />
+            <formatter type="xml"/>
+            <batchtest todir="${dist.dir}/tests">
+                <fileset refid="classpath.for.integration.test"/>
             </batchtest>
         </junit>
     </target>
 
-    <target name="test-functional">
-
+    <target name="test-functional" depends="compile-test">
+        <mkdir dir="${dist.dir}/tests"/>
+        <exec executable="start-server.sh"/>
+        <sleep seconds="10"/>
+        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
+            <classpath>
+                <path refid="classpath.tests"/>
+            </classpath>
+            <formatter type="xml"/>
+            <batchtest todir="${dist.dir}/tests">
+                <fileset refid="classpath.for.functional.test"/>
+            </batchtest>
+        </junit>
+        <exec executable="stop-server.sh"/>
     </target>
 
-	<target name="create-bin" depends="clean-bin">
-		<mkdir dir="${bin.dir}/main" />
-        <mkdir dir="${bin.dir}/test" />
-	</target>
+    <target name="create-bin" depends="clean-bin">
+        <mkdir dir="${bin.dir}/main"/>
+        <mkdir dir="${bin.dir}/test"/>
+    </target>
 
-	<target name="clean-bin">
-		<delete dir="${bin.dir}"  />
-	</target>
+    <target name="clean-bin">
+        <delete dir="${bin.dir}"/>
+    </target>
 
     <target name="clean" depends="clean-bin">
-        <delete dir="${dist.dir}"  />
-        <delete dir="target"  />
+        <delete dir="${dist.dir}"/>
     </target>
 
     <target name="run" depends="compile-main" description="">
+        <!--failonerror="true"-->
         <java classname="com.trailblazers.freeriders.FreeWheelersServer"
               fork="true"
-              failonerror="true"
               maxmemory="128m">
-            <classpath refid="classpath.tests" />
+            <classpath refid="classpath.tests"/>
             <arg value="env=local"/>
         </java>
     </target>
 
-	<target name="jar-main" depends="test-unit">
-        <jar jarfile="${dist.dir}/freewheelers.jar" basedir="${bin.dir}/main" update="true" >
+    <target name="stop">
+        <java classname="com.trailblazers.freeriders.FreeWheelersServer">
+            <classpath refid="classpath.tests"/>
+            <arg value="--stop"/>
+        </java>
+    </target>
+
+    <target name="jar-main" depends="test-unit">
+        <jar jarfile="${dist.dir}/freewheelers.jar" basedir="${bin.dir}/main" update="true">
             <manifest>
-                <attribute name="Built-By" value="${user.name}" />
-                <attribute name="Built-Date" value="${BUILD_TIME}" />
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="Built-Date" value="${BUILD_TIME}"/>
                 <attribute name="main-class" value="com.trailblazers.freeriders.FreeWheelersServer"/>
             </manifest>
         </jar>
-	</target>
+    </target>
 
     <target name="jar-test" depends="compile-test">
-        <jar jarfile="${dist.dir}/freewheelers-test.jar" basedir="${bin.dir}/test" update="true" >
+        <jar jarfile="${dist.dir}/freewheelers-test.jar" basedir="${bin.dir}/test" update="true">
             <manifest>
-                <attribute name="Built-By" value="${user.name}" />
-                <attribute name="Built-Date" value="${BUILD_TIME}" />
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="Built-Date" value="${BUILD_TIME}"/>
             </manifest>
         </jar>
     </target>
