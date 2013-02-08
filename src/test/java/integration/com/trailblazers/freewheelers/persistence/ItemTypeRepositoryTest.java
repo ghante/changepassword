@@ -1,12 +1,12 @@
 package integration.com.trailblazers.freewheelers.persistence;
 
-import junit.framework.Assert;
 import org.junit.Test;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import static junit.framework.TestCase.fail;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -37,7 +37,7 @@ public class ItemTypeRepositoryTest {
             connection.close();
 
         } catch (SQLException e) {
-            Assert.fail(e.toString());
+            fail(e.toString());
         }
     }
 }
