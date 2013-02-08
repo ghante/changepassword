@@ -64,13 +64,12 @@
     </target>
 
     <target name="test-unit" depends="compile-test" description="run all unit tests">
-        <mkdir dir="${dist.dir}/tests"/>
-        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
+        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
-            <formatter type="xml"/>
-            <batchtest todir="${dist.dir}/tests">
+            <formatter type="plain" usefile="false"/>
+            <batchtest>
                 <fileset refid="classpath.for.unit.test"/>
             </batchtest>
         </junit>
@@ -81,28 +80,26 @@
     </target>
 
     <target name="test-integration" depends="compile-test, init-db" description="run all integration tests">
-        <mkdir dir="${dist.dir}/tests"/>
-        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
+        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
-            <formatter type="xml"/>
-            <batchtest todir="${dist.dir}/tests">
+            <formatter type="plain" usefile="false"/>
+            <batchtest>
                 <fileset refid="classpath.for.integration.test"/>
             </batchtest>
         </junit>
     </target>
 
     <target name="test-functional" depends="compile-test" description="run all functional test">
-        <mkdir dir="${dist.dir}/tests"/>
         <exec executable="./start-server.sh"/>
         <sleep seconds="10"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
-            <formatter type="xml"/>
-            <batchtest todir="${dist.dir}/tests">
+            <formatter type="plain" usefile="false"/>
+            <batchtest>
                 <fileset refid="classpath.for.functional.test"/>
             </batchtest>
         </junit>
