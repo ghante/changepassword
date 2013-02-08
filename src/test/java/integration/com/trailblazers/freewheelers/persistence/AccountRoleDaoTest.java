@@ -12,7 +12,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @Transactional
-public class AccountRoleDaoTest  extends DaoTest {
+public class AccountRoleDaoTest extends DaoTestBase {
 
     @Autowired
     AccountRoleDao accountRoleDao;

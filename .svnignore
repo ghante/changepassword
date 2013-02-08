@@ -6,7 +6,7 @@ target
 .settings
 .gradle
 bin
-out
+out/*
 build/*
 target-eclipse/*
 classes/*

@@ -13,7 +13,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @Transactional
-public class ReserveOrderDaoTest extends DaoTest {
+public class ReserveOrderDaoTest extends DaoTestBase {
 
     @Autowired
     ReserveOrderDao orderDao;

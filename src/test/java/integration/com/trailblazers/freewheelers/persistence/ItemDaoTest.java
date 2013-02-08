@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 @Transactional
-public class ItemDaoTest extends DaoTest {
+public class ItemDaoTest extends DaoTestBase {
 	
 	@Autowired
     ItemDao itemDao;
