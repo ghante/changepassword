@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="" default="test-unit">
 
     <property name="base.dir" value="."/>
@@ -95,7 +96,7 @@
 
     <target name="test-functional" depends="compile-test" description="run all functional test">
         <mkdir dir="${dist.dir}/tests"/>
-        <exec executable="start-server.sh"/>
+        <exec executable="./start-server.sh"/>
         <sleep seconds="10"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
             <classpath>
@@ -106,7 +107,7 @@
                 <fileset refid="classpath.for.functional.test"/>
             </batchtest>
         </junit>
-        <exec executable="stop-server.sh"/>
+        <exec executable="./stop-server.sh"/>
     </target>
 
     <target name="create-bin" depends="clean-bin">
@@ -123,11 +124,11 @@
     </target>
 
     <target name="start" depends="compile-main" description="start jetty server">
-        <exec executable="start-server.sh"/>
+        <exec executable="./start-server.sh"/>
     </target>
 
     <target name="stop" description="stop jetty server">
-        <exec executable="stop-server.sh"/>
+        <exec executable="./stop-server.sh"/>
     </target>
 
     <target name="jar-main" depends="test-unit">
