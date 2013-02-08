@@ -92,7 +92,7 @@
     </target>
 
     <target name="test-functional" depends="compile-test" description="run all functional test">
-        <exec executable="./start-server.sh"/>
+        <exec executable="./scripts/start-server.sh"/>
         <sleep seconds="10"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
             <classpath>
@@ -103,7 +103,7 @@
                 <fileset refid="classpath.for.functional.test"/>
             </batchtest>
         </junit>
-        <exec executable="./stop-server.sh"/>
+        <exec executable="./scripts/stop-server.sh"/>
     </target>
 
     <target name="create-bin" depends="clean-bin">
@@ -120,11 +120,11 @@
     </target>
 
     <target name="start" depends="compile-main" description="start jetty server">
-        <exec executable="./start-server.sh"/>
+        <exec executable="./scripts/start-server.sh"/>
     </target>
 
     <target name="stop" description="stop jetty server">
-        <exec executable="./stop-server.sh"/>
+        <exec executable="./scripts/stop-server.sh"/>
     </target>
 
     <target name="jar-main" depends="test-unit">
@@ -150,7 +150,8 @@
         <zip destfile="${dist.dir}/freewheelers.zip">
             <zipfileset dir="${src.dir}/main/webapp" prefix="webapp"/>
             <zipfileset dir="${lib.dir}/main" prefix="lib"/>
-            <zipfileset dir="${dist.dir}" includes="freewheelers.jar" fullpath="freewheelers.jar"/>
+            <zipfileset dir="${dist.dir}" includes="freewheelers.jar" fullpath="lib/freewheelers.jar"/>
+            <zipfileset dir="scripts" includes="*.sh"/>
         </zip>
     </target>
 
