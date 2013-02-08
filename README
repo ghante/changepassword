@@ -34,6 +34,3 @@ Say HelloooTrailBlazers !
 Intellij:
 'gradle idea' sets up project files.
 
-SVN:
-http://sethholloway.com/blog/2011/03/10/svnignore-example-for-java/
-`svn propset svn:ignore -F .svnignore .` [.svnignore file states the files/folders to be ignored ]
