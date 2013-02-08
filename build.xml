@@ -76,7 +76,11 @@
         </junit>
     </target>
 
-    <target name="test-integration" depends="compile-test" description="run all integration tests">
+    <target name="init-db">
+        <exec executable="db/create.sh" />
+    </target>
+
+    <target name="test-integration" depends="compile-test, init-db" description="run all integration tests">
         <mkdir dir="${dist.dir}/tests"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
             <classpath>
