@@ -13,7 +13,15 @@
         <pathelement location="${bin.dir}/main" />
     </path>
 
-    <fileset id="classpath.for.test" dir="./bin/test/unit">
+    <fileset id="classpath.for.unit.test" dir="./bin/test/unit">
+        <include name="**/*Test.class" />
+    </fileset>
+
+    <fileset id="classpath.for.integration.test" dir="./bin/test/integration">
+        <include name="**/*Test.class" />
+    </fileset>
+
+    <fileset id="classpath.for.functional.test" dir="./bin/test/functional">
         <include name="**/*Test.class" />
     </fileset>
 
@@ -59,14 +67,24 @@
             </classpath>
             <!--<formatter type="xml" />-->
             <batchtest todir="./target/tests">
-                <fileset refid="classpath.for.test" />
+                <fileset refid="classpath.for.unit.test" />
             </batchtest>
         </junit>
     </target>
 
-    <target name="test-integration">
-
+    <target name="test-integration" depends="compile-test">
+        <mkdir dir="./target/tests" />
+        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
+            <classpath>
+                <path refid="classpath.tests" />
+            </classpath>
+            <formatter type="xml" />
+            <batchtest todir="./target/tests">
+                <fileset refid="classpath.for.integration.test" />
+            </batchtest>
+        </junit>
     </target>
+
     <target name="test-functional">
 
     </target>

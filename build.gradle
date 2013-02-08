@@ -47,6 +47,9 @@ dependencies {
 	/* Logging */
 	compile 'log4j:log4j:1.2.17'
 
+    /* Jetty Server */
+    compile 'org.eclipse.jetty:jetty-webapp:8.0.4.v20111024'
+
 	/* Servlet */
 	providedCompile 'javax.servlet:servlet-api:2.5'
 	providedCompile 'javax.servlet.jsp:jsp-api:2.1'
