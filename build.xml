@@ -30,7 +30,7 @@
         <format property="BUILD_TIME" pattern="d-MMMM-yyyy_hh:mm"/>
     </tstamp>
 
-    <target name="compile-main" depends="create-bin">
+    <target name="compile-main" depends="create-bin" description="compile main classes">
         <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
                encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
                failonerror="true" srcdir="${src.dir}/main" destdir="${bin.dir}/main">
@@ -47,7 +47,7 @@
         </copy>
     </target>
 
-    <target name="compile-test" depends="compile-main">
+    <target name="compile-test" depends="compile-main" description="compile test classes">
         <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
                encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
                failonerror="true" srcdir="${src.dir}/test/java" destdir="${bin.dir}/test">
@@ -63,7 +63,7 @@
         </copy>
     </target>
 
-    <target name="test-unit" depends="compile-test">
+    <target name="test-unit" depends="compile-test" description="run all unit tests">
         <mkdir dir="${dist.dir}/tests"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
             <classpath>
@@ -76,7 +76,7 @@
         </junit>
     </target>
 
-    <target name="test-integration" depends="compile-test">
+    <target name="test-integration" depends="compile-test" description="run all integration tests">
         <mkdir dir="${dist.dir}/tests"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
             <classpath>
@@ -89,7 +89,7 @@
         </junit>
     </target>
 
-    <target name="test-functional" depends="compile-test">
+    <target name="test-functional" depends="compile-test" description="run all functional test">
         <mkdir dir="${dist.dir}/tests"/>
         <exec executable="start-server.sh"/>
         <sleep seconds="10"/>
@@ -114,25 +114,16 @@
         <delete dir="${bin.dir}"/>
     </target>
 
-    <target name="clean" depends="clean-bin">
+    <target name="clean" depends="clean-bin" description="clean up project directory">
         <delete dir="${dist.dir}"/>
     </target>
 
-    <target name="run" depends="compile-main" description="">
-        <!--failonerror="true"-->
-        <java classname="com.trailblazers.freeriders.FreeWheelersServer"
-              fork="true"
-              maxmemory="128m">
-            <classpath refid="classpath.tests"/>
-            <arg value="env=local"/>
-        </java>
+    <target name="start" depends="compile-main" description="start jetty server">
+        <exec executable="start-server.sh"/>
     </target>
 
-    <target name="stop">
-        <java classname="com.trailblazers.freeriders.FreeWheelersServer">
-            <classpath refid="classpath.tests"/>
-            <arg value="--stop"/>
-        </java>
+    <target name="stop" description="stop jetty server">
+        <exec executable="stop-server.sh"/>
     </target>
 
     <target name="jar-main" depends="test-unit">
@@ -154,7 +145,7 @@
         </jar>
     </target>
 
-    <target name="package-main" depends="jar-main" description="Create a package with the app.">
+    <target name="package-main" depends="jar-main">
         <zip destfile="${dist.dir}/freewheelers.zip">
             <zipfileset dir="${src.dir}/main/webapp" prefix="webapp"/>
             <zipfileset dir="${lib.dir}/main" prefix="lib"/>
@@ -162,7 +153,7 @@
         </zip>
     </target>
 
-    <target name="package-test" depends="jar-test" description="Create a package with the tests.">
+    <target name="package-test" depends="jar-test">
         <zip destfile="${dist.dir}/freewheelers-test.zip">
             <zipfileset dir="${lib.dir}/test" prefix="lib-tests"/>
             <zipfileset dir="${dist.dir}" includes="freewheelers-test.jar" fullpath="freewheelers-test.jar"/>
@@ -170,5 +161,9 @@
     </target>
 
     <target name="package" depends="package-test, package-main" description="Create a packages for app and tests."/>
+
+    <target name="test" depends="test-unit, test-integration, test-functional" description="run all tests" />
+
+    <target name="compile" depends="compile-main, compile-test" description="compile all sources" />
 
 </project>
