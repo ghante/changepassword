@@ -135,7 +135,7 @@
             <manifest>
                 <attribute name="Built-By" value="${user.name}"/>
                 <attribute name="Built-Date" value="${BUILD_TIME}"/>
-                <attribute name="main-class" value="com.trailblazers.freeriders.FreeWheelersServer"/>
+                <attribute name="main-class" value="com.trailblazers.freewheelers.FreeWheelersServer"/>
             </manifest>
         </jar>
     </target>

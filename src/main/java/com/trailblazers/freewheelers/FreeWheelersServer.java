@@ -1,4 +1,4 @@
-package com.trailblazers.freeriders;
+package com.trailblazers.freewheelers;
 
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
