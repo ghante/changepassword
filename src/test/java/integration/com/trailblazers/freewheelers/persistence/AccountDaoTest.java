@@ -50,6 +50,9 @@ public class AccountDaoTest extends DaoTestBase {
         Account account = new Account();
         account.setAccount_name("octocat");
         account.setPassword("meow");
+        account.setEmailAddress("slime@slime.com");
+        account.setPhoneNumber("");
+        account.setAddress("");
         account.setEnabled(true);
         return account;
     }
