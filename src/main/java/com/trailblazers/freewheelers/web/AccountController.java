@@ -37,8 +37,8 @@ public class AccountController {
             properties.setProperty("password", "postgres");
             Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/trailblazers", properties);
 
-            String sql = "insert into account (email_address, account_name, password, enabled) ";
-            sql +=       "values ('" + email + "', '" + name + "', '" + password + "', true)";
+            String sql = "insert into account (email_address, account_name, password, phone_number, address, enabled) ";
+            sql +=       "values ('" + email + "', '" + name + "', '" + password + "', '" + phoneNumber + "', '" + address + "', true)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.execute();

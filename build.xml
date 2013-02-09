@@ -91,7 +91,7 @@
         </junit>
     </target>
 
-    <target name="test-functional" depends="compile-test" description="run all functional test">
+    <target name="test-functional" depends="compile-test, init-db" description="run all functional test">
         <exec executable="./scripts/start-server.sh"/>
         <sleep seconds="10"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
