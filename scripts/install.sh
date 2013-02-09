@@ -10,7 +10,17 @@ if [ $# -ne 2 ]; then
   exit -1
 fi;
 
-#scp nodes/${NODE_JSON} ${USER}@${NODE}:/tmp/${NODE_JSON}
+if [ ! -e "dist/freewheelers.zip" ]; then
+  echo "cannot find dist/freewheelers.zip to deploy"
+  exit -1
+fi;
 
-ssh ${USER}@${HOST} "echo 'blabla'"
+scp dist/freewheelers.zip ${USER}@${HOST}:/tmp
+
+ssh ${USER}@${HOST} /bin/bash << EOF
+TIMESTAMP=\$(date +"%Y-%m-%d-%HH%MM%Ss")
+mkdir -p /tmp/\$TIMESTAMP
+mv /tmp/freewheelers.zip /tmp/\$TIMESTAMP
+cd /tmp/\$TIMESTAMP && unzip freewheelers.zip
+EOF
 
