@@ -127,6 +127,8 @@
         <exec executable="./scripts/stop-server.sh"/>
     </target>
 
+    <target name="restart" depends="stop,start" description="restarts jetty server"/>
+
     <target name="jar-main" depends="test-unit">
         <jar jarfile="${dist.dir}/freewheelers.jar" basedir="${bin.dir}/main" update="true">
             <manifest>
