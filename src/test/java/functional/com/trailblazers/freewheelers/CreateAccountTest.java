@@ -1,5 +1,6 @@
 package functional.com.trailblazers.freewheelers;
 
+import functional.com.trailblazers.freewheelers.Screens.LoginScreen;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -11,6 +12,9 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.StringContains.containsString;
 
 public class CreateAccountTest {
     static WebDriver driver;
@@ -28,7 +32,15 @@ public class CreateAccountTest {
     @Test
     public void testRouteToCreateAccountPage() {
         driver.get("http://localhost:8080" + HomePage.PATH);
-        new HomePage(driver).navigateToCreateAccountPage();
+        CreateAccountPage createAccountPage = new HomePage(driver).navigateToCreateAccountPage();
+        CreateAccountResultsPage resultsPage = createAccountPage.fillInForm();
+
+        assertThat(resultsPage.getMessage(), containsString("TestUser"));
+
+        driver.get("http://localhost:8080/login");
+        LoginScreen.loginAs("TestUser", "password", driver);
+        driver.get("http://localhost:8080/");
+        assertThat(driver.findElement(By.id("username")).getText(), containsString("TestUser"));
     }
 
     private class CreateAccountPage {
@@ -44,6 +56,16 @@ public class CreateAccountTest {
 
             wait.until(ExpectedConditions.titleIs("Create Account"));
         }
+
+        public CreateAccountResultsPage fillInForm() {
+            driver.findElement(By.id("fld_email")).sendKeys("foo@blam.com");
+            driver.findElement(By.id("fld_password")).sendKeys("password");
+            driver.findElement(By.id("fld_name")).sendKeys("TestUser");
+            driver.findElement(By.id("fld_phoneNumber")).sendKeys("12345678909");
+            driver.findElement(By.id("fld_address")).sendKeys("2112 Jump St. Vancouver, Canada");
+            driver.findElement(By.id("fld_submit")).click();
+            return new CreateAccountResultsPage(driver);
+        }
     }
 
     private class HomePage {
@@ -57,6 +79,15 @@ public class CreateAccountTest {
         public CreateAccountPage navigateToCreateAccountPage() {
             driver.findElement(By.linkText("Create Account")).click();
             return new CreateAccountPage(driver);
+        }
+    }
+
+    private class CreateAccountResultsPage {
+        public CreateAccountResultsPage(WebDriver driver) {
+        }
+
+        public String getMessage() {
+            return driver.findElement(By.id("resultsMessage")).getText();
         }
     }
 }

@@ -26,7 +26,7 @@
             </security:authorize>
 
             <security:authorize ifAnyGranted="ROLE_USER">
-                   Welcome <security:authentication property="principal.username"/>!
+                   Welcome <span id="username"><security:authentication property="principal.username"/></span>!
                 <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"> Logout</a></li>
             </security:authorize>
             </ul>
