@@ -1,5 +1,7 @@
 package com.trailblazers.freewheelers.web;
 
+import com.trailblazers.freewheelers.persistence.DataAccess;
+import com.trailblazers.freewheelers.persistence.DatabaseConnectionProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -28,28 +30,10 @@ public class AccountController {
         String phoneNumber = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
 
-
         model.put("name", name);
 
         try {
-            Properties properties = new Properties();
-            properties.setProperty("user", "postgres");
-            properties.setProperty("password", "postgres");
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/trailblazers", properties);
-
-            String sql = "insert into account (email_address, account_name, password, phone_number, address, enabled) ";
-            sql +=       "values ('" + email + "', '" + name + "', '" + password + "', '" + phoneNumber + "', '" + address + "', true)";
-
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.execute();
-
-            sql  = "insert into account_role (account_name, role) values ('" + name + "', 'ROLE_USER')";
-
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.execute();
-
-            connection.close();
-
+            new DataAccess(new DatabaseConnectionProvider()).createAccount(email, password, name, phoneNumber, address);
         } catch (SQLException e) {
             model.put("name", e.toString());
         }
@@ -58,4 +42,3 @@ public class AccountController {
     }
 
 }
-
