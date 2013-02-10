@@ -150,10 +150,11 @@
 
     <target name="package-main" depends="jar-main">
         <zip destfile="${dist.dir}/freewheelers.zip">
-            <zipfileset dir="${src.dir}/main/webapp" prefix="webapp"/>
-            <zipfileset dir="${lib.dir}/main" prefix="lib"/>
-            <zipfileset dir="${dist.dir}" includes="freewheelers.jar" fullpath="lib/freewheelers.jar"/>
+            <zipfileset dir="${src.dir}/main/webapp" prefix="src/main/webapp"/>
+            <zipfileset dir="${lib.dir}/main" prefix="lib/main"/>
+            <zipfileset dir="${dist.dir}" includes="freewheelers.jar" fullpath="lib/main/freewheelers.jar"/>
             <zipfileset dir="scripts" includes="*.sh"/>
+            <zipfileset dir="db" prefix="db" />
         </zip>
     </target>
 
