@@ -2,6 +2,7 @@ package com.trailblazers.freewheelers.persistence;
 
 import com.trailblazers.freewheelers.persistence.DatabaseConnectionProvider;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -15,7 +16,7 @@ public class DataAccess {
         this.connectionProvider = connectionProvider;
     }
 
-    public ArrayList getItemTypes() throws SQLException {
+    public ArrayList getItemTypes() throws SQLException, IOException {
         Connection connection = connectionProvider.getConnection();
 
         PreparedStatement preparedStatement = connection.prepareStatement(ITEM_TYPES_QUERY);
@@ -29,7 +30,7 @@ public class DataAccess {
         return names;
     }
 
-    public void createAccount(String email, String password, String name, String phoneNumber, String address) throws SQLException {
+    public void createAccount(String email, String password, String name, String phoneNumber, String address) throws SQLException, IOException {
         Connection connection = connectionProvider.getConnection();
 
         String sql = "insert into account (email_address, account_name, password, phone_number, address, enabled) ";

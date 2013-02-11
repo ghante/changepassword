@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 
@@ -23,7 +24,7 @@ public class AccountController {
     }
 
     @RequestMapping(value = {"/create"}, method = RequestMethod.POST)
-    public ModelAndView processCreate(HttpServletRequest request, ModelMap model) {
+    public ModelAndView processCreate(HttpServletRequest request, ModelMap model) throws IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String name = request.getParameter("name");

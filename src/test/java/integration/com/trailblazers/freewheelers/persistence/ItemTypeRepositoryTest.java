@@ -4,6 +4,7 @@ import com.trailblazers.freewheelers.persistence.DataAccess;
 import com.trailblazers.freewheelers.persistence.DatabaseConnectionProvider;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ import static org.junit.Assert.assertThat;
 public class ItemTypeRepositoryTest {
 
     @Test
-    public void shouldGetAllItemTypes() {
+    public void shouldGetAllItemTypes() throws IOException {
 
         try {
             ArrayList names = new DataAccess(new DatabaseConnectionProvider()).getItemTypes();
