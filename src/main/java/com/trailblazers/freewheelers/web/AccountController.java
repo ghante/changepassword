@@ -19,8 +19,8 @@ import java.util.Properties;
 public class AccountController {
 
     @RequestMapping(value = {"/create"}, method = RequestMethod.GET)
-    public String createAccountForm(Model model) {
-         return "account/create";
+    public ModelAndView createAccountForm(Model model) {
+         return new ModelAndView("account/create", "validationMessage", model);
     }
 
     @RequestMapping(value = {"/create"}, method = RequestMethod.POST)
@@ -31,7 +31,9 @@ public class AccountController {
         String phoneNumber = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
 
-        model.put("name", name);
+        if (notValidInput(email, password, name, phoneNumber, address, model)) {
+            return new ModelAndView("account/create", "validationMessage", model);
+        }
 
         try {
             new DataAccess(new DatabaseConnectionProvider()).createAccount(email, password, name, phoneNumber, address);
@@ -39,7 +41,41 @@ public class AccountController {
             model.put("name", e.toString());
         }
 
+        model.put("name", name);
         return new ModelAndView("account/createResult", "postedValues", model);
+    }
+
+    private boolean notValidInput(String email, String password, String name, String phoneNumber, String address, ModelMap model) {
+        boolean result = false;
+        String message = "";
+
+        if (!email.contains("@")) {
+            result = true;
+            message += "Must enter a valid email<br />";
+        }
+
+        if (password.isEmpty()) {
+            result = true;
+            message += "Must enter a password<br />";
+        }
+
+        if (name.isEmpty()) {
+            result = true;
+            message += "Must enter a name<br />";
+        }
+
+        if (phoneNumber.isEmpty()) {
+            result = true;
+            message += "Must enter a phone number<br />";
+        }
+
+        if (address.isEmpty()) {
+            result = true;
+            message += "Must enter an address<br />";
+        }
+
+        model.put("errors", message);
+        return result;
     }
 
 }

@@ -6,6 +6,8 @@
 
     <h2>Create a new account</h2>
 
+    ${validationMessage.errors}
+
 	<form class="pretty_form" action="/account/create" method="post">
         <label>
 	        <span>Email Address</span>
