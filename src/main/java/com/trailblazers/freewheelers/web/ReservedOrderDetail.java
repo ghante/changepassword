@@ -2,19 +2,22 @@ package com.trailblazers.freewheelers.web;
 
 import com.trailblazers.freewheelers.model.Account;
 import com.trailblazers.freewheelers.model.Item;
+import com.trailblazers.freewheelers.model.OrderStatus;
 
 import java.util.Date;
 
 public class ReservedOrderDetail  {
 
-    Item item;
-    Account account;
-    Date reserve_time;
+    private Item item;
+    private Account account;
+    private Date reserve_time;
+    private OrderStatus status;
 
-    public ReservedOrderDetail(Account account, Item item, Date reserve_time){
+    public ReservedOrderDetail(Account account, Item item, Date reserve_time, OrderStatus status){
         this.item = item;
         this.account = account;
         this.reserve_time = reserve_time;
+        this.status = status;
     }
 
     public ReservedOrderDetail() {
@@ -44,4 +47,7 @@ public class ReservedOrderDetail  {
         this.reserve_time = reserve_time;
     }
 
+    public OrderStatus getStatus() {
+        return status;
+    }
 }

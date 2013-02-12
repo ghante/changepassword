@@ -1,5 +1,6 @@
 package integration.com.trailblazers.freewheelers.persistence;
 
+import com.trailblazers.freewheelers.model.OrderStatus;
 import com.trailblazers.freewheelers.model.ReserveOrder;
 import com.trailblazers.freewheelers.persistence.ReserveOrderDao;
 import org.junit.Test;
@@ -30,7 +31,7 @@ public class ReserveOrderDaoTest extends DaoTestBase {
         assertThat(orders.get(0).getAccount_id(), is(USER_ID));
         assertThat(orders.get(0).getReservation_timestamp(), is(reservationTime));
         assertThat(orders.get(0).getItem_id(), is(ITEM_ID));
-
+        assertThat(orders.get(0).getStatus(), is(OrderStatus.NEW));
     }
 
     private Date reserveOrder(Long account_id, Long order_id) {

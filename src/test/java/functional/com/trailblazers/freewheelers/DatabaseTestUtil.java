@@ -17,8 +17,8 @@ public final class DatabaseTestUtil {
         executeUpdate("INSERT INTO item(item_id, name, price, description, type, quantity) values ( " + item_id + ", '" + name + "','" + price + "','" + description + "','" + type + "', 1);");
     }
 
-    public static void reserveOrder(Integer order_id, Integer item_id, Integer account_id, Date timestamp) throws SQLException {
-        executeUpdate("INSERT INTO reserve_order(order_id, item_id, account_id, reservation_timestamp) values ( " + order_id + "," + item_id + ", '" + account_id + "','" + timestamp.toString() + "');");
+    public static void reserveOrder(Integer order_id, Integer item_id, Integer account_id, String staus, Date timestamp) throws SQLException {
+        executeUpdate("INSERT INTO reserve_order(order_id, item_id, account_id, status, reservation_timestamp) values ( " + order_id + "," + item_id + ", '" + account_id + "','" + staus + "','" + timestamp.toString() + "');");
     }
 
     public static void insertIntoAccount(int id, String name, String email, String password, String phone, String address, String isEnabled, String role) throws SQLException {

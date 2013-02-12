@@ -23,6 +23,9 @@ public class ReserveOrder {
     @Temporal(TemporalType.TIMESTAMP)
     private Date reservation_timestamp;
 
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status = OrderStatus.NEW;
+
     public ReserveOrder(){}
 
     public ReserveOrder(Long account_id, Long item_id, Date rightNow) {
@@ -68,4 +71,11 @@ public class ReserveOrder {
         this.account_id = account_id;
     }
 
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
 }

@@ -15,6 +15,7 @@
                     <th>User</th>
                     <th>Order</th>
                     <th>Order Time</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                     <td><a href="/userProfile/${order.account.account_name}"><c:out value="${order.account.account_name}"/></a></td>
                     <td><c:out value="${order.item.name}"/></td>
                     <td><c:out value="${order.reserve_time}"/></td>
+                    <td><c:out value="${order.status}"/></td>
                 </tr>
              </c:forEach>
             </tbody>

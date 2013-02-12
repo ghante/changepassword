@@ -48,7 +48,7 @@ public class AdminController {
             Account account = accountService.get(reserveOrder.getAccount_id());
             Item item = itemService.get(reserveOrder.getItem_id());
 
-            reservedOrderDetails.add(new ReservedOrderDetail(account, item, reserveOrder.getReservation_timestamp()));
+            reservedOrderDetails.add(new ReservedOrderDetail(account, item, reserveOrder.getReservation_timestamp(), reserveOrder.getStatus()));
 
         }
         return reservedOrderDetails;
