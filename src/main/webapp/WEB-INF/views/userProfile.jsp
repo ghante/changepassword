@@ -6,6 +6,11 @@
 	</head>
 	<body>
 		<h1>You are in User page</h1>
+		<h2>These are your details</h2>
+        <p id="userDetails">
+            ${userDetail.account_name} - ${userDetail.emailAddress}<br />
+            ${userDetail.address}
+        </p>
 		<h2>These are your reserved orders</h2>
 		<table id="prettyTable">
             <thead>

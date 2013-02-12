@@ -1,12 +1,14 @@
 package functional.com.trailblazers.freewheelers;
 
 import functional.com.trailblazers.freewheelers.Screens.LoginScreen;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import javax.print.attribute.standard.DateTimeAtCompleted;
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -35,46 +37,42 @@ public class AdminTest {
     }
 
     @Test
-     public void  shouldTakeUserToItemPageFromAdminScreen(){
+    public void shouldTakeUserToItemPageFromAdminScreen() {
         driver.findElement(By.linkText("Add a item")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/item"));
     }
 
     @Test
-    public void  shouldTakeUserToHomeScreen(){
+    public void shouldTakeUserToHomeScreen() {
         driver.findElement(By.linkText("Home")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
     }
 
     @Test
-    public void  shouldTakeUserToAdminScreen(){
+    public void shouldTakeUserToAdminScreen() {
         driver.findElement(By.linkText("Admin Profile")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/admin"));
     }
 
     @Test
-    public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
+    public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked() {
         driver.findElement(By.linkText("Logout")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
     }
 
     @Test
-    @Ignore // wip
     public void shouldShowUserDetailsWhenClickingOnUserInOrderList() throws SQLException {
-        // given
         insertIntoItems(1, "Some Frame", "500.00", "some frame", "FRAME");
         insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "Some Street 1, Some Town", "TRUE", "ROLE_USER");
         reserveOrder(1, 1, 42, new Date());
 
-        // when
         driver.findElement(By.linkText("Admin Profile")).click();
         driver.findElement(By.linkText("SomeName")).click();
 
-        // then
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/userProfile/SomeName"));
-
-        // TODO: Assert user details:
-        //assertTrue(driver.getTitle().contains("http://localhost:8080/userProfile"));
+        assertTrue(driver.findElement(By.id("userDetails")).getText().contains("SomeName"));
+        assertTrue(driver.findElement(By.id("userDetails")).getText().contains("somebody@web.de"));
+        assertTrue(driver.findElement(By.id("userDetails")).getText().contains("Some Street 1, Some Town"));
     }
 
 

@@ -43,6 +43,7 @@ public class UserProfileController {
 
         ItemGrid itemGrid = new ItemGrid(items);
         model.addAttribute("itemGrid", itemGrid);
+        model.addAttribute("userDetail", account);
 
         return "userProfile";
     }
