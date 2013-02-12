@@ -12,7 +12,7 @@
         <intercept-url pattern="/admin" access="ROLE_ADMIN"/>
         <intercept-url pattern="/item" access="ROLE_ADMIN"/>
         <intercept-url pattern="/reserve" access="ROLE_ADMIN, ROLE_USER"/>
-        <intercept-url pattern="/userProfile" access="ROLE_ADMIN, ROLE_USER"/>
+        <intercept-url pattern="/userProfile/**" access="ROLE_ADMIN, ROLE_USER"/>
         <form-login login-page="/login" default-target-url="/admin"
                     authentication-failure-url="/loginfailed" />
         <logout logout-success-url="/" />
