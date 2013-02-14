@@ -1,5 +1,6 @@
 package functional.com.trailblazers.freewheelers;
 
+import functional.com.trailblazers.freewheelers.Screens.AdminScreen;
 import functional.com.trailblazers.freewheelers.Screens.LoginScreen;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -8,7 +9,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -96,14 +96,9 @@ public class AdminTest {
         insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "Some Street 1, Some Town", "TRUE", "ROLE_USER");
         reserveOrder(1, 1, 42, "NEW", new Date());
 
-        driver.findElement(By.linkText("Admin Profile")).click();
-        Select select = new Select(driver.findElement(By.xpath("//tr/td/select")));
-        select.selectByVisibleText("IN_PROGRESS");
-
-        driver.findElement(By.xpath("//tbody/tr/td[6]/input[@type='submit']")).click();
-        driver.findElement(By.linkText("Admin Profile")).click();
+        AdminScreen.changeStatus("IN_PROGRESS", driver);
 
         assertEquals("IN_PROGRESS", driver.findElement(By.xpath("//tr/td/select/option[@selected=\"selected\"]")).getText());
-
     }
+
 }
