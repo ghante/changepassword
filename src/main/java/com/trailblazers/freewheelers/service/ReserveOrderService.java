@@ -13,6 +13,6 @@ public interface ReserveOrderService {
 
     List<ReserveOrder> getAllOrdersByAccount();
 
-    void updateOrderState(Long order_id, OrderStatus status);
+    void updateOrderDetails(Long order_id, OrderStatus status, String note);
 
 }

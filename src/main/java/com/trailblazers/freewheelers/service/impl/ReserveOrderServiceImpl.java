@@ -33,9 +33,12 @@ public class ReserveOrderServiceImpl implements ReserveOrderService{
 
     @Override
     @Transactional
-    public void updateOrderState(Long order_id, OrderStatus status) {
+    public void updateOrderDetails(Long order_id, OrderStatus status, String note) {
         ReserveOrder order = reserveOrderDao.get(order_id);
+
         order.setStatus(status);
+        order.setNote(note);
+
         reserveOrderDao.save(order);
     }
 

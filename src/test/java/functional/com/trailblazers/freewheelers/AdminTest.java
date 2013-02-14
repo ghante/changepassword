@@ -66,7 +66,7 @@ public class AdminTest {
     public void shouldShowUserDetailsWhenClickingOnUserInOrderList() throws SQLException {
         insertIntoItems(1, "Some Frame", "500.00", "some frame", "FRAME");
         insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "Some Street 1, Some Town", "TRUE", "ROLE_USER");
-        reserveOrder(1, 1, 42, "NEW", new Date());
+        reserveOrder(1, 1, 42, "NEW", "", new Date());
 
         driver.findElement(By.linkText("Admin Profile")).click();
         driver.findElement(By.linkText("SomeName")).click();
@@ -77,12 +77,11 @@ public class AdminTest {
         assertTrue(driver.findElement(By.id("userDetails")).getText().contains("Some Street 1, Some Town"));
     }
 
-
     @Test
     public void shouldSeeStatusOnOrdersPage() throws SQLException {
         insertIntoItems(1, "Some Frame", "500.00", "some frame", "FRAME");
         insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "Some Street 1, Some Town", "TRUE", "ROLE_USER");
-        reserveOrder(1, 1, 42, "NEW", new Date());
+        reserveOrder(1, 1, 42, "NEW", "", new Date());
 
         driver.findElement(By.linkText("Admin Profile")).click();
 
@@ -91,14 +90,15 @@ public class AdminTest {
     }
 
     @Test
-    public void shouldStoreStatusChange() throws SQLException {
+    public void shouldUpdateOrderInformation() throws SQLException {
         insertIntoItems(1, "Some Frame", "500.00", "some frame", "FRAME");
         insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "Some Street 1, Some Town", "TRUE", "ROLE_USER");
-        reserveOrder(1, 1, 42, "NEW", new Date());
+        reserveOrder(1, 1, 42, "NEW", "", new Date());
 
-        AdminScreen.changeStatus("IN_PROGRESS", driver);
+        AdminScreen.changeStatus(driver, "IN_PROGRESS");
+        AdminScreen.addNote(driver, "This note is very important!");
 
-        assertEquals("IN_PROGRESS", driver.findElement(By.xpath("//tr/td/select/option[@selected=\"selected\"]")).getText());
+        assertEquals("IN_PROGRESS", AdminScreen.selectedStatusName(driver));
+        assertEquals("This note is very important!", AdminScreen.getNote(driver));
     }
-
 }

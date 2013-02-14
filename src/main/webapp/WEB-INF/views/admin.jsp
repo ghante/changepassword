@@ -33,7 +33,7 @@
                         </c:forEach>
                     </select>
                 </td>
-                <td><textarea>Some Note</textarea></td>
+                <td><textarea name="note">${order.note}</textarea></td>
                 <td>
                     <input type="hidden" value="${order.orderId}" name="orderId" />
                     <input type="submit" value="Save Changes" name="save">

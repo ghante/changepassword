@@ -12,14 +12,16 @@ public class ReservedOrderDetail  {
     private Account account;
     private Date reserve_time;
     private OrderStatus status;
+    private String note;
     private Long orderId;
 
-    public ReservedOrderDetail(Long orderId, Account account, Item item, Date reserve_time, OrderStatus status){
+    public ReservedOrderDetail(Long orderId, Account account, Item item, Date reserve_time, OrderStatus status, String note){
         this.orderId = orderId;
         this.item = item;
         this.account = account;
         this.reserve_time = reserve_time;
         this.status = status;
+        this.note = note;
     }
 
     public ReservedOrderDetail() {
@@ -63,5 +65,13 @@ public class ReservedOrderDetail  {
 
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

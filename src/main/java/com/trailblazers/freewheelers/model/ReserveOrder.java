@@ -26,6 +26,9 @@ public class ReserveOrder {
     @Enumerated(EnumType.STRING)
     private OrderStatus status = OrderStatus.NEW;
 
+    @NotNull
+    private String note = "";
+
     public ReserveOrder(){}
 
     public ReserveOrder(Long account_id, Long item_id, Date rightNow) {
@@ -77,5 +80,13 @@ public class ReserveOrder {
 
     public void setStatus(OrderStatus status) {
         this.status = status;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getNote() {
+        return note;
     }
 }

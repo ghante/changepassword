@@ -41,13 +41,13 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.POST, params="save=Save Changes")
-    public String updateOrder(String state, String orderId) {
+    public void updateOrder(Model model, String state, String orderId, String note) {
         Long order_id = Long.valueOf(orderId);
         OrderStatus status = OrderStatus.valueOf(state);
 
-        reserveOrderService.updateOrderState(order_id, status);
+        reserveOrderService.updateOrderDetails(order_id, status, note);
 
-        return "admin";
+        get(model);
     }
 
     protected List<ReservedOrderDetail> getAllOrders() {
@@ -59,7 +59,12 @@ public class AdminController {
             Account account = accountService.get(reserveOrder.getAccount_id());
             Item item = itemService.get(reserveOrder.getItem_id());
 
-            reservedOrderDetails.add(new ReservedOrderDetail(reserveOrder.getOrder_id(), account, item, reserveOrder.getReservation_timestamp(), reserveOrder.getStatus()));
+            reservedOrderDetails.add(new ReservedOrderDetail(reserveOrder.getOrder_id(),
+                                                             account,
+                                                             item,
+                                                             reserveOrder.getReservation_timestamp(),
+                                                             reserveOrder.getStatus(),
+                                                             reserveOrder.getNote()));
 
         }
         return reservedOrderDetails;

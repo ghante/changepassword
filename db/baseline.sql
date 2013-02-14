@@ -38,7 +38,8 @@ CREATE TABLE reserve_order
         order_id SERIAL PRIMARY KEY,
         account_id bigint NOT NULL,
         item_id bigint NOT NULL,
-		status character varying(255) NOT NULL,
+	status character varying(255) NOT NULL,
+	note character varying(255) NOT NULL,
         reservation_timestamp timestamp without time zone NOT NULL
 );
 
