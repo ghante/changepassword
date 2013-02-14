@@ -12,8 +12,10 @@ public class ReservedOrderDetail  {
     private Account account;
     private Date reserve_time;
     private OrderStatus status;
+    private Long orderId;
 
-    public ReservedOrderDetail(Account account, Item item, Date reserve_time, OrderStatus status){
+    public ReservedOrderDetail(Long orderId, Account account, Item item, Date reserve_time, OrderStatus status){
+        this.orderId = orderId;
         this.item = item;
         this.account = account;
         this.reserve_time = reserve_time;
@@ -49,5 +51,17 @@ public class ReservedOrderDetail  {
 
     public OrderStatus getStatus() {
         return status;
+    }
+
+    public OrderStatus[] getStatusOptions() {
+        return OrderStatus.values();
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 }

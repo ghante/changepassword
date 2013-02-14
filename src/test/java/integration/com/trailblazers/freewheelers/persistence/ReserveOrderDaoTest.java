@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 
+import static java.lang.Long.valueOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -24,21 +25,21 @@ public class ReserveOrderDaoTest extends DaoTestBase {
     @Test
     public void shouldInsertOrder(){
 
-        Date reservationTime = reserveOrder(USER_ID, ITEM_ID);
+        ReserveOrder created = reserveOrder(USER_ID, ITEM_ID);
 
         List<ReserveOrder> orders = orderDao.findAll();
         assertThat(orders.size(), is(1));
         assertThat(orders.get(0).getAccount_id(), is(USER_ID));
-        assertThat(orders.get(0).getReservation_timestamp(), is(reservationTime));
+        assertThat(orders.get(0).getReservation_timestamp(), is(created.getReservation_timestamp()));
         assertThat(orders.get(0).getItem_id(), is(ITEM_ID));
         assertThat(orders.get(0).getStatus(), is(OrderStatus.NEW));
     }
 
-    private Date reserveOrder(Long account_id, Long order_id) {
+    private ReserveOrder reserveOrder(Long account_id, Long item_id) {
         Date rightNow = new Date();
-        ReserveOrder order = new ReserveOrder(account_id, order_id, rightNow);
+        ReserveOrder order = new ReserveOrder(account_id, item_id, rightNow);
         orderDao.save(order);
-        return rightNow;
+        return order;
     }
 
     @Test
@@ -83,5 +84,17 @@ public class ReserveOrderDaoTest extends DaoTestBase {
 
         assertThat(reserveOrders.size(), is(4));
 
+    }
+
+    @Test
+    public void shouldUpdateExistingOrders(){
+        reserveOrder(USER_ID, ITEM_ID);
+
+        List<ReserveOrder> orders = orderDao.getOrdersByAccountId(USER_ID);
+        ReserveOrder order = orders.get(0);
+        order.setStatus(OrderStatus.IN_PROGRESS);
+        orderDao.save(order);
+
+        assertThat(orderDao.getOrdersByAccountId(USER_ID).get(0).getStatus(), is(OrderStatus.IN_PROGRESS));
     }
 }

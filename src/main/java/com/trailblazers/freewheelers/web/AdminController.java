@@ -2,6 +2,7 @@ package com.trailblazers.freewheelers.web;
 
 import com.trailblazers.freewheelers.model.Account;
 import com.trailblazers.freewheelers.model.Item;
+import com.trailblazers.freewheelers.model.OrderStatus;
 import com.trailblazers.freewheelers.model.ReserveOrder;
 import com.trailblazers.freewheelers.service.AccountService;
 import com.trailblazers.freewheelers.service.ItemService;
@@ -39,6 +40,16 @@ public class AdminController {
 
     }
 
+    @RequestMapping(value = "/admin", method = RequestMethod.POST, params="save=Save Changes")
+    public String updateOrder(String state, String orderId) {
+        Long order_id = Long.valueOf(orderId);
+        OrderStatus status = OrderStatus.valueOf(state);
+
+        reserveOrderService.updateOrderState(order_id, status);
+
+        return "admin";
+    }
+
     protected List<ReservedOrderDetail> getAllOrders() {
         List<ReserveOrder> reserveOrders = reserveOrderService.getAllOrdersByAccount();
 
@@ -48,7 +59,7 @@ public class AdminController {
             Account account = accountService.get(reserveOrder.getAccount_id());
             Item item = itemService.get(reserveOrder.getItem_id());
 
-            reservedOrderDetails.add(new ReservedOrderDetail(account, item, reserveOrder.getReservation_timestamp(), reserveOrder.getStatus()));
+            reservedOrderDetails.add(new ReservedOrderDetail(reserveOrder.getOrder_id(), account, item, reserveOrder.getReservation_timestamp(), reserveOrder.getStatus()));
 
         }
         return reservedOrderDetails;

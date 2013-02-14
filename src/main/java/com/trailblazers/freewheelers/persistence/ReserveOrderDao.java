@@ -37,7 +37,6 @@ public class ReserveOrderDao {
 
     public void save(ReserveOrder reserveOrder) {
         sessionFactory.getCurrentSession().merge(reserveOrder);
-
     }
 
     public List<ReserveOrder> getOrdersByAccountId(Long account_id) {

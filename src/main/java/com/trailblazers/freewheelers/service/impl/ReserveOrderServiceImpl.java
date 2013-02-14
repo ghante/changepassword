@@ -1,5 +1,6 @@
 package com.trailblazers.freewheelers.service.impl;
 
+import com.trailblazers.freewheelers.model.OrderStatus;
 import com.trailblazers.freewheelers.persistence.ReserveOrderDao;
 import com.trailblazers.freewheelers.model.ReserveOrder;
 import com.trailblazers.freewheelers.service.ReserveOrderService;
@@ -28,6 +29,14 @@ public class ReserveOrderServiceImpl implements ReserveOrderService{
     @Transactional(readOnly = true)
     public List<ReserveOrder> getAllOrdersByAccount() {
         return reserveOrderDao.getAllOrdersByAccount();
+    }
+
+    @Override
+    @Transactional
+    public void updateOrderState(Long order_id, OrderStatus status) {
+        ReserveOrder order = reserveOrderDao.get(order_id);
+        order.setStatus(status);
+        reserveOrderDao.save(order);
     }
 
 }
