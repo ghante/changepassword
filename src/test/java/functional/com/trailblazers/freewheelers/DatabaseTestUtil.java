@@ -18,13 +18,13 @@ public final class DatabaseTestUtil {
     }
 
     public static void reserveOrder(Integer order_id, Integer item_id, Integer account_id, String status, String note, Date timestamp) throws SQLException {
-        executeUpdate("INSERT INTO reserve_order(order_id, item_id, account_id, status, note, reservation_timestamp) values ( " + order_id + "," + item_id + ", '" + account_id + "','" + status + "','" + status + "','" + timestamp.toString() + "');");
+        executeUpdate("INSERT INTO reserve_order(order_id, item_id, account_id, status, note, reservation_timestamp) values ( " + order_id + "," + item_id + ", '" + account_id + "','" + status + "','" + note + "','" + timestamp.toString() + "');");
     }
 
-    public static void insertIntoAccount(int id, String name, String email, String password, String phone, String address, String isEnabled, String role) throws SQLException {
+    public static void insertIntoAccount(int id, String name, String email, String password, String phone, String isEnabled, String role) throws SQLException {
         executeUpdate("DELETE FROM account WHERE account_id='" + id + "';");
-        executeUpdate("INSERT INTO account(account_id, account_name, email_address, password, phone_number, address, enabled) values ( " +
-                id + ",'" + name + "','" + email + "','" + password + "','" + phone + "','" + address + "','" + isEnabled + "');");
+        executeUpdate("INSERT INTO account(account_id, account_name, email_address, password, phone_number, enabled) values ( " +
+                id + ",'" + name + "','" + email + "','" + password + "','" + phone + "','" + isEnabled + "');");
 
         executeUpdate("INSERT INTO account_role(account_name, role) values ('" + name + "', '" + role + "');");
     }

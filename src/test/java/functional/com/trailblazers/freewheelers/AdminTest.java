@@ -65,7 +65,7 @@ public class AdminTest {
     @Test
     public void shouldShowUserDetailsWhenClickingOnUserInOrderList() throws SQLException {
         insertIntoItems(1, "Some Frame", "500.00", "some frame", "FRAME");
-        insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "Some Street 1, Some Town", "TRUE", "ROLE_USER");
+        insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "TRUE", "ROLE_USER");
         reserveOrder(1, 1, 42, "NEW", "", new Date());
 
         driver.findElement(By.linkText("Admin Profile")).click();
@@ -74,13 +74,12 @@ public class AdminTest {
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/userProfile/SomeName"));
         assertTrue(driver.findElement(By.id("userDetails")).getText().contains("SomeName"));
         assertTrue(driver.findElement(By.id("userDetails")).getText().contains("somebody@web.de"));
-        assertTrue(driver.findElement(By.id("userDetails")).getText().contains("Some Street 1, Some Town"));
     }
 
     @Test
     public void shouldSeeStatusOnOrdersPage() throws SQLException {
         insertIntoItems(1, "Some Frame", "500.00", "some frame", "FRAME");
-        insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "Some Street 1, Some Town", "TRUE", "ROLE_USER");
+        insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "TRUE", "ROLE_USER");
         reserveOrder(1, 1, 42, "NEW", "", new Date());
 
         driver.findElement(By.linkText("Admin Profile")).click();
@@ -92,7 +91,7 @@ public class AdminTest {
     @Test
     public void shouldUpdateOrderInformation() throws SQLException {
         insertIntoItems(1, "Some Frame", "500.00", "some frame", "FRAME");
-        insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "Some Street 1, Some Town", "TRUE", "ROLE_USER");
+        insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "TRUE", "ROLE_USER");
         reserveOrder(1, 1, 42, "NEW", "", new Date());
 
         AdminScreen.changeStatus(driver, "IN_PROGRESS");

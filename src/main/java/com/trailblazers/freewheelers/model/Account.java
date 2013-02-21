@@ -22,7 +22,6 @@ public class Account {
     private boolean enabled;
     private String emailAddress;
     private String phoneNumber;
-    private String address;
 
     public Account() {
         this.account_id = 0L;
@@ -72,11 +71,4 @@ public class Account {
         return phoneNumber;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getAddress() {
-        return address;
-    }
 }

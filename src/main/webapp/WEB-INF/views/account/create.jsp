@@ -29,11 +29,6 @@
 	        <input id="fld_phoneNumber" type="text" name="phoneNumber" />
 	    </label>
 
-	    <label>
-	        <span>Address</span>
-	        <textarea id="fld_address" name="address"></textarea>
-	    </label>
-
         <label>
 	        <input id="fld_submit" type="submit" value="Submit" />
 	    </label>

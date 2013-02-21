@@ -52,7 +52,6 @@ public class AccountDaoTest extends DaoTestBase {
         account.setPassword("meow");
         account.setEmailAddress("slime@slime.com");
         account.setPhoneNumber("");
-        account.setAddress("");
         account.setEnabled(true);
         return account;
     }

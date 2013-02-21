@@ -22,7 +22,6 @@ CREATE TABLE account
       email_address character varying(255) NOT NULL UNIQUE,
       password character varying(255) NOT NULL,
       phone_number character varying(32) NOT NULL,
-      address character varying(255) NOT NULL,
       enabled boolean NOT NULL
 );
 
@@ -43,10 +42,10 @@ CREATE TABLE reserve_order
         reservation_timestamp timestamp without time zone NOT NULL
 );
 
-insert into account (email_address, account_name, password, address, phone_number, enabled)
-       values ('admin@freewheelers.com', 'AdminCat','admin', '', '', true);
-insert into account (email_address, account_name, password, address, phone_number, enabled)
-       values ('user@freewheelers.com', 'UserCat','user', '', '', true);
+insert into account (email_address, account_name, password, phone_number, enabled)
+       values ('admin@freewheelers.com', 'AdminCat','admin', '', true);
+insert into account (email_address, account_name, password, phone_number, enabled)
+       values ('user@freewheelers.com', 'UserCat','user', '', true);
 
 insert into account_role (account_name, role) values ('AdminCat', 'ROLE_ADMIN');
 insert into account_role (account_name, role) values ('UserCat', 'ROLE_USER');

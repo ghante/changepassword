@@ -29,14 +29,13 @@ public class AccountController {
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String phoneNumber = request.getParameter("phoneNumber");
-        String address = request.getParameter("address");
 
-        if (notValidInput(email, password, name, phoneNumber, address, model)) {
+        if (notValidInput(email, password, name, phoneNumber, model)) {
             return new ModelAndView("account/create", "validationMessage", model);
         }
 
         try {
-            new DataAccess(new DatabaseConnectionProvider()).createAccount(email, password, name, phoneNumber, address);
+            new DataAccess(new DatabaseConnectionProvider()).createAccount(email, password, name, phoneNumber);
         } catch (SQLException e) {
             model.put("name", e.toString());
         }
@@ -45,7 +44,7 @@ public class AccountController {
         return new ModelAndView("account/createResult", "postedValues", model);
     }
 
-    private boolean notValidInput(String email, String password, String name, String phoneNumber, String address, ModelMap model) {
+    private boolean notValidInput(String email, String password, String name, String phoneNumber, ModelMap model) {
         boolean result = false;
         String message = "";
 
@@ -67,11 +66,6 @@ public class AccountController {
         if (phoneNumber.isEmpty()) {
             result = true;
             message += "Must enter a phone number<br />";
-        }
-
-        if (address.isEmpty()) {
-            result = true;
-            message += "Must enter an address<br />";
         }
 
         model.put("errors", message);

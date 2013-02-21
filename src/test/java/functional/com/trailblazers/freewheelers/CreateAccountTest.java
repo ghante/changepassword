@@ -62,7 +62,6 @@ public class CreateAccountTest {
             driver.findElement(By.id("fld_password")).sendKeys("password");
             driver.findElement(By.id("fld_name")).sendKeys("TestUser");
             driver.findElement(By.id("fld_phoneNumber")).sendKeys("12345678909");
-            driver.findElement(By.id("fld_address")).sendKeys("2112 Jump St. Vancouver, Canada");
             driver.findElement(By.id("fld_submit")).click();
             return new CreateAccountResultsPage(driver);
         }

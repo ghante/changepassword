@@ -14,19 +14,16 @@ public class AccountTest {
         String password = "password";
         String email = "foo@bar.com";
         String phoneNumber = "123443245";
-        String address = "123 Foo St.";
 
         Account account = new Account();
         account.setAccount_name(name);
         account.setPassword(password);
         account.setEmailAddress(email);
         account.setPhoneNumber(phoneNumber);
-        account.setAddress(address);
 
         assertThat(account.getAccount_name(), is(name));
         assertThat(account.getPassword(), is(password));
         assertThat(account.getEmailAddress(), is(email));
         assertThat(account.getPhoneNumber(), is(phoneNumber));
-        assertThat(account.getAddress(), is(address));
     }
 }

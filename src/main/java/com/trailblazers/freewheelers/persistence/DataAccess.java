@@ -30,11 +30,11 @@ public class DataAccess {
         return names;
     }
 
-    public void createAccount(String email, String password, String name, String phoneNumber, String address) throws SQLException, IOException {
+    public void createAccount(String email, String password, String name, String phoneNumber) throws SQLException, IOException {
         Connection connection = connectionProvider.getConnection();
 
-        String sql = "insert into account (email_address, account_name, password, phone_number, address, enabled) ";
-        sql +=       "values ('" + email + "', '" + name + "', '" + password + "', '" + phoneNumber + "', '" + address + "', true)";
+        String sql = "insert into account (email_address, account_name, password, phone_number, enabled) ";
+        sql +=       "values ('" + email + "', '" + name + "', '" + password + "', '" + phoneNumber + "', true)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.execute();
