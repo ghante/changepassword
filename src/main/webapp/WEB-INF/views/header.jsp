@@ -10,28 +10,30 @@
    <meta charset="utf-8">
    <title>${pageTitle}</title>
    <link rel="stylesheet" href="<c:url value='/styles/default.css' />" type="text/css" />
+   <link rel="stylesheet" href="<c:url value='/scripts/lib/bootstrap/css/bootstrap.css' />" type="text/css" />
    <link rel="stylesheet" href="<c:url value='/styles/forms.css' />" type="text/css" />
    <script type="text/javascript" src="<c:url value='/scripts/lib/prototype.js' />"></script>
 </head>
 <body>
-        <div class="header_container">
-            <ul>
-                <li><a href="<c:url value='/admin' />" class="nav_link">Admin Profile</a></li>
-                <li><a href="<c:url value='/' />" class="nav_link">Home</a></li>
-                <li><a href="<c:url value='/userProfile' />" class="nav_link">User Profile</a></li>
-                <li><a href="<c:url value='/account/create' />" class="nav_link">Create Account</a></li>
-            <security:authorize ifAnyGranted="ROLE_ADMIN">
-                  Welcome <security:authentication property="principal.username"/>!
-                <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"> Logout</a></li>
-            </security:authorize>
 
-            <security:authorize ifAnyGranted="ROLE_USER">
-                   Welcome <span id="username"><security:authentication property="principal.username"/></span>!
-                <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"> Logout</a></li>
-            </security:authorize>
-            </ul>
-
-            <h1><div class="heading">Trail Blazers</div></h1>
-            <h2>Custom order bikes today !</h2>
-
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="<c:url value='/' />" class="nav_link">
+                    <img width="20px;"src="<c:url value='/images/logo.png' />">
+                    Trail Blazers
+                </a>
+                <ul class="nav">
+                    <li><a href="<c:url value='/' />" class="nav_link">Home</a></li>
+                    <li><a href="<c:url value='/admin' />" class="nav_link">Admin Profile</a></li>
+                    <li><a href="<c:url value='/userProfile' />" class="nav_link">User Profile</a></li>
+                    <li><a href="<c:url value='/account/create' />" class="nav_link">Create Account</a></li>
+                    <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
+                    <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"> Logout</a></li>
+                    </security:authorize>
+                </ul>
+            </div>
         </div>
+
+        <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
+        <p>Welcome <security:authentication property="principal.username"/>!</p>
+        </security:authorize>
