@@ -23,17 +23,19 @@
                     Trail Blazers
                 </a>
                 <ul class="nav">
-                    <li><a href="<c:url value='/' />" class="nav_link">Home</a></li>
-                    <li><a href="<c:url value='/admin' />" class="nav_link">Admin Profile</a></li>
-                    <li><a href="<c:url value='/userProfile' />" class="nav_link">User Profile</a></li>
-                    <li><a href="<c:url value='/account/create' />" class="nav_link">Create Account</a></li>
+                    <li><a href="<c:url value='/' />" class="nav_link"><i class="icon-home"></i> Home</a></li>
+                    <li><a href="<c:url value='/admin' />" class="nav_link"><i class="icon-star"></i> Admin Profile</a></li>
+                    <li><a href="<c:url value='/userProfile' />" class="nav_link"><i class="icon-user"></i> User Profile</a></li>
+                    <li><a href="<c:url value='/account/create' />" class="nav_link"><i class="icon-plus"></i> Create Account</a></li>
                     <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
-                    <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"> Logout</a></li>
+                    <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"><i class="icon-eject"></i> Logout</a></li>
                     </security:authorize>
                 </ul>
             </div>
         </div>
 
         <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
-        <p>Welcome <security:authentication property="principal.username"/>!</p>
+        <div class="well">
+            Welcome <security:authentication property="principal.username"/>!
+        </div>
         </security:authorize>
