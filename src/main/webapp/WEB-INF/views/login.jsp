@@ -1,11 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<c:set var="pageTitle" scope="request" value="Login"/>
 <%@ include file="header.jsp" %>
-<html>
-	<head>
-		<title>TrailBlazers - Login</title>
-	</head>
-<body onload='document.f.j_username.focus();'>
 
     <c:choose>
         <c:when test="${not empty error}">

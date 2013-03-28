@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="pageTitle" scope="request" value="Reserve Item"/>
 <%@ include file="header.jsp" %>
 <h1>Item reserved !</h1>
 

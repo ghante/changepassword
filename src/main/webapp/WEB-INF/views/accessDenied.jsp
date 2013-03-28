@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="pageTitle" scope="request" value="Access denied!!!"/>
 <%@ include file="header.jsp" %>
 
 		<div class="alert alert-error" id="http_403">

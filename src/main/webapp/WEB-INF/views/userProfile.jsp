@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="pageTitle" scope="request" value="User Profile"/>
 <%@ include file="header.jsp" %>
 
 <h2>Your details</h2>

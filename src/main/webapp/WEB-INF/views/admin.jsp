@@ -1,10 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="pageTitle" scope="request" value="Admin Profile"/>
 <%@ include file="header.jsp" %>
-<html>
-<head>
-    <title>TrailBlazers - Admin</title>
-</head>
-<body>
 
 <div class="well">
     <a class="btn" href="item"><i class="icon-briefcase"></i> Manage items</a>

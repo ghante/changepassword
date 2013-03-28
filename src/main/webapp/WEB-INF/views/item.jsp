@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="pageTitle" scope="request" value="Mange Items"/>
 <%@ include file="header.jsp" %>
 
 		<script type="text/javascript" src="<c:url value='/scripts/lib/RowSelector.js' />"></script>
