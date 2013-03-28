@@ -5,58 +5,71 @@
 		<script type="text/javascript" src="<c:url value='/scripts/lib/RowSelector.js' />"></script>
 		<script type="text/javascript" src="<c:url value='/scripts/item.js' />"></script>
 
-		<h1>Items</h1>
-		<form:form name="addItem" action="" method="post" modelAttribute="itemCommand" onsubmit="return validateForm()">
-			<fieldset class="fieldcontainer">
-				<legend>New Item</legend>
+		<h1>Manage Items</h1>
 
-				<div class="block">
-					<div class="field">
-						<form:label for="name" path="name">Name:</form:label>
-						<form:errors path="name" cssClass="errors" />
-						<form:input path="name" />
-					</div>
-	
-					<div class="field vertical">
-						<form:label for="price" path="price">Price:</form:label>
-						<form:errors path="price" cssClass="errors" />
-						<form:input path="price" />
-					</div>
-				</div>
+		<form:form class="form-horizontal" name="addItem" action="" method="post" modelAttribute="itemCommand" onsubmit="return validateForm()">
 
-				<div class="block">
-						<div class="field">
-                    	    <form:label for="type" path="type">Type:</form:label>
-      					    <form:errors path="type" cssClass="errors" />
-           				    <form:select path="type">
-           				        <form:option value="" label="Select" />
-           				        <form:options items="${itemTypes}"/>
-           				    </form:select>
-                        </div>
-				</div>
+            <legend>New Item</legend>
 
-                <div class="block">
-				    <div class="field">
-					    <form:label for="description" path="description">Description:</form:label>
-					    <form:errors path="description" cssClass="errors" />
-					    <form:textarea path="description" />
-				    </div>
-
-                    <div class="field">
-                        <form:label for="quantity" path="quantity">Quantity:</form:label>
-                        <form:errors path="quantity" cssClass="errors" />
-                        <form:input path="quantity" />
+            <div class="well">
+                <div class="control-group">
+                    <form:label class="control-label" for="name" path="name">Name</form:label>
+                    <div class="controls">
+                        <form:input path="name" />
+                        <form:errors path="name" cssClass="text-error" />
                     </div>
+                </div>
 
-				    <div class="field vertical">
-                	    <input type="submit" value="Create new item" id="createItem">
-               	    </div>
-				</div>
+                <div class="control-group">
+                    <form:label class="control-label" for="price" path="price">Price</form:label>
+                    <div class="controls">
+                        <form:input path="price" />
+                        <form:errors path="price" cssClass="text-error" />
+                    </div>
+                </div>
 
-			</fieldset>
+                <div class="control-group">
+                    <form:label class="control-label" for="type" path="type">Type</form:label>
+                    <div class="controls">
+                        <form:select path="type">
+                            <form:option value="" label="Select" />
+                            <form:options items="${itemTypes}"/>
+                        </form:select>
+                        <form:errors path="type" cssClass="text-error" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <form:label class="control-label" for="desription" path="description">Description</form:label>
+                    <div class="controls">
+                        <form:textarea path="description" />
+                        <form:errors path="description" cssClass="text-error" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <form:label class="control-label" for="quantity" path="quantity">Quantity</form:label>
+                    <div class="controls">
+                        <form:input path="quantity" />
+                        <form:errors path="quantity" class="text-error" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" value="Create new item" id="createItem" class="btn btn-warning">Create Item</button>
+                    </div>
+                </div>
+
+                </div>
 		</form:form>
+
 		<form:form action="" method="post" modelAttribute="itemGrid">
-			<table class="table">
+
+            <legend>Update Items</legend>
+
+            <div class="well">
+			    <table class="table">
 				<thead><tr><th><input type="checkbox" class="toggleAll" /></th>
 				<th>Name</th>
 				<th>Price</th>
@@ -68,7 +81,7 @@
 					<c:forEach var="itemEntry" items="${itemGrid.itemMap}" varStatus="row">
 						<tr>
 							<td>
-								<form:input cssClass="disablable-hidden" disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].itemId" />
+								<form:input type="hidden" disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].itemId" />
 								<c:if test="${itemMap[itemEntry.key].selected}">
 									<input type="checkbox" checked="checked" class="rowSelector" />
 								</c:if>
@@ -77,32 +90,35 @@
 								</c:if>
 							</td>
 							<td>
-								<form:errors path="itemMap[${itemEntry.key}].name" cssClass="errors" />
+								<form:errors path="itemMap[${itemEntry.key}].name" cssClass="text-error" />
 								<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].name" />
 							</td>
 							<td>
-								<form:errors path="itemMap[${itemEntry.key}].price" cssClass="errors" />
-								<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].price" />
+								<form:errors path="itemMap[${itemEntry.key}].price" cssClass="text-error" />
+								<form:input class="input-small" disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].price" />
 							</td>
 							<td>
-								<form:errors path="itemMap[${itemEntry.key}].description" cssClass="errors" />
+								<form:errors path="itemMap[${itemEntry.key}].description" cssClass="text-error" />
 								<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].description" />
 							</td>
 							<td>
-                            	<form:errors path="itemMap[${itemEntry.key}].type" cssClass="errors" />
+                            	<form:errors path="itemMap[${itemEntry.key}].type" cssClass="text-error" />
        							<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].type" />
      					    </td>
      					    <td>
-                                <form:errors path="itemMap[${itemEntry.key}].quantity" cssClass="errors" />
-                                <form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].quantity" />
+                                <form:errors path="itemMap[${itemEntry.key}].quantity" cssClass="text-error" />
+                                <form:input class="input-small" disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].quantity" />
                             </td>
 						</tr>
 					</c:forEach>
 				</tbody>
-			</table>
+			    </table>
+
 			<p>
-				<input type="submit" value="Update all enabled items" name="update">
-				<input type="submit" value="Delete all enabled items" name="delete">
+                <button type="submit" value="Update all enabled items" name="update" class="btn btn-warning">Update all enabled items</button>
+                <button type="submit" value="Delete all enabled items" name="delete" class="btn btn-danger">Delete all enabled items</button>
 			</p>
+
+            </div>
 		</form:form>
 <%@ include file="footer.jsp" %>

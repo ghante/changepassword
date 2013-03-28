@@ -2,6 +2,8 @@
 <c:set var="pageTitle" scope="request" value="Admin Profile"/>
 <%@ include file="header.jsp" %>
 
+<h2>Admin Profile</h2>
+
 <div class="well">
     <a class="btn" href="item"><i class="icon-briefcase"></i> Manage items</a>
 </div>
