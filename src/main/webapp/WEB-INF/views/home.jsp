@@ -24,7 +24,7 @@
 		            <td><c:out value="${itemEntry.value.quantity}"/></td>
 		            <form:hidden path="itemId" value="${itemEntry.value.itemId}"/>
 		            <td>
-                        <button class="btn btn-success" type="submit" name="reserve" value="Reserve Item">Reserve Item</button>
+                        <button class="btn btn-success" type="submit" name="reserve" id="reserve" value="Reserve Item">Reserve Item</button>
                     </td>
 		        </form:form>
 		        </tr>
