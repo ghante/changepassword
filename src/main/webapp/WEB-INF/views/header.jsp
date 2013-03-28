@@ -18,7 +18,7 @@
             <div class="navbar-inner">
                 <a class="brand" href="<c:url value='/' />" class="nav_link">
                     <img width="20px;"src="<c:url value='/images/logo.png' />">
-                    Trail Blazers
+                    Freewheelers
                 </a>
                 <ul class="nav">
                     <li><a href="<c:url value='/' />" class="nav_link"><i class="icon-home"></i> Home</a></li>
