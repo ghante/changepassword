@@ -1,17 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="header.jsp" %>
-<html>
-	<head>
-		<title>TrailBlazers - UserProfile</title>
-	</head>
-	<body>
-		<h1>You are in User page</h1>
-		<h2>These are your details</h2>
-        <p id="userDetails">
+
+<h2>Your details</h2>
+        <div class="well">
             ${userDetail.account_name} - ${userDetail.emailAddress}<br />
-        </p>
-		<h2>These are your reserved orders</h2>
-		<table id="prettyTable">
+        </div>
+
+		<h2>Your Orders</h2>
+		<table class="table table-striped">
             <thead>
                 <tr>
                     <th>Name</th>

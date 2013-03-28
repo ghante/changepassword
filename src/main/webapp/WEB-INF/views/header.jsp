@@ -31,11 +31,15 @@
                     <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"><i class="icon-eject"></i> Logout</a></li>
                     </security:authorize>
                 </ul>
+
+                <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
+                    <p class="navbar-text">Welcome <security:authentication property="principal.username"/>!</p>
+                </security:authorize>
             </div>
         </div>
 
-        <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
-        <div class="well">
-            Welcome <security:authentication property="principal.username"/>!
+        <!--[if lt IE 9]>
+        <div class="alert alert-warning">
+            You are using a Legacy Browser - it is not supported. Please upgrade to <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">IE9</a>, Firefox, Safari, Chrome or Opera.
         </div>
-        </security:authorize>
+        <![endif]-->

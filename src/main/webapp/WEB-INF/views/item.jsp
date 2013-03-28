@@ -1,15 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="header.jsp" %>
-<html>
-	<head>
-		<title>TrailBlazers - Items</title>
+
 		<script type="text/javascript" src="<c:url value='/scripts/lib/RowSelector.js' />"></script>
 		<script type="text/javascript" src="<c:url value='/scripts/item.js' />"></script>
-	</head>
-	<body>
-		<!--[if lt IE 9]>
-			<div class="legacy-browser">You are using a Legacy Browser - it is not supported. Please upgrade to <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">IE9</a>, Firefox, Safari, Chrome or Opera.</div>
-		<![endif]-->
+
 		<h1>Items</h1>
 		<form:form name="addItem" action="" method="post" modelAttribute="itemCommand" onsubmit="return validateForm()">
 			<fieldset class="fieldcontainer">
@@ -61,7 +55,7 @@
 			</fieldset>
 		</form:form>
 		<form:form action="" method="post" modelAttribute="itemGrid">
-			<table>
+			<table class="table">
 				<thead><tr><th><input type="checkbox" class="toggleAll" /></th>
 				<th>Name</th>
 				<th>Price</th>

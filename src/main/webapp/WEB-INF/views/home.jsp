@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="header.jsp" %>
 
-		<table id="prettyTable">
+		<table class="table table-striped">
 		    <thead>
 		        <tr>
 		            <th>Name</th>
@@ -9,6 +9,7 @@
 		            <th>Description</th>
 		            <th>Type</th>
 		            <th>Quantity</th>
+		            <th></th>
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -21,10 +22,13 @@
 		            <td><c:out value="${itemEntry.value.type}"/></td>
 		            <td><c:out value="${itemEntry.value.quantity}"/></td>
 		            <form:hidden path="itemId" value="${itemEntry.value.itemId}"/>
-		            <td><input type="submit" value="Reserve Item" id="reserve" name="reserve"></td>
+		            <td>
+                        <button class="btn btn-success" type="submit" name="reserve" value="Reserve Item">Reserve Item</button>
+                    </td>
 		        </form:form>
 		        </tr>
 		     </c:forEach>
 		    </tbody>
 		</table>
+
 <%@ include file="footer.jsp" %>

@@ -5,22 +5,20 @@
     <title>TrailBlazers - Admin</title>
 </head>
 <body>
-<h1>You are in Admin page</h1>
 
-<h2>*Manage your bike parts here.</h2>
+<div class="well">
+    <a class="btn" href="item"><i class="icon-briefcase"></i> Manage items</a>
+</div>
 
-<p><a href="item">Add a item</a></p>
+<h2>All orders</h2>
 
-<p>
-    <h2>*All orders</h2>
-</p>
-<table id="prettyTable">
+<table class="table table-striped">
     <tbody>
     <c:forEach var="order" items="${reserveOrders}" varStatus="row">
         <tr>
             <form:form action="admin" method="post">
                 <td>
-                    <a href="/userProfile/${order.account.account_name}">
+                    <a class="btn" href="/userProfile/${order.account.account_name}">
                         <c:out value="${order.account.account_name}"/>
                     </a>
                 </td>
@@ -33,10 +31,10 @@
                         </c:forEach>
                     </select>
                 </td>
-                <td><textarea name="note">${order.note}</textarea></td>
+                <td><textarea rows="3" name="note">${order.note}</textarea></td>
                 <td>
                     <input type="hidden" value="${order.orderId}" name="orderId" />
-                    <input type="submit" value="Save Changes" name="save">
+                    <button type="submit" class="btn btn-warning" name="save" value="Save Changes">Save Changes</button>
                 </td>
             </form:form>
         </tr>
@@ -53,4 +51,6 @@
     </tr>
     </thead>
 </table>
+
+
 <%@ include file="footer.jsp" %>

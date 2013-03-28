@@ -4,34 +4,51 @@
 
 <%@ include file="../header.jsp" %>
 
-    <h2>Create a new account</h2>
+    <div class="alert alert-info">
+        Create a new account
+    </div>
 
-    ${validationMessage.errors}
+    <c:if test="${not empty validationMessage.errors}">
+        <div id="resultsMessage" class="alert alert-error">
+            ${validationMessage.errors}
+        </div>
+    </c:if>
 
-	<form class="pretty_form" action="/account/create" method="post">
-        <label>
-	        <span>Email Address</span>
-	        <input id="fld_email" type="text" name="email"  />
-	    </label>
+	<form class="form-horizontal" action="/account/create" method="post">
+        <div class="control-group">
+            <label class="control-label" for="fld_email">Email</label>
+            <div class="controls">
+                <input type="text" id="fld_email" placeholder="somebody@something.com" name="email">
+            </div>
+        </div>
 
-        <label>
-	        <span>Password</span>
-	        <input id="fld_password" type="text" name="password" />
-	    </label>
+        <div class="control-group">
+            <label class="control-label" for="fld_password">Password</label>
+            <div class="controls">
+                <input type="text" id="fld_password" placeholder="secret password" name="password">
+            </div>
+        </div>
 
-	    <label>
-	        <span>Name</span>
-	        <input id="fld_name" type="text" name="name" />
-	    </label>
+        <div class="control-group">
+            <label class="control-label" for="fld_name">Name</label>
+            <div class="controls">
+                <input type="text" id="fld_name" placeholder="Your Name" name="name">
+            </div>
+        </div>
 
-	    <label>
-	        <span>Phone Number</span>
-	        <input id="fld_phoneNumber" type="text" name="phoneNumber" />
-	    </label>
+        <div class="control-group">
+            <label class="control-label" for="fld_phoneNumber">Phone Number</label>
+            <div class="controls">
+                <input type="text" id="fld_phoneNumber" placeholder="555-123456" name="phoneNumber">
+            </div>
+        </div>
 
-        <label>
-	        <input id="fld_submit" type="submit" value="Submit" />
-	    </label>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" value="Submit" class="btn btn-success">Create Account</button>
+            </div>
+        </div>
+
 	</form>
 
 <%@ include file="../footer.jsp" %>

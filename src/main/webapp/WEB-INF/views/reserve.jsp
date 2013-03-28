@@ -2,7 +2,7 @@
 <%@ include file="header.jsp" %>
 <h1>Item reserved !</h1>
 
-<table id="prettyTable">
+<table class="table">
         <thead>
             <tr>
                 <th>Name</th>

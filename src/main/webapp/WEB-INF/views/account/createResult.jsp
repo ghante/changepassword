@@ -4,7 +4,8 @@
 
 <%@ include file="../header.jsp" %>
 
-<p id="resultsMessage">
-Hello, ${postedValues.name}, your new account has been created!
-</p>
+<div id="resultsMessage" class="alert alert-success">
+    Hello, ${postedValues.name}, your new account has been created!
+</div>
+
 <%@ include file="../footer.jsp" %>

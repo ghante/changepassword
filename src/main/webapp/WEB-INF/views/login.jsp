@@ -6,30 +6,43 @@
 		<title>TrailBlazers - Login</title>
 	</head>
 <body onload='document.f.j_username.focus();'>
-	<h1 id="TrailBlazers - Login">Login with Username and Password</h1>
 
-	<c:if test="${not empty error}">
-		<div class="errorblock">
-			Your login attempt was not successful, try again.<br /> Caused :
-			${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
-		</div>
-	</c:if>
+    <c:choose>
+        <c:when test="${not empty error}">
+            <div class="alert alert-error">
+                Your login attempt was not successful, try again.<br /> Caused :
+                ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div id="TrailBlazers - Login" class="alert alert-info">
+                Login with Username and Password
+            </div>
+        </c:otherwise>
+    </c:choose>
 
-	<form class="pretty_form" name='f' action="<c:url value='j_spring_security_check' />" method="post">
-	    <label>
-	        <span>User</span>
-	        <input type='text' name='j_username'></td>
-	    </label>
+	<form class="form-horizontal" name='f' action="<c:url value='j_spring_security_check' />" method="post">
+        <div class="control-group">
+            <label class="control-label">User</label>
+                <div class="controls">
+                    <input type='text' name='j_username' placeholder="Username"></td>
+                </div>
+	        </label>
+        </div>
 
-	    <label>
-	        <span>Password</span>
-	        <input type='password' name='j_password' />
-	    </label>
+        <div class="control-group">
+            <label class="control-label">Password</label>
+            <div class="controls">
+                <input type="password" name="j_password" placeholder="Password">
+            </div>
+        </div>
 
-	    <label>
-	        <input name="submit" type="submit" value="Submit" />
-	        <input name="reset" type="reset" value="Reset" />
-		</label>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Sign in</button>
+            </div>
+        </div>
 
 	</form>
+
 <%@ include file="footer.jsp" %>
