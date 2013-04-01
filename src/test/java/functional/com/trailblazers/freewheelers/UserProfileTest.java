@@ -49,7 +49,7 @@ public class UserProfileTest {
         driver.get("http://localhost:8080/login");
         LoginScreen.loginAs("UserCat", "user", driver);
         driver.get("http://localhost:8080/userProfile/UserCat");
-        assertEquals("You are in User page", driver.findElement(By.xpath("/html/body/h1")).getText());
+        assertEquals("Your details", driver.findElement(By.xpath("/html/body/h2")).getText());
     }
 
 

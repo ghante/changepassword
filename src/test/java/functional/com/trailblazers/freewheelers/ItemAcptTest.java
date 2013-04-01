@@ -70,7 +70,7 @@ public class ItemAcptTest {
 		driver.findElement(By.xpath("//tbody//tr[2]//input[@type='checkbox']")).click();
 		driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).sendKeys("1");
 		driver.findElement(By.xpath("//tbody//tr[2]//input[contains(@name, '.name')]")).sendKeys("2");
-		driver.findElement(By.xpath("id('itemGrid')//input[@type='submit']")).click();
+		driver.findElement(By.name("update")).click();
 		assertEquals("item11", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
 		assertEquals("item22", driver.findElement(By.xpath("//tbody//tr[2]//input[contains(@name, '.name')]")).getAttribute("value"));
 	}
@@ -98,7 +98,7 @@ public class ItemAcptTest {
         addAFrame("item1", "13.99");
         addAFrame("item2", "14.99");
         driver.findElement(By.xpath("//tbody//tr[1]//input[@type='checkbox']")).click();
-        driver.findElement(By.xpath("id('itemGrid')//input[@name='delete']")).click();
+        driver.findElement(By.name("delete")).click();
         assertEquals("item2", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
     }
 
@@ -133,8 +133,6 @@ public class ItemAcptTest {
         TestUtils.selectFromDropDown(driver, "type", "FRAME");
         createItemSubmit();
     }
-
-
 
     private void createItemSubmit(){
         driver.findElement(By.id("createItem")).click();

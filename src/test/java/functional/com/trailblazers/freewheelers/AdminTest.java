@@ -40,7 +40,7 @@ public class AdminTest {
 
     @Test
     public void shouldTakeUserToItemPageFromAdminScreen() {
-        driver.findElement(By.linkText("Add a item")).click();
+        driver.findElement(By.id("manageItems")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/item"));
     }
 

@@ -70,17 +70,7 @@ public class LoginTest {
     public void shouldShowErrorWhenWrongCredentialsAreEntered(){
         LoginScreen.loginAs("blah", "blah", driver);
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
-        assertThat(1, is(driver.findElements(By.className("errorblock")).size()));
-    }
-
-    @Test
-    public void shouldResetFormWhenResetIsPressed(){
-        driver.findElement(By.name("j_username")).sendKeys("blah");
-        driver.findElement(By.name("j_password")).sendKeys("blah");
-        resetForm();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
-        assertThat("", is(driver.findElement(By.name("j_username")).getText()));
-        assertThat("", is(driver.findElement(By.name("j_password")).getText()));
+        assertThat(1, is(driver.findElements(By.id("loginError")).size()));
     }
 
     @Test

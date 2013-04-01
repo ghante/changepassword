@@ -45,7 +45,7 @@
 
         <div class="control-group">
             <div class="controls">
-                <button type="submit" value="Submit" class="btn btn-success">Create Account</button>
+                <button type="submit" id="createAccount" value="Submit" class="btn btn-success">Create Account</button>
             </div>
         </div>
 

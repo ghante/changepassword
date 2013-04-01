@@ -4,7 +4,7 @@
 
     <c:choose>
         <c:when test="${not empty error}">
-            <div class="alert alert-error">
+            <div id="loginError"" class="alert alert-error">
                 Your login attempt was not successful, try again.<br /> Caused :
                 ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
             </div>
@@ -34,7 +34,7 @@
 
         <div class="control-group">
             <div class="controls">
-                <button type="submit" class="btn">Sign in</button>
+                <button type="submit" class="btn" name="submit">Sign in</button>
             </div>
         </div>
 

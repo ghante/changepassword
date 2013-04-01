@@ -31,7 +31,7 @@
                 </ul>
 
                 <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
-                    <p class="navbar-text">Welcome <security:authentication property="principal.username"/>!</p>
+                    <p id="welcome" class="navbar-text">Welcome <security:authentication property="principal.username"/>!</p>
                 </security:authorize>
             </div>
         </div>

@@ -5,7 +5,7 @@
 <h2>Admin Profile</h2>
 
 <div class="well">
-    <a class="btn" href="item"><i class="icon-briefcase"></i> Manage items</a>
+    <a class="btn" href="item" id="manageItems"><i class="icon-briefcase"></i> Manage items</a>
 </div>
 
 <h2>All orders</h2>

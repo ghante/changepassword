@@ -40,7 +40,7 @@ public class CreateAccountTest {
         driver.get("http://localhost:8080/login");
         LoginScreen.loginAs("TestUser", "password", driver);
         driver.get("http://localhost:8080/");
-        assertThat(driver.findElement(By.id("username")).getText(), containsString("TestUser"));
+        assertThat(driver.findElement(By.id("welcome")).getText(), containsString("TestUser"));
     }
 
     private class CreateAccountPage {
@@ -62,7 +62,7 @@ public class CreateAccountTest {
             driver.findElement(By.id("fld_password")).sendKeys("password");
             driver.findElement(By.id("fld_name")).sendKeys("TestUser");
             driver.findElement(By.id("fld_phoneNumber")).sendKeys("12345678909");
-            driver.findElement(By.id("fld_submit")).click();
+            driver.findElement(By.id("createAccount")).click();
             return new CreateAccountResultsPage(driver);
         }
     }
@@ -86,7 +86,7 @@ public class CreateAccountTest {
         }
 
         public String getMessage() {
-            return driver.findElement(By.id("resultsMessage")).getText();
+            return driver.findElement(By.id("resultMessage")).getText();
         }
     }
 }
