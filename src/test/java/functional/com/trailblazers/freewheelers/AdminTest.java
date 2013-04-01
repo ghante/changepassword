@@ -44,8 +44,6 @@ public class AdminTest {
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/item"));
     }
 
-
-    
     @Test
     public void shouldTakeUserToHomeScreen() {
         driver.findElement(By.linkText("Home")).click();
@@ -74,8 +72,6 @@ public class AdminTest {
         driver.findElement(By.linkText("SomeName")).click();
 
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/userProfile/SomeName"));
-        assertTrue(driver.findElement(By.id("userDetails")).getText().contains("SomeName"));
-        assertTrue(driver.findElement(By.id("userDetails")).getText().contains("somebody@web.de"));
     }
 
     @Test

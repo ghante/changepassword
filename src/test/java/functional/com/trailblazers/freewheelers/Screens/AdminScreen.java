@@ -12,7 +12,7 @@ public class AdminScreen {
         Select select = new Select(driver.findElement(By.xpath("//tr/td/select")));
         select.selectByVisibleText(newState);
 
-        driver.findElement(By.xpath("//tbody/tr/td[6]/input[@type='submit']")).click();
+        driver.findElement(By.xpath("//tbody/tr/td[6]/button")).click();
     }
 
 
@@ -27,7 +27,7 @@ public class AdminScreen {
         textarea.clear();
         textarea.sendKeys(note);
 
-        driver.findElement(By.xpath("//tbody/tr/td[6]/input[@type='submit']")).click();
+        driver.findElement(By.xpath("//tbody/tr/td[6]/button")).click();
     }
 
     public static String getNote(WebDriver driver) {
