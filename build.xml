@@ -94,7 +94,7 @@
     <target name="test-functional" depends="compile-test, init-db" description="run all functional test">
         <exec executable="./scripts/start-server.sh"/>
         <sleep seconds="10"/>
-        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m">
+        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
