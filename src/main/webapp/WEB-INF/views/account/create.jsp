@@ -10,7 +10,9 @@
 
     <c:if test="${not empty validationMessage.errors}">
         <div id="resultsMessage" class="alert alert-error">
-            ${validationMessage.errors}
+        <c:forEach var="error" items="${validationMessage.errors}">
+            ${error}<br />
+        </c:forEach>
         </div>
     </c:if>
 

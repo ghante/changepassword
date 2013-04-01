@@ -1,5 +1,6 @@
 package com.trailblazers.freewheelers.web;
 
+import com.trailblazers.freewheelers.model.AccountValidation;
 import com.trailblazers.freewheelers.persistence.DataAccess;
 import com.trailblazers.freewheelers.persistence.DatabaseConnectionProvider;
 import org.springframework.stereotype.Controller;
@@ -11,8 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.sql.*;
-import java.util.Properties;
+import java.sql.SQLException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/account")
@@ -20,56 +21,54 @@ public class AccountController {
 
     @RequestMapping(value = {"/create"}, method = RequestMethod.GET)
     public ModelAndView createAccountForm(Model model) {
-         return new ModelAndView("account/create", "validationMessage", model);
+        return new ModelAndView("account/create", "validationMessage", model);
     }
 
     @RequestMapping(value = {"/create"}, method = RequestMethod.POST)
-    public ModelAndView processCreate(HttpServletRequest request, ModelMap model) throws IOException {
+    public ModelAndView processCreate(HttpServletRequest request) throws IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String phoneNumber = request.getParameter("phoneNumber");
 
-        if (notValidInput(email, password, name, phoneNumber, model)) {
-            return new ModelAndView("account/create", "validationMessage", model);
+        List<String> errors = AccountValidation.verifyInputs(email, password, name, phoneNumber);
+
+        if (errors.size() > 0) {
+            return showErrors(errors);
         }
 
+        if (createAccount(email, password, name, phoneNumber)) {
+            return showSuccess(name);
+        } else {
+            return showError();
+        }
+
+    }
+
+    private ModelAndView showErrors(List<String> errors) {
+        ModelMap model = new ModelMap();
+        model.put("errors", errors);
+        return new ModelAndView("account/create", "validationMessage", model);
+    }
+
+    private ModelAndView showError() {
+        return new ModelAndView("account/createFailure");
+    }
+
+    private boolean createAccount(String email, String password, String name, String phoneNumber) throws IOException {
         try {
             new DataAccess(new DatabaseConnectionProvider()).createAccount(email, password, name, phoneNumber);
         } catch (SQLException e) {
-            model.put("name", e.toString());
+            return false;
         }
-
-        model.put("name", name);
-        return new ModelAndView("account/createResult", "postedValues", model);
+        return true;
     }
 
-    private boolean notValidInput(String email, String password, String name, String phoneNumber, ModelMap model) {
-        boolean result = false;
-        String message = "";
+    private ModelAndView showSuccess(String name) {
+        ModelMap model = new ModelMap();
+        model.put("name", name);
 
-        if (!email.contains("@")) {
-            result = true;
-            message += "Must enter a valid email<br />";
-        }
-
-        if (password.isEmpty()) {
-            result = true;
-            message += "Must enter a password<br />";
-        }
-
-        if (name.isEmpty()) {
-            result = true;
-            message += "Must enter a name<br />";
-        }
-
-        if (phoneNumber.isEmpty()) {
-            result = true;
-            message += "Must enter a phone number<br />";
-        }
-
-        model.put("errors", message);
-        return result;
+        return new ModelAndView("account/createSuccess", "postedValues", model);
     }
 
 }
