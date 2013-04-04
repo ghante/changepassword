@@ -53,6 +53,7 @@
       <root url="jar://$PROJECT_DIR$/lib/main/spring-beans-3.1.0.RELEASE-jar.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/main/spring-test-3.1.0.RELEASE-jar.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/main/hibernate-jpa-2.0-api-1.0.1.Final-jar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/main/mybatis-3.2.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
