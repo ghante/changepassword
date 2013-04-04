@@ -49,8 +49,6 @@ public interface AccountMapper {
     })
     public List<Account> findAll();
 //
-//    Account save(Account account);
-//
 //    void delete(Account account);
 
 }
