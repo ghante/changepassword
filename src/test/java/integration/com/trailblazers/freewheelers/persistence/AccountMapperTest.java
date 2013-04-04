@@ -31,23 +31,20 @@ public class AccountMapperTest {
 
     @Test
     public void shouldInsertAndGetAccount() throws Exception {
-        Account toBeInserted = someAccount();
-        toBeInserted.setAccount_name("Johnny Cash");
+        Account account = someAccount().setAccount_name("Johnny Cash");
 
-        accountMapper.insert(toBeInserted);
+        accountMapper.insert(account);
         sqlSession.commit();
-        Account fetchedFromDB = accountMapper.getById(toBeInserted.getAccount_id());
+        Account fetchedFromDB = accountMapper.getById(account.getAccount_id());
 
         assertThat(fetchedFromDB.getAccount_name(), is("Johnny Cash"));
     }
 
     @Test
     public void shouldGetAccountByName() throws Exception {
-        Account toBeInserted = someAccount();
-        toBeInserted.setAccount_name("Michael Stipe");
-
-        accountMapper.insert(toBeInserted);
+        accountMapper.insert(someAccount().setAccount_name("Michael Stipe"));
         sqlSession.commit();
+
         Account fetchedFromDB = accountMapper.getByName("Michael Stipe");
 
         assertThat(fetchedFromDB.getAccount_name(), is("Michael Stipe"));
@@ -55,9 +52,7 @@ public class AccountMapperTest {
 
     @Test
     public void shouldUpdateAnExistingAccount() throws Exception {
-        Account someAccount = someAccount();
-        someAccount.setAccount_name("Prince");
-
+        Account someAccount = someAccount().setAccount_name("Prince");
         accountMapper.insert(someAccount);
         sqlSession.commit();
 
@@ -65,18 +60,16 @@ public class AccountMapperTest {
         accountMapper.update(someAccount);
 
         Account fetched = accountMapper.getById(someAccount.getAccount_id());
-
         assertThat(fetched.getAccount_name(), is("TAFKAP"));
     }
 
     private Account someAccount() {
-        Account toBeInserted = new Account();
-        toBeInserted.setAccount_name("Some Body");
-        toBeInserted.setEmailAddress(UUID.randomUUID() + "some.body@gmail.com");
-        toBeInserted.setPassword("V3ry S3cret");
-        toBeInserted.setPhoneNumber("12345");
-        toBeInserted.setEnabled(true);
-        return toBeInserted;
+        return new Account()
+                .setAccount_name("Some Body")
+                .setEmailAddress(UUID.randomUUID() + "some.body@gmail.com")
+                .setPassword("V3ry S3cret")
+                .setPhoneNumber("12345")
+                .setEnabled(true);
     }
 
 }
