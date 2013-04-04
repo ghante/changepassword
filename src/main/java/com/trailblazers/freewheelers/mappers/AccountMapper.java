@@ -48,7 +48,8 @@ public interface AccountMapper {
             @Result(property="enabled")
     })
     public List<Account> findAll();
-//
-//    void delete(Account account);
+
+    @Delete("DELETE FROM account where account_id=#{account_id}")
+    void delete(Account account);
 
 }

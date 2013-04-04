@@ -28,6 +28,7 @@ public class AccountMapperTest {
 
     @After
     public void tearDown() throws Exception {
+        sqlSession.rollback();
         sqlSession.close();
     }
 
@@ -36,7 +37,7 @@ public class AccountMapperTest {
         Account account = someAccount().setAccount_name("Johnny Cash");
 
         accountMapper.insert(account);
-        sqlSession.commit();
+
         Account fetchedFromDB = accountMapper.getById(account.getAccount_id());
 
         assertThat(fetchedFromDB.getAccount_name(), is("Johnny Cash"));
@@ -45,7 +46,6 @@ public class AccountMapperTest {
     @Test
     public void shouldGetAccountByName() throws Exception {
         accountMapper.insert(someAccount().setAccount_name("Michael Stipe"));
-        sqlSession.commit();
 
         Account fetchedFromDB = accountMapper.getByName("Michael Stipe");
 
@@ -56,7 +56,6 @@ public class AccountMapperTest {
     public void shouldUpdateAnExistingAccount() throws Exception {
         Account someAccount = someAccount().setAccount_name("Prince");
         accountMapper.insert(someAccount);
-        sqlSession.commit();
 
         someAccount.setAccount_name("TAFKAP");
         accountMapper.update(someAccount);
@@ -82,13 +81,14 @@ public class AccountMapperTest {
     }
 
     @Test
-    public void should() throws Exception {
-        // given
-        
-        // when
-           
-        // then
-            
+    public void shouldDeleteAccounts() throws Exception {
+        Account account = someAccount();
+        accountMapper.insert(account);
+
+        accountMapper.delete(account);
+        Account fetched = accountMapper.getById(account.getAccount_id());
+
+        assertThat(fetched, is(nullValue()));
     }
     
     private Account someAccount() {
