@@ -63,6 +63,17 @@ public class AccountMapperTest {
         assertThat(fetched.getAccount_name(), is("TAFKAP"));
     }
 
+    @Test
+    public void shouldFindAllAccounts() throws Exception {
+        int before = accountMapper.findAll().size();
+
+        accountMapper.insert(someAccount());
+        accountMapper.insert(someAccount());
+        accountMapper.insert(someAccount());
+
+        assertThat(accountMapper.findAll().size(), is(before + 3));
+    }
+
     private Account someAccount() {
         return new Account()
                 .setAccount_name("Some Body")

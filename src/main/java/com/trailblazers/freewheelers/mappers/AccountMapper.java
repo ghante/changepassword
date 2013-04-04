@@ -1,10 +1,9 @@
 package com.trailblazers.freewheelers.mappers;
 
 import com.trailblazers.freewheelers.model.Account;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 public interface AccountMapper {
 
@@ -36,8 +35,19 @@ public interface AccountMapper {
         "WHERE account_id=#{account_id}"
     )
     void update(Account account);
-//
-//    List<Account> findAll();
+
+    @Select(
+        "SELECT account_id, account_name, email_address, password, phone_number, enabled FROM account"
+    )
+    @Results(value = {
+            @Result(property="account_id"),
+            @Result(property="account_name"),
+            @Result(property="emailAddress", column="email_address"),
+            @Result(property="password"),
+            @Result(property="phoneNumber", column="phone_number"),
+            @Result(property="enabled")
+    })
+    public List<Account> findAll();
 //
 //    Account save(Account account);
 //
