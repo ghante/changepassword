@@ -4,6 +4,7 @@ import com.trailblazers.freewheelers.model.Account;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 public interface AccountMapper {
 
@@ -28,6 +29,13 @@ public interface AccountMapper {
         "LIMIT 1"
     )
     Account getByName(String accountName);
+
+    @Update(
+        "UPDATE account " +
+        "SET account_name=#{account_name}, email_address=#{emailAddress}, phone_number=#{phoneNumber}, enabled=#{enabled} " +
+        "WHERE account_id=#{account_id}"
+    )
+    void update(Account account);
 //
 //    List<Account> findAll();
 //
