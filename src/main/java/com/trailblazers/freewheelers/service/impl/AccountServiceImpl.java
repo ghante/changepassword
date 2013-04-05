@@ -15,11 +15,6 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountDao accountDao;
 
-    @Transactional
-    public void save(Account account) {
-        accountDao.save(account);
-    }
-
     @Transactional(readOnly = true)
     public List<Account> findAll() {
         return accountDao.findAll();

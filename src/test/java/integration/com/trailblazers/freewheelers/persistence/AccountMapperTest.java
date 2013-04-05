@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.util.UUID;
 
+import static java.util.UUID.randomUUID;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -94,7 +95,7 @@ public class AccountMapperTest {
     private Account someAccount() {
         return new Account()
                 .setAccount_name("Some Body")
-                .setEmailAddress(UUID.randomUUID() + "some.body@gmail.com")
+                .setEmailAddress(randomUUID() + "some.body@gmail.com")
                 .setPassword("V3ry S3cret")
                 .setPhoneNumber("12345")
                 .setEnabled(true);
