@@ -6,6 +6,7 @@ import com.trailblazers.freewheelers.model.ReserveOrder;
 import com.trailblazers.freewheelers.service.AccountService;
 import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.ReserveOrderService;
+import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +26,7 @@ public class ReserveController {
     @Autowired
     ItemService itemService;
 
-    @Autowired
-    AccountService accountService;
+    AccountService accountService = new AccountServiceImpl();
 
     @Autowired
     ReserveOrderService reserveOrderService;
