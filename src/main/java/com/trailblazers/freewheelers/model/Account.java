@@ -3,21 +3,11 @@ package com.trailblazers.freewheelers.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "account")
 public class Account {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long account_id;
-
-    @NotNull
     private String account_name;
-
-    @NotNull
     private String password;
-
-    @NotNull
     private boolean enabled;
     private String emailAddress;
     private String phoneNumber;
