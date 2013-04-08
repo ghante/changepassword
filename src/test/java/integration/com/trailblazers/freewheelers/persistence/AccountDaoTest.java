@@ -36,14 +36,12 @@ public class AccountDaoTest extends DaoTestBase {
 
     @Test
     public void shouldGetAccountByAccountName(){
-
         Account account = makeAccount();
         accountDao.save(account);
 
         Account foundAccount = accountDao.getAccountByAccountName(account.getAccount_name());
         assertThat(foundAccount.getAccount_name(), is("octocat"));
         assertThat(foundAccount.getPassword(), is("meow"));
-
     }
 
     private Account makeAccount() {

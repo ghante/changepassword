@@ -81,16 +81,6 @@ public class AccountMapperTest {
     public void shouldReturnNullIfAnAccountDoesNotExist() throws Exception {
         assertThat(accountMapper.getByName("Does Not Exist"), is(nullValue()));
     }
-
-    @Test
-    public void should() throws Exception {
-        // given
-        
-        // when
-           
-        // then
-            
-    }
     
     private Account someAccount() {
         return new Account()

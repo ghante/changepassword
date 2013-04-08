@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class AccountServiceImpl implements AccountService {
+public class AccountServiceDAOImpl implements AccountService {
 
     @Autowired
     AccountDao accountDao;
