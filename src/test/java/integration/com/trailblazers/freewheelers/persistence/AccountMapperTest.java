@@ -29,6 +29,7 @@ public class AccountMapperTest {
 
     @After
     public void tearDown() throws Exception {
+        sqlSession.rollback();
         sqlSession.close();
     }
 
