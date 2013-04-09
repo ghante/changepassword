@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.After;
 import org.junit.Before;
 
-public abstract class MapperTestHelper {
+public abstract class MapperTestBase {
     private SqlSession sqlSession;
 
     @Before

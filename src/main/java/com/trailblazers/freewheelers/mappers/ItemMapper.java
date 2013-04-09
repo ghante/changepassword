@@ -1,6 +1,7 @@
 package com.trailblazers.freewheelers.mappers;
 
 import com.trailblazers.freewheelers.model.Item;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
@@ -21,7 +22,11 @@ public interface ItemMapper {
     )
     Item get(Long itemId);
 
-    // void delete(Item item)
+    @Delete(
+        "DELETE FROM item WHERE item_id = #{itemId}"
+    )
+    void delete(Item item);
+
     // List<Item> findAll()
     // List<Item> findItemWithNonZeroQuantity()
     // void update(Item item)
