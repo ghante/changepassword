@@ -2,9 +2,6 @@ package integration.com.trailblazers.freewheelers.persistence;
 
 import com.trailblazers.freewheelers.mappers.ItemMapper;
 import com.trailblazers.freewheelers.model.Item;
-import com.trailblazers.freewheelers.persistence.MyBatisUtil;
-import org.apache.ibatis.session.SqlSession;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,21 +11,15 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class ItemMapperTest {
+public class ItemMapperTest extends MapperTestHelper {
 
-    private SqlSession sqlSession;
     private ItemMapper itemMapper;
 
+    @Override
     @Before
-    public void setUp() {
-        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        itemMapper = sqlSession.getMapper(ItemMapper.class);
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        sqlSession.rollback();
-        sqlSession.close();
+    public void setUp() throws Exception {
+        super.setUp();
+        itemMapper = getSqlSession().getMapper(ItemMapper.class);
     }
 
     @Test

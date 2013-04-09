@@ -1,11 +1,7 @@
 package integration.com.trailblazers.freewheelers.persistence;
 
-import com.trailblazers.freewheelers.mappers.AccountMapper;
 import com.trailblazers.freewheelers.mappers.AccountRoleMapper;
 import com.trailblazers.freewheelers.model.AccountRole;
-import com.trailblazers.freewheelers.persistence.MyBatisUtil;
-import org.apache.ibatis.session.SqlSession;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,21 +10,14 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class AccountRoleMapperTest {
+public class AccountRoleMapperTest extends MapperTestHelper {
 
-    private SqlSession sqlSession;
     private AccountRoleMapper accountRoleMapper;
 
     @Before
-    public void setUp() {
-        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        accountRoleMapper = sqlSession.getMapper(AccountRoleMapper.class);
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        sqlSession.rollback();
-        sqlSession.close();
+    public void setUp() throws Exception {
+        super.setUp();
+        accountRoleMapper = getSqlSession().getMapper(AccountRoleMapper.class);
     }
 
     @Test

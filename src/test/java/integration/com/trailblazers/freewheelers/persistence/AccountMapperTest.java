@@ -2,13 +2,8 @@ package integration.com.trailblazers.freewheelers.persistence;
 
 import com.trailblazers.freewheelers.mappers.AccountMapper;
 import com.trailblazers.freewheelers.model.Account;
-import com.trailblazers.freewheelers.persistence.MyBatisUtil;
-import org.apache.ibatis.session.SqlSession;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.UUID;
 
 import static java.util.UUID.randomUUID;
 import static org.hamcrest.CoreMatchers.not;
@@ -16,21 +11,14 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class AccountMapperTest {
+public class AccountMapperTest extends MapperTestHelper {
 
-    private SqlSession sqlSession;
     private AccountMapper accountMapper;
 
     @Before
-    public void setUp() {
-        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        accountMapper = sqlSession.getMapper(AccountMapper.class);
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        sqlSession.rollback();
-        sqlSession.close();
+    public void setUp() throws Exception {
+        super.setUp();
+        accountMapper = getSqlSession().getMapper(AccountMapper.class);
     }
 
     @Test
@@ -38,7 +26,6 @@ public class AccountMapperTest {
         Account account = someAccount().setAccount_name("Johnny Cash");
 
         accountMapper.insert(account);
-        sqlSession.commit();
         Account fetchedFromDB = accountMapper.getById(account.getAccount_id());
 
         assertThat(fetchedFromDB.getAccount_name(), is("Johnny Cash"));
@@ -47,7 +34,6 @@ public class AccountMapperTest {
     @Test
     public void shouldGetAccountByName() throws Exception {
         accountMapper.insert(someAccount().setAccount_name("Michael Stipe"));
-        sqlSession.commit();
 
         Account fetchedFromDB = accountMapper.getByName("Michael Stipe");
 
@@ -58,7 +44,6 @@ public class AccountMapperTest {
     public void shouldUpdateAnExistingAccount() throws Exception {
         Account someAccount = someAccount().setAccount_name("Prince");
         accountMapper.insert(someAccount);
-        sqlSession.commit();
 
         someAccount.setAccount_name("TAFKAP");
         accountMapper.update(someAccount);
