@@ -13,6 +13,8 @@ import static org.hamcrest.core.Is.is;
 
 public class ItemMapperTest extends MapperTestBase {
 
+    public static final long AVAILABLE = 1L;
+    public static final long UNAVAILABLE = 0L;
     private ItemMapper itemMapper;
 
     @Override
@@ -71,6 +73,17 @@ public class ItemMapperTest extends MapperTestBase {
         itemMapper.insert(someItem());
 
         assertThat(itemMapper.findAll().size(), is(before + 1));
+    }
+
+    @Test
+    public void shouldShouldFindAllAvailableItems() throws Exception {
+        int before = itemMapper.findAvailable().size();
+
+        itemMapper.insert(someItem().setQuantity(AVAILABLE));
+        itemMapper.insert(someItem().setQuantity(UNAVAILABLE));
+        itemMapper.insert(someItem().setQuantity(UNAVAILABLE));
+
+        assertThat(itemMapper.findAvailable().size(), is(before + 1));
     }
 
     private Item someItem() {
