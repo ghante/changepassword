@@ -34,38 +34,44 @@ public class Item {
     public Long getItemId() {
         return itemId;
     }
-    public void setItemId(Long itemId) {
+    public Item setItemId(Long itemId) {
         this.itemId = itemId;
+        return this;
     }
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public Item setName(String name) {
         this.name = name;
+        return this;
     }
     public BigDecimal getPrice() {
         return price;
     }
-    public void setPrice(BigDecimal price) {
+    public Item setPrice(BigDecimal price) {
         this.price = price;
+        return this;
     }
     public String getDescription() {
         return description;
     }
-    public void setDescription(String description) {
+    public Item setDescription(String description) {
         this.description = description;
+        return this;
     }
     public String getType() {
         return type;
     }
-    public void setType(String type) {
+    public Item setType(String type) {
         this.type = type;
+        return this;
     }
     public Long getQuantity() {
         return quantity;
     }
-    public void setQuantity(Long quantity) {
+    public Item setQuantity(Long quantity) {
         this.quantity = quantity;
+        return this;
     }
 
 }

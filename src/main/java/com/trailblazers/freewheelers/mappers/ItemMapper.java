@@ -3,6 +3,7 @@ package com.trailblazers.freewheelers.mappers;
 import com.trailblazers.freewheelers.model.Item;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Select;
 
 public interface ItemMapper {
 
@@ -13,7 +14,13 @@ public interface ItemMapper {
     @Options(keyProperty = "itemId", keyColumn = "item_id", useGeneratedKeys = true)
     void insert(Item item);
 
-    // Item get(Long itemId)
+    @Select(
+        "SELECT item_id as itemId, description, name, price, type, quantity " +
+        "FROM item " +
+        "WHERE item_id = #{itemId}"
+    )
+    Item get(Long itemId);
+
     // void delete(Item item)
     // List<Item> findAll()
     // List<Item> findItemWithNonZeroQuantity()

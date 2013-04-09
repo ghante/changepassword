@@ -33,16 +33,31 @@ public class ItemMapperTest {
 
     @Test
     public void shouldInsertANewItem() throws Exception {
-        Item item = new Item();
-        item.setName("Some Item");
-        item.setDescription("... with a very nice descrption");
-        item.setPrice(valueOf(9.99));
-        item.setQuantity(100L);
-        item.setType("Some Type");
+        Item item = someItem().setItemId(null);
 
         itemMapper.insert(item);
 
         assertThat(item.getItemId(), is(not(nullValue())));
     }
+
+    @Test
+    public void shouldFetchAnItemById() throws Exception {
+        Item item = someItem().setName("Awesome Item");
+
+        itemMapper.insert(item);
+        Item fetched = itemMapper.get(item.getItemId());
+
+        assertThat(fetched.getName(), is("Awesome Item"));
+    }
+
+    private Item someItem() {
+        return new Item()
+                .setName("Some Item")
+                .setDescription("... with a very nice descrption")
+                .setPrice(valueOf(9.99))
+                .setQuantity(100L)
+                .setType("Some Type");
+    }
+
 
 }
