@@ -8,6 +8,8 @@ import com.trailblazers.freewheelers.service.AccountService;
 import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.ReserveOrderService;
 import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
+import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
+import com.trailblazers.freewheelers.service.impl.ItemServiceMapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +28,7 @@ public class AdminController {
     @Autowired
     ReserveOrderService reserveOrderService;
 
-    @Autowired
-    ItemService itemService;
-
+    ItemService itemService = new ItemServiceMapperImpl();
     AccountService accountService = new AccountServiceImpl();
 
     @RequestMapping(value="/admin", method = RequestMethod.GET)
