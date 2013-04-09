@@ -3,19 +3,11 @@ package com.trailblazers.freewheelers.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "AccountRole")
 public class AccountRole {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long role_id;
-
-    //TODO: Apply foriegn key contraint from Account.account_name
-    @NotNull
     private String account_name;
 
-    @NotNull
     private String role;
 
     public Long getRole_id() {
