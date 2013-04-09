@@ -64,10 +64,19 @@ public class ItemMapperTest extends MapperTestBase {
         assertThat(fetched.getPrice(), is(valueOf(99.99)));
     }
 
+    @Test
+    public void shouldFindAllItems() throws Exception {
+        int before = itemMapper.findAll().size();
+
+        itemMapper.insert(someItem());
+
+        assertThat(itemMapper.findAll().size(), is(before + 1));
+    }
+
     private Item someItem() {
         return new Item()
                 .setName("Some Item")
-                .setDescription("... with a very nice descrption")
+                .setDescription("... with a very nice description")
                 .setPrice(valueOf(9.99))
                 .setQuantity(100L)
                 .setType("Some Type");

@@ -3,6 +3,8 @@ package com.trailblazers.freewheelers.mappers;
 import com.trailblazers.freewheelers.model.Item;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 public interface ItemMapper {
 
     @Insert(
@@ -31,7 +33,18 @@ public interface ItemMapper {
     )
     void update(Item item);
 
-    // List<Item> findAll()
+    @Select(
+        "SELECT item_id, name, price, type, quantity, description FROM item"
+    )
+    @Results(value = {
+            @Result(property="itemId", column = "item_id"),
+            @Result(property="name"),
+            @Result(property="price"),
+            @Result(property="quantity"),
+            @Result(property="type"),
+            @Result(property="description")
+    })
+    List<Item> findAll();
     // List<Item> findItemWithNonZeroQuantity()
 
     // void reduceQuantityByOne(Item item)
