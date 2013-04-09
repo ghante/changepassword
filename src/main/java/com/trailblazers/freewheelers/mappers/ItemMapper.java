@@ -1,10 +1,7 @@
 package com.trailblazers.freewheelers.mappers;
 
 import com.trailblazers.freewheelers.model.Item;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 public interface ItemMapper {
 
@@ -27,9 +24,16 @@ public interface ItemMapper {
     )
     void delete(Item item);
 
+    @Update(
+        "UPDATE item " +
+        "SET description=#{description}, name=#{name}, price=#{price}, type=#{type}, quantity=#{quantity} " +
+        "WHERE item_id=#{itemId}"
+    )
+    void update(Item item);
+
     // List<Item> findAll()
     // List<Item> findItemWithNonZeroQuantity()
-    // void update(Item item)
+
     // void reduceQuantityByOne(Item item)
 
 }

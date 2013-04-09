@@ -52,6 +52,18 @@ public class ItemMapperTest extends MapperTestBase {
         assertThat(fetched, is(nullValue()));
     }
 
+    @Test
+    public void shouldUpdateAnItem() throws Exception {
+        Item item = someItem().setPrice(valueOf(100.00));
+        itemMapper.insert(item);
+
+        item.setPrice(valueOf(99.99));
+        itemMapper.update(item);
+        Item fetched = itemMapper.get(item.getItemId());
+
+        assertThat(fetched.getPrice(), is(valueOf(99.99)));
+    }
+
     private Item someItem() {
         return new Item()
                 .setName("Some Item")
