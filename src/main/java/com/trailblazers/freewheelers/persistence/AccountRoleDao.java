@@ -13,15 +13,6 @@ public class AccountRoleDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public AccountRole get(Long role_id) {
-        return (AccountRole) sessionFactory.getCurrentSession()
-                .createQuery(
-                        "FROM AccountRole a " +
-                                "WHERE a.role_id = :role_id " +
-                                "ORDER BY a.role_id")
-                .setLong("role_id", role_id).uniqueResult();
-    }
-
     public void delete(AccountRole AccountRole) {
         sessionFactory.getCurrentSession().delete(AccountRole);
     }

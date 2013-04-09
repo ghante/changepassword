@@ -12,10 +12,4 @@ public interface AccountRoleMapper {
     @Options(keyProperty = "role_id", useGeneratedKeys = true)
     void insert(AccountRole accountRole);
 
-    // get
-
-    // delete
-
-    // findAll
-
 }
