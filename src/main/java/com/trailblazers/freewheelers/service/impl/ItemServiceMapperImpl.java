@@ -36,6 +36,7 @@ public class ItemServiceMapperImpl implements ItemService {
 
     @Override
     public ItemGrid findAll() {
+        sqlSession.clearCache();
         return new ItemGrid(itemMapper.findAll());
     }
 

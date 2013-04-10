@@ -2,6 +2,7 @@ package com.trailblazers.freewheelers.web;
 
 import com.trailblazers.freewheelers.model.ItemType;
 import com.trailblazers.freewheelers.service.ItemService;
+import com.trailblazers.freewheelers.service.impl.ItemServiceMapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +19,7 @@ public class ItemController{
 
 	static final String URL = "/item";
 
-	@Autowired
-    ItemService itemService;
+    ItemService itemService = new ItemServiceMapperImpl();
 
     @Autowired
     ItemType itemType;
