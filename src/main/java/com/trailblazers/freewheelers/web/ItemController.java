@@ -37,7 +37,7 @@ public class ItemController{
             model.addAttribute("itemTypes", itemType.getTypes());
 			return URL;
 		}
-		itemService.save(itemCommand);
+		itemService.save(itemCommand.toItem());
 		return "redirect:" + URL;
 	}
 	

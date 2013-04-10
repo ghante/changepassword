@@ -2,6 +2,7 @@ package integration.com.trailblazers.freewheelers.persistence;
 
 import com.trailblazers.freewheelers.mappers.AccountMapper;
 import com.trailblazers.freewheelers.model.Account;
+import com.trailblazers.freewheelers.model.Item;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -66,6 +67,17 @@ public class AccountMapperTest extends MapperTestBase {
     @Test
     public void shouldReturnNullIfAnAccountDoesNotExist() throws Exception {
         assertThat(accountMapper.getByName("Does Not Exist"), is(nullValue()));
+    }
+
+    @Test
+    public void shouldDeleteAccount() throws Exception {
+        Account account = someAccount();
+        accountMapper.insert(account);
+
+        accountMapper.delete(account);
+        Account fetched = accountMapper.getById(account.getAccount_id());
+
+        assertThat(fetched, is(nullValue()));
     }
     
     private Account someAccount() {

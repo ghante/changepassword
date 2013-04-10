@@ -4,7 +4,6 @@ import com.trailblazers.freewheelers.mappers.ItemMapper;
 import com.trailblazers.freewheelers.model.Item;
 import com.trailblazers.freewheelers.persistence.MyBatisUtil;
 import com.trailblazers.freewheelers.service.ItemService;
-import com.trailblazers.freewheelers.web.ItemCommand;
 import com.trailblazers.freewheelers.web.ItemGrid;
 import org.apache.ibatis.session.SqlSession;
 
@@ -24,8 +23,13 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public void save(ItemCommand itemCommand) {
-        save(itemCommand.toItem());
+    public void save(Item item) {
+        if (item.getItemId() == null) {
+            itemMapper.insert(item);
+        } else {
+            itemMapper.update(item);
+        }
+        sqlSession.commit();
     }
 
     @Override
@@ -74,12 +78,4 @@ public class ItemServiceImpl implements ItemService {
         sqlSession.commit();
     }
 
-    private void save(Item item) {
-        if (item.getItemId() == null) {
-            itemMapper.insert(item);
-        } else {
-            itemMapper.update(item);
-        }
-        sqlSession.commit();
-    }
 }

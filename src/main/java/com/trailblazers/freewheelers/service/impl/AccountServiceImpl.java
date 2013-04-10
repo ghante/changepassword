@@ -32,4 +32,10 @@ public class AccountServiceImpl implements AccountService {
     public Account get(Long account_id) {
         return accountMapper.getById(account_id);
     }
+
+    @Override
+    public void delete(Account account) {
+        accountMapper.delete(account);
+        sqlSession.commit();
+    }
 }

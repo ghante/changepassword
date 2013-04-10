@@ -20,9 +20,6 @@ public class LoginTest {
     private final String USER = "UserCat";
     private final String USERPASSWORD = "user";
 
-    private final String ADMIN = "AdminCat";
-    private final String ADMINPASSWORD = "admin";
-
     @BeforeClass
     public static void before() {
         driver = new FirefoxDriver();
@@ -37,7 +34,6 @@ public class LoginTest {
     public void setup() throws SQLException {
         logout();
         DatabaseTestUtil.clean();
-        //TODO: insert test users into database tables
         driver.get("http://localhost:8080/login");
     }
 
@@ -47,30 +43,12 @@ public class LoginTest {
     }
 
     @Test
-    public void shouldLoginIntoAdminScreenWithAdminCredentials(){
-        LoginScreen.loginAs(ADMIN, ADMINPASSWORD, driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/admin"));
-    }
-
-    @Test
-    public void shouldDenyAccessToAdminScreenWithUserCredentials(){
-        LoginScreen.loginAs(USER, USERPASSWORD, driver);
-        assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
-    }
-
-    @Test
     public void shouldLetUserLogoutBackToHomePageAfterBeingDeniedAcsess(){
         LoginScreen.loginAs(USER, USERPASSWORD, driver);
+        driver.get("http://localhost:8080/admin");
         assertTrue(TestUtils.isElementPresent(driver, By.id("http_403")));
         driver.findElement(By.linkText("Logout")).click();
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
-    }
-
-    @Test
-    public void shouldShowErrorWhenWrongCredentialsAreEntered(){
-        LoginScreen.loginAs("blah", "blah", driver);
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
-        assertThat(1, is(driver.findElements(By.id("loginError")).size()));
     }
 
     @Test
@@ -78,10 +56,6 @@ public class LoginTest {
         logout();
         driver.get("http://localhost:8080/admin");
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
-    }
-
-    private void resetForm() {
-        driver.findElement(By.name("reset")).click();
     }
 
 }

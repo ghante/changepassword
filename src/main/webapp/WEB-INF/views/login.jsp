@@ -19,10 +19,9 @@
 	<form class="form-horizontal" name='f' action="<c:url value='j_spring_security_check' />" method="post">
         <div class="control-group">
             <label class="control-label">User</label>
-                <div class="controls">
-                    <input type='text' name='j_username' placeholder="Username"></td>
-                </div>
-	        </label>
+            <div class="controls">
+                <input type='text' name='j_username' placeholder="Username"></td>
+            </div>
         </div>
 
         <div class="control-group">

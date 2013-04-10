@@ -36,6 +36,7 @@ public class AdminTest {
         clean();
         driver.get("http://localhost:8080/login");
         LoginScreen.loginAs("AdminCat", "admin", driver);
+        driver.get("http://localhost:8080/admin");
     }
 
     @Test

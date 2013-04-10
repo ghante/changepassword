@@ -8,7 +8,7 @@ public interface ItemService {
 	
 	Item get(Long item_id);
 	
-	void save(ItemCommand itemCommand);
+	void save(Item item1);
 	
 	void delete(Item item);
 	
