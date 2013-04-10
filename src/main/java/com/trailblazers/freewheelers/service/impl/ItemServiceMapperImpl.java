@@ -41,6 +41,7 @@ public class ItemServiceMapperImpl implements ItemService {
 
     @Override
     public ItemGrid getItemsWithNonZeroQuantity() {
+        sqlSession.clearCache();
         return new ItemGrid(itemMapper.findAvailable());
     }
 
@@ -69,6 +70,7 @@ public class ItemServiceMapperImpl implements ItemService {
     public void decreaseQuantityByOne(Item item) {
         item.setQuantity(item.getQuantity() - 1);
         itemMapper.update(item);
+        sqlSession.commit();
     }
 
     private void save(Item item) {

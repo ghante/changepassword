@@ -24,6 +24,7 @@ public interface ItemMapper {
     @Delete(
         "DELETE FROM item WHERE item_id = #{itemId}"
     )
+    @Options(flushCache = true)
     void delete(Item item);
 
     @Update(
@@ -58,7 +59,5 @@ public interface ItemMapper {
             @Result(property="description")
     })
     List<Item> findAvailable();
-
-    // void reduceQuantityByOne(Item item)
 
 }
