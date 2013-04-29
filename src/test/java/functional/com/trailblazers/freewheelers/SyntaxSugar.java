@@ -3,6 +3,7 @@ package functional.com.trailblazers.freewheelers;
 public class SyntaxSugar {
 
     public static String EMPTY = "";
+    public static String SOME_PASSWORD = "secret";
 
     public static String email_is(String s) {
         return s;
