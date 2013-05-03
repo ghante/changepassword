@@ -14,4 +14,6 @@ public interface AccountService {
 
     void delete(Account account);
 
+    void create(Account account);
+
 }

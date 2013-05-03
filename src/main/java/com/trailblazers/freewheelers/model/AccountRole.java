@@ -14,23 +14,26 @@ public class AccountRole {
         return role_id;
     }
 
-    public void setRole_id(Long role_id) {
+    public AccountRole setRole_id(Long role_id) {
         this.role_id = role_id;
+        return this;
     }
 
     public String getAccount_name() {
         return account_name;
     }
 
-    public void setAccount_name(String account_name) {
+    public AccountRole setAccount_name(String account_name) {
         this.account_name = account_name;
+        return this;
     }
 
     public String getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public AccountRole setRole(String role) {
         this.role = role;
+        return this;
     }
 }
