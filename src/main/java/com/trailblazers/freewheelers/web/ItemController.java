@@ -21,20 +21,17 @@ public class ItemController{
 
     ItemService itemService = new ItemServiceImpl();
 
-    @Autowired
-    ItemType itemType;
-
 	@RequestMapping(method = RequestMethod.GET)
 	public void get(Model model, @ModelAttribute ItemCommand itemCommand) {
 		model.addAttribute("itemGrid", itemService.findAll());
-        model.addAttribute("itemTypes", itemType.getTypes());
+        model.addAttribute("itemTypes", ItemType.values());
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String post(Model model, @Valid ItemCommand itemCommand, BindingResult result) {
 		if (result.hasErrors()) {
 			model.addAttribute("itemGrid", itemService.findAll());
-            model.addAttribute("itemTypes", itemType.getTypes());
+            model.addAttribute("itemTypes", ItemType.values());
 			return URL;
 		}
 		itemService.save(itemCommand.toItem());

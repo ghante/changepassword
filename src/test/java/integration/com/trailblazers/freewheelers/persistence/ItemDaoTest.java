@@ -31,7 +31,7 @@ public class ItemDaoTest extends DaoTestBase {
 		assertEquals("Frame1", items.get(0).getName());
 		assertEquals(BigDecimal.valueOf(13.99), items.get(0).getPrice());
 		assertEquals("this frame is awesome", items.get(0).getDescription());
-		assertEquals(ItemType.TYPE.FRAME.toString(), items.get(0).getType());
+		assertEquals(ItemType.FRAME.toString(), items.get(0).getType());
         assertEquals(Long.valueOf(1), items.get(0).getQuantity());
 	}
 
@@ -45,7 +45,7 @@ public class ItemDaoTest extends DaoTestBase {
         assertEquals("Frame1", foundItem.getName());
         assertEquals(BigDecimal.valueOf(13.99), foundItem.getPrice());
         assertEquals("this frame is awesome", foundItem.getDescription());
-        assertEquals(ItemType.TYPE.FRAME.toString(), foundItem.getType());
+        assertEquals(ItemType.FRAME.toString(), foundItem.getType());
         assertEquals(Long.valueOf(1), foundItem.getQuantity());
 
     }
@@ -60,7 +60,7 @@ public class ItemDaoTest extends DaoTestBase {
         assertEquals("Frame1", foundItem.getName());
         assertEquals(BigDecimal.valueOf(13.99), foundItem.getPrice());
         assertEquals("this frame is awesome", foundItem.getDescription());
-        assertEquals(ItemType.TYPE.FRAME.toString(), foundItem.getType());
+        assertEquals(ItemType.FRAME.toString(), foundItem.getType());
         assertEquals(Long.valueOf(0), foundItem.getQuantity());
     }
 
@@ -84,7 +84,7 @@ public class ItemDaoTest extends DaoTestBase {
         item.setName("Frame1");
         item.setPrice(BigDecimal.valueOf(13.99));
         item.setDescription("this frame is awesome");
-        item.setType(ItemType.TYPE.FRAME.toString());
+        item.setType(ItemType.FRAME.toString());
         item.setQuantity(quantity);
         return item;
     }
