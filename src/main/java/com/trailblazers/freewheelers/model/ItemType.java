@@ -8,7 +8,6 @@ import java.util.List;
 @Service
 public class ItemType {
 
-
     public enum TYPE {
         FRAME,
         ACCESSORIES

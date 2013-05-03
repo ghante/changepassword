@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Long.valueOf;
+
 @Controller
 @RequestMapping(AdminController.URL)
 public class AdminController {
@@ -32,20 +34,12 @@ public class AdminController {
 
     @RequestMapping(value="/admin", method = RequestMethod.GET)
     public void get(Model model) {
-
-        List<ReservedOrderDetail> reservedOrderDetails = getAllOrders();
-
-        model.addAttribute("reserveOrders", reservedOrderDetails);
-
+        model.addAttribute("reserveOrders", getAllOrders());
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.POST, params="save=Save Changes")
     public void updateOrder(Model model, String state, String orderId, String note) {
-        Long order_id = Long.valueOf(orderId);
-        OrderStatus status = OrderStatus.valueOf(state);
-
-        reserveOrderService.updateOrderDetails(order_id, status, note);
-
+        reserveOrderService.updateOrderDetails(valueOf(orderId), OrderStatus.valueOf(state), note);
         get(model);
     }
 

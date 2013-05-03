@@ -1,5 +1,6 @@
 package functional.com.trailblazers.freewheelers.apis;
 
+import functional.com.trailblazers.freewheelers.helpers.URLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -33,15 +34,6 @@ public class ScreenApi {
         return this;
     }
 
-
-    public ScreenApi shows_login() {
-        String loginUrl = "http://localhost:8080/login";
-        String currentUrl = driver.getCurrentUrl();
-
-        assertThat(currentUrl, is(loginUrl));
-        return this;
-    }
-
     public ScreenApi shows_profile_for(String name) {
         String userDetails = driver.findElement(By.id("user-details")).getText();
 
@@ -49,11 +41,14 @@ public class ScreenApi {
         return this;
     }
 
-    public ScreenApi shows_admin_profile() {
-        String loginUrl = "http://localhost:8080/admin";
-        String currentUrl = driver.getCurrentUrl();
-
-        assertThat(currentUrl, is(loginUrl));
+    public ScreenApi shows_login() {
+        assertThat(driver.getCurrentUrl(), is(URLs.login()));
         return this;
     }
+
+    public ScreenApi shows_admin_profile() {
+        assertThat(driver.getCurrentUrl(), is(URLs.admin()));
+        return this;
+    }
+
 }

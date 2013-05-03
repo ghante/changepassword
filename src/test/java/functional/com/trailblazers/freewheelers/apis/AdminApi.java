@@ -2,11 +2,11 @@ package functional.com.trailblazers.freewheelers.apis;
 
 import com.trailblazers.freewheelers.model.Account;
 import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
+import functional.com.trailblazers.freewheelers.helpers.SyntaxSugar;
 
 
 public class AdminApi {
 
-    public static final String SOME_PHONE_NUMBER = "555-123456";
     private AccountServiceImpl accountService;
 
     public AdminApi() {
@@ -40,12 +40,9 @@ public class AdminApi {
         return new Account()
                     .setAccount_name(userName)
                     .setPassword(password)
-                    .setEmail_address(emailFor(userName))
-                    .setPhoneNumber(SOME_PHONE_NUMBER)
+                    .setEmail_address(SyntaxSugar.emailFor(userName))
+                    .setPhoneNumber(SyntaxSugar.SOME_PHONE_NUMBER)
                     .setEnabled(true);
     }
 
-    private String emailFor(String userName) {
-        return userName.replace(' ', '-') + "@random-email.com";
-    }
 }
