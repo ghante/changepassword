@@ -50,12 +50,12 @@ public class UserApi {
     }
 
     public UserApi visits_his_profile() {
-        driver.get("http://localhost:8080/userProfile");
+        driver.findElement(By.linkText("User Profile")).click();
         return this;
     }
 
     public UserApi visits_admin_profile() {
-        driver.get("http://localhost:8080/admin");
+        driver.findElement(By.linkText("Admin Profile")).click();
         return this;
     }
 

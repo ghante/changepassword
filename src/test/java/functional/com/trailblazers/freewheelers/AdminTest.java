@@ -46,24 +46,6 @@ public class AdminTest {
     }
 
     @Test
-    public void shouldTakeUserToHomeScreen() {
-        driver.findElement(By.linkText("Home")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
-    }
-
-    @Test
-    public void shouldTakeUserToAdminScreen() {
-        driver.findElement(By.linkText("Admin Profile")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/admin"));
-    }
-
-    @Test
-    public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked() {
-        driver.findElement(By.linkText("Logout")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
-    }
-
-    @Test
     public void shouldShowUserDetailsWhenClickingOnUserInOrderList() throws SQLException {
         insertIntoItems(1, "Some Frame", "500.00", "some frame", "FRAME");
         insertIntoAccount(42, "SomeName", "somebody@web.de", "secretPassword", "004945542741", "TRUE", "ROLE_USER");

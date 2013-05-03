@@ -37,11 +37,6 @@ public class HomeTest {
         driver.findElement(By.linkText("Logout")).click();
     }
 
-    @Test
-    public void  shouldTakeUserToHomeScreen(){
-        driver.findElement(By.linkText("Home")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
-    }
 
     @Test
     public void shouldShowListOfItemsOnHomeScreen() throws SQLException {
