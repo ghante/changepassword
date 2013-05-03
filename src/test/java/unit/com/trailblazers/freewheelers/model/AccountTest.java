@@ -13,12 +13,12 @@ public class AccountTest {
         Account account = new Account()
                 .setAccount_name("Bob")
                 .setPassword("password")
-                .setEmailAddress("foo@bar.com")
+                .setEmail_address("foo@bar.com")
                 .setPhoneNumber("123443245");
 
         assertThat(account.getAccount_name(), is("Bob"));
         assertThat(account.getPassword(), is("password"));
-        assertThat(account.getEmailAddress(), is("foo@bar.com"));
+        assertThat(account.getEmail_address(), is("foo@bar.com"));
         assertThat(account.getPhoneNumber(), is("123443245"));
     }
 }

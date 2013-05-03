@@ -3,8 +3,8 @@
 <%@ include file="header.jsp" %>
 
 <h2>Your details</h2>
-        <div class="well">
-            ${userDetail.account_name} - ${userDetail.emailAddress}<br />
+        <div id="user-details" class="well">
+            ${userDetail.account_name} - ${userDetail.email_address}<br />
         </div>
 
 		<h2>Your Orders</h2>

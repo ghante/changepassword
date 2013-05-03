@@ -52,12 +52,12 @@ public class Account {
         return this;
     }
 
-    public Account setEmailAddress(String emailAddress) {
+    public Account setEmail_address(String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
 
-    public String getEmailAddress() {
+    public String getEmail_address() {
         return emailAddress;
     }
 

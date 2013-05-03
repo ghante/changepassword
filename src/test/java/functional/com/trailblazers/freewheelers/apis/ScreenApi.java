@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ScreenApi {
@@ -25,8 +26,26 @@ public class ScreenApi {
         expectMessageWithClass(expectedMessage, "navbar-text");
     }
 
-    private void expectMessageWithClass(String expectedMessage, String messageClass) {
+    private ScreenApi expectMessageWithClass(String expectedMessage, String messageClass) {
         String errorMessage = driver.findElement(By.className(messageClass)).getText();
+
         assertThat(errorMessage, containsString(expectedMessage));
+        return this;
+    }
+
+
+    public ScreenApi shows_login() {
+        String loginUrl = "http://localhost:8080/login";
+        String currentUrl = driver.getCurrentUrl();
+
+        assertThat(currentUrl, is(loginUrl));
+        return this;
+    }
+
+    public ScreenApi shows_profile_for(String name) {
+        String userDetails = driver.findElement(By.id("user-details")).getText();
+
+        assertThat(userDetails, containsString(name));
+        return this;
     }
 }

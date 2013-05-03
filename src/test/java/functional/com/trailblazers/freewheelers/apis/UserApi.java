@@ -20,7 +20,7 @@ public class UserApi {
         return this;
     }
 
-    public void logs_in_with(String userName, String userPassword) {
+    public UserApi logs_in_with(String userName, String userPassword) {
         driver.get("http://localhost:8080/login");
 
         TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
@@ -28,6 +28,8 @@ public class UserApi {
         driver.findElement(By.name("j_password")).sendKeys(userPassword);
 
         driver.findElement(By.name("submit")).click();
+
+        return this;
     }
 
     public UserApi creates_an_account(String email, String password, String name, String phoneNumber) {
@@ -41,6 +43,11 @@ public class UserApi {
 
         driver.findElement(By.id("createAccount")).click();
 
+        return this;
+    }
+
+    public UserApi visits_his_profile() {
+        driver.get("http://localhost:8080/userProfile");
         return this;
     }
 }

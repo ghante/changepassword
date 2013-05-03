@@ -2,7 +2,6 @@ package integration.com.trailblazers.freewheelers.persistence;
 
 import com.trailblazers.freewheelers.mappers.AccountMapper;
 import com.trailblazers.freewheelers.model.Account;
-import com.trailblazers.freewheelers.model.Item;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -83,7 +82,7 @@ public class AccountMapperTest extends MapperTestBase {
     private Account someAccount() {
         return new Account()
                 .setAccount_name("Some Body")
-                .setEmailAddress(randomUUID() + "some.body@gmail.com")
+                .setEmail_address(randomUUID() + "some.body@gmail.com")
                 .setPassword("V3ry S3cret")
                 .setPhoneNumber("12345")
                 .setEnabled(true);

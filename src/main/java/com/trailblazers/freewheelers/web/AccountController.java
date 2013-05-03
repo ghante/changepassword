@@ -2,8 +2,6 @@ package com.trailblazers.freewheelers.web;
 
 import com.trailblazers.freewheelers.model.Account;
 import com.trailblazers.freewheelers.model.AccountValidation;
-import com.trailblazers.freewheelers.persistence.DataAccess;
-import com.trailblazers.freewheelers.persistence.DatabaseConnectionProvider;
 import com.trailblazers.freewheelers.service.AccountService;
 import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -15,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 @Controller
@@ -60,7 +57,7 @@ public class AccountController {
 
     private boolean createAccount(String email, String password, String name, String phoneNumber) throws IOException {
         Account account = new Account()
-                .setEmailAddress(email)
+                .setEmail_address(email)
                 .setPassword(password)
                 .setAccount_name(name)
                 .setPhoneNumber(phoneNumber)

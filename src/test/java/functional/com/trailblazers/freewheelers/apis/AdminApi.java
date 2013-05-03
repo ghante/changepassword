@@ -6,6 +6,8 @@ import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
 
 public class AdminApi {
 
+    public static final String SOME_EMAIL = "some@random.email";
+    public static final String SOME_PHONE_NUMBER = "555-123456";
     private AccountServiceImpl accountService;
 
     public AdminApi() {
@@ -22,10 +24,15 @@ public class AdminApi {
     }
 
     public void there_is_a_user(String userName, String password) {
+        there_is_no_user(userName);
+
         Account account = new Account()
                 .setAccount_name(userName)
-                .setPassword(password);
+                .setPassword(password)
+                .setEmail_address(SOME_EMAIL)
+                .setPhoneNumber(SOME_PHONE_NUMBER)
+                .setEnabled(true);
 
-        // more stuff to do here :)
+        accountService.create(account);
     }
 }

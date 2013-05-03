@@ -37,8 +37,19 @@ public class AccessRights_UserJourneyTest {
     public void testAccessRight() throws Exception {
         admin
                 .there_is_a_user("Hugo Huser", password_is(SOME_PASSWORD));
+        user
+                .is_logged_out()
+                .visits_his_profile();
+        screen
+                .shows_login();
 
-        // can't access profile without loging
+        user
+                .logs_in_with("Hugo Huser", SOME_PASSWORD)
+                .visits_his_profile();
+        screen
+                .shows_profile_for("Hugo Huser");
+
+
 
         // can access user profile with login
 
