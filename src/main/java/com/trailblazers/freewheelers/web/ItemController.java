@@ -3,7 +3,6 @@ package com.trailblazers.freewheelers.web;
 import com.trailblazers.freewheelers.model.ItemType;
 import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

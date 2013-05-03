@@ -49,20 +49,6 @@ public class ItemAcptTest {
     }
 	
 	@Test
-	public void addingOneItem() {
-
-		addAFrame("item1", "13.99");
-		assertEquals(1, driver.findElements(By.xpath("//table//tbody//tr")).size());
-	}
-
-	@Test
-	public void addingTwoItems() {
-		addAFrame("item1", "13.99");
-		addAFrame("item2", "13.99");
-		assertEquals(2, driver.findElements(By.xpath("//table//tbody//tr")).size());
-	}
-	
-	@Test
 	public void updatingTwoItems() {
 		addAFrame("item1", "13.99");
 		addAFrame("item2", "13.99");
@@ -74,18 +60,6 @@ public class ItemAcptTest {
 		assertEquals("item11", driver.findElement(By.xpath("//tbody//tr[1]//input[contains(@name, '.name')]")).getAttribute("value"));
 		assertEquals("item22", driver.findElement(By.xpath("//tbody//tr[2]//input[contains(@name, '.name')]")).getAttribute("value"));
 	}
-
-    @Test
-    public void  shouldTakeUserToHomecreen(){
-        driver.findElement(By.linkText("Home")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
-    }
-
-    @Test
-    public void  shouldTakeUserToAdminScreen(){
-        driver.findElement(By.linkText("Admin Profile")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/admin"));
-    }
 
     @Test
     public void shouldShowAlertWhenNonNumberPriceIsEntered(){
@@ -117,12 +91,6 @@ public class ItemAcptTest {
 
         assertEquals(1, driver.findElements(By.xpath("//tbody//tr[1]")).size());
 
-    }
-
-    @Test
-    public void shouldLogOutUserBackToHomePageWhenLogOutLinkIsClicked(){
-        driver.findElement(By.linkText("Logout")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/"));
     }
 
     private void addAFrame(String name, String price) {
