@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +35,11 @@ public class UserProfileController {
 
     @RequestMapping(value = "/{userName:.*}", method = RequestMethod.GET)
     public String get(@PathVariable String userName, Model model, Principal principal) {
+
         if (userName == null) {
             userName = principal.getName();
         }
+        userName = decode(userName);
 
         Account account = accountService.getAccountIdByName(userName);
 
@@ -46,6 +50,14 @@ public class UserProfileController {
         model.addAttribute("userDetail", account);
 
         return "userProfile";
+    }
+
+    private String decode(String userName)  {
+        try {
+            return URLDecoder.decode(userName, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            return userName;
+        }
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)

@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class UserApi {
 
     private WebDriver driver;
@@ -54,5 +57,18 @@ public class UserApi {
     public UserApi visits_admin_profile() {
         driver.get("http://localhost:8080/admin");
         return this;
+    }
+
+    public UserApi visits_profile_for(String name) {
+        driver.get("http://localhost:8080/userProfile/" + encoded(name));
+        return this;
+    }
+
+    private String encoded(String s) {
+        try {
+            return URLEncoder.encode(s, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            return "";
+        }
     }
 }

@@ -48,4 +48,12 @@ public class ScreenApi {
         assertThat(userDetails, containsString(name));
         return this;
     }
+
+    public ScreenApi shows_admin_profile() {
+        String loginUrl = "http://localhost:8080/admin";
+        String currentUrl = driver.getCurrentUrl();
+
+        assertThat(currentUrl, is(loginUrl));
+        return this;
+    }
 }

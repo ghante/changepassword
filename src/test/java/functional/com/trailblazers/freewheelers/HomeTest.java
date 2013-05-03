@@ -44,12 +44,6 @@ public class HomeTest {
     }
 
     @Test
-    public void  shouldTakeUserToLoginScreen(){
-        driver.findElement(By.linkText("Admin Profile")).click();
-        assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/login"));
-    }
-
-    @Test
     public void shouldShowListOfItemsOnHomeScreen() throws SQLException {
         DatabaseTestUtil.insertIntoItems(111, "frame1", "14.99", "I should see this item", "FRAME");
         //refresh screen

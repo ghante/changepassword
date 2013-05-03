@@ -46,7 +46,7 @@ public class AccessRights_UserJourneyTest {
                 .shows_login();
 
         user
-                .logs_in_with("Hugo Huser", SOME_PASSWORD)
+                .logs_in_with("Hugo Huser", password_is(SOME_PASSWORD))
                 .visits_his_profile();
         screen
                 .shows_profile_for("Hugo Huser");
@@ -56,12 +56,16 @@ public class AccessRights_UserJourneyTest {
         screen
                 .shows_error("access is denied");
 
+        user
+                .logs_in_with("Arno Admin", password_is(SOME_PASSWORD))
+                .visits_admin_profile();
+        screen
+                .shows_admin_profile();
 
-        // can access admin profile when logged in as admin
-
-        // admin can access user profile
-
-
+        user
+                .visits_profile_for("Hugo Huser");
+        screen
+                .shows_profile_for("Hugo Huser");
     }
 
 
