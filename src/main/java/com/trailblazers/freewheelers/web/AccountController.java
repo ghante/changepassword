@@ -66,7 +66,7 @@ public class AccountController {
         AccountService accountService = new AccountServiceImpl();
 
         try {
-            accountService.create(account);
+            accountService.createUser(account);
         } catch (Exception e) {
             return false;
         }

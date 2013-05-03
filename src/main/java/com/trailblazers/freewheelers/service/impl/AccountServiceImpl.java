@@ -13,6 +13,8 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
 
     public static final String USER = "ROLE_USER";
+    private static final String ADMIN = "ROLE_ADMIN";
+
     private final AccountRoleMapper accountRoleMapper;
     private SqlSession sqlSession;
     private AccountMapper accountMapper;
@@ -45,15 +47,24 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void create(Account account) {
+    public void createUser(Account account) {
+        create(account, USER);
+    }
+
+    @Override
+    public void createAdmin(Account account) {
+        create(account, ADMIN);
+    }
+
+    private void create(Account account, String role) {
         accountMapper.insert(account);
-        accountRoleMapper.insert(userRole(account));
+        accountRoleMapper.insert(roleFor(account, role));
         sqlSession.commit();
     }
 
-    private AccountRole userRole(Account account) {
+    private AccountRole roleFor(Account account, String role) {
         return new AccountRole()
                 .setAccount_name(account.getAccount_name())
-                .setRole(USER);
+                .setRole(role);
     }
 }

@@ -14,6 +14,7 @@ public interface AccountService {
 
     void delete(Account account);
 
-    void create(Account account);
+    void createUser(Account account);
 
+    void createAdmin(Account account);
 }

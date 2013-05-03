@@ -34,9 +34,11 @@ public class AccessRights_UserJourneyTest {
     }
 
     @Test
-    public void testAccessRight() throws Exception {
+    public void testAccessRights() throws Exception {
         admin
-                .there_is_a_user("Hugo Huser", password_is(SOME_PASSWORD));
+                .there_is_a_user("Hugo Huser", password_is(SOME_PASSWORD))
+                .there_is_an_admin("Arno Admin", password_is(SOME_PASSWORD));
+
         user
                 .is_logged_out()
                 .visits_his_profile();
@@ -49,10 +51,6 @@ public class AccessRights_UserJourneyTest {
         screen
                 .shows_profile_for("Hugo Huser");
 
-
-
-        // can access user profile with login
-
         // can't access admin profile when logged in as user
 
         // can access admin profile when logged in as admin
@@ -61,6 +59,8 @@ public class AccessRights_UserJourneyTest {
 
 
     }
+
+
 
 
 }

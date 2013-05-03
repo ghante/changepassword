@@ -36,7 +36,7 @@ public class Account_UserJourneyTest {
     @Test
     public void testCreateAccount() throws Exception {
         admin
-                .there_is_no_user("Jan Plewka");
+                .there_is_no_account_for("Jan Plewka");
 
         user
                 .is_logged_out()
