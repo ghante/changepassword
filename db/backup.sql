@@ -69,15 +69,6 @@ INSERT INTO item VALUES (10, 'If fast and furious is how you like to ride, then 
 
 SELECT pg_catalog.setval('item_item_id_seq', 13, true);
 
-
---
--- Data for Name: item_type; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-INSERT INTO item_type VALUES (1, 'Frames');
-INSERT INTO item_type VALUES (2, 'Accessories');
-
-
 --
 -- Name: item_type_item_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
