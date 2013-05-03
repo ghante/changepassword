@@ -1,6 +1,5 @@
 package functional.com.trailblazers.freewheelers;
 
-
 import functional.com.trailblazers.freewheelers.apis.AdminApi;
 import functional.com.trailblazers.freewheelers.apis.ScreenApi;
 import functional.com.trailblazers.freewheelers.apis.UserApi;
@@ -41,7 +40,6 @@ public class Account_UserJourneyTest {
         user
                 .is_logged_out()
                 .logs_in_with("Jan Plewka", "My S3cret Passw0rd");
-
         screen
                 .shows_error("login attempt was not successful");
 
@@ -52,7 +50,6 @@ public class Account_UserJourneyTest {
                         name_is("Jan Plewka"),
                         phone_number_is(EMPTY)
                 );
-
         screen
                 .shows_error("Must enter a phone number");
 
@@ -63,16 +60,48 @@ public class Account_UserJourneyTest {
                         name_is("Jan Plewka"),
                         phone_number_is("04087870753")
                 );
-
         screen
                 .shows_message("account has been created");
-
         user
                 .is_logged_out()
                 .logs_in_with("Jan Plewka", "My S3cret Passw0rd");
-
         screen
                 .shows_in_navbar("Welcome Jan");
+    }
+
+    @Test
+    public void testAccessRights() throws Exception {
+        admin
+                .there_is_a_user("Hugo Huser", password_is(SOME_PASSWORD))
+                .there_is_an_admin("Arno Admin", password_is(SOME_PASSWORD));
+
+        user
+                .is_logged_out()
+                .visits_his_profile();
+        screen
+                .shows_login();
+
+        user
+                .logs_in_with("Hugo Huser", password_is(SOME_PASSWORD))
+                .visits_his_profile();
+        screen
+                .shows_profile_for("Hugo Huser");
+
+        user
+                .visits_admin_profile();
+        screen
+                .shows_error("access is denied");
+
+        user
+                .logs_in_with("Arno Admin", password_is(SOME_PASSWORD))
+                .visits_admin_profile();
+        screen
+                .shows_admin_profile();
+
+        user
+                .visits_profile_for("Hugo Huser");
+        screen
+                .shows_profile_for("Hugo Huser");
     }
 
 
