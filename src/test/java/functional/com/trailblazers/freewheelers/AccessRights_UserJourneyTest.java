@@ -51,7 +51,11 @@ public class AccessRights_UserJourneyTest {
         screen
                 .shows_profile_for("Hugo Huser");
 
-        // can't access admin profile when logged in as user
+        user
+                .visits_admin_profile();
+        screen
+                .shows_error("access is denied");
+
 
         // can access admin profile when logged in as admin
 

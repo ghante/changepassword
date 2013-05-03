@@ -50,4 +50,9 @@ public class UserApi {
         driver.get("http://localhost:8080/userProfile");
         return this;
     }
+
+    public UserApi visits_admin_profile() {
+        driver.get("http://localhost:8080/admin");
+        return this;
+    }
 }
