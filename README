@@ -31,6 +31,9 @@ to do
 * throw out annotation based validation
 * write last mapper, throw out dao
 * rewrite services to use mapper
-* throw out remaining auto wireing
+* throw out remaining auto wiring
 * clean up controllers
 * rewrite function tests
+* clean up configs
+* item grid
+* item command
