@@ -1,19 +1,28 @@
 package unit.com.trailblazers.freewheelers.model;
 
 import com.trailblazers.freewheelers.model.Item;
-import com.trailblazers.freewheelers.model.ItemValidation;
+import com.trailblazers.freewheelers.model.ItemValidator;
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.validation.BeanPropertyBindingResult;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 
-import java.util.List;
+import java.math.BigDecimal;
 
-import static com.trailblazers.freewheelers.model.ItemValidation.validate;
 import static java.math.BigDecimal.valueOf;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class ItemValidationTest {
+
+    private ItemValidator validator;
+
+    @Before
+    public void setUp() throws Exception {
+        validator = new ItemValidator();
+    }
 
     private Item someItem() {
         return new Item()
@@ -25,56 +34,67 @@ public class ItemValidationTest {
     }
 
     @Test
-    public void shouldHaveNoValidationErrorsForAValidItem() throws Exception {
-        assertThat(validate(someItem()).isEmpty(), is(true));
+    public void shouldSupportItemClass() throws Exception {
+        assertThat(validator.supports(Item.class), is(true));
     }
 
     @Test
-    public void shouldErrorWhenThereIsNoName() throws Exception {
-        Item withoutAName = someItem().setName(null);
-        assertThat(validate(withoutAName).get(0), is("Please enter Item Name"));
+    public void shouldNotSupportOtherClasses() throws Exception {
+        assertThat(validator.supports(BigDecimal.class), is(false));
     }
 
     @Test
-    public void shouldErrorWhenNameIsEmpty() throws Exception {
-        Item withEmptyName = someItem().setName("");
-        assertThat(validate(withEmptyName).get(0), is("Please enter Item Name"));
+    public void shouldHaveNoValidationErrorsForAValidItem() {
+        assertThat(validate(someItem()).hasErrors(), is(false));
     }
 
     @Test
-    public void shouldErrorWhenThereIsNoPrice() throws Exception {
-        Item withoutAPrice = someItem().setPrice(null);
-        assertThat(validate(withoutAPrice).get(0), is("Please enter Item Price"));
+    public void shouldErrorWhenThereIsNoName() {
+        assertFieldError(someItem().setName(""), "name", "Please enter Item Name");
     }
-    
+
     @Test
-    public void shouldComplainAboutPricesThatAreWayTooHigh() throws Exception {
+    public void shouldErrorWhenThereIsNoPrice() {
+        assertFieldError(someItem().setPrice(null), "price", "Please enter Item Price");
+    }
+
+    @Test
+    public void shouldErrorWhenThereIsNoQuantity() {
+        assertFieldError(someItem().setQuantity(null), "quantity", "Please enter Item Quantity");
+    }
+
+    @Test
+    public void shouldErrorWhenThereIsNoType() {
+        assertFieldError(someItem().setType(""), "type", "Please enter Item Type");
+    }
+
+    @Test
+    public void shouldErrorWhenThereIsNoDescription() {
+        assertFieldError(someItem().setDescription(""), "description", "Please enter Item Description");
+    }
+
+    @Test
+    public void shouldHaveAPrice() {
+        assertFieldError(someItem().setPrice(null), "price", "Please enter Item Price");
+    }
+
+    @Test
+    public void should() throws Exception {
         Item ridiculouslyExpensive = someItem().setPrice(valueOf(100000.00));
-        assertThat(validate(ridiculouslyExpensive).get(0), is("must be less than or equal to 99999"));
+        assertFieldError(ridiculouslyExpensive, "price", "must be less than or equal to 99999");
     }
 
-    @Test
-    public void shouldHaveADescriptionAtLeastAnEmptyOne() throws Exception {
-        Item noDescription = someItem().setDescription(null);
-        assertThat(validate(noDescription).get(0), is("Please enter Item Description"));
+    private BindingResult validate(Item item) {
+        BindingResult result = new BeanPropertyBindingResult(item, "item");
+        validator.validate(item, result);
+        return result;
     }
 
-    @Test
-    public void shouldErrorWhenThereIsNoType() throws Exception {
-        Item withoutAType = someItem().setType(null);
-        assertThat(validate(withoutAType).get(0), is("Please select Item Type"));
+    private void assertFieldError(Item item, String field, String expectedMessage) {
+        FieldError error = validate(item).getFieldError(field);
+        assertThat(error.getDefaultMessage(), is(expectedMessage));
     }
 
-    @Test
-    public void shouldErrorWhenTypeIsEmpty() throws Exception {
-        Item withEmptyType = someItem().setType("");
-        assertThat(validate(withEmptyType).get(0), is("Please select Item Type"));
-    }
 
-    @Test
-    public void shouldErrorWhenThereIsNoQuantity() throws Exception {
-        Item homeManyWeDontKnow = someItem().setQuantity(null);
-        assertThat(validate(homeManyWeDontKnow).get(0), is("Please enter Item Quantity"));
-    }
 
 }
