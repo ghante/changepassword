@@ -2,6 +2,7 @@ package unit.com.trailblazers.freewheelers.model;
 
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static com.trailblazers.freewheelers.model.AccountValidation.verifyInputs;
@@ -18,7 +19,7 @@ public class AccountValidationTest {
 
     @Test
     public void shouldHaveNoErrorsForValidInput() throws Exception {
-        List<String> errors = verifyInputs(SOME_EMAIL, SOME_PASSWORD, SOME_NAME, SOME_PHONE);
+        HashMap errors = verifyInputs(SOME_EMAIL, SOME_PASSWORD, SOME_NAME, SOME_PHONE);
 
         assertThat(errors.size(), is(0));
     }
@@ -27,41 +28,41 @@ public class AccountValidationTest {
     public void shouldComplainAboutAnInvalidEmail() throws Exception {
         String invalidEmail = "invalid.email.address";
 
-        List<String> errors = verifyInputs(invalidEmail, SOME_PASSWORD, SOME_NAME, SOME_PHONE);
+        HashMap errors = verifyInputs(invalidEmail, SOME_PASSWORD, SOME_NAME, SOME_PHONE);
 
-        assertThereIsOneError("enter a valid email", errors);
+        assertThereIsOneErrorFor("email", "enter a valid email", errors);
     }
 
     @Test
     public void shouldComplainAboutAnEmptyPassword() throws Exception {
         String emptyPassword = "";
 
-        List<String> errors = verifyInputs(SOME_EMAIL, emptyPassword, SOME_NAME, SOME_PHONE);
+        HashMap errors = verifyInputs(SOME_EMAIL, emptyPassword, SOME_NAME, SOME_PHONE);
 
-        assertThereIsOneError("enter a password", errors);
+        assertThereIsOneErrorFor("password", "enter a password", errors);
     }
 
     @Test
     public void shouldComplainAboutAnEmptyName() throws Exception {
         String emptyName = "";
 
-        List<String> errors = verifyInputs(SOME_EMAIL, SOME_PASSWORD, emptyName, SOME_PHONE);
+        HashMap errors = verifyInputs(SOME_EMAIL, SOME_PASSWORD, emptyName, SOME_PHONE);
 
-        assertThereIsOneError("enter a name", errors);
+        assertThereIsOneErrorFor("name", "enter a name", errors);
     }
 
     @Test
     public void shouldComplainAboutAnEmptyPhoneNumber() throws Exception {
         String emptyPhoneNumber = "";
 
-        List<String> errors = verifyInputs(SOME_EMAIL, SOME_PASSWORD, SOME_NAME, emptyPhoneNumber);
+        HashMap errors = verifyInputs(SOME_EMAIL, SOME_PASSWORD, SOME_NAME, emptyPhoneNumber);
 
-        assertThereIsOneError("enter a phone number", errors);
+        assertThereIsOneErrorFor("phoneNumber", "enter a phone number", errors);
     }
 
-    private void assertThereIsOneError(String substring, List<String> errors) {
+    private void assertThereIsOneErrorFor(String field, String expected, HashMap<String, String> errors) {
         assertThat(errors.size(), is(1));
-        assertThat(errors.get(0), containsString(substring));
+        assertThat(errors.get(field), containsString(expected));
     }
 
 

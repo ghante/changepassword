@@ -34,6 +34,7 @@ to do
 * throw out remaining auto wiring
 * clean up controllers
 * rewrite function tests
+* push more stuff from controller to the services
 * clean up configs
 * item grid
 * item command

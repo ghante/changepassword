@@ -13,7 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/account")
@@ -31,7 +33,7 @@ public class AccountController {
         String name = request.getParameter("name");
         String phoneNumber = request.getParameter("phoneNumber");
 
-        List<String> errors = AccountValidation.verifyInputs(email, password, name, phoneNumber);
+        Map errors = AccountValidation.verifyInputs(email, password, name, phoneNumber);
 
         if (errors.size() > 0) {
             return showErrors(errors);
@@ -45,7 +47,7 @@ public class AccountController {
 
     }
 
-    private ModelAndView showErrors(List<String> errors) {
+    private ModelAndView showErrors(Map errors) {
         ModelMap model = new ModelMap();
         model.put("errors", errors);
         return new ModelAndView("account/create", "validationMessage", model);

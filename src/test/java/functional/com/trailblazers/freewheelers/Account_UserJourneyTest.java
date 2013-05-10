@@ -51,7 +51,7 @@ public class Account_UserJourneyTest {
                         phone_number_is(EMPTY)
                 );
         screen
-                .shows_error("Must enter a phone number");
+                .shows_error("There were errors");
 
         user
                 .creates_an_account(

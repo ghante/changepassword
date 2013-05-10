@@ -10,9 +10,7 @@
 
     <c:if test="${not empty validationMessage.errors}">
         <div id="resultsMessage" class="alert alert-error">
-        <c:forEach var="error" items="${validationMessage.errors}">
-            ${error}<br />
-        </c:forEach>
+            There were errors.
         </div>
     </c:if>
 
@@ -21,6 +19,9 @@
             <label class="control-label" for="fld_email">Email</label>
             <div class="controls">
                 <input type="text" id="fld_email" placeholder="somebody@something.com" name="email">
+                <c:if test="${not empty validationMessage.errors['email']}">
+                    <span class="text-error">${validationMessage.errors["email"]}</span>
+                </c:if>
             </div>
         </div>
 
@@ -28,6 +29,9 @@
             <label class="control-label" for="fld_password">Password</label>
             <div class="controls">
                 <input type="text" id="fld_password" placeholder="secret password" name="password">
+                <c:if test="${not empty validationMessage.errors['password']}">
+                    <span class="text-error">${validationMessage.errors["password"]}</span>
+                </c:if>
             </div>
         </div>
 
@@ -35,6 +39,9 @@
             <label class="control-label" for="fld_name">Name</label>
             <div class="controls">
                 <input type="text" id="fld_name" placeholder="Your Name" name="name">
+                <c:if test="${not empty validationMessage.errors['name']}">
+                    <span class="text-error">${validationMessage.errors["name"]}</span>
+                </c:if>
             </div>
         </div>
 
@@ -42,6 +49,9 @@
             <label class="control-label" for="fld_phoneNumber">Phone Number</label>
             <div class="controls">
                 <input type="text" id="fld_phoneNumber" placeholder="555-123456" name="phoneNumber">
+                <c:if test="${not empty validationMessage.errors['phoneNumber']}">
+                    <span class="text-error">${validationMessage.errors["phoneNumber"]}</span>
+                </c:if>
             </div>
         </div>
 
