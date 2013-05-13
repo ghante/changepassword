@@ -28,8 +28,8 @@ get started
 
 to do
 =====
-* throw out annotation based validation
 * write last mapper, throw out dao
+* rewrite validation in item
 * rewrite services to use mapper
 * throw out remaining auto wiring
 * clean up controllers
@@ -39,3 +39,5 @@ to do
 * item grid
 * item command
 * type in item should be item type :/
+* order_id > orderId
+

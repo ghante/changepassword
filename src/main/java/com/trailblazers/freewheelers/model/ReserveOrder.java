@@ -46,16 +46,18 @@ public class ReserveOrder {
         return item_id;
     }
 
-    public void setItem_id(Long item_id) {
+    public ReserveOrder setItem_id(Long item_id) {
         this.item_id = item_id;
+        return this;
     }
 
     public Date getReservation_timestamp() {
         return reservation_timestamp;
     }
 
-    public void setReservation_timestamp(Date reservation_timestamp) {
+    public ReserveOrder setReservation_timestamp(Date reservation_timestamp) {
         this.reservation_timestamp = reservation_timestamp;
+        return this;
     }
 
     public Long getOrder_id() {
@@ -70,8 +72,9 @@ public class ReserveOrder {
         return account_id;
     }
 
-    public void setAccount_id(Long account_id) {
+    public ReserveOrder setAccount_id(Long account_id) {
         this.account_id = account_id;
+        return this;
     }
 
     public OrderStatus getStatus() {
@@ -82,8 +85,9 @@ public class ReserveOrder {
         this.status = status;
     }
 
-    public void setNote(String note) {
+    public ReserveOrder setNote(String note) {
         this.note = note;
+        return this;
     }
 
     public String getNote() {
