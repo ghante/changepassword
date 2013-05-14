@@ -2,7 +2,7 @@ package com.trailblazers.freewheelers.service.impl;
 
 import com.trailblazers.freewheelers.mappers.ItemMapper;
 import com.trailblazers.freewheelers.model.Item;
-import com.trailblazers.freewheelers.persistence.MyBatisUtil;
+import com.trailblazers.freewheelers.mappers.MyBatisUtil;
 import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.web.ItemGrid;
 import org.apache.ibatis.session.SqlSession;

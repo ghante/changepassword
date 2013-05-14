@@ -1,8 +1,6 @@
 package integration.com.trailblazers.freewheelers.persistence;
 
-import com.trailblazers.freewheelers.mappers.AccountMapper;
-import com.trailblazers.freewheelers.mappers.ItemMapper;
-import com.trailblazers.freewheelers.persistence.MyBatisUtil;
+import com.trailblazers.freewheelers.mappers.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.After;
 import org.junit.Before;

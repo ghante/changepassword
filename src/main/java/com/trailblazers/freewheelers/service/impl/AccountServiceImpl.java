@@ -4,7 +4,7 @@ import com.trailblazers.freewheelers.mappers.AccountMapper;
 import com.trailblazers.freewheelers.mappers.AccountRoleMapper;
 import com.trailblazers.freewheelers.model.Account;
 import com.trailblazers.freewheelers.model.AccountRole;
-import com.trailblazers.freewheelers.persistence.MyBatisUtil;
+import com.trailblazers.freewheelers.mappers.MyBatisUtil;
 import com.trailblazers.freewheelers.service.AccountService;
 import org.apache.ibatis.session.SqlSession;
 
