@@ -9,6 +9,7 @@ import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.ReserveOrderService;
 import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
 import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
+import com.trailblazers.freewheelers.service.impl.ReserveOrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,8 +27,7 @@ public class AdminController {
 
     static final String URL = "/admin";
 
-    @Autowired
-    ReserveOrderService reserveOrderService;
+    ReserveOrderService reserveOrderService = new ReserveOrderServiceImpl();
 
     ItemService itemService = new ItemServiceImpl();
     AccountService accountService = new AccountServiceImpl();
