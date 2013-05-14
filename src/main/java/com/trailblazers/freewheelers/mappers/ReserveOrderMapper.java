@@ -34,7 +34,7 @@ public interface ReserveOrderMapper {
     void save(ReserveOrder reserveOrder);
 
     @Select(
-        "SELECT account_id, item_id, status, note, reservation_timestamp " +
+        "SELECT order_id, account_id, item_id, status, note, reservation_timestamp " +
         "FROM reserve_order " +
         "ORDER BY account_id"
     )
@@ -49,7 +49,7 @@ public interface ReserveOrderMapper {
     List<ReserveOrder> findAll();
 
     @Select(
-            "SELECT account_id, item_id, status, note, reservation_timestamp " +
+            "SELECT order_id, account_id, item_id, status, note, reservation_timestamp " +
             "FROM reserve_order " +
             "WHERE account_id=#{account_id}"
     )

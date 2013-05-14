@@ -32,6 +32,7 @@ to do
 * rewrite validation in item
 * rewrite services to use mapper
 * throw out remaining auto wiring
+* tests for services
 * clean up controllers
 * rewrite function tests
 * push more stuff from controller to the services
@@ -40,4 +41,6 @@ to do
 * item command
 * type in item should be item type :/
 * order_id > orderId
+* too many NEWs?
+* delete explicit flush cashes
 

@@ -1,10 +1,7 @@
 package functional.com.trailblazers.freewheelers;
 
 import functional.com.trailblazers.freewheelers.Screens.LoginScreen;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -49,6 +46,7 @@ public class ItemAcptTest {
     }
 	
 	@Test
+    @Ignore
 	public void updatingTwoItems() {
 		addAFrame("item1", "13.99");
 		addAFrame("item2", "13.99");
