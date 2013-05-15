@@ -1,10 +1,5 @@
 package com.trailblazers.freewheelers.model;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.persistence.*;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public class Item {
