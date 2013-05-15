@@ -19,9 +19,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="test" level="project" />
-    <orderEntry type="library" name="main" level="project" />
     <orderEntry type="module" module-name="main" />
+    <orderEntry type="library" name="test" level="project" />
   </component>
 </module>
 
