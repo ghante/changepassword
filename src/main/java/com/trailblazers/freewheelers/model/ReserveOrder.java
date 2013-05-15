@@ -4,29 +4,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Entity
-@Table(name = "reserve_order")
 public class ReserveOrder {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long order_id;
-
-    @NotNull
     private Long account_id;
-
-    @NotNull
     private Long item_id;
-
-
-    @Column(name="reservation_timestamp", nullable=false)
-    @Temporal(TemporalType.TIMESTAMP)
     private Date reservation_timestamp;
-
-    @Enumerated(EnumType.STRING)
     private OrderStatus status = OrderStatus.NEW;
-
-    @NotNull
     private String note = "";
 
     public ReserveOrder(){}
@@ -35,11 +19,6 @@ public class ReserveOrder {
         this.account_id = account_id;
         this.item_id = item_id;
         this.reservation_timestamp = rightNow;
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        reservation_timestamp = new Date();
     }
 
     public Long getItem_id() {
