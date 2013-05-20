@@ -39,9 +39,9 @@ public class Account_UserJourneyTest {
 
         user
                 .is_logged_out()
-                .logs_in_with("Jan Plewka", "My S3cret Passw0rd");
+                .logs_in_with("Jan Plewka", password_is("My S3cret Passw0rd"));
         screen
-                .shows_error("login attempt was not successful");
+                .shows_error_alert("login attempt was not successful");
 
         user
                 .creates_an_account(
@@ -51,7 +51,7 @@ public class Account_UserJourneyTest {
                         phone_number_is(EMPTY)
                 );
         screen
-                .shows_error("There were errors");
+                .shows_error_alert("There were errors");
 
         user
                 .creates_an_account(
@@ -64,7 +64,7 @@ public class Account_UserJourneyTest {
                 .shows_message("account has been created");
         user
                 .is_logged_out()
-                .logs_in_with("Jan Plewka", "My S3cret Passw0rd");
+                .logs_in_with("Jan Plewka", password_is("My S3cret Passw0rd"));
         screen
                 .shows_in_navbar("Welcome Jan");
     }
@@ -90,7 +90,7 @@ public class Account_UserJourneyTest {
         user
                 .visits_admin_profile();
         screen
-                .shows_error("access is denied");
+                .shows_error_alert("access is denied");
 
         user
                 .logs_in_with("Arno Admin", password_is(SOME_PASSWORD))

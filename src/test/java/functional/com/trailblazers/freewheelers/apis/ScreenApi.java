@@ -15,8 +15,12 @@ public class ScreenApi {
         this.driver = driver;
     }
 
-    public void shows_error(String expectedMessage) {
+    public void shows_error_alert(String expectedMessage) {
         expectMessageWithClass(expectedMessage, "alert-error");
+    }
+
+    public void shows_error(String expectedMessage) {
+        expectMessageWithClass(expectedMessage, "text-error");
     }
 
     public void shows_message(String expectedMessage) {

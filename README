@@ -28,11 +28,10 @@ get started
 
 to do
 =====
-* throw out remaining auto wiring
+* rewrite function tests
 * tests for services
 * controller unit tests
 * clean up controllers
-* rewrite function tests
 * rewrite validation in item controller > push validation into service?
 * push more stuff from controller to the services
 * clean up configs

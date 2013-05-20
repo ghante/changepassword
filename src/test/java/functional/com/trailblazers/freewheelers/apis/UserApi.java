@@ -5,6 +5,7 @@ import functional.com.trailblazers.freewheelers.helpers.URLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -50,6 +51,21 @@ public class UserApi {
         return this;
     }
 
+    public UserApi creates_an_item(String name, String price, String type, String description, String quantity) {
+        driver.findElement(By.id("name")).sendKeys(name);
+        driver.findElement(By.id("price")).sendKeys(price);
+
+        Select select = new Select(driver.findElement(By.id("type")));
+        select.selectByVisibleText(type);
+
+        driver.findElement(By.id("description")).sendKeys(description);
+        driver.findElement(By.id("quantity")).sendKeys(quantity);
+
+        driver.findElement(By.id("createItem")).click();
+
+        return this;
+    }
+
     public UserApi visits_his_profile() {
         driver.findElement(By.linkText("User Profile")).click();
         return this;
@@ -62,6 +78,12 @@ public class UserApi {
 
     public UserApi visits_profile_for(String name) {
         driver.get(URLs.userProfile() + "/" + encoded(name));
+        return this;
+    }
+
+    public UserApi wants_to_manage_items() {
+        driver.get(URLs.admin());
+        driver.findElement(By.id("manageItems")).click();
         return this;
     }
 
