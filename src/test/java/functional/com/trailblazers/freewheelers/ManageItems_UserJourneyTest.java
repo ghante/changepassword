@@ -36,7 +36,10 @@ public class ManageItems_UserJourneyTest {
     public void shouldCreateAndUpdateItems() throws Exception {
         admin
                 .there_is_an_admin("Arno Admin", password_is(SOME_PASSWORD))
-                .there_is_no_item("Simplon Pavo 3 Ultra");
+                .there_is_no_item("Simplon Pavo 3 Ultra")
+                .there_is_no_item("Spoke - Reflectors Arrow red")
+                .there_is_no_item("NEW - Simplon Pavo 3 Ultra")
+                .there_is_no_item("NEW - Spoke - Reflectors Arrow red");
         user
                 .logs_in_with("Arno Admin", password_is(SOME_PASSWORD))
                 .wants_to_manage_items();
@@ -76,14 +79,20 @@ public class ManageItems_UserJourneyTest {
                 .shows_in_the_list("Simplon Pavo 3 Ultra")
                 .shows_in_the_list("Spoke - Reflectors Arrow red");
 
-        // update one - bad info
-        // show error
+        user
+                .changes_item_name(from("Simplon Pavo 3 Ultra"), to("NEW - Simplon Pavo 3 Ultra"))
+                .changes_item_name(from("Spoke - Reflectors Arrow red"), to("NEW - Spoke - Reflectors Arrow red"));
 
-        // update two
-        // changes made
+        screen
+                .shows_in_the_list("NEW - Simplon Pavo 3 Ultra")
+                .shows_in_the_list("NEW - Spoke - Reflectors Arrow red");
 
-        // delete one
-        // one only shown
+        user
+                .delete_item("NEW - Simplon Pavo 3 Ultra");
+
+        screen
+                .shows_in_the_list("NEW - Spoke - Reflectors Arrow red")
+                .shows_not_in_the_list("NEW - Simplon Pavo 3 Ultra");
     }
 
 

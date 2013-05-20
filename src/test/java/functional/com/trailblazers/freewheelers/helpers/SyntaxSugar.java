@@ -43,5 +43,14 @@ public class SyntaxSugar {
         return s;
     }
 
+    public static String from(String s) {
+        return s;
+    }
+
+    public static String to(String s) {
+        return s;
+    }
+
+
 
 }

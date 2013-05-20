@@ -1,6 +1,8 @@
 package functional.com.trailblazers.freewheelers.apis;
 
 import functional.com.trailblazers.freewheelers.TestUtils;
+import functional.com.trailblazers.freewheelers.helpers.Controls;
+import functional.com.trailblazers.freewheelers.helpers.ItemTable;
 import functional.com.trailblazers.freewheelers.helpers.URLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +12,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+
+import static functional.com.trailblazers.freewheelers.helpers.Controls.check;
+import static functional.com.trailblazers.freewheelers.helpers.Controls.fillField;
 
 public class UserApi {
 
@@ -42,10 +47,13 @@ public class UserApi {
         driver.get(URLs.home());
         driver.findElement(By.linkText("Create Account")).click();
 
-        fillField("fld_email", email);
-        fillField("fld_password", password);
-        fillField("fld_name", name);
-        fillField("fld_phoneNumber", phoneNumber);
+        fillField(driver.findElement(By.id("fld_email")), email);
+
+        fillField(driver.findElement(By.id("fld_password")), password);
+
+        fillField(driver.findElement(By.id("fld_name")), name);
+
+        fillField(driver.findElement(By.id("fld_phoneNumber")), phoneNumber);
 
         driver.findElement(By.id("createAccount")).click();
 
@@ -53,25 +61,19 @@ public class UserApi {
     }
 
     public UserApi creates_an_item(String name, String price, String type, String description, String quantity) {
-        fillField("name", name);
-        fillField("price", price);
+
+        fillField(driver.findElement(By.id("name")), name);
+        fillField(driver.findElement(By.id("price")), price);
 
         Select select = new Select(driver.findElement(By.id("type")));
         select.selectByVisibleText(type);
 
-        fillField("description", description);
-        fillField("quantity", quantity);
+        fillField(driver.findElement(By.id("description")), description);
+        fillField(driver.findElement(By.id("quantity")), quantity);
 
         driver.findElement(By.id("createItem")).click();
 
         return this;
-    }
-
-    private void fillField(String id, String value) {
-        WebElement field = driver.findElement(By.id(id));
-
-        field.clear();
-        field.sendKeys(value);
     }
 
     public UserApi visits_his_profile() {
@@ -92,6 +94,24 @@ public class UserApi {
     public UserApi wants_to_manage_items() {
         driver.get(URLs.admin());
         driver.findElement(By.id("manageItems")).click();
+        return this;
+    }
+
+    public UserApi changes_item_name(String from, String to) {
+        check(driver.findElement(ItemTable.toggleAll()));
+
+        WebElement input = driver.findElement(ItemTable.nameFieldFor(from));
+        fillField(input, to);
+
+        driver.findElement(By.name("update")).click();
+
+        return this;
+    }
+
+    public UserApi delete_item(String itemName) {
+        check(driver.findElement(ItemTable.checkBoxFor(itemName)));
+        driver.findElement(By.name("delete")).click();
+
         return this;
     }
 

@@ -1,5 +1,6 @@
 package functional.com.trailblazers.freewheelers.apis;
 
+import functional.com.trailblazers.freewheelers.helpers.ItemTable;
 import functional.com.trailblazers.freewheelers.helpers.URLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -59,9 +60,17 @@ public class ScreenApi {
     }
 
     public ScreenApi shows_in_the_list(String name) {
-        List<WebElement> elements = driver.findElements(By.xpath("//tbody/tr/td[2]/input[@value='" + name + "']"));
-        assertThat(elements.size(), is(1));
-
+        assertNumberOfRows(name, 1);
         return this;
+    }
+
+    public ScreenApi shows_not_in_the_list(String name) {
+        assertNumberOfRows(name, 0);
+        return this;
+    }
+
+    private void assertNumberOfRows(String name, int expectedRows) {
+        List<WebElement> elements = driver.findElements(ItemTable.nameFieldFor(name));
+        assertThat(elements.size(), is(expectedRows));
     }
 }

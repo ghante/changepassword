@@ -51,12 +51,14 @@ public class AdminApi {
                     .setEnabled(true);
     }
 
-    public void there_is_no_item(String itemName) {
+    public AdminApi there_is_no_item(String itemName) {
         Item toBeDeleted = itemService.getByName(itemName);
 
         while (toBeDeleted != null) {
             itemService.delete(toBeDeleted);
             toBeDeleted = itemService.getByName(itemName);
         }
+
+        return this;
     }
 }
