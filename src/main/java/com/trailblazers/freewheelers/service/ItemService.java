@@ -7,8 +7,10 @@ import com.trailblazers.freewheelers.web.ItemGrid;
 public interface ItemService {
 	
 	Item get(Long item_id);
-	
-	void save(Item item1);
+
+    Item getByName(String name);
+
+	void save(Item item);
 	
 	void delete(Item item);
 	

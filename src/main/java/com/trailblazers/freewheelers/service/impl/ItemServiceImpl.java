@@ -23,6 +23,11 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    public Item getByName(String name) {
+        return itemMapper.getByName(name);
+    }
+
+    @Override
     public void save(Item item) {
         if (item.getItemId() == null) {
             itemMapper.insert(item);

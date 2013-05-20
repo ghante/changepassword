@@ -44,6 +44,16 @@ public class ItemMapperTest extends MapperTestBase {
     }
 
     @Test
+    public void shouldFetchAnItemByName() throws Exception {
+        Item item = someItem().setName("Some Item");
+
+        itemMapper.insert(item);
+        Item fetched = itemMapper.getByName("Some Item");
+
+        assertThat(fetched.getName(), is("Some Item"));
+    }
+
+    @Test
     public void shouldDeleteItem() throws Exception {
         Item item = someItem();
         itemMapper.insert(item);

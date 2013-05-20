@@ -21,6 +21,14 @@ public interface ItemMapper {
     )
     Item get(Long itemId);
 
+    @Select(
+        "SELECT item_id as itemId, description, name, price, type, quantity " +
+        "FROM item " +
+        "WHERE name = #{name} " +
+        "LIMIT 1"
+    )
+    Item getByName(String name);
+
     @Delete(
         "DELETE FROM item WHERE item_id = #{itemId}"
     )

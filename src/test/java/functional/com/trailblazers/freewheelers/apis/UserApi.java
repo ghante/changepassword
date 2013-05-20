@@ -4,6 +4,7 @@ import functional.com.trailblazers.freewheelers.TestUtils;
 import functional.com.trailblazers.freewheelers.helpers.URLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -41,10 +42,10 @@ public class UserApi {
         driver.get(URLs.home());
         driver.findElement(By.linkText("Create Account")).click();
 
-        driver.findElement(By.id("fld_email")).sendKeys(email);
-        driver.findElement(By.id("fld_password")).sendKeys(password);
-        driver.findElement(By.id("fld_name")).sendKeys(name);
-        driver.findElement(By.id("fld_phoneNumber")).sendKeys(phoneNumber);
+        fillField("fld_email", email);
+        fillField("fld_password", password);
+        fillField("fld_name", name);
+        fillField("fld_phoneNumber", phoneNumber);
 
         driver.findElement(By.id("createAccount")).click();
 
@@ -52,18 +53,25 @@ public class UserApi {
     }
 
     public UserApi creates_an_item(String name, String price, String type, String description, String quantity) {
-        driver.findElement(By.id("name")).sendKeys(name);
-        driver.findElement(By.id("price")).sendKeys(price);
+        fillField("name", name);
+        fillField("price", price);
 
         Select select = new Select(driver.findElement(By.id("type")));
         select.selectByVisibleText(type);
 
-        driver.findElement(By.id("description")).sendKeys(description);
-        driver.findElement(By.id("quantity")).sendKeys(quantity);
+        fillField("description", description);
+        fillField("quantity", quantity);
 
         driver.findElement(By.id("createItem")).click();
 
         return this;
+    }
+
+    private void fillField(String id, String value) {
+        WebElement field = driver.findElement(By.id(id));
+
+        field.clear();
+        field.sendKeys(value);
     }
 
     public UserApi visits_his_profile() {

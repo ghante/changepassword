@@ -3,6 +3,9 @@ package functional.com.trailblazers.freewheelers.apis;
 import functional.com.trailblazers.freewheelers.helpers.URLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
@@ -55,4 +58,10 @@ public class ScreenApi {
         return this;
     }
 
+    public ScreenApi shows_in_the_list(String name) {
+        List<WebElement> elements = driver.findElements(By.xpath("//tbody/tr/td[2]/input[@value='" + name + "']"));
+        assertThat(elements.size(), is(1));
+
+        return this;
+    }
 }

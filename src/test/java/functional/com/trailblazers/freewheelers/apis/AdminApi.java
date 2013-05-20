@@ -1,16 +1,22 @@
 package functional.com.trailblazers.freewheelers.apis;
 
 import com.trailblazers.freewheelers.model.Account;
+import com.trailblazers.freewheelers.model.Item;
+import com.trailblazers.freewheelers.service.AccountService;
+import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
+import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
 import functional.com.trailblazers.freewheelers.helpers.SyntaxSugar;
 
 
 public class AdminApi {
 
-    private AccountServiceImpl accountService;
+    private AccountService accountService;
+    private ItemService itemService;
 
     public AdminApi() {
         this.accountService = new AccountServiceImpl();
+        this.itemService = new ItemServiceImpl();
     }
 
     public AdminApi there_is_no_account_for(String accountName) {
@@ -45,4 +51,12 @@ public class AdminApi {
                     .setEnabled(true);
     }
 
+    public void there_is_no_item(String itemName) {
+        Item toBeDeleted = itemService.getByName(itemName);
+
+        while (toBeDeleted != null) {
+            itemService.delete(toBeDeleted);
+            toBeDeleted = itemService.getByName(itemName);
+        }
+    }
 }
