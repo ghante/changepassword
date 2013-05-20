@@ -42,4 +42,6 @@ to do
 * too many NEWs?
 * delete explicit flush cashes
 * ant task for code stats? (LoC, TestPyramid, Checkins per Day?)
+* all functional tests in one suite? (so firefow starts only once)
+
 

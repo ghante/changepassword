@@ -1,7 +1,5 @@
 package functional.com.trailblazers.freewheelers.apis;
 
-import functional.com.trailblazers.freewheelers.TestUtils;
-import functional.com.trailblazers.freewheelers.helpers.Controls;
 import functional.com.trailblazers.freewheelers.helpers.ItemTable;
 import functional.com.trailblazers.freewheelers.helpers.URLs;
 import org.openqa.selenium.By;
@@ -9,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -34,7 +33,7 @@ public class UserApi {
     public UserApi logs_in_with(String userName, String userPassword) {
         driver.get(URLs.login());
 
-        TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
         driver.findElement(By.name("j_username")).sendKeys(userName);
         driver.findElement(By.name("j_password")).sendKeys(userPassword);
 

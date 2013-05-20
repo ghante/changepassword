@@ -1,14 +1,14 @@
 package functional.com.trailblazers.freewheelers.Screens;
 
-import functional.com.trailblazers.freewheelers.TestUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginScreen {
 
     public static void loginAs(String username, String password, WebDriver driver) {
-        TestUtils.wait(driver).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.name("j_username")));
         driver.findElement(By.name("j_username")).sendKeys(username);
         driver.findElement(By.name("j_password")).sendKeys(password);
         submitForm(driver);
