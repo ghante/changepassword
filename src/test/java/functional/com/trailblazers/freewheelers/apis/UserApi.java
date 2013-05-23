@@ -14,6 +14,8 @@ import java.net.URLEncoder;
 
 import static functional.com.trailblazers.freewheelers.helpers.Controls.check;
 import static functional.com.trailblazers.freewheelers.helpers.Controls.fillField;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class UserApi {
 
@@ -60,7 +62,6 @@ public class UserApi {
     }
 
     public UserApi creates_an_item(String name, String price, String type, String description, String quantity) {
-
         fillField(driver.findElement(By.id("name")), name);
         fillField(driver.findElement(By.id("price")), price);
 
@@ -90,6 +91,11 @@ public class UserApi {
         return this;
     }
 
+    public UserApi visits_home_page() {
+        driver.get(URLs.home());
+        return this;
+    }
+
     public UserApi wants_to_manage_items() {
         driver.get(URLs.admin());
         driver.findElement(By.id("manageItems")).click();
@@ -110,6 +116,20 @@ public class UserApi {
     public UserApi delete_item(String itemName) {
         check(driver.findElement(ItemTable.checkBoxFor(itemName)));
         driver.findElement(By.name("delete")).click();
+
+        return this;
+    }
+
+    public UserApi reserves_item(String name) {
+        driver.findElement(By.xpath("//tbody/tr/td[1][text() = '" + name + "']/parent::*/td[6]/button")).click();
+        return this;
+    }
+
+    public UserApi changes_order_status(String item, String toState) {
+        WebElement select = driver.findElement(By.xpath("//tbody/tr/td[2][text() = '" + item + "']/parent::*/td[4]/select"));
+        new Select(select).selectByVisibleText(toState);
+
+        driver.findElement(By.xpath("//tbody/tr/td[2][text() = '" + item + "']/parent::*/td[6]/button")).click();
 
         return this;
     }

@@ -5,6 +5,7 @@ import functional.com.trailblazers.freewheelers.helpers.URLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -69,8 +70,29 @@ public class ScreenApi {
         return this;
     }
 
+    public ScreenApi should_list_item(String name) {
+        List<WebElement> elements = driver.findElements(By.xpath("//tbody/tr/td[1][text()='" + name + "']"));
+        assertThat(elements.size(), is(1));
+        return this;
+    }
+
+    public ScreenApi should_not_list_item(String name) {
+        List<WebElement> elements = driver.findElements(By.xpath("//tbody/tr/td[1][text()='" + name + "']"));
+        assertThat(elements.size(), is(0));
+        return this;
+    }
+
     private void assertNumberOfRows(String name, int expectedRows) {
         List<WebElement> elements = driver.findElements(ItemTable.nameFieldFor(name));
         assertThat(elements.size(), is(expectedRows));
+    }
+
+    public ScreenApi there_should_be_an_order(String item, String state) {
+        WebElement select = driver.findElement(By.xpath("//tbody/tr/td[2][text() = '" + item + "']/parent::*/td[4]/select"));
+        String selected = new Select(select).getFirstSelectedOption().getText();
+
+        assertThat(selected, is(state));
+
+        return this;
     }
 }

@@ -39,14 +39,14 @@ public class Account_UserJourneyTest {
 
         user
                 .is_logged_out()
-                .logs_in_with("Jan Plewka", password_is("My S3cret Passw0rd"));
+                .logs_in_with("Jan Plewka", password_is(SOME_PASSWORD));
         screen
                 .shows_error_alert("login attempt was not successful");
 
         user
                 .creates_an_account(
                         email_is("jan.plewka@selig.eu"),
-                        password_is("My S3cret Passw0rd"),
+                        password_is(SOME_PASSWORD),
                         name_is("Jan Plewka"),
                         phone_number_is(EMPTY)
                 );
@@ -56,7 +56,7 @@ public class Account_UserJourneyTest {
         user
                 .creates_an_account(
                         email_is("jan.plewka@selig.eu"),
-                        password_is("My S3cret Passw0rd"),
+                        password_is(SOME_PASSWORD),
                         name_is("Jan Plewka"),
                         phone_number_is("04087870753")
                 );
@@ -64,9 +64,13 @@ public class Account_UserJourneyTest {
                 .shows_message("account has been created");
         user
                 .is_logged_out()
-                .logs_in_with("Jan Plewka", password_is("My S3cret Passw0rd"));
+                .logs_in_with("Jan Plewka", password_is(SOME_PASSWORD));
         screen
                 .shows_in_navbar("Welcome Jan");
+
+
+
+
     }
 
     @Test

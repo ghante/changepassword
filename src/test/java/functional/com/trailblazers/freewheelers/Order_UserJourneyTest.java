@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.*;
+
 public class Order_UserJourneyTest {
 
     private static WebDriver driver;
@@ -32,26 +34,37 @@ public class Order_UserJourneyTest {
 
     @Test
     public void testOrderProcess() throws Exception {
-        // there is an admin
-        // there is a user
+        admin
+                .there_is_an_admin("Arno Admin", password_is(SOME_PASSWORD))
+                .there_is_a_user("Bob Buyer", password_is(SOME_PASSWORD))
+                .there_is_a_frame("Simplon Pavo 3 Ultra", ONLY_ONE_LEFT);
 
-        // there is a frame quantity 1
+        user
+                .logs_in_with("Bob Buyer", password_is(SOME_PASSWORD))
+                .visits_home_page();
 
-        // users visits home page
-        // sees frame
+        screen
+                .should_list_item("Simplon Pavo 3 Ultra");
 
-        // reserves frame
-        // frame not available anymore
+        user
+                .reserves_item("Simplon Pavo 3 Ultra")
+                .visits_home_page();
 
-        // goes to profile page
-        // sees order, status new
+        screen
+                .should_not_list_item("Simplon Pavo 3 Ultra");
 
-        // admin
-        // sees order
-        // changes status
+        user
+                .logs_in_with("Arno Admin", SOME_PASSWORD)
+                .visits_admin_profile();
 
-        // goes to profile page
-        // status changes
+        screen
+                .there_should_be_an_order("Simplon Pavo 3 Ultra", "NEW");
+
+        user
+                .changes_order_status("Simplon Pavo 3 Ultra", "IN_PROGRESS");
+
+        screen
+                .there_should_be_an_order("Simplon Pavo 3 Ultra", "IN_PROGRESS");
     }
 
 }

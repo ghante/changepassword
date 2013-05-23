@@ -1,11 +1,17 @@
 package functional.com.trailblazers.freewheelers.helpers;
 
+import java.math.BigDecimal;
+
+import static java.math.BigDecimal.valueOf;
+
 public class SyntaxSugar {
 
     public static final String SOME_PHONE_NUMBER = "555-123456";
     public static final String SOME_PASSWORD = "secret";
+    public static final BigDecimal SOME_PRICE = valueOf(49.99);
 
     public static final String EMPTY = "";
+    public static final long ONLY_ONE_LEFT = 1L;
 
     public static String emailFor(String userName) {
         return userName.replace(' ', '-') + "@random-email.com";

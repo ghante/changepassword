@@ -8,6 +8,9 @@ import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
 import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
 import functional.com.trailblazers.freewheelers.helpers.SyntaxSugar;
 
+import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.SOME_PHONE_NUMBER;
+import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.SOME_PRICE;
+
 
 public class AdminApi {
 
@@ -42,15 +45,6 @@ public class AdminApi {
         return this;
     }
 
-    private Account account_for(String userName, String password) {
-        return new Account()
-                    .setAccount_name(userName)
-                    .setPassword(password)
-                    .setEmail_address(SyntaxSugar.emailFor(userName))
-                    .setPhoneNumber(SyntaxSugar.SOME_PHONE_NUMBER)
-                    .setEnabled(true);
-    }
-
     public AdminApi there_is_no_item(String itemName) {
         Item toBeDeleted = itemService.getByName(itemName);
 
@@ -60,5 +54,29 @@ public class AdminApi {
         }
 
         return this;
+    }
+
+    public AdminApi there_is_a_frame(String itemName, Long quantity) {
+        there_is_no_item(itemName);
+
+        Item newItem = new Item()
+                .setName(itemName)
+                .setQuantity(quantity)
+                .setDescription("")
+                .setPrice(SOME_PRICE)
+                .setType("FRAME");
+
+        itemService.save(newItem);
+
+        return this;
+    }
+
+    private Account account_for(String userName, String password) {
+        return new Account()
+                    .setAccount_name(userName)
+                    .setPassword(password)
+                    .setEmail_address(SyntaxSugar.emailFor(userName))
+                    .setPhoneNumber(SOME_PHONE_NUMBER)
+                    .setEnabled(true);
     }
 }
