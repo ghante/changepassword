@@ -58,17 +58,18 @@ public class AdminApi {
 
     public AdminApi there_is_a_frame(String itemName, Long quantity) {
         there_is_no_item(itemName);
-
-        Item newItem = new Item()
-                .setName(itemName)
-                .setQuantity(quantity)
-                .setDescription("")
-                .setPrice(SOME_PRICE)
-                .setType("FRAME");
-
-        itemService.save(newItem);
+        itemService.save(itemFor(itemName, quantity));
 
         return this;
+    }
+
+    private Item itemFor(String itemName, Long quantity) {
+        return new Item()
+                    .setName(itemName)
+                    .setQuantity(quantity)
+                    .setDescription("")
+                    .setPrice(SOME_PRICE)
+                    .setType("FRAME");
     }
 
     private Account account_for(String userName, String password) {

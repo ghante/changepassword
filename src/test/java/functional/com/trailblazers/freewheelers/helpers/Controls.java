@@ -1,6 +1,7 @@
 package functional.com.trailblazers.freewheelers.helpers;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class Controls {
 
@@ -14,5 +15,9 @@ public class Controls {
         if(!checkBox.isSelected()) {
             checkBox.click();
         }
+    }
+
+    public static void select(String state, WebElement select) {
+        new Select(select).selectByVisibleText(state);
     }
 }

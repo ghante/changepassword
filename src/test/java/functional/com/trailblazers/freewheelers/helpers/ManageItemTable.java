@@ -2,7 +2,7 @@ package functional.com.trailblazers.freewheelers.helpers;
 
 import org.openqa.selenium.By;
 
-public class ItemTable {
+public class ManageItemTable {
 
     public static By nameFieldFor(String name) {
         return By.xpath("//tbody/tr/td[2]/input[@value='" + name + "']");

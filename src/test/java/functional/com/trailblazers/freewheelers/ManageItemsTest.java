@@ -64,7 +64,7 @@ public class ManageItemsTest {
                         quantity_is("1000")
                 );
         screen
-                .shows_in_the_list("Simplon Pavo 3 Ultra");
+                .shows_in_manage_item_list("Simplon Pavo 3 Ultra");
 
         user
                 .creates_an_item(
@@ -76,23 +76,23 @@ public class ManageItemsTest {
                 );
 
         screen
-                .shows_in_the_list("Simplon Pavo 3 Ultra")
-                .shows_in_the_list("Spoke - Reflectors Arrow red");
+                .shows_in_manage_item_list("Simplon Pavo 3 Ultra")
+                .shows_in_manage_item_list("Spoke - Reflectors Arrow red");
 
         user
                 .changes_item_name(from("Simplon Pavo 3 Ultra"), to("NEW - Simplon Pavo 3 Ultra"))
                 .changes_item_name(from("Spoke - Reflectors Arrow red"), to("NEW - Spoke - Reflectors Arrow red"));
 
         screen
-                .shows_in_the_list("NEW - Simplon Pavo 3 Ultra")
-                .shows_in_the_list("NEW - Spoke - Reflectors Arrow red");
+                .shows_in_manage_item_list("NEW - Simplon Pavo 3 Ultra")
+                .shows_in_manage_item_list("NEW - Spoke - Reflectors Arrow red");
 
         user
                 .delete_item("NEW - Simplon Pavo 3 Ultra");
 
         screen
-                .shows_in_the_list("NEW - Spoke - Reflectors Arrow red")
-                .shows_not_in_the_list("NEW - Simplon Pavo 3 Ultra");
+                .shows_in_manage_item_list("NEW - Spoke - Reflectors Arrow red")
+                .shows_not_in_manage_item_list("NEW - Simplon Pavo 3 Ultra");
     }
 
 

@@ -1,7 +1,6 @@
 package functional.com.trailblazers.freewheelers.apis;
 
-import functional.com.trailblazers.freewheelers.helpers.ItemTable;
-import functional.com.trailblazers.freewheelers.helpers.URLs;
+import functional.com.trailblazers.freewheelers.helpers.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +13,7 @@ import java.net.URLEncoder;
 
 import static functional.com.trailblazers.freewheelers.helpers.Controls.check;
 import static functional.com.trailblazers.freewheelers.helpers.Controls.fillField;
+import static functional.com.trailblazers.freewheelers.helpers.Controls.select;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -103,9 +103,9 @@ public class UserApi {
     }
 
     public UserApi changes_item_name(String from, String to) {
-        check(driver.findElement(ItemTable.toggleAll()));
+        check(driver.findElement(ManageItemTable.toggleAll()));
 
-        WebElement input = driver.findElement(ItemTable.nameFieldFor(from));
+        WebElement input = driver.findElement(ManageItemTable.nameFieldFor(from));
         fillField(input, to);
 
         driver.findElement(By.name("update")).click();
@@ -114,22 +114,20 @@ public class UserApi {
     }
 
     public UserApi delete_item(String itemName) {
-        check(driver.findElement(ItemTable.checkBoxFor(itemName)));
+        check(driver.findElement(ManageItemTable.checkBoxFor(itemName)));
         driver.findElement(By.name("delete")).click();
 
         return this;
     }
 
     public UserApi reserves_item(String name) {
-        driver.findElement(By.xpath("//tbody/tr/td[1][text() = '" + name + "']/parent::*/td[6]/button")).click();
+        driver.findElement(HomeTable.reserveButtonFor(name)).click();
         return this;
     }
 
     public UserApi changes_order_status(String item, String toState) {
-        WebElement select = driver.findElement(By.xpath("//tbody/tr/td[2][text() = '" + item + "']/parent::*/td[4]/select"));
-        new Select(select).selectByVisibleText(toState);
-
-        driver.findElement(By.xpath("//tbody/tr/td[2][text() = '" + item + "']/parent::*/td[6]/button")).click();
+        select(toState, driver.findElement(OrderTable.selectFor(item)));
+        driver.findElement(OrderTable.saveButtonFor(item)).click();
 
         return this;
     }
