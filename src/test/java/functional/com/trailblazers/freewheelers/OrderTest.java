@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.*;
 
-public class Order_UserJourneyTest {
+public class OrderTest {
 
     private static WebDriver driver;
     private static AdminApi admin;
