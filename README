@@ -28,10 +28,6 @@ get started
 
 to do
 =====
-* rewrite function tests
-* refactor xpaths
-* clean up syntax sugar
-* refactor function tests
 * tests for services
 * controller unit tests
 * clean up controllers

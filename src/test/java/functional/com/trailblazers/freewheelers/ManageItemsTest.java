@@ -34,65 +34,56 @@ public class ManageItemsTest {
 
     @Test
     public void shouldCreateAndUpdateItems() throws Exception {
+        String Arno = "Arno Admin";
+
+        String Simplon_Frame = "Simplon Pavo 3 Ultra";
+        String Spoke_Reflectors = "Spoke - Reflectors Arrow red";
+
+        String New_Simplon_Name = "NEW - Simplon Pavo 3 Ultra";
+        String New_Spoke_Name = "NEW - Spoke - Reflectors Arrow red";
+
         admin
-                .there_is_an_admin("Arno Admin", password_is(SOME_PASSWORD))
-                .there_is_no_item("Simplon Pavo 3 Ultra")
-                .there_is_no_item("Spoke - Reflectors Arrow red")
-                .there_is_no_item("NEW - Simplon Pavo 3 Ultra")
-                .there_is_no_item("NEW - Spoke - Reflectors Arrow red");
+                .there_is_an_admin(Arno, SOME_PASSWORD)
+                .there_is_no_item(Simplon_Frame)
+                .there_is_no_item(Spoke_Reflectors)
+                .there_is_no_item(New_Simplon_Name)
+                .there_is_no_item(New_Spoke_Name);
         user
-                .logs_in_with("Arno Admin", password_is(SOME_PASSWORD))
+                .logs_in_with(Arno, SOME_PASSWORD)
                 .wants_to_manage_items();
 
         user
-                .creates_an_item(
-                        name_is("Simplon Pavo 3 Ultra"),
-                        price_is("2899.00"),
-                        type_is("FRAME"),
-                        description_is("740 g lightweight frame with superb handling and classical aesthetics."),
-                        quantity_is(EMPTY)
-                );
+                .creates_an_item(Simplon_Frame, "FRAME", NO_QUANTITY, REALLY_EXPENSIVE, SOME_DESCRIPTION);
+
         screen
                 .shows_error("Please enter Item Quantity");
 
         user
-                .creates_an_item(
-                        name_is("Simplon Pavo 3 Ultra"),
-                        price_is("2899.00"),
-                        type_is("FRAME"),
-                        description_is("740 g lightweight frame with superb handling and classical aesthetics."),
-                        quantity_is("1000")
-                );
+                .creates_an_item(Simplon_Frame, "FRAME", A_LOT, REALLY_EXPENSIVE, SOME_DESCRIPTION);
         screen
-                .shows_in_manage_item_list("Simplon Pavo 3 Ultra");
+                .shows_in_manage_item_list(Simplon_Frame);
 
         user
-                .creates_an_item(
-                        name_is("Spoke - Reflectors Arrow red"),
-                        price_is("4.95"),
-                        type_is("ACCESSORIES"),
-                        description_is("4 x red, curved Arrow shape, screw fastening"),
-                        quantity_is("500")
-                );
+                .creates_an_item(Spoke_Reflectors, "ACCESSORIES", A_LOT, REALLY_EXPENSIVE, SOME_DESCRIPTION);
 
         screen
-                .shows_in_manage_item_list("Simplon Pavo 3 Ultra")
-                .shows_in_manage_item_list("Spoke - Reflectors Arrow red");
+                .shows_in_manage_item_list(Simplon_Frame)
+                .shows_in_manage_item_list(Spoke_Reflectors);
 
         user
-                .changes_item_name(from("Simplon Pavo 3 Ultra"), to("NEW - Simplon Pavo 3 Ultra"))
-                .changes_item_name(from("Spoke - Reflectors Arrow red"), to("NEW - Spoke - Reflectors Arrow red"));
+                .changes_item_name(from(Simplon_Frame), to(New_Simplon_Name))
+                .changes_item_name(from(Spoke_Reflectors), to(New_Spoke_Name));
 
         screen
-                .shows_in_manage_item_list("NEW - Simplon Pavo 3 Ultra")
-                .shows_in_manage_item_list("NEW - Spoke - Reflectors Arrow red");
+                .shows_in_manage_item_list(New_Simplon_Name)
+                .shows_in_manage_item_list(New_Spoke_Name);
 
         user
-                .delete_item("NEW - Simplon Pavo 3 Ultra");
+                .delete_item(New_Simplon_Name);
 
         screen
-                .shows_in_manage_item_list("NEW - Spoke - Reflectors Arrow red")
-                .shows_not_in_manage_item_list("NEW - Simplon Pavo 3 Ultra");
+                .shows_in_manage_item_list(New_Spoke_Name)
+                .shows_not_in_manage_item_list(New_Simplon_Name);
     }
 
 

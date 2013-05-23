@@ -34,78 +34,74 @@ public class AccountTest {
 
     @Test
     public void testCreateAccount() throws Exception {
+        String jan = "Jan Plewka";
+
         admin
-                .there_is_no_account_for("Jan Plewka");
+                .there_is_no_account_for(jan);
 
         user
                 .is_logged_out()
-                .logs_in_with("Jan Plewka", password_is(SOME_PASSWORD));
+                .logs_in_with(jan, SOME_PASSWORD);
+
         screen
                 .shows_error_alert("login attempt was not successful");
 
         user
-                .creates_an_account(
-                        email_is("jan.plewka@selig.eu"),
-                        password_is(SOME_PASSWORD),
-                        name_is("Jan Plewka"),
-                        phone_number_is(EMPTY)
-                );
+                .creates_an_account(jan, SOME_EMAIL, SOME_PASSWORD, EMPTY_PASSWORD);
+
         screen
                 .shows_error_alert("There were errors");
 
         user
-                .creates_an_account(
-                        email_is("jan.plewka@selig.eu"),
-                        password_is(SOME_PASSWORD),
-                        name_is("Jan Plewka"),
-                        phone_number_is("04087870753")
-                );
+                .creates_an_account(jan, SOME_EMAIL, SOME_PASSWORD, SOME_PHONE_NUMBER);
+
         screen
                 .shows_message("account has been created");
+
         user
                 .is_logged_out()
-                .logs_in_with("Jan Plewka", password_is(SOME_PASSWORD));
+                .logs_in_with(jan, SOME_PASSWORD);
+
         screen
-                .shows_in_navbar("Welcome Jan");
-
-
-
-
+                .shows_in_navbar("Welcome " + jan);
     }
 
     @Test
     public void testAccessRights() throws Exception {
-        admin
-                .there_is_a_user("Hugo Huser", password_is(SOME_PASSWORD))
-                .there_is_an_admin("Arno Admin", password_is(SOME_PASSWORD));
+        String user = "User";
+        String admin = "Admin";
 
-        user
+        AccountTest.admin
+                .there_is_a_user(user, SOME_PASSWORD)
+                .there_is_an_admin(admin, SOME_PASSWORD);
+
+        AccountTest.user
                 .is_logged_out()
                 .visits_his_profile();
         screen
                 .shows_login();
 
-        user
-                .logs_in_with("Hugo Huser", password_is(SOME_PASSWORD))
+        AccountTest.user
+                .logs_in_with(user, SOME_PASSWORD)
                 .visits_his_profile();
         screen
-                .shows_profile_for("Hugo Huser");
+                .shows_profile_for(user);
 
-        user
+        AccountTest.user
                 .visits_admin_profile();
         screen
                 .shows_error_alert("access is denied");
 
-        user
-                .logs_in_with("Arno Admin", password_is(SOME_PASSWORD))
+        AccountTest.user
+                .logs_in_with(admin, SOME_PASSWORD)
                 .visits_admin_profile();
         screen
                 .shows_admin_profile();
 
-        user
-                .visits_profile_for("Hugo Huser");
+        AccountTest.user
+                .visits_profile_for(user);
         screen
-                .shows_profile_for("Hugo Huser");
+                .shows_profile_for(user);
     }
 
 

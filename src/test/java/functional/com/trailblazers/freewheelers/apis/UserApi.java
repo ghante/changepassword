@@ -44,7 +44,7 @@ public class UserApi {
         return this;
     }
 
-    public UserApi creates_an_account(String email, String password, String name, String phoneNumber) {
+    public UserApi creates_an_account(String name, String email, String password, String phoneNumber) {
         driver.get(URLs.home());
         driver.findElement(By.linkText("Create Account")).click();
 
@@ -61,7 +61,7 @@ public class UserApi {
         return this;
     }
 
-    public UserApi creates_an_item(String name, String price, String type, String description, String quantity) {
+    public UserApi creates_an_item(String name, String type, String quantity, String price, String description) {
         fillField(driver.findElement(By.id("name")), name);
         fillField(driver.findElement(By.id("price")), price);
 

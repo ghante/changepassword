@@ -10,6 +10,7 @@ import functional.com.trailblazers.freewheelers.helpers.SyntaxSugar;
 
 import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.SOME_PHONE_NUMBER;
 import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.SOME_PRICE;
+import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.emailFor;
 
 
 public class AdminApi {
@@ -76,7 +77,7 @@ public class AdminApi {
         return new Account()
                     .setAccount_name(userName)
                     .setPassword(password)
-                    .setEmail_address(SyntaxSugar.emailFor(userName))
+                    .setEmail_address(emailFor(userName))
                     .setPhoneNumber(SOME_PHONE_NUMBER)
                     .setEnabled(true);
     }
