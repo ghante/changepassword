@@ -11,26 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.*;
 
-public class OrderTest {
-
-    private static WebDriver driver;
-    private static AdminApi admin;
-    private static UserApi user;
-    private static ScreenApi screen;
-
-    @BeforeClass
-    public static void before() {
-        driver = new FirefoxDriver();
-
-        admin = new AdminApi();
-        user = new UserApi(driver);
-        screen = new ScreenApi(driver);
-    }
-
-    @AfterClass
-    public static void after() {
-        driver.close();
-    }
+public class OrderTest extends UserJourneyBase {
 
     @Test
     public void testOrderProcess() throws Exception {

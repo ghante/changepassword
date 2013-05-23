@@ -11,26 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.*;
 
-public class AccountTest {
-
-    private static WebDriver driver;
-    private static AdminApi admin;
-    private static UserApi user;
-    private static ScreenApi screen;
-
-    @BeforeClass
-    public static void before() {
-        driver = new FirefoxDriver();
-
-        admin = new AdminApi();
-        user = new UserApi(driver);
-        screen = new ScreenApi(driver);
-    }
-
-    @AfterClass
-    public static void after() {
-        driver.close();
-    }
+public class AccountTest extends UserJourneyBase {
 
     @Test
     public void testCreateAccount() throws Exception {
@@ -68,40 +49,40 @@ public class AccountTest {
 
     @Test
     public void testAccessRights() throws Exception {
-        String user = "User";
-        String admin = "Admin";
+        String Hugo = "Hugo Huser";
+        String Arno = "Arno Admin";
 
-        AccountTest.admin
-                .there_is_a_user(user, SOME_PASSWORD)
-                .there_is_an_admin(admin, SOME_PASSWORD);
+        admin
+                .there_is_a_user(Hugo, SOME_PASSWORD)
+                .there_is_an_admin(Arno, SOME_PASSWORD);
 
-        AccountTest.user
+        user
                 .is_logged_out()
                 .visits_his_profile();
         screen
                 .shows_login();
 
-        AccountTest.user
-                .logs_in_with(user, SOME_PASSWORD)
+        user
+                .logs_in_with(Hugo, SOME_PASSWORD)
                 .visits_his_profile();
         screen
-                .shows_profile_for(user);
+                .shows_profile_for(Hugo);
 
-        AccountTest.user
+        user
                 .visits_admin_profile();
         screen
                 .shows_error_alert("access is denied");
 
-        AccountTest.user
-                .logs_in_with(admin, SOME_PASSWORD)
+        user
+                .logs_in_with(Arno, SOME_PASSWORD)
                 .visits_admin_profile();
         screen
                 .shows_admin_profile();
 
-        AccountTest.user
-                .visits_profile_for(user);
+        user
+                .visits_profile_for(Hugo);
         screen
-                .shows_profile_for(user);
+                .shows_profile_for(Hugo);
     }
 
 
