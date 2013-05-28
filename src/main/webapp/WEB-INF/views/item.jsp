@@ -16,7 +16,9 @@
                     <form:label class="control-label" for="name" path="name">Name</form:label>
                     <div class="controls">
                         <form:input path="name" />
-                        <form:errors path="name" cssClass="text-error" />
+                        <c:if test="${not empty errors['name']}">
+                            <span class="text-error">${errors['name']}</span>
+                        </c:if>
                     </div>
                 </div>
 
@@ -24,7 +26,9 @@
                     <form:label class="control-label" for="price" path="price">Price</form:label>
                     <div class="controls">
                         <form:input path="price" />
-                        <form:errors path="price" cssClass="text-error" />
+                        <c:if test="${not empty errors['price']}">
+                            <span class="text-error">${errors['price']}</span>
+                        </c:if>
                     </div>
                 </div>
 
@@ -35,7 +39,9 @@
                             <form:option value="" label="Select" />
                             <form:options items="${itemTypes}"/>
                         </form:select>
-                        <form:errors path="type" cssClass="text-error" />
+                        <c:if test="${not empty errors['type']}">
+                            <span class="text-error">${errors['type']}</span>
+                        </c:if>
                     </div>
                 </div>
 
@@ -43,7 +49,9 @@
                     <form:label class="control-label" for="desription" path="description">Description</form:label>
                     <div class="controls">
                         <form:textarea path="description" />
-                        <form:errors path="description" cssClass="text-error" />
+                        <c:if test="${not empty errors['description']}">
+                            <span class="text-error">${errors['description']}</span>
+                        </c:if>
                     </div>
                 </div>
 
@@ -51,7 +59,9 @@
                     <form:label class="control-label" for="quantity" path="quantity">Quantity</form:label>
                     <div class="controls">
                         <form:input path="quantity" />
-                        <form:errors path="quantity" class="text-error" />
+                        <c:if test="${not empty errors['quantity']}">
+                            <span class="text-error">${errors['quantity']}</span>
+                        </c:if>
                     </div>
                 </div>
 

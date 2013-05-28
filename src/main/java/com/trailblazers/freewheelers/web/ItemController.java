@@ -2,13 +2,12 @@ package com.trailblazers.freewheelers.web;
 
 import com.trailblazers.freewheelers.model.Item;
 import com.trailblazers.freewheelers.model.ItemType;
-import com.trailblazers.freewheelers.model.ItemValidator;
+import com.trailblazers.freewheelers.model.ItemValidation;
 import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DirectFieldBindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 @Controller
 @RequestMapping(ItemController.URL)
@@ -35,11 +35,10 @@ public class ItemController{
 	public String post(ModelMap model, ItemCommand itemCommand) {
         Item item = itemCommand.toItem();
 
-        BindingResult result = new DirectFieldBindingResult(item, "item");
-        new ItemValidator().validate(item, result);
+        Map<String,String> errors = new ItemValidation().validate(item);
 
-		if (result.hasErrors()) {
-            model.put(BindingResult.MODEL_KEY_PREFIX + "itemCommand", result);
+        if (!errors.isEmpty()) {
+            model.put("errors", errors);
 			model.addAttribute("itemGrid", itemService.findAll());
             model.addAttribute("itemTypes", ItemType.values());
 			return URL;

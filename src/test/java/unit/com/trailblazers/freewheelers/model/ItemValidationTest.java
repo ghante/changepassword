@@ -1,14 +1,11 @@
 package unit.com.trailblazers.freewheelers.model;
 
 import com.trailblazers.freewheelers.model.Item;
-import com.trailblazers.freewheelers.model.ItemValidator;
+import com.trailblazers.freewheelers.model.ItemValidation;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.validation.BeanPropertyBindingResult;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 
-import java.math.BigDecimal;
+import java.util.Map;
 
 import static java.math.BigDecimal.valueOf;
 import static org.hamcrest.CoreMatchers.is;
@@ -17,11 +14,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ItemValidationTest {
 
-    private ItemValidator validator;
+    private ItemValidation validator;
 
     @Before
     public void setUp() throws Exception {
-        validator = new ItemValidator();
+        validator = new ItemValidation();
     }
 
     private Item someItem() {
@@ -34,18 +31,8 @@ public class ItemValidationTest {
     }
 
     @Test
-    public void shouldSupportItemClass() throws Exception {
-        assertThat(validator.supports(Item.class), is(true));
-    }
-
-    @Test
-    public void shouldNotSupportOtherClasses() throws Exception {
-        assertThat(validator.supports(BigDecimal.class), is(false));
-    }
-
-    @Test
     public void shouldHaveNoValidationErrorsForAValidItem() {
-        assertThat(validate(someItem()).hasErrors(), is(false));
+        assertThat(validate(someItem()).size(), is(0));
     }
 
     @Test
@@ -84,17 +71,13 @@ public class ItemValidationTest {
         assertFieldError(ridiculouslyExpensive, "price", "must be less than or equal to 99999");
     }
 
-    private BindingResult validate(Item item) {
-        BindingResult result = new BeanPropertyBindingResult(item, "item");
-        validator.validate(item, result);
-        return result;
+    private Map<String, String> validate(Item item) {
+        return validator.validate(item);
     }
 
     private void assertFieldError(Item item, String field, String expectedMessage) {
-        FieldError error = validate(item).getFieldError(field);
-        assertThat(error.getDefaultMessage(), is(expectedMessage));
+        String error = validate(item).get(field);
+        assertThat(error, is(expectedMessage));
     }
-
-
 
 }
