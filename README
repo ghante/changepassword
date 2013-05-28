@@ -18,6 +18,9 @@ get started
 2. Start postgres server
     * create database testtrailblazers ,see test-persistance-config.xml
     * create database trailblazers ,see persistance-config.xml
+      run "db/create.sh"
+    * to add data
+      run "psql -h localhost -U postgres --password -d trailblazers < db/backup.sql"
 
 3. Check out existing tasks
     * ./tools/ant/bin/ant -p
