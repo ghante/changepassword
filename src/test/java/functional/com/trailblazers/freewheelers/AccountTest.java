@@ -1,13 +1,6 @@
 package functional.com.trailblazers.freewheelers;
 
-import functional.com.trailblazers.freewheelers.apis.AdminApi;
-import functional.com.trailblazers.freewheelers.apis.ScreenApi;
-import functional.com.trailblazers.freewheelers.apis.UserApi;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.*;
 

@@ -15,12 +15,12 @@ import static org.hamcrest.core.Is.is;
 
 public class ReserveOrderMapperTest extends MapperTestBase {
 
-    private ReserveOrderMapper reserverOrderMapper;
+    private ReserveOrderMapper reserveOrderMapper;
 
     @Before
     public void setUp() throws Exception {
         super.setUp();
-        reserverOrderMapper = getSqlSession().getMapper(ReserveOrderMapper.class);
+        reserveOrderMapper = getSqlSession().getMapper(ReserveOrderMapper.class);
     }
 
     private ReserveOrder someOrder() {
@@ -34,8 +34,8 @@ public class ReserveOrderMapperTest extends MapperTestBase {
     public void shouldInsertAndGetAnOrder() throws Exception {
         ReserveOrder tobeInserted = someOrder();
 
-        reserverOrderMapper.insert(tobeInserted);
-        ReserveOrder fetched = reserverOrderMapper.get(tobeInserted.getOrder_id());
+        reserveOrderMapper.insert(tobeInserted);
+        ReserveOrder fetched = reserveOrderMapper.get(tobeInserted.getOrder_id());
 
         assertThat(fetched, is(not(nullValue())));
     }
@@ -43,32 +43,32 @@ public class ReserveOrderMapperTest extends MapperTestBase {
     @Test
     public void shouldDeleteAnOrder() throws Exception {
         ReserveOrder tobeDeleted = someOrder();
-        reserverOrderMapper.insert(tobeDeleted);
+        reserveOrderMapper.insert(tobeDeleted);
 
-        reserverOrderMapper.delete(tobeDeleted);
+        reserveOrderMapper.delete(tobeDeleted);
 
-        ReserveOrder fetched = reserverOrderMapper.get(tobeDeleted.getOrder_id());
+        ReserveOrder fetched = reserveOrderMapper.get(tobeDeleted.getOrder_id());
         assertThat(fetched, is(nullValue()));
     }
 
     @Test
     public void shouldUpdateAnOrder() throws Exception {
         ReserveOrder toBeUpdated = someOrder().setNote("");
-        reserverOrderMapper.insert(toBeUpdated);
+        reserveOrderMapper.insert(toBeUpdated);
 
         toBeUpdated.setNote("A very important note.");
-        reserverOrderMapper.save(toBeUpdated);
+        reserveOrderMapper.save(toBeUpdated);
 
-        ReserveOrder fetched = reserverOrderMapper.get(toBeUpdated.getOrder_id());
+        ReserveOrder fetched = reserveOrderMapper.get(toBeUpdated.getOrder_id());
         assertThat(fetched.getNote(), is("A very important note."));
     }
 
     @Test
     public void shouldFindAllOrders() throws Exception {
-        int before = reserverOrderMapper.findAll().size();
-        reserverOrderMapper.insert(someOrder());
+        int before = reserveOrderMapper.findAll().size();
+        reserveOrderMapper.insert(someOrder());
 
-        List<ReserveOrder> all = reserverOrderMapper.findAll();
+        List<ReserveOrder> all = reserveOrderMapper.findAll();
 
         assertThat(all.size(), is(before + 1));
     }
@@ -77,13 +77,13 @@ public class ReserveOrderMapperTest extends MapperTestBase {
     public void shouldFindAllOrdersForAnAccount() throws Exception {
         long someAccount = (long) 42;
         long anotherAccount = (long) 43;
-        int before = reserverOrderMapper.findAllFor(someAccount).size();
+        int before = reserveOrderMapper.findAllFor(someAccount).size();
 
-        reserverOrderMapper.insert(someOrder().setAccount_id(someAccount));
-        reserverOrderMapper.insert(someOrder().setAccount_id(someAccount));
-        reserverOrderMapper.insert(someOrder().setAccount_id(anotherAccount));
+        reserveOrderMapper.insert(someOrder().setAccount_id(someAccount));
+        reserveOrderMapper.insert(someOrder().setAccount_id(someAccount));
+        reserveOrderMapper.insert(someOrder().setAccount_id(anotherAccount));
 
-        List<ReserveOrder> all = reserverOrderMapper.findAllFor(someAccount);
+        List<ReserveOrder> all = reserveOrderMapper.findAllFor(someAccount);
 
         assertThat(all.size(), is(before + 2));
     }

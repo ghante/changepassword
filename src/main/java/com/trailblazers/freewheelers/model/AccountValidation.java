@@ -1,10 +1,6 @@
 package com.trailblazers.freewheelers.model;
 
-import org.springframework.ui.ModelMap;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class AccountValidation {
 

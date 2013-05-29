@@ -1,8 +1,5 @@
 package com.trailblazers.freewheelers.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
 public class AccountRole {
 
     private Long role_id;
