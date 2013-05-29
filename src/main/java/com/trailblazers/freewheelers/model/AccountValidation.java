@@ -8,22 +8,22 @@ import java.util.List;
 
 public class AccountValidation {
 
-    public static HashMap verifyInputs(String email, String password, String name, String phoneNumber) {
+    public static HashMap verifyInputs(Account account) {
         HashMap errors = new HashMap();
 
-        if (!email.contains("@")) {
+        if (!account.getEmail_address().contains("@")) {
            errors.put("email", "Must enter a valid email!");
         }
 
-        if(password.isEmpty()) {
+        if(account.getPassword().isEmpty()) {
             errors.put("password", "Must enter a password!");
         }
 
-        if(name.isEmpty()) {
+        if(account.getAccount_name().isEmpty()) {
             errors.put("name", "Must enter a name!");
         }
 
-        if(phoneNumber.isEmpty()) {
+        if(account.getPhoneNumber().isEmpty()) {
             errors.put("phoneNumber", "Must enter a phone number!");
         }
 

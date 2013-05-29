@@ -18,4 +18,5 @@ public interface AccountService {
 
     void createAdmin(Account account);
 
+    ServiceResult createAccount(Account account);
 }

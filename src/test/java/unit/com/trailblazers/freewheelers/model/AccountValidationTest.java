@@ -1,5 +1,7 @@
 package unit.com.trailblazers.freewheelers.model;
 
+import com.trailblazers.freewheelers.model.Account;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -15,10 +17,21 @@ public class AccountValidationTest {
     public static final String SOME_PASSWORD = "V3ry Secure!";
     public static final String SOME_NAME = "Günter Grass";
     public static final String SOME_PHONE = "004945542741";
+    private Account account;
 
+    @Before
+    public void setup() {
+        account = new Account()
+                .setEmail_address(SOME_EMAIL)
+                .setPassword(SOME_PASSWORD)
+                .setAccount_name(SOME_NAME)
+                .setPhoneNumber(SOME_PHONE)
+                .setEnabled(true);
+
+    }
     @Test
     public void shouldHaveNoErrorsForValidInput() throws Exception {
-        HashMap errors = verifyInputs(SOME_EMAIL, SOME_PASSWORD, SOME_NAME, SOME_PHONE);
+        HashMap errors = verifyInputs(account);
 
         assertThat(errors.size(), is(0));
     }
@@ -27,7 +40,9 @@ public class AccountValidationTest {
     public void shouldComplainAboutAnInvalidEmail() throws Exception {
         String invalidEmail = "invalid.email.address";
 
-        HashMap errors = verifyInputs(invalidEmail, SOME_PASSWORD, SOME_NAME, SOME_PHONE);
+        account.setEmail_address(invalidEmail);
+
+        HashMap errors = verifyInputs(account);
 
         assertThereIsOneErrorFor("email", "enter a valid email", errors);
     }
@@ -36,7 +51,9 @@ public class AccountValidationTest {
     public void shouldComplainAboutAnEmptyPassword() throws Exception {
         String emptyPassword = "";
 
-        HashMap errors = verifyInputs(SOME_EMAIL, emptyPassword, SOME_NAME, SOME_PHONE);
+        account.setPassword(emptyPassword);
+
+        HashMap errors = verifyInputs(account);
 
         assertThereIsOneErrorFor("password", "enter a password", errors);
     }
@@ -45,7 +62,9 @@ public class AccountValidationTest {
     public void shouldComplainAboutAnEmptyName() throws Exception {
         String emptyName = "";
 
-        HashMap errors = verifyInputs(SOME_EMAIL, SOME_PASSWORD, emptyName, SOME_PHONE);
+        account.setAccount_name(emptyName);
+
+        HashMap errors = verifyInputs(account);
 
         assertThereIsOneErrorFor("name", "enter a name", errors);
     }
@@ -54,7 +73,9 @@ public class AccountValidationTest {
     public void shouldComplainAboutAnEmptyPhoneNumber() throws Exception {
         String emptyPhoneNumber = "";
 
-        HashMap errors = verifyInputs(SOME_EMAIL, SOME_PASSWORD, SOME_NAME, emptyPhoneNumber);
+        account.setPhoneNumber(emptyPhoneNumber);
+
+        HashMap errors = verifyInputs(account);
 
         assertThereIsOneErrorFor("phoneNumber", "enter a phone number", errors);
     }

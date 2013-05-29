@@ -5,9 +5,12 @@ import com.trailblazers.freewheelers.mappers.AccountRoleMapper;
 import com.trailblazers.freewheelers.model.Account;
 import com.trailblazers.freewheelers.model.AccountRole;
 import com.trailblazers.freewheelers.mappers.MyBatisUtil;
+import com.trailblazers.freewheelers.model.AccountValidation;
 import com.trailblazers.freewheelers.service.AccountService;
+import com.trailblazers.freewheelers.service.ServiceResult;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class AccountServiceImpl implements AccountService {
@@ -66,5 +69,16 @@ public class AccountServiceImpl implements AccountService {
         return new AccountRole()
                 .setAccount_name(account.getAccount_name())
                 .setRole(role);
+    }
+
+    @Override
+    public ServiceResult createAccount(Account account) {
+        HashMap errors = AccountValidation.verifyInputs(account);
+
+        if(errors.isEmpty()) {
+            createUser(account);
+        }
+
+        return new ServiceResult(errors, account);
     }
 }

@@ -1,8 +1,8 @@
 package com.trailblazers.freewheelers.web;
 
 import com.trailblazers.freewheelers.model.Account;
-import com.trailblazers.freewheelers.model.AccountValidation;
 import com.trailblazers.freewheelers.service.AccountService;
+import com.trailblazers.freewheelers.service.ServiceResult;
 import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,13 +13,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
 @RequestMapping("/account")
 public class AccountController {
+
+    private final AccountService accountService;
+
+    public AccountController() {
+        accountService = new AccountServiceImpl();
+    }
 
     @RequestMapping(value = {"/create"}, method = RequestMethod.GET)
     public ModelAndView createAccountForm(Model model) {
@@ -33,18 +37,23 @@ public class AccountController {
         String name = request.getParameter("name");
         String phoneNumber = request.getParameter("phoneNumber");
 
-        Map errors = AccountValidation.verifyInputs(email, password, name, phoneNumber);
+        Account account = new Account()
+                .setEmail_address(email)
+                .setPassword(password)
+                .setAccount_name(name)
+                .setPhoneNumber(phoneNumber)
+                .setEnabled(true);
 
-        if (errors.size() > 0) {
-            return showErrors(errors);
-        }
+        try {
+            ServiceResult result = accountService.createAccount(account);
 
-        if (createAccount(email, password, name, phoneNumber)) {
-            return showSuccess(name);
-        } else {
+            if (result.hasErrors()) {
+                return showErrors(result.getErrors());
+            }
+            return showSuccess(result.getAccount());
+        } catch (Exception e) {
             return showError();
         }
-
     }
 
     private ModelAndView showErrors(Map errors) {
@@ -57,28 +66,9 @@ public class AccountController {
         return new ModelAndView("account/createFailure");
     }
 
-    private boolean createAccount(String email, String password, String name, String phoneNumber) throws IOException {
-        Account account = new Account()
-                .setEmail_address(email)
-                .setPassword(password)
-                .setAccount_name(name)
-                .setPhoneNumber(phoneNumber)
-                .setEnabled(true);
-
-        AccountService accountService = new AccountServiceImpl();
-
-        try {
-            accountService.createUser(account);
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
-    }
-
-    private ModelAndView showSuccess(String name) {
+    private ModelAndView showSuccess(Account account) {
         ModelMap model = new ModelMap();
-        model.put("name", name);
-
+        model.put("name", account.getAccount_name());
         return new ModelAndView("account/createSuccess", "postedValues", model);
     }
 
