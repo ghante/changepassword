@@ -6,7 +6,6 @@ import com.trailblazers.freewheelers.service.AccountService;
 import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
 import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
-import functional.com.trailblazers.freewheelers.helpers.SyntaxSugar;
 
 import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.SOME_PHONE_NUMBER;
 import static functional.com.trailblazers.freewheelers.helpers.SyntaxSugar.SOME_PRICE;
@@ -59,7 +58,7 @@ public class AdminApi {
 
     public AdminApi there_is_a_frame(String itemName, Long quantity) {
         there_is_no_item(itemName);
-        itemService.save(itemFor(itemName, quantity));
+        itemService.saveItem(itemFor(itemName, quantity));
 
         return this;
     }
@@ -68,7 +67,7 @@ public class AdminApi {
         return new Item()
                     .setName(itemName)
                     .setQuantity(quantity)
-                    .setDescription("")
+                    .setDescription("A very nice item.")
                     .setPrice(SOME_PRICE)
                     .setType("FRAME");
     }

@@ -3,9 +3,13 @@ package com.trailblazers.freewheelers.service.impl;
 import com.trailblazers.freewheelers.mappers.ItemMapper;
 import com.trailblazers.freewheelers.model.Item;
 import com.trailblazers.freewheelers.mappers.MyBatisUtil;
+import com.trailblazers.freewheelers.model.ItemValidation;
 import com.trailblazers.freewheelers.service.ItemService;
+import com.trailblazers.freewheelers.service.ServiceResult;
 import com.trailblazers.freewheelers.web.ItemGrid;
 import org.apache.ibatis.session.SqlSession;
+
+import java.util.Map;
 
 public class ItemServiceImpl implements ItemService {
 
@@ -25,16 +29,6 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Item getByName(String name) {
         return itemMapper.getByName(name);
-    }
-
-    @Override
-    public void save(Item item) {
-        if (item.getItemId() == null) {
-            itemMapper.insert(item);
-        } else {
-            itemMapper.update(item);
-        }
-        sqlSession.commit();
     }
 
     @Override
@@ -58,7 +52,8 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void saveAll(ItemGrid itemGrid) {
         for (Item item : itemGrid.getItem()) {
-            save(item);
+            insertOrUpdate(item);
+            sqlSession.commit();
         }
     }
 
@@ -83,4 +78,23 @@ public class ItemServiceImpl implements ItemService {
         sqlSession.commit();
     }
 
+    @Override
+    public ServiceResult<Item> saveItem(Item item) {
+        Map<String,String> errors = new ItemValidation().validate(item);
+
+        if (errors.isEmpty()) {
+            insertOrUpdate(item);
+            sqlSession.commit();
+        }
+
+        return new ServiceResult<Item>(errors, item);
+    }
+
+    private void insertOrUpdate(Item item) {
+        if (item.getItemId() == null) {
+            itemMapper.insert(item);
+        } else {
+            itemMapper.update(item);
+        }
+    }
 }

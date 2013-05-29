@@ -1,7 +1,6 @@
 package com.trailblazers.freewheelers.service;
 
 import com.trailblazers.freewheelers.model.Item;
-import com.trailblazers.freewheelers.web.ItemCommand;
 import com.trailblazers.freewheelers.web.ItemGrid;
 
 public interface ItemService {
@@ -10,8 +9,6 @@ public interface ItemService {
 
     Item getByName(String name);
 
-	void save(Item item);
-	
 	void delete(Item item);
 	
 	ItemGrid findAll();
@@ -25,4 +22,6 @@ public interface ItemService {
     void deleteItems(ItemGrid itemGrid);
 
     void decreaseQuantityByOne(Item item);
+
+    ServiceResult<Item> saveItem(Item item);
 }

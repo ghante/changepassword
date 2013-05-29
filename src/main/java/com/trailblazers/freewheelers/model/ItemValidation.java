@@ -1,7 +1,5 @@
 package com.trailblazers.freewheelers.model;
 
-import org.springframework.validation.ValidationUtils;
-
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
