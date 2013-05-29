@@ -3,12 +3,11 @@ package unit.com.trailblazers.freewheelers.model;
 import org.junit.Test;
 
 import java.util.HashMap;
-import java.util.List;
 
 import static com.trailblazers.freewheelers.model.AccountValidation.verifyInputs;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.matchers.JUnitMatchers.containsString;
 
 public class AccountValidationTest {
 

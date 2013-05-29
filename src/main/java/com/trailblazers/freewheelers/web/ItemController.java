@@ -22,13 +22,15 @@ import java.util.Map;
 public class ItemController{
 
 	static final String URL = "/item";
+	static final String PAGE = "/itemList";
 
     ItemService itemService = new ItemServiceImpl();
 
 	@RequestMapping(method = RequestMethod.GET)
-	public void get(Model model, @ModelAttribute ItemCommand itemCommand) {
+	public String get(Model model, @ModelAttribute ItemCommand itemCommand) {
 		model.addAttribute("itemGrid", itemService.findAll());
         model.addAttribute("itemTypes", ItemType.values());
+        return PAGE;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -41,7 +43,7 @@ public class ItemController{
             model.put("errors", errors);
 			model.addAttribute("itemGrid", itemService.findAll());
             model.addAttribute("itemTypes", ItemType.values());
-			return URL;
+			return PAGE;
 		}
 		itemService.save(item);
 		return "redirect:" + URL;
@@ -51,7 +53,7 @@ public class ItemController{
 	public String updateItem(Model model, @Valid ItemGrid itemGrid, BindingResult result) {
 		if (result.hasErrors()) {
 			itemService.refreshItemList(itemGrid);
-			return URL;
+			return PAGE;
 		}
 		itemService.saveAll(itemGrid);
 		return "redirect:" + URL;
@@ -61,7 +63,7 @@ public class ItemController{
     public String deleteItem(Model model, @Valid ItemGrid itemGrid, BindingResult result) {
         if (result.hasErrors()) {
             itemService.refreshItemList(itemGrid);
-            return URL;
+            return PAGE;
         }
         itemService.deleteItems(itemGrid);
         return "redirect:" + URL;
