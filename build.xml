@@ -15,7 +15,9 @@
     </path>
 
     <fileset id="classpath.for.unit.test" dir="./bin/test">
-        <include name="unit/**/*Test.class"/>
+        <include name="**/*Test.class"/>
+        <exclude name="integration/**/*Test.class"/>
+        <exclude name="functional/**/*Test.class"/>
     </fileset>
 
     <fileset id="classpath.for.integration.test" dir="./bin/test">

@@ -1,7 +1,5 @@
-package unit.com.trailblazers.freewheelers.model;
+package com.trailblazers.freewheelers.model;
 
-import com.trailblazers.freewheelers.model.Item;
-import com.trailblazers.freewheelers.model.ItemValidation;
 import org.junit.Before;
 import org.junit.Test;
 
