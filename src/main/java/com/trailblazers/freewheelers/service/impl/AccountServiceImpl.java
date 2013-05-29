@@ -50,13 +50,19 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void createUser(Account account) {
-        create(account, USER);
+    public void createAdmin(Account account) {
+        create(account, ADMIN);
     }
 
     @Override
-    public void createAdmin(Account account) {
-        create(account, ADMIN);
+    public ServiceResult createAccount(Account account) {
+        HashMap errors = AccountValidation.verifyInputs(account);
+
+        if(errors.isEmpty()) {
+            create(account, USER);
+        }
+
+        return new ServiceResult(errors, account);
     }
 
     private void create(Account account, String role) {
@@ -69,16 +75,5 @@ public class AccountServiceImpl implements AccountService {
         return new AccountRole()
                 .setAccount_name(account.getAccount_name())
                 .setRole(role);
-    }
-
-    @Override
-    public ServiceResult createAccount(Account account) {
-        HashMap errors = AccountValidation.verifyInputs(account);
-
-        if(errors.isEmpty()) {
-            createUser(account);
-        }
-
-        return new ServiceResult(errors, account);
     }
 }

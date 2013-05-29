@@ -14,8 +14,6 @@ public interface AccountService {
 
     void delete(Account account);
 
-    void createUser(Account account);
-
     void createAdmin(Account account);
 
     ServiceResult createAccount(Account account);

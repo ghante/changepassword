@@ -34,7 +34,7 @@ public class AdminApi {
 
     public AdminApi there_is_a_user(String userName, String password) {
         there_is_no_account_for(userName);
-        accountService.createUser(account_for(userName, password));
+        accountService.createAccount(account_for(userName, password));
 
         return this;
     }
