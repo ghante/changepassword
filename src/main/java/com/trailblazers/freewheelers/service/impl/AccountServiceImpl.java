@@ -55,7 +55,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public ServiceResult createAccount(Account account) {
+    public ServiceResult<Account> createAccount(Account account) {
         HashMap errors = AccountValidation.verifyInputs(account);
 
         if(errors.isEmpty()) {

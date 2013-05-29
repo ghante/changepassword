@@ -45,12 +45,12 @@ public class AccountController {
                 .setEnabled(true);
 
         try {
-            ServiceResult result = accountService.createAccount(account);
+            ServiceResult<Account> result = accountService.createAccount(account);
 
             if (result.hasErrors()) {
                 return showErrors(result.getErrors());
             }
-            return showSuccess(result.getAccount());
+            return showSuccess(result.getModel());
         } catch (Exception e) {
             return showError();
         }

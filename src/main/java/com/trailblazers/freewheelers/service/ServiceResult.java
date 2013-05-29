@@ -1,17 +1,15 @@
 package com.trailblazers.freewheelers.service;
 
-import com.trailblazers.freewheelers.model.Account;
-
 import java.util.Map;
 
-public class ServiceResult {
+public class ServiceResult<T extends Object> {
     private Map<String, String> errors;
-    private Account account;
+    private T model;
 
-    public ServiceResult(Map<String, String> errors, Account account) {
+    public ServiceResult(Map<String, String> errors, T model) {
 
         this.errors = errors;
-        this.account = account;
+        this.model = model;
     }
 
     public Map<String,String> getErrors() {
@@ -22,7 +20,7 @@ public class ServiceResult {
         return !errors.isEmpty();
     }
 
-    public Account getAccount() {
-        return account;
+    public T getModel() {
+        return model;
     }
 }
