@@ -19,31 +19,15 @@ get started
     * create database testtrailblazers ,see test-persistance-config.xml
     * create database trailblazers ,see persistance-config.xml
       run "db/create.sh"
-    * to add data
+    * to add some data
       run "psql -h localhost -U postgres --password -d trailblazers < db/backup.sql"
 
 3. Check out existing tasks
     * ./tools/ant/bin/ant -p
 
 4. Start the server
-	* ./tools/ant/bin/ant -p
+	* ./tools/ant/bin/ant start
 	* go to http://localhost:8080/
 
-to do
-=====
-* tests for services
-* controller unit tests
-* clean up controllers
-* rewrite validation in item controller > push validation into service?
-* push more stuff from controller to the services
-* clean up configs
-* item grid
-* item command
-* type in item should be item type :/
-* order_id > orderId
-* too many NEWs?
-* delete explicit flush cashes
-* ant task for code stats? (LoC, TestPyramid, Checkins per Day?)
-* all functional tests in one suite? (so firefow starts only once)
 
 
