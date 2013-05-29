@@ -13,10 +13,8 @@ get started
 ===========
 1. Check the database configuration in the following files:
 	* src/main/webapp/WEB-INF/spring/persistence-config.xml
-	* src/test/resources/test-persistance-config.xml
 
 2. Start postgres server
-    * create database testtrailblazers ,see test-persistance-config.xml
     * create database trailblazers ,see persistance-config.xml
       run "db/create.sh"
     * to add some data
