@@ -2,10 +2,12 @@
 <project name="" default="test-unit">
 
     <property name="base.dir" value="."/>
+    <property name="absolute.path.base.dir" location="${base.dir}"/>
     <property name="bin.dir" value="${base.dir}/bin"/>
     <property name="src.dir" value="${base.dir}/src"/>
     <property name="lib.dir" value="${base.dir}/lib"/>
     <property name="dist.dir" value="${base.dir}/dist"/>
+    <property name="cobertura.instrument.dir" value="${bin.dir}/instrumented-classes"/>
 
     <path id="classpath.tests">
         <fileset dir="${lib.dir}/test"/>
@@ -42,7 +44,7 @@
     <taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
 
     <target name="cobertura-instrument">
-        <cobertura-instrument todir="${bin.dir}/instrumented-classes">
+        <cobertura-instrument todir="${cobertura.instrument.dir}">
             <fileset dir="${bin.dir}/main">
                 <include name="**/*.class"/>
             </fileset>
@@ -84,7 +86,7 @@
 
     <target name="test-unit" depends="compile-test" description="run all unit tests">
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
-            <classpath location="${bin.dir}/instrumented-classes"/>
+            <classpath location="${cobertura.instrument.dir}"/>
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
@@ -101,7 +103,7 @@
 
     <target name="test-integration" depends="compile-test, init-db" description="run all integration tests">
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
-            <classpath location="${bin.dir}/instrumented-classes"/>
+            <classpath location="${cobertura.instrument.dir}"/>
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
@@ -116,7 +118,7 @@
         <exec executable="./scripts/start-server.sh"/>
         <sleep seconds="10"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
-            <classpath location="${bin.dir}/instrumented-classes"/>
+            <classpath location="${cobertura.instrument.dir}"/>
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
@@ -193,7 +195,8 @@
 
     <target name="compile" depends="compile-main, compile-test" description="compile all sources" />
 
-    <target name="coverage">
+    <target name="coverage" description="generates html coverage reports">
         <cobertura-report srcdir="${src.dir}" destdir="${bin.dir}/coverage/"/>
+        <echo message="Coverage report generated in: ${absolute.path.base.dir}/bin/coverage/index.html"/>
     </target>
 </project>
