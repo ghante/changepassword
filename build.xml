@@ -32,6 +32,23 @@
         <format property="BUILD_TIME" pattern="d-MMMM-yyyy_hh:mm"/>
     </tstamp>
 
+    <path id="cobertura.classpath">
+        <fileset dir="lib/main/cobertura">
+            <include name="cobertura.jar" />
+            <include name="lib/**/*.jar" />
+        </fileset>
+    </path>
+
+    <taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+
+    <target name="cobertura-instrument">
+        <cobertura-instrument todir="${bin.dir}/instrumented-classes">
+            <fileset dir="${bin.dir}/main">
+                <include name="**/*.class"/>
+            </fileset>
+        </cobertura-instrument>
+    </target>
+
     <target name="compile-main" depends="create-bin" description="compile main classes">
         <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
                encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
@@ -49,7 +66,7 @@
         </copy>
     </target>
 
-    <target name="compile-test" depends="compile-main" description="compile test classes">
+    <target name="compile-test" depends="compile-main, cobertura-instrument" description="compile test classes">
         <javac source="1.6" target="1.6" debug="true" debuglevel="lines,vars,source"
                encoding="iso-8859-1" deprecation="true" includeAntRuntime="false"
                failonerror="true" srcdir="${src.dir}/test/java" destdir="${bin.dir}/test">
@@ -67,6 +84,7 @@
 
     <target name="test-unit" depends="compile-test" description="run all unit tests">
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
+            <classpath location="${bin.dir}/instrumented-classes"/>
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
@@ -83,6 +101,7 @@
 
     <target name="test-integration" depends="compile-test, init-db" description="run all integration tests">
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
+            <classpath location="${bin.dir}/instrumented-classes"/>
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
@@ -97,6 +116,7 @@
         <exec executable="./scripts/start-server.sh"/>
         <sleep seconds="10"/>
         <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
+            <classpath location="${bin.dir}/instrumented-classes"/>
             <classpath>
                 <path refid="classpath.tests"/>
             </classpath>
@@ -173,4 +193,7 @@
 
     <target name="compile" depends="compile-main, compile-test" description="compile all sources" />
 
+    <target name="coverage">
+        <cobertura-report srcdir="${src.dir}" destdir="${bin.dir}/coverage/"/>
+    </target>
 </project>
