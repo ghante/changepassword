@@ -17,8 +17,12 @@ public class ItemServiceImpl implements ItemService {
     private final ItemMapper itemMapper;
 
     public ItemServiceImpl() {
-        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        itemMapper = sqlSession.getMapper(ItemMapper.class);
+        this(MyBatisUtil.getSqlSessionFactory().openSession());
+    }
+
+    protected ItemServiceImpl(SqlSession sqlSession) {
+        this.sqlSession = sqlSession;
+        this.itemMapper = sqlSession.getMapper(ItemMapper.class);
     }
 
     @Override
