@@ -7,7 +7,7 @@
 
 		<h1>Manage Items</h1>
 
-		<form:form class="form-horizontal" name="addItem" action="" method="post" modelAttribute="itemCommand" onsubmit="return validateForm()">
+		<form:form class="form-horizontal" name="addItem" action="" method="post" modelAttribute="item" onsubmit="return validateForm()">
 
             <legend>New Item</legend>
 
@@ -91,33 +91,28 @@
 					<c:forEach var="itemEntry" items="${itemGrid.itemMap}" varStatus="row">
 						<tr>
 							<td>
-								<form:input type="hidden" disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].itemId" />
-								<c:if test="${itemMap[itemEntry.key].selected}">
-									<input type="checkbox" checked="checked" class="rowSelector" />
-								</c:if>
-								<c:if test="${!itemMap[itemEntry.key].selected}">
-									<input type="checkbox" class="rowSelector" />
-								</c:if>
+								<form:input type="hidden" disabled="true" path="itemMap[${itemEntry.key}].itemId" />
+								<input type="checkbox" class="rowSelector" />
 							</td>
 							<td>
 								<form:errors path="itemMap[${itemEntry.key}].name" cssClass="text-error" />
-								<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].name" />
+								<form:input disabled="true" path="itemMap[${itemEntry.key}].name" />
 							</td>
 							<td>
 								<form:errors path="itemMap[${itemEntry.key}].price" cssClass="text-error" />
-								<form:input class="input-small" disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].price" />
+								<form:input class="input-small" disabled="true" path="itemMap[${itemEntry.key}].price" />
 							</td>
 							<td>
 								<form:errors path="itemMap[${itemEntry.key}].description" cssClass="text-error" />
-								<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].description" />
+								<form:input path="itemMap[${itemEntry.key}].description" disabled="true"/>
 							</td>
 							<td>
                             	<form:errors path="itemMap[${itemEntry.key}].type" cssClass="text-error" />
-       							<form:input disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].type" />
+       							<form:input path="itemMap[${itemEntry.key}].type" disabled="true" />
      					    </td>
      					    <td>
                                 <form:errors path="itemMap[${itemEntry.key}].quantity" cssClass="text-error" />
-                                <form:input class="input-small" disabled="${!itemEntry.value.selected}" path="itemMap[${itemEntry.key}].quantity" />
+                                <form:input class="input-small" path="itemMap[${itemEntry.key}].quantity" disabled="true" />
                             </td>
 						</tr>
 					</c:forEach>

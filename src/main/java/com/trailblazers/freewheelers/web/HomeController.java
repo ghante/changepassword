@@ -1,5 +1,6 @@
 package com.trailblazers.freewheelers.web;
 
+import com.trailblazers.freewheelers.model.Item;
 import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ public class HomeController {
     ItemService itemService = new ItemServiceImpl();
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String get(Model model, @ModelAttribute("itemCommand") ItemCommand itemCommand) {
+	public String get(Model model, @ModelAttribute("item") Item item) {
         model.addAttribute("itemGrid", itemService.getItemsWithNonZeroQuantity());
         return "home";
 	}

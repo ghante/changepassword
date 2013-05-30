@@ -16,7 +16,7 @@
 		    <tbody>
 		    <c:forEach var="itemEntry" items="${itemGrid.itemMap}" varStatus="row">
 		        <tr>
-		        <form:form action="reserve" method="post" commandName="itemCommand">
+		        <form:form action="reserve" method="post" modelAttribute="item">
 		            <td><c:out value="${itemEntry.value.name}"/></td>
 		            <td><c:out value="${itemEntry.value.price}"/></td>
 		            <td><c:out value="${itemEntry.value.description}"/></td>

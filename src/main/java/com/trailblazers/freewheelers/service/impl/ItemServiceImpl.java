@@ -51,7 +51,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void saveAll(ItemGrid itemGrid) {
-        for (Item item : itemGrid.getItem()) {
+        for (Item item : itemGrid.getItems()) {
             insertOrUpdate(item);
             sqlSession.commit();
         }
@@ -66,7 +66,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void deleteItems(ItemGrid itemGrid) {
-        for (Item item : itemGrid.getItem()) {
+        for (Item item : itemGrid.getItems()) {
             delete(item);
         }
     }

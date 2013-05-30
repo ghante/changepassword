@@ -34,7 +34,7 @@ public class ReserveController {
 
     //TODO: display all orders of customers instead
     @RequestMapping(method = RequestMethod.POST, params="reserve=Reserve Item")
-    public void reserveItem(Model model, Principal principal, @ModelAttribute("itemCommand") ItemCommand itemCommand){
+    public void reserveItem(Model model, Principal principal, @ModelAttribute("itemCommand") Item itemCommand){
         Item item =  itemService.get(itemCommand.getItemId());
         String userName = principal.getName();
         Account account =  accountService.getAccountIdByName(userName);

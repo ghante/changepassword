@@ -2,39 +2,33 @@ package com.trailblazers.freewheelers.web;
 
 import com.trailblazers.freewheelers.model.Item;
 
-import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ItemGrid {
 	
-	@Valid
-	private Map<Long, ItemCommand> itemMap;
-	
-	public ItemGrid() {
-	}
-	
+	private Map<Long, Item> itemMap;
+
+    public ItemGrid() {
+        itemMap = new HashMap<Long, Item>();
+    }
+	                                             
 	public ItemGrid(List<Item> items) {
-		itemMap = new LinkedHashMap<Long, ItemCommand>();
-		for (Item item : items)
-			itemMap.put(item.getItemId(), new ItemCommand(item));
-	}
+        this();
+        for (Item item : items) {
+            itemMap.put(item.getItemId(), item);
+
+        }
+    }
 	
-	public List<Item> getItem() {
-		List<Item> items = new ArrayList<Item>();
-		for (ItemCommand itemCommand : itemMap.values()) {
-			items.add(itemCommand.toItem());
-		}
-		return items;
+	public List<Item> getItems() {
+		return new ArrayList<Item>(itemMap.values());
 	}
 
-	public Map<Long, ItemCommand> getItemMap() {
+	public Map<Long, Item> getItemMap() {
 		return itemMap;
 	}
 
-	public void setItemMap(Map<Long, ItemCommand> items) {
+	public void setItemMap(Map<Long, Item> items) {
 		this.itemMap = items;
 	}
 	

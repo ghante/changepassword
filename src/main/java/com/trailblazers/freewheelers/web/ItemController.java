@@ -8,12 +8,9 @@ import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping(ItemController.URL)
@@ -25,16 +22,14 @@ public class ItemController{
     ItemService itemService = new ItemServiceImpl();
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String get(Model model, @ModelAttribute ItemCommand itemCommand) {
+	public String get(Model model, @ModelAttribute Item item) {
 		model.addAttribute("itemGrid", itemService.findAll());
         model.addAttribute("itemTypes", ItemType.values());
         return PAGE;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(ModelMap model, ItemCommand itemCommand) {
-        Item item = itemCommand.toItem();
-
+	public String post(ModelMap model, @ModelAttribute Item item) {
         ServiceResult<Item> result = itemService.saveItem(item);
 
         if (result.hasErrors()) {
@@ -47,13 +42,13 @@ public class ItemController{
 	}
 
     @RequestMapping(method = RequestMethod.POST, params="update=Update all enabled items")
-	public String updateItem(Model model, ItemGrid itemGrid) {
+	public String updateItem(Model model, @ModelAttribute ItemGrid itemGrid) {
 		itemService.saveAll(itemGrid);
 		return "redirect:" + URL;
 	}
 
     @RequestMapping(method = RequestMethod.POST, params="delete=Delete all enabled items")
-    public String deleteItem(Model model, ItemGrid itemGrid) {
+    public String deleteItem(Model model, @ModelAttribute ItemGrid itemGrid) {
         itemService.deleteItems(itemGrid);
         return "redirect:" + URL;
     }
