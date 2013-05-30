@@ -8,6 +8,6 @@ public class HomeTable {
     }
 
     public static By reserveButtonFor(String name) {
-        return By.xpath("//tbody/tr/td[1][text() = '" + name + "']/parent::*/td[6]/button");
+        return By.xpath("//tbody/tr/td[1][text() = '" + name + "']/parent::*/td[6]/form/button");
     }
 }

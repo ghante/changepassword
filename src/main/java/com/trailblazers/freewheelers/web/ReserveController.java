@@ -34,21 +34,17 @@ public class ReserveController {
 
     //TODO: display all orders of customers instead
     @RequestMapping(method = RequestMethod.POST, params="reserve=Reserve Item")
-    public void reserveItem(Model model, Principal principal, @ModelAttribute("itemCommand") Item itemCommand){
-        Item item =  itemService.get(itemCommand.getItemId());
+    public void reserveItem(Model model, Principal principal, @ModelAttribute Item item){
+        Item itemToReserve =  itemService.get(item.getItemId());
         String userName = principal.getName();
         Account account =  accountService.getAccountIdByName(userName);
         Date rightNow = new Date();
 
-        ReserveOrder reserveOrder = new ReserveOrder(account.getAccount_id(), item.getItemId(), rightNow );
+        ReserveOrder reserveOrder = new ReserveOrder(account.getAccount_id(), itemToReserve.getItemId(), rightNow );
 
         reserveOrderService.save(reserveOrder);
-        itemService.decreaseQuantityByOne(item);
+        itemService.decreaseQuantityByOne(itemToReserve);
 
-        model.addAttribute("item", item);
+        model.addAttribute("item", itemToReserve);
     }
-
-
-
-
 }
