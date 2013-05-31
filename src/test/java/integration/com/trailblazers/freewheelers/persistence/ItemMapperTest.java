@@ -2,6 +2,7 @@ package integration.com.trailblazers.freewheelers.persistence;
 
 import com.trailblazers.freewheelers.mappers.ItemMapper;
 import com.trailblazers.freewheelers.model.Item;
+import com.trailblazers.freewheelers.model.ItemType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -102,7 +103,7 @@ public class ItemMapperTest extends MapperTestBase {
                 .setDescription("... with a very nice description")
                 .setPrice(valueOf(9.99))
                 .setQuantity(100L)
-                .setType("Some Type");
+                .setType(ItemType.ACCESSORIES);
     }
 
 

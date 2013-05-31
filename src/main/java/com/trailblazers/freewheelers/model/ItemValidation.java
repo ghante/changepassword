@@ -22,7 +22,7 @@ public class ItemValidation {
             errors.put("quantity", "Please enter Item Quantity");
         }
 
-        if (item.getType().isEmpty()) {
+        if (item.getType() == null) {
             errors.put("type", "Please enter Item Type");
         }
 

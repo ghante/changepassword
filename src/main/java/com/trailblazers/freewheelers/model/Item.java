@@ -8,7 +8,7 @@ public class Item {
     private String name;
     private BigDecimal price;
     private String description;
-    private String type;
+    private ItemType type;
     private Long quantity;
 
     public Long getItemId() {
@@ -39,10 +39,10 @@ public class Item {
         this.description = description;
         return this;
     }
-    public String getType() {
+    public ItemType getType() {
         return type;
     }
-    public Item setType(String type) {
+    public Item setType(ItemType type) {
         this.type = type;
         return this;
     }

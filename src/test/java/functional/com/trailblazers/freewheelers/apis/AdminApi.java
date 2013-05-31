@@ -2,6 +2,7 @@ package functional.com.trailblazers.freewheelers.apis;
 
 import com.trailblazers.freewheelers.model.Account;
 import com.trailblazers.freewheelers.model.Item;
+import com.trailblazers.freewheelers.model.ItemType;
 import com.trailblazers.freewheelers.service.AccountService;
 import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.impl.AccountServiceImpl;
@@ -69,7 +70,7 @@ public class AdminApi {
                     .setQuantity(quantity)
                     .setDescription("A very nice item.")
                     .setPrice(SOME_PRICE)
-                    .setType("FRAME");
+                    .setType(ItemType.FRAME);
     }
 
     private Account account_for(String userName, String password) {

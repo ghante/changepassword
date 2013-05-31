@@ -23,7 +23,7 @@ public class ItemValidationTest {
         return new Item()
                 .setName("Some Item")
                 .setDescription("... with a description")
-                .setType("Some Type")
+                .setType(ItemType.ACCESSORIES)
                 .setPrice(valueOf(0.49))
                 .setQuantity((long) 99);
     }
@@ -50,7 +50,7 @@ public class ItemValidationTest {
 
     @Test
     public void shouldErrorWhenThereIsNoType() {
-        assertFieldError(someItem().setType(""), "type", "Please enter Item Type");
+        assertFieldError(someItem().setType(null), "type", "Please enter Item Type");
     }
 
     @Test
