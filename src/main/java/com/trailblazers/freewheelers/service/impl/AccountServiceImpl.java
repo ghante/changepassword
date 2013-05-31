@@ -23,7 +23,11 @@ public class AccountServiceImpl implements AccountService {
     private AccountMapper accountMapper;
 
     public AccountServiceImpl() {
-        this.sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        this(MyBatisUtil.getSqlSessionFactory().openSession());
+    }
+
+    public AccountServiceImpl(SqlSession sqlSession) {
+        this.sqlSession= sqlSession;
         this.accountMapper = sqlSession.getMapper(AccountMapper.class);
         this.accountRoleMapper = sqlSession.getMapper(AccountRoleMapper.class);
     }
