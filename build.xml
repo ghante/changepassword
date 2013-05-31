@@ -8,6 +8,8 @@
     <property name="lib.dir" value="${base.dir}/lib"/>
     <property name="dist.dir" value="${base.dir}/dist"/>
     <property name="cobertura.instrument.dir" value="${bin.dir}/instrumented-classes"/>
+    <property name="report.dir" location="${bin.dir}/report"/>
+    <property name="test.report.dir" location="${report.dir}/test"/>
 
     <path id="classpath.tests">
         <fileset dir="${lib.dir}/test"/>
@@ -84,50 +86,68 @@
         </copy>
     </target>
 
-    <target name="test-unit" depends="compile-test, cobertura-instrument" description="run all unit tests">
-        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
-            <classpath location="${cobertura.instrument.dir}"/>
-            <classpath>
-                <path refid="classpath.tests"/>
-            </classpath>
-            <formatter type="plain" usefile="false"/>
-            <batchtest>
-                <fileset refid="classpath.for.unit.test"/>
-            </batchtest>
-        </junit>
-        <antcall target="coverage"/>
+    <macrodef name="common-test-runner">
+        <attribute name="test-dir"/>
+        <attribute name="classpath"/>
+        <sequential>
+            <mkdir dir="${test.report.dir}"/>
+            <junit fork="yes" forkmode="once" failureproperty="unit.tests.failed" printsummary="yes">
+                <classpath location="${cobertura.instrument.dir}"/>
+                <classpath>
+                    <path refid="@{classpath}"/>
+                </classpath>
+
+                <formatter type="xml"/>
+                <batchtest todir="${test.report.dir}">
+                    <fileset refid="@{test-dir}"></fileset>
+                </batchtest>
+            </junit>
+        </sequential>
+    </macrodef>
+
+    <target name="test-unit-without-report" depends="compile-test, cobertura-instrument"  description="run all unit tests without report">
+        <common-test-runner test-dir="classpath.for.unit.test" classpath="classpath.tests"/>
+    </target>
+
+    <target name="test-unit"
+            depends="test-unit-without-report, report-tests, check-failed-tests"
+            description="Run unit tests, report under bin directory"/>
+
+    <target name="report-tests" if="unit.tests.failed">
+        <echo message="Start to generate a report ..."/>
+        <junitreport todir="${test.report.dir}">
+            <fileset dir="${test.report.dir}" includes="TEST-*.xml"/>
+            <report todir="${test.report.dir}/html"/>
+        </junitreport>
+    </target>
+
+    <target name="check-failed-tests" if="unit.tests.failed">
+        <fail message="One or more tests failed. Please check the logs for more info under bin directory"/>
     </target>
 
     <target name="init-db">
         <exec executable="db/create.sh" />
     </target>
 
-    <target name="test-integration" depends="compile-test, init-db" description="run all integration tests">
-        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
-            <classpath>
-                <path refid="classpath.tests"/>
-            </classpath>
-            <formatter type="plain" usefile="false"/>
-            <batchtest>
-                <fileset refid="classpath.for.integration.test"/>
-            </batchtest>
-        </junit>
+    <target name="test-integration-without-report" depends="compile-test, init-db"  description="run all integration tests without report">
+        <common-test-runner test-dir="classpath.for.integration.test" classpath="classpath.tests"/>
     </target>
 
-    <target name="test-functional" depends="stop, compile-test, init-db" description="run all functional test">
+    <target name="test-integration"
+            depends="test-integration-without-report, report-tests, check-failed-tests"
+            description="Run integration tests, report under bin directory"/>
+
+    <target name="test-functional-without-report" depends="stop, compile-test, init-db"  description="run all functional tests without report">
         <exec executable="./scripts/start-server.sh"/>
         <sleep seconds="10"/>
-        <junit printsummary="on" fork="yes" forkMode="once" maxmemory="128m" haltonerror="true" haltonfailure="true">
-            <classpath>
-                <path refid="classpath.tests"/>
-            </classpath>
-            <formatter type="plain" usefile="false"/>
-            <batchtest>
-                <fileset refid="classpath.for.functional.test"/>
-            </batchtest>
-        </junit>
+        <common-test-runner test-dir="classpath.for.functional.test" classpath="classpath.tests"/>
         <exec executable="./scripts/stop-server.sh"/>
     </target>
+
+    <target name="test-functional"
+            depends="test-functional-without-report, report-tests, check-failed-tests"
+            description="Run functional tests, report under bin directory"/>
+
 
     <target name="create-bin" depends="clean-bin">
         <mkdir dir="${bin.dir}/main"/>
