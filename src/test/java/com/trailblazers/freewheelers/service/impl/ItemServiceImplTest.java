@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class ItemServiceTest {
+public class ItemServiceImplTest {
 
     @Mock
     ItemMapper itemMapper;
