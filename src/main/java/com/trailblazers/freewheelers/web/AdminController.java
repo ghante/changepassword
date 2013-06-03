@@ -21,7 +21,6 @@ import java.util.List;
 import static java.lang.Long.valueOf;
 
 @Controller
-@RequestMapping(AdminController.URL)
 public class AdminController {
 
     static final String URL = "/admin";
