@@ -16,6 +16,7 @@
         <fileset dir="${lib.dir}/main"/>
         <pathelement location="${bin.dir}/main"/>
         <pathelement location="${bin.dir}/test"/>
+        <path refid="cobertura.classpath" />
     </path>
 
     <fileset id="classpath.for.unit.test" dir="./bin/test">
@@ -37,7 +38,7 @@
     </tstamp>
 
     <path id="cobertura.classpath">
-        <fileset dir="lib/main/cobertura">
+        <fileset dir="tools/lib/cobertura">
             <include name="cobertura.jar" />
             <include name="lib/**/*.jar" />
         </fileset>
@@ -110,7 +111,7 @@
     </target>
 
     <target name="test-unit"
-            depends="test-unit-without-report, report-tests, check-failed-tests"
+            depends="test-unit-without-report, report-tests, check-failed-tests, coverage"
             description="Run unit tests, report under bin directory"/>
 
     <target name="report-tests" if="unit.tests.failed">
