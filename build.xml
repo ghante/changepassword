@@ -92,7 +92,7 @@
         <attribute name="classpath"/>
         <sequential>
             <mkdir dir="${test.report.dir}"/>
-            <junit fork="yes" forkmode="once" failureproperty="unit.tests.failed" printsummary="yes">
+            <junit fork="yes" forkmode="once" failureproperty="unit.tests.failed" printsummary="yes" haltonfailure="true" haltonerror="true">
                 <classpath location="${cobertura.instrument.dir}"/>
                 <classpath>
                     <path refid="@{classpath}"/>
