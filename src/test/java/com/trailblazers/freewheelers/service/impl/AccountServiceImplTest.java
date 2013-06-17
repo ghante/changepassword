@@ -11,10 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import java.util.HashMap;
-
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -40,58 +38,43 @@ public class AccountServiceImplTest {
 
     @Test
     public void shouldNotCreateAccountWhenThereAreValidationErrors(){
-        Account account = mock(Account.class);
-        HashMap errors = new HashMap();
-        defineAccountWithErrors(account, errors);
-        ServiceResult<Account> expectedServiceResult = new ServiceResult<Account>(errors, account);
+        Account account = getAccountWithErrors();
 
         ServiceResult<Account> serviceResult = accountService.createAccount(account);
 
         verify(accountMapper, never()).insert(account);
         verify(accountRoleMapper, never()).insert(any(AccountRole.class));
         verify(sqlSession, never()).commit();
-        assertServiceResult(serviceResult, expectedServiceResult);
+        assertTrue(serviceResult.hasErrors());
+    }
+
+    private Account getAccountWithErrors() {
+        Account account =  new Account();
+        account.setAccount_name("");
+        account.setEmail_address("");
+        account.setPassword("");
+        account.setPhoneNumber("");
+        return account;
     }
 
     @Test
     public void shouldCreateAccountWhenThereAreNoValidationErrors(){
-        Account account = mock(Account.class);
-        HashMap errors = new HashMap();
-        defineAccountWithNoErrors(account);
-
-        ServiceResult<Account> expectedServiceResult = new ServiceResult<Account>(errors, account);
+        Account account = getAccountWithoutErrors();
 
         ServiceResult<Account> serviceResult = accountService.createAccount(account);
 
         verify(accountMapper, times(1)).insert(account);
         verify(accountRoleMapper, times(1)).insert(any(AccountRole.class));
         verify(sqlSession, times(1)).commit();
-        assertServiceResult(serviceResult, expectedServiceResult);
+        assertFalse(serviceResult.hasErrors());
     }
 
-    private void defineAccountWithNoErrors(Account account) {
-        when(account.getEmail_address()).thenReturn("example@example.com");
-        when(account.getPassword()).thenReturn("example");
-        when(account.getAccount_name()).thenReturn("Example Person");
-        when(account.getPhoneNumber()).thenReturn("1234567890");
-    }
-
-    private void assertServiceResult(ServiceResult<Account> serviceResult, ServiceResult<Account> expectedServiceResult) {
-        assertThat(serviceResult.getErrors(), is(expectedServiceResult.getErrors()));
-        assertThat(serviceResult.getModel(), is(expectedServiceResult.getModel()));
-    }
-
-    private void defineAccountWithErrors(Account account, HashMap errors) {
-        when(account.getEmail_address()).thenReturn("");
-        errors.put("email", "Must enter a valid email!");
-
-        when(account.getPassword()).thenReturn("");
-        errors.put("password", "Must enter a password!");
-
-        when(account.getAccount_name()).thenReturn("");
-        errors.put("name", "Must enter a name!");
-
-        when(account.getPhoneNumber()).thenReturn("");
-        errors.put("phoneNumber", "Must enter a phone number!");
+    private Account getAccountWithoutErrors() {
+        Account account = new Account();
+        account.setEmail_address("example@example.com");
+        account.setPassword("example");
+        account.setAccount_name("Example Person");
+        account.setPhoneNumber("1234567890");
+        return account;
     }
 }

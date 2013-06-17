@@ -33,7 +33,7 @@ public class ItemServiceImplTest {
     @Test
     public void shouldGetItemByNameFromMapper(){
         String name = "name";
-        Item expectedItem = mock(Item.class);
+        Item expectedItem = new Item();
         when((itemMapper.getByName(name))).thenReturn(expectedItem);
 
         Item returnedItem = itemService.getByName(name);
