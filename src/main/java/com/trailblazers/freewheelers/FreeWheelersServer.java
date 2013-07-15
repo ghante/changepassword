@@ -13,16 +13,6 @@ import java.util.Properties;
 
 public class FreeWheelersServer {
 
-    static {
-        Properties properties = new Properties();
-        try {
-            properties.load(new FileInputStream("src/main/resources/log4j.properties"));
-        } catch (IOException e) {
-            throw new RuntimeException("Could not load log4j.properties", e);
-        }
-        PropertyConfigurator.configure(properties);
-    }
-
     private final Server server;
 
     public FreeWheelersServer() {
