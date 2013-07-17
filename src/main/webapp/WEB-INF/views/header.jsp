@@ -10,7 +10,7 @@
    <meta charset="utf-8">
    <title>${pageTitle}</title>
    <link rel="stylesheet" href="<c:url value='/scripts/lib/bootstrap/css/bootstrap.css' />" type="text/css" />
-   <script type="text/javascript" src="<c:url value='/scripts/lib/prototype.js' />"></script>
+   <script type="text/javascript" src="<c:url value='/scripts/lib/jquery-1.10.2.js' />"></script>
 </head>
 <body>
 

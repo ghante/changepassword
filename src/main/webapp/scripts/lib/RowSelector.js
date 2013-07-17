@@ -1,38 +1,36 @@
-var RowSelector = (function(){
+var RowSelector = (function (){
 
 	function bindEvents() {
-		$(document.body).observe('click', clickHandler);
+		$("body").click(clickHandler);
 	}
 	
 	function unbindEvents() {
-		$(document.body).stopObserving('click', clickHandler);
+		$("body").unbind("click", clickHandler);
 	}
 	
 	function clickHandler(event) {
-		var target = event.element();
-		if (target.match('.rowSelector')) {
+		var target = $(event.target);
+		if (target.hasClass('rowSelector')) {
 			toggleRow(target);
-		} else if (target.match('.toggleAll')) {
+		} else if (target.hasClass('toggleAll')) {
 			toggleAll(target);
 		}
 	}
 
 	function toggleRow(checkbox) {
-		var checked = checkbox.checked;
-		checkbox.up('tr').select(':input:not(.rowSelector)').each(function(input){
-			input.disabled = !checked;
-		});
+        var checked = $(checkbox).is(":checked");
+        var inputs = $(checkbox).parents("tr").find(":input:not(.rowSelector)");
+        $(inputs).each(function (i, input) {
+            if (checked) {
+                $(input).removeAttr("disabled");
+            } else {
+                $(input).attr("disabled", "disabled");
+            }
+        });
 	}
 	
 	function toggleAll(checkbox) {
-		var checked = checkbox.checked;
-		checkbox.up('table').select('tbody :input').each(function(input){ 
-			if (input.hasClassName('rowSelector')) {
-				input.checked = checked;
-			} else {
-				input.disabled = !checked;
-			}
-		});
+        $(":checkbox:not(.toggleAll)").click()
 	}
 	
 	return {
@@ -40,4 +38,4 @@ var RowSelector = (function(){
 		unbindEvents: unbindEvents
 	};
 
-})();
+}());
