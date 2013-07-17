@@ -164,7 +164,7 @@
     </target>
 
     <target name="start" depends="compile-main" description="start jetty server">
-      <exec executable="./scripts/start-server.sh"" />
+      <exec executable="./scripts/start-server.sh" />
     </target>
 
     <target name="stop" description="stop jetty server">
