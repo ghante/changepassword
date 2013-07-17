@@ -7,17 +7,16 @@ import com.trailblazers.freewheelers.service.ServiceResult;
 import com.trailblazers.freewheelers.service.impl.ItemServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(ItemController.URL)
+@RequestMapping(ItemController.ITEM_PAGE)
 public class ItemController{
 
-	static final String URL = "/item";
-	static final String PAGE = "/itemList";
+	static final String ITEM_PAGE = "/item";
+	static final String ITEM_LIST_PAGE = "/itemList";
 
     ItemService itemService = new ItemServiceImpl();
 
@@ -25,32 +24,32 @@ public class ItemController{
 	public String get(Model model, @ModelAttribute Item item) {
 		model.addAttribute("itemGrid", itemService.findAll());
         model.addAttribute("itemTypes", ItemType.values());
-        return PAGE;
+        return ITEM_LIST_PAGE;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(ModelMap model, @ModelAttribute Item item) {
+	public String post(Model model, @ModelAttribute Item item) {
         ServiceResult<Item> result = itemService.saveItem(item);
 
         if (result.hasErrors()) {
-            model.put("errors", result.getErrors());
+            model.addAttribute("errors", result.getErrors());
 			model.addAttribute("itemGrid", itemService.findAll());
             model.addAttribute("itemTypes", ItemType.values());
-			return PAGE;
+			return ITEM_LIST_PAGE;
 		}
-		return "redirect:" + URL;
+		return "redirect:" + ITEM_PAGE;
 	}
 
     @RequestMapping(method = RequestMethod.POST, params="update=Update all enabled items")
-	public String updateItem(Model model, @ModelAttribute ItemGrid itemGrid) {
+	public String updateItem(@ModelAttribute ItemGrid itemGrid) {
 		itemService.saveAll(itemGrid);
-		return "redirect:" + URL;
+		return "redirect:" + ITEM_PAGE;
 	}
 
     @RequestMapping(method = RequestMethod.POST, params="delete=Delete all enabled items")
-    public String deleteItem(Model model, @ModelAttribute ItemGrid itemGrid) {
+    public String deleteItem( @ModelAttribute ItemGrid itemGrid) {
         itemService.deleteItems(itemGrid);
-        return "redirect:" + URL;
+        return "redirect:" + ITEM_PAGE;
     }
 	
 }
