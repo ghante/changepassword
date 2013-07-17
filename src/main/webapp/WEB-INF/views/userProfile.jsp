@@ -2,12 +2,12 @@
 <c:set var="pageTitle" scope="request" value="User Profile"/>
 <%@ include file="header.jsp" %>
 
-<h2>Your details</h2>
-        <div id="user-details" class="well">
+<div class="page-action">Your details</div>
+        <div id="user-details" >
             ${userDetail.account_name} - ${userDetail.email_address}<br />
         </div>
 
-		<h2>Your Orders</h2>
+		<div class="page-action">Your Orders</div>
 		<table class="table table-striped">
             <thead>
                 <tr>

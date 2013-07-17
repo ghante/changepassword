@@ -2,13 +2,13 @@
 <c:set var="pageTitle" scope="request" value="Admin Profile"/>
 <%@ include file="header.jsp" %>
 
-<h2>Admin Profile</h2>
+<div class="page-action">Admin Profile</div>
 
-<div class="well">
-    <a class="btn" href="item" id="manageItems"><i class="icon-briefcase"></i> Manage items</a>
+<div class="manage-items">
+    <a class="btn" href="item" id="manageItems">Manage items</a>
 </div>
 
-<h2>All orders</h2>
+<div class="page-action">All orders</div>
 
 <table class="table table-striped">
     <tbody>

@@ -23,7 +23,7 @@ public class ScreenApi {
     }
 
     public void shows_error_alert(String expectedMessage) {
-        expectMessageWithClass(expectedMessage, "alert-error");
+        expectMessageWithClass(expectedMessage, "error");
     }
 
     public void shows_error(String expectedMessage) {
@@ -31,7 +31,7 @@ public class ScreenApi {
     }
 
     public void shows_message(String expectedMessage) {
-        expectMessageWithClass(expectedMessage, "alert");
+        expectMessageWithClass(expectedMessage, "page-action");
     }
 
     public void shows_in_navbar(String expectedMessage) {

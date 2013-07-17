@@ -9,7 +9,7 @@
 <head>
    <meta charset="utf-8">
    <title>${pageTitle}</title>
-   <link rel="stylesheet" href="<c:url value='/scripts/lib/bootstrap/css/bootstrap.css' />" type="text/css" />
+   <link rel="stylesheet" href="<c:url value='/scripts/css/main.css' />" type="text/css" />
    <script type="text/javascript" src="<c:url value='/scripts/lib/jquery-1.10.2.js' />"></script>
 </head>
 <body>
@@ -21,18 +21,18 @@
                     Freewheelers
                 </a>
                 <ul class="nav">
-                    <li><a href="<c:url value='/' />" class="nav_link"><i class="icon-home"></i> Home</a></li>
-                    <li><a href="<c:url value='/admin' />" class="nav_link"><i class="icon-star"></i> Admin Profile</a></li>
+                    <li><a href="<c:url value='/' />" >Home</a></li>
+                    <li><a href="<c:url value='/admin' />">Admin Profile</a></li>
                     <li><a href="<c:url value='/userProfile' />" class="nav_link"><i class="icon-user"></i> User Profile</a></li>
                     <li><a href="<c:url value='/account/create' />" class="nav_link"><i class="icon-plus"></i> Create Account</a></li>
                     <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
                     <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"><i class="icon-eject"></i> Logout</a></li>
                     </security:authorize>
+                    <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
+                        <li id="welcome" class="navbar-text">Welcome <security:authentication property="principal.username"/>!</p>
+                    </security:authorize>
                 </ul>
 
-                <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
-                    <p id="welcome" class="navbar-text">Welcome <security:authentication property="principal.username"/>!</p>
-                </security:authorize>
             </div>
         </div>
 

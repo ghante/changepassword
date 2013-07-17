@@ -4,13 +4,13 @@
 
     <c:choose>
         <c:when test="${not empty error}">
-            <div id="loginError"" class="alert alert-error">
+            <div id="loginError"" class="page-action error">
                 Your login attempt was not successful, try again.<br /> Caused :
                 ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
             </div>
         </c:when>
         <c:otherwise>
-            <div id="TrailBlazers - Login" class="alert alert-info">
+            <div id="TrailBlazers - Login" class="page-action">
                 Login with Username and Password
             </div>
         </c:otherwise>

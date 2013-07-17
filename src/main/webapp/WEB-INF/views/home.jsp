@@ -24,7 +24,7 @@
             <td>
                 <form:form action="reserve" method="post" modelAttribute="item">
                     <form:hidden path="itemId" value="${itemEntry.value.itemId}"/>
-                    <button class="btn btn-success" type="submit" name="reserve" id="reserve" value="Reserve Item">
+                    <button class="reserve-button" type="submit" name="reserve" id="reserve" value="Reserve Item">
                         Reserve Item
                     </button>
                 </form:form>

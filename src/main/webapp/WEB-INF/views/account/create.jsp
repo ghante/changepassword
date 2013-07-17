@@ -4,12 +4,12 @@
 
 <%@ include file="../header.jsp" %>
 
-    <div class="alert alert-info">
+    <div class="page-action">
         Create a new account
     </div>
 
     <c:if test="${not empty validationMessage.errors}">
-        <div id="resultsMessage" class="alert alert-error">
+        <div id="resultsMessage" class="page-action error">
             There were errors.
         </div>
     </c:if>

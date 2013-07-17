@@ -9,9 +9,9 @@
 
 		<form:form class="form-horizontal" name="addItem" action="" method="post" modelAttribute="item" onsubmit="return validateForm()">
 
-            <legend>New Item</legend>
+            <div class="page-action">New Item</div>
 
-            <div class="well">
+            <div>
                 <div class="control-group">
                     <form:label class="control-label" for="name" path="name">Name</form:label>
                     <div class="controls">
@@ -76,9 +76,9 @@
 
 		<form:form action="" method="post" modelAttribute="itemGrid">
 
-            <legend>Update Items</legend>
+            <div class="page-action">Update Items</div>
 
-            <div class="well">
+            <div>
 			    <table class="table">
 				<thead><tr><th><input type="checkbox" class="toggleAll" /></th>
 				<th>Name</th>

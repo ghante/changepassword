@@ -4,7 +4,7 @@
 <c:set var="pageTitle" scope="request" value="Logout"/>
 <%@ include file="header.jsp" %>
 
-<div class="well">
+<div>
     <a class="btn btn-warning" href="<c:url value="j_spring_security_logout" />" class="afr"> Logout</a>
 </div>
 
