@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
@@ -39,6 +40,7 @@ public class ItemControllerTest {
         itemController.itemService = itemService;
         model = new ExtendedModelMap();
         item = new Item();
+        itemGrid = new ItemGrid(asList(item));
     }
 
     @Test
@@ -51,12 +53,13 @@ public class ItemControllerTest {
     public void shouldReturnItemsForDisplay() throws Exception {
 
         itemGrid = new ItemGrid();
-        when(itemService.findAll()).thenReturn(itemGrid);
+        when(itemService.findAll()).thenReturn(itemGrid.getItems());
 
         itemController.get(model, item);
 
         verify(itemService).findAll();
-        assertThat((ItemGrid) model.asMap().get("itemGrid"), is(itemGrid));
+        ItemGrid returnedItemGrid = (ItemGrid) model.asMap().get("itemGrid");
+        assertThat(returnedItemGrid.getItems(), is(itemGrid.getItems()));
         assertThat((ItemType[])model.asMap().get("itemTypes"), is(ItemType.values()));
 
     }
@@ -83,12 +86,14 @@ public class ItemControllerTest {
         ServiceResult<Item> serviceResultWithErrors = new ServiceResult<Item>(errors, item);
 
         when(itemService.saveItem(item)).thenReturn(serviceResultWithErrors);
+        when(itemService.findAll()).thenReturn(asList(item));
 
         String returnedPath = itemController.post(model, item);
 
         assertThat((HashMap<String, String>) model.asMap().get("errors"), is(errors));
         verify(itemService).findAll();
-        assertThat((ItemGrid) model.asMap().get("itemGrid"), is(itemGrid));
+        ItemGrid returnedItemGrid = (ItemGrid) model.asMap().get("itemGrid");
+        assertThat(returnedItemGrid.getItems(), is(itemGrid.getItems()));
         assertThat((ItemType[])model.asMap().get("itemTypes"), is(ItemType.values()));
         assertThat(returnedPath, is(ItemController.ITEM_LIST_PAGE));
 

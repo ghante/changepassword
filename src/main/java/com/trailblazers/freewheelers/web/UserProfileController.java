@@ -42,8 +42,7 @@ public class UserProfileController {
 
         List<Item> items = getItemsOrderByUser(account);
 
-        ItemGrid itemGrid = new ItemGrid(items);
-        model.addAttribute("itemGrid", itemGrid);
+        model.addAttribute("items", items);
         model.addAttribute("userDetail", account);
 
         return "userProfile";

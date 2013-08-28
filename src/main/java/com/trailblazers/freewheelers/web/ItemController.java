@@ -22,18 +22,20 @@ public class ItemController{
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String get(Model model, @ModelAttribute Item item) {
-		model.addAttribute("itemGrid", itemService.findAll());
+        ItemGrid itemGrid = new ItemGrid(itemService.findAll());
+		model.addAttribute("itemGrid", itemGrid);
         model.addAttribute("itemTypes", ItemType.values());
         return ITEM_LIST_PAGE;
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public String post(Model model, @ModelAttribute Item item) {
         ServiceResult<Item> result = itemService.saveItem(item);
 
         if (result.hasErrors()) {
             model.addAttribute("errors", result.getErrors());
-			model.addAttribute("itemGrid", itemService.findAll());
+            ItemGrid itemGrid = new ItemGrid(itemService.findAll());
+			model.addAttribute("itemGrid", itemGrid);
             model.addAttribute("itemTypes", ItemType.values());
 			return ITEM_LIST_PAGE;
 		}
@@ -42,13 +44,13 @@ public class ItemController{
 
     @RequestMapping(method = RequestMethod.POST, params="update=Update all enabled items")
 	public String updateItem(@ModelAttribute ItemGrid itemGrid) {
-		itemService.saveAll(itemGrid);
+		itemService.saveAll(itemGrid.getItems());
 		return "redirect:" + ITEM_PAGE;
 	}
 
     @RequestMapping(method = RequestMethod.POST, params="delete=Delete all enabled items")
     public String deleteItem( @ModelAttribute ItemGrid itemGrid) {
-        itemService.deleteItems(itemGrid);
+        itemService.deleteItems(itemGrid.getItems());
         return "redirect:" + ITEM_PAGE;
     }
 	

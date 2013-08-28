@@ -1,14 +1,14 @@
 package com.trailblazers.freewheelers.service.impl;
 
 import com.trailblazers.freewheelers.mappers.ItemMapper;
-import com.trailblazers.freewheelers.model.Item;
 import com.trailblazers.freewheelers.mappers.MyBatisUtil;
+import com.trailblazers.freewheelers.model.Item;
 import com.trailblazers.freewheelers.model.ItemValidation;
 import com.trailblazers.freewheelers.service.ItemService;
 import com.trailblazers.freewheelers.service.ServiceResult;
-import com.trailblazers.freewheelers.web.ItemGrid;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
 import java.util.Map;
 
 public class ItemServiceImpl implements ItemService {
@@ -42,35 +42,34 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public ItemGrid findAll() {
+    public List<Item> findAll() {
         sqlSession.clearCache();
-        return new ItemGrid(itemMapper.findAll());
+        return itemMapper.findAll();
     }
 
     @Override
-    public ItemGrid getItemsWithNonZeroQuantity() {
+    public List<Item> getItemsWithNonZeroQuantity() {
         sqlSession.clearCache();
-        return new ItemGrid(itemMapper.findAvailable());
+        return itemMapper.findAvailable();
     }
 
     @Override
-    public void saveAll(ItemGrid itemGrid) {
-        for (Item item : itemGrid.getItems()) {
+    public void saveAll(List<Item> items) {
+        for (Item item : items) {
             insertOrUpdate(item);
             sqlSession.commit();
         }
     }
 
     @Override
-    public void refreshItemList(ItemGrid itemGrid) {
-        ItemGrid allItems = findAll();
-        allItems.getItemMap().putAll(itemGrid.getItemMap());
-        itemGrid.setItemMap(allItems.getItemMap());
+    public void refreshItemList(Item item) {
+        List<Item> allItems = findAll();
+        allItems.add(item);
     }
 
     @Override
-    public void deleteItems(ItemGrid itemGrid) {
-        for (Item item : itemGrid.getItems()) {
+    public void deleteItems(List<Item> items) {
+        for (Item item : items) {
             delete(item);
         }
     }

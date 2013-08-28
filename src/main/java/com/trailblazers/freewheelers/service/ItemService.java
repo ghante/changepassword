@@ -1,7 +1,8 @@
 package com.trailblazers.freewheelers.service;
 
 import com.trailblazers.freewheelers.model.Item;
-import com.trailblazers.freewheelers.web.ItemGrid;
+
+import java.util.List;
 
 public interface ItemService {
 	
@@ -11,15 +12,15 @@ public interface ItemService {
 
 	void delete(Item item);
 	
-	ItemGrid findAll();
+	List<Item> findAll();
 
-    ItemGrid getItemsWithNonZeroQuantity();
+    List<Item> getItemsWithNonZeroQuantity();
 	
-	void saveAll(ItemGrid itemGrid);
+	void saveAll(List<Item> items);
 
-	void refreshItemList(ItemGrid itemGrid);
+	void refreshItemList(Item item);
 
-    void deleteItems(ItemGrid itemGrid);
+    void deleteItems(List<Item> items);
 
     void decreaseQuantityByOne(Item item);
 
