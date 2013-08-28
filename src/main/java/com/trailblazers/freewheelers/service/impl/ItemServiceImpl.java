@@ -90,7 +90,6 @@ public class ItemServiceImpl implements ItemService {
             insertOrUpdate(item);
             sqlSession.commit();
         }
-
         return new ServiceResult<Item>(errors, item);
     }
 
