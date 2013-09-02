@@ -2,7 +2,7 @@
 <c:set var="pageTitle" scope="request" value="Home"/>
 <%@ include file="header.jsp" %>
 
-<table class="table table-striped">
+<table>
     <thead>
     <tr>
         <th>Name</th>
