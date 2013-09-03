@@ -35,6 +35,10 @@ a:visited { color: black; }
 a:hover { color: grey; }
 a:active { color: gray; }
 
+.header-link {
+    font-weight: bold; border-bottom: 2px solid gray;
+}
+
 .navbar-text {
     color: lightskyblue;
 }
@@ -78,6 +82,8 @@ select {
 button {
     font-size: 12pt;
     padding: 5px;
+    background-color:lightgray;
+    border-radius: 4px;
 }
 
 table th {

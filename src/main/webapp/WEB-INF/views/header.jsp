@@ -20,12 +20,12 @@
                     Freewheelers
                 </a>
                 <ul class="nav">
-                    <li><a href="<c:url value='/' />" >Home</a></li>
-                    <li><a href="<c:url value='/admin' />">Admin Profile</a></li>
-                    <li><a href="<c:url value='/userProfile' />" > User Profile</a></li>
-                    <li><a href="<c:url value='/account/create' />" > Create Account</a></li>
+                    <li><a href="<c:url value='/' />" class="header-link">Home</a></li>
+                    <li><a href="<c:url value='/admin' />" class="header-link">Admin Profile</a></li>
+                    <li><a href="<c:url value='/userProfile' />" class="header-link"> User Profile</a></li>
+                    <li><a href="<c:url value='/account/create' />" class="header-link"> Create Account</a></li>
                     <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
-                    <li><a href="<c:url value="j_spring_security_logout" />" > Logout</a></li>
+                    <li><a href="<c:url value="j_spring_security_logout" />" class="header-link"> Logout</a></li>
                     </security:authorize>
                     <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
                         <li id="welcome" class="navbar-text">Welcome <security:authentication property="principal.username"/>!</li>
