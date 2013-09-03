@@ -4,7 +4,7 @@
 
     <c:choose>
         <c:when test="${not empty error}">
-            <div id="loginError"" class="page-action error">
+            <div id="loginError" class="page-action error">
                 Your login attempt was not successful, try again.<br /> Caused :
                 ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
             </div>
@@ -16,24 +16,24 @@
         </c:otherwise>
     </c:choose>
 
-	<form class="form-horizontal" name='f' action="<c:url value='j_spring_security_check' />" method="post">
-        <div class="control-group">
-            <label class="control-label">User</label>
+	<form name='f' action="<c:url value='j_spring_security_check' />" method="post">
+        <div>
+            <label>User</label>
             <div class="controls">
                 <input type='text' name='j_username' placeholder="Username"></td>
             </div>
         </div>
 
-        <div class="control-group">
-            <label class="control-label">Password</label>
+        <div>
+            <label>Password</label>
             <div class="controls">
                 <input type="password" name="j_password" placeholder="Password">
             </div>
         </div>
 
-        <div class="control-group">
+        <div>
             <div class="controls">
-                <button type="submit" class="btn" name="submit">Sign in</button>
+                <button type="submit" name="submit">Sign in</button>
             </div>
         </div>
 

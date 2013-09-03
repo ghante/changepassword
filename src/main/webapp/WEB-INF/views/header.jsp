@@ -15,29 +15,27 @@
 <body>
 
         <div class="navbar">
-            <div class="navbar-inner">
-                <a class="brand" href="<c:url value='/' />" class="nav_link">
+                <a class="brand" href="<c:url value='/' />" >
                     <img width="20px;"src="<c:url value='/images/logo.png' />">
                     Freewheelers
                 </a>
                 <ul class="nav">
                     <li><a href="<c:url value='/' />" >Home</a></li>
                     <li><a href="<c:url value='/admin' />">Admin Profile</a></li>
-                    <li><a href="<c:url value='/userProfile' />" class="nav_link"><i class="icon-user"></i> User Profile</a></li>
-                    <li><a href="<c:url value='/account/create' />" class="nav_link"><i class="icon-plus"></i> Create Account</a></li>
+                    <li><a href="<c:url value='/userProfile' />" > User Profile</a></li>
+                    <li><a href="<c:url value='/account/create' />" > Create Account</a></li>
                     <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
-                    <li><a href="<c:url value="j_spring_security_logout" />" class="nav_link"><i class="icon-eject"></i> Logout</a></li>
+                    <li><a href="<c:url value="j_spring_security_logout" />" > Logout</a></li>
                     </security:authorize>
                     <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
-                        <li id="welcome" class="navbar-text">Welcome <security:authentication property="principal.username"/>!</p>
+                        <li id="welcome" class="navbar-text">Welcome <security:authentication property="principal.username"/>!</li>
                     </security:authorize>
                 </ul>
 
-            </div>
         </div>
 
         <!--[if lt IE 9]>
-        <div class="alert alert-warning">
+        <div class="alert">
             You are using a Legacy Browser - it is not supported. Please upgrade to <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">IE9</a>, Firefox, Safari, Chrome or Opera.
         </div>
         <![endif]-->

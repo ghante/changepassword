@@ -5,18 +5,18 @@
 <div class="page-action">Admin Profile</div>
 
 <div class="manage-items">
-    <a class="btn" href="item" id="manageItems">Manage items</a>
+    <a href="item" id="manageItems">Manage items</a>
 </div>
 
 <div class="page-action">All orders</div>
 
-<table class="table table-striped">
+<table class="table">
     <tbody>
     <c:forEach var="order" items="${reserveOrders}" varStatus="row">
         <tr>
             <form:form action="admin" method="post">
                 <td>
-                    <a class="btn" href="/userProfile/${order.account.account_name}">
+                    <a href="/userProfile/${order.account.account_name}">
                         <c:out value="${order.account.account_name}"/>
                     </a>
                 </td>
@@ -32,7 +32,7 @@
                 <td><textarea rows="3" name="note">${order.note}</textarea></td>
                 <td>
                     <input type="hidden" value="${order.orderId}" name="orderId" />
-                    <button type="submit" class="btn btn-warning" name="save" value="Save Changes">Save Changes</button>
+                    <button type="submit" name="save" value="Save Changes">Save Changes</button>
                 </td>
             </form:form>
         </tr>

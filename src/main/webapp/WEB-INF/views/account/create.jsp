@@ -14,19 +14,17 @@
         </div>
     </c:if>
 
-	<form class="form-horizontal" action="/account/create" method="post">
-        <div class="control-group">
-            <label class="control-label" for="fld_email">Email</label>
+	<form action="/account/create" method="post">
+            <label for="fld_email">Email</label>
             <div class="controls">
                 <input type="text" id="fld_email" placeholder="somebody@something.com" name="email">
                 <c:if test="${not empty validationMessage.errors['email']}">
                     <span class="text-error">${validationMessage.errors["email"]}</span>
                 </c:if>
-            </div>
         </div>
 
-        <div class="control-group">
-            <label class="control-label" for="fld_password">Password</label>
+        <div>
+            <label for="fld_password">Password</label>
             <div class="controls">
                 <input type="text" id="fld_password" placeholder="secret password" name="password">
                 <c:if test="${not empty validationMessage.errors['password']}">
@@ -35,8 +33,8 @@
             </div>
         </div>
 
-        <div class="control-group">
-            <label class="control-label" for="fld_name">Name</label>
+        <div>
+            <label for="fld_name">Name</label>
             <div class="controls">
                 <input type="text" id="fld_name" placeholder="Your Name" name="name">
                 <c:if test="${not empty validationMessage.errors['name']}">
@@ -45,8 +43,8 @@
             </div>
         </div>
 
-        <div class="control-group">
-            <label class="control-label" for="fld_phoneNumber">Phone Number</label>
+        <div>
+            <label for="fld_phoneNumber">Phone Number</label>
             <div class="controls">
                 <input type="text" id="fld_phoneNumber" placeholder="555-123456" name="phoneNumber">
                 <c:if test="${not empty validationMessage.errors['phoneNumber']}">
@@ -55,9 +53,9 @@
             </div>
         </div>
 
-        <div class="control-group">
+        <div>
             <div class="controls">
-                <button type="submit" id="createAccount" value="Submit" class="btn btn-success">Create Account</button>
+                <button type="submit" id="createAccount" value="Submit">Create Account</button>
             </div>
         </div>
 

@@ -5,7 +5,7 @@
 <%@ include file="header.jsp" %>
 
 <div>
-    <a class="btn btn-warning" href="<c:url value="j_spring_security_logout" />" class="afr"> Logout</a>
+    <a href="<c:url value="j_spring_security_logout" />" class="afr"> Logout</a>
 </div>
 
 <%@ include file="footer.jsp" %>
