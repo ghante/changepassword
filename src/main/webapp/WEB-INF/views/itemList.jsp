@@ -2,6 +2,7 @@
 <c:set var="pageTitle" scope="request" value="Mange Items"/>
 <%@ include file="header.jsp" %>
 
+		<script type="text/javascript" src="/scripts/js/UpdateItemsCheckbox.js"></script>
 		<script type="text/javascript" src="/scripts/js/RowSelector.js"></script>
 		<script type="text/javascript" src="/scripts/js/item.js"></script>
 
