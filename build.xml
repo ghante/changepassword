@@ -92,13 +92,13 @@
         <attribute name="classpath"/>
         <sequential>
             <mkdir dir="${test.report.dir}"/>
-            <junit fork="yes" forkmode="once" failureproperty="unit.tests.failed" printsummary="yes" haltonfailure="true" haltonerror="true">
+            <junit fork="yes" forkmode="once" failureproperty="unit.tests.failed" printsummary="yes" haltonfailure="true" haltonerror="true" showoutput="true" >
                 <classpath location="${cobertura.instrument.dir}"/>
                 <classpath>
                     <path refid="@{classpath}"/>
                 </classpath>
 
-                <formatter type="xml"/>
+                <formatter type="plain" usefile="false" />
                 <batchtest todir="${test.report.dir}">
                     <fileset refid="@{test-dir}"></fileset>
                 </batchtest>
