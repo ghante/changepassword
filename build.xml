@@ -99,6 +99,7 @@
                 </classpath>
 
                 <formatter type="plain" usefile="false" />
+                <formatter type="xml" usefile="true" />
                 <batchtest todir="${test.report.dir}">
                     <fileset refid="@{test-dir}"></fileset>
                 </batchtest>
@@ -216,7 +217,7 @@
     <target name="compile" depends="compile-main, compile-test" description="compile all sources" />
 
     <target name="coverage" description="generates html coverage reports">
-        <cobertura-report srcdir="${src.dir}" destdir="${bin.dir}/coverage/"/>
+        <cobertura-report srcdir="${src.dir}" destdir="${bin.dir}/coverage/" format="xml"/>
         <echo message="Coverage report generated in: ${absolute.path.base.dir}/bin/coverage/index.html"/>
     </target>
 </project>
