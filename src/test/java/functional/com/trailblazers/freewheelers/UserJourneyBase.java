@@ -3,6 +3,8 @@ package functional.com.trailblazers.freewheelers;
 import functional.com.trailblazers.freewheelers.apis.AdminApi;
 import functional.com.trailblazers.freewheelers.apis.ScreenApi;
 import functional.com.trailblazers.freewheelers.apis.UserApi;
+import functional.com.trailblazers.freewheelers.pages.NPSReportPage;
+import functional.com.trailblazers.freewheelers.pages.NPSSurveyForm;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +17,10 @@ public class UserJourneyBase {
     protected static AdminApi admin;
     protected static UserApi user;
     protected static ScreenApi screen;
+
+    // Specific for NPS Flow
+    protected static NPSSurveyForm npsSurveyForm;
+    protected static NPSReportPage npsReportPage;
 
     @BeforeClass
     public static void before() {
