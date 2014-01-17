@@ -141,7 +141,7 @@ public class UserApi {
     }
 
     // TODO - Complete after NPS pages are developed
-    public UserApi visits_nps_page() {
+    public UserApi visits_nps_report_page() {
         return this;
     }
 }
