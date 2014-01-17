@@ -1,18 +1,27 @@
-package functional.com.trailblazers.freewheelers.core;
+package functional.com.trailblazers.freewheelers.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by rameshb on 1/16/14.
  */
-public class PageHelper extends Driver {
+public class BasePage {
+    private static WebDriver driver;
+
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+    }
+
     public void waitForElement(By by) {
         int maxWait = 30;
         int counter = 0;
-        while(counter <= maxWait) {
+        while (counter <= maxWait) {
             try {
                 findElement(by);
                 break;
@@ -23,10 +32,10 @@ public class PageHelper extends Driver {
     }
 
     public WebElement findElement(By by) {
-        return driver().findElement(by);
+        return driver.findElement(by);
     }
 
-    public boolean isElementExists(By by) {
+    public boolean elementExists(By by) {
         try {
             findElement(by);
             return true;
@@ -34,7 +43,6 @@ public class PageHelper extends Driver {
             return false;
         }
     }
-
 
     private void sleep(long timeInSeconds) {
         try {

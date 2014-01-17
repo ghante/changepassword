@@ -1,13 +1,13 @@
 package functional.com.trailblazers.freewheelers.pages;
 
-import functional.com.trailblazers.freewheelers.core.PageHelper;
 import functional.com.trailblazers.freewheelers.helpers.FeedbackType;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 /**
  * Created by rameshb on 1/16/14.
  */
-public class NPSSurveyForm extends PageHelper {
+public class NetPromoterScoreSurveyForm extends BasePage{
     private By positiveRatingRadio;
     private By neutralRatingRadio;
     private By negativeRatingRadio;
@@ -16,7 +16,8 @@ public class NPSSurveyForm extends PageHelper {
     private By thankYouMessage;
 
     // TODO - Complete the element ids once NPS page is developed
-    public NPSSurveyForm() {
+    public NetPromoterScoreSurveyForm(WebDriver driver) {
+        super(driver);
         positiveRatingRadio = By.id("");
         neutralRatingRadio = By.id("");
         negativeRatingRadio = By.id("");
@@ -44,6 +45,6 @@ public class NPSSurveyForm extends PageHelper {
     }
 
     public boolean thankYouMessageExists() {
-        return isElementExists(thankYouMessage);
+        return elementExists(thankYouMessage);
     }
 }

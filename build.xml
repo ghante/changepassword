@@ -31,6 +31,7 @@
 
     <fileset id="classpath.for.functional.test" dir="./bin/test">
         <include name="functional/**/*Test.class"/>
+        <exclude name="functional/**/NetPromoterScoreTest.class"/>
     </fileset>
 
     <tstamp>

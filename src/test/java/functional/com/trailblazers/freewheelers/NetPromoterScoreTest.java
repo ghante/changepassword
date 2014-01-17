@@ -8,7 +8,7 @@ import org.junit.Ignore;
 /**
  * Created by rameshb on 1/16/14.
  */
-public class NetPromoterSurveyTest extends UserJourneyBase {
+public class NetPromoterScoreTest extends UserJourneyBase {
 
     private final String adminUser = "NPSAdmin";
     private final String password = "password";
@@ -79,14 +79,14 @@ public class NetPromoterSurveyTest extends UserJourneyBase {
                 .visits_nps_report_page();
 
         // Verification
-        Assert.assertTrue(npsReportPage.isTotalResponsesCorrect("5"));
+        Assert.assertTrue(npsReportPage.totalResponsesCorrect("5"));
 
         // TODO - Recheck the values based on NPS computation logic
         // TODO - Confirm the total number of users. Currently it is assumed that the total users also include passive users
-        Assert.assertTrue(npsReportPage.isNPSScoreCorrect("-40"));
-        Assert.assertTrue(npsReportPage.isPercentagePromotersCorrect("20%"));
-        Assert.assertTrue(npsReportPage.isPercentagePassivesCorrect("20%"));
-        Assert.assertTrue(npsReportPage.isPercentageDetractorsCorrect("60%"));
+        Assert.assertTrue(npsReportPage.npsScoreCorrect("-40"));
+        Assert.assertTrue(npsReportPage.percentagePromotersCorrect("20%"));
+        Assert.assertTrue(npsReportPage.percentagePassivesCorrect("20%"));
+        Assert.assertTrue(npsReportPage.percentageDetractorsCorrect("60%"));
 
         // Admin logs out
         user.is_logged_out();

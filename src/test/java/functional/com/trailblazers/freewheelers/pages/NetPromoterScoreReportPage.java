@@ -1,12 +1,12 @@
 package functional.com.trailblazers.freewheelers.pages;
 
-import functional.com.trailblazers.freewheelers.core.PageHelper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 /**
  * Created by rameshb on 1/16/14.
  */
-public class NPSReportPage extends PageHelper {
+public class NetPromoterScoreReportPage extends BasePage {
     private By totalResponses;
     private By npsScore;
     private By percentagePromoters;
@@ -14,7 +14,8 @@ public class NPSReportPage extends PageHelper {
     private By percentageDetractors;
 
     // TODO - Complete the element ids once NPS page is developed
-    public NPSReportPage() {
+    public NetPromoterScoreReportPage(WebDriver driver) {
+        super(driver);
         totalResponses = By.id("");
         npsScore = By.id("");
         percentagePromoters = By.id("");
@@ -22,23 +23,23 @@ public class NPSReportPage extends PageHelper {
         percentageDetractors = By.id("");
     }
 
-    public boolean isTotalResponsesCorrect(String expectedValue) {
+    public boolean totalResponsesCorrect(String expectedValue) {
         return findElement(totalResponses).getText().equals(expectedValue);
     }
 
-    public boolean isNPSScoreCorrect(String expectedValue) {
+    public boolean npsScoreCorrect(String expectedValue) {
         return findElement(npsScore).getText().equals(expectedValue);
     }
 
-    public boolean isPercentagePromotersCorrect(String expectedValue) {
+    public boolean percentagePromotersCorrect(String expectedValue) {
         return findElement(percentagePromoters).getText().equals(expectedValue);
     }
 
-    public boolean isPercentagePassivesCorrect(String expectedValue) {
+    public boolean percentagePassivesCorrect(String expectedValue) {
         return findElement(percentagePassives).getText().equals(expectedValue);
     }
 
-    public boolean isPercentageDetractorsCorrect(String expectedValue) {
+    public boolean percentageDetractorsCorrect(String expectedValue) {
         return findElement(percentageDetractors).getText().equals(expectedValue);
     }
 }

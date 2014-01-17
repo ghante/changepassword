@@ -64,93 +64,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="NetPromoterScoreTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="21" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1635">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="63" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.4" vertical-offset="213" max-vertical-offset="3450">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AccountTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/AccountTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1320">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminApi.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/AdminApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="20" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserApi.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="37" selection-start="4580" selection-end="4580" vertical-scroll-proportion="0.0" vertical-offset="1375" max-vertical-offset="2070">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetPromoterSurveyTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterSurveyTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="53" selection-start="3647" selection-end="3647" vertical-scroll-proportion="2.1582735" vertical-offset="0" max-vertical-offset="1635">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NPSSurveyForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NPSSurveyForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="36" selection-start="687" selection-end="687" vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="825">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NPSReportPage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NPSReportPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="47" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Driver.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/core/Driver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="31" selection-start="670" selection-end="670" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="540">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/core/PageHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="9" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="780">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScreenApi.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/ScreenApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1560">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserJourneyBase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/UserJourneyBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="49" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="675">
+            <state line="6" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
               <folding />
             </state>
           </provider>
@@ -174,13 +109,17 @@
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/FeedbackType.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/ScreenApi.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/driver/Driver.java" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/core/Driver.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/core/PageHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NPSSurveyForm.java" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/core/BasePage.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NPSReportPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/BasePage.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/UserJourneyBase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterSurveyTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java" />
+        <option value="$PROJECT_DIR$/build.xml" />
       </list>
     </option>
   </component>
@@ -227,6 +166,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -347,13 +287,68 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freewheelers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freewheelers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freewheelers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freewheelers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -384,6 +379,7 @@
       <recent name="functional.com.trailblazers.freewheelers.helpers" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="functional.com.trailblazers.freewheelers.pages" />
       <recent name="com.trailblazers.freewheelers" />
     </key>
   </component>
@@ -739,11 +735,13 @@
       <workItem from="1389781817001" duration="1023000" />
       <workItem from="1389859408595" duration="4810000" />
       <workItem from="1389931763581" duration="1424000" />
+      <workItem from="1389939606442" duration="22000" />
+      <workItem from="1389949971944" duration="4138000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7257000" />
+    <option name="totallyTimeSpent" value="11417000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="815" extended-state="6" />
@@ -755,6 +753,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32841823" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -768,14 +767,13 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14166667" sideWeight="0.4529703" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18958333" sideWeight="0.4529703" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32841823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32886904" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32841823" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -802,6 +800,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/UserJourneyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="28" selection-start="845" selection-end="845" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/AccountTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
@@ -823,40 +828,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterSurveyTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="57" selection-start="2280" selection-end="2280" vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="1185">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NPSSurveyForm.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NetPromoterScoreSurveyForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="48" selection-start="1520" selection-end="1520" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="825">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NPSReportPage.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NetPromoterScoreReportPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="47" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="750">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/core/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="31" selection-start="670" selection-end="670" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/core/PageHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/BasePage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="9" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="780">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -876,9 +874,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/OrderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="5" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-          <folding />
-        </state>
+        <state line="46" column="5" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/freewheelers.iws">
@@ -917,9 +913,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/SyntaxSugar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="52" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="615">
-          <folding />
-        </state>
+        <state line="9" column="52" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="615" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
@@ -974,9 +968,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/SyntaxSugar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="52" selection-start="279" selection-end="279" vertical-scroll-proportion="0.19480519" vertical-offset="0" max-vertical-offset="693">
-          <folding />
-        </state>
+        <state line="9" column="52" selection-start="279" selection-end="279" vertical-scroll-proportion="0.19480519" vertical-offset="0" max-vertical-offset="693" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/OrderTable.java">
@@ -1006,100 +998,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="18" selection-start="4598" selection-end="4598" vertical-scroll-proportion="0.33286908" vertical-offset="1456" max-vertical-offset="3435">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/FreeWheelersServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="0" selection-start="973" selection-end="973" vertical-scroll-proportion="0.5013928" vertical-offset="0" max-vertical-offset="718" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/AccountTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/OrderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="5" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="825">
-          <folding />
-        </state>
+        <state line="46" column="5" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="825" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/FeedbackType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="12" selection-start="167" selection-end="167" vertical-scroll-proportion="0.13363029" vertical-offset="0" max-vertical-offset="898">
+        <state line="8" column="12" selection-start="167" selection-end="167" vertical-scroll-proportion="0.13363029" vertical-offset="0" max-vertical-offset="898" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/test/selenium-java-2.32.0.jar!/org/openqa/selenium/firefox/FirefoxDriver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="895" selection-end="895" vertical-scroll-proportion="-9.64" vertical-offset="89" max-vertical-offset="1245">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/test/selenium-java-2.32.0.jar!/org/openqa/selenium/WebDriver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="17" selection-start="166" selection-end="166" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="1830">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/ScreenApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/core/PageHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="9" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/UserJourneyBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="49" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NPSReportPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="47" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/core/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="31" selection-start="670" selection-end="670" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NPSSurveyForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="36" selection-start="687" selection-end="687" vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="825">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="37" selection-start="4580" selection-end="4580" vertical-scroll-proportion="0.0" vertical-offset="1375" max-vertical-offset="2070">
+        <state line="41" column="58" selection-start="1352" selection-end="1434" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/AdminApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="20" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
+        <state line="20" column="11" selection-start="852" selection-end="852" vertical-scroll-proportion="0.20891365" vertical-offset="0" max-vertical-offset="1200">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterSurveyTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="53" selection-start="3647" selection-end="3647" vertical-scroll-proportion="2.1582735" vertical-offset="0" max-vertical-offset="1635">
+        <state line="42" column="0" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.0" vertical-offset="46" max-vertical-offset="2070">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NetPromoterScoreReportPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="20" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.8356546" vertical-offset="0" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/BasePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="351" selection-end="351" vertical-scroll-proportion="0.27158773" vertical-offset="0" max-vertical-offset="900">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NetPromoterScoreSurveyForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="53" selection-start="292" selection-end="292" vertical-scroll-proportion="0.1448468" vertical-offset="1" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/UserJourneyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="41" selection-start="1151" selection-end="1151" vertical-scroll-proportion="0.52228415" vertical-offset="0" max-vertical-offset="718">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/AccountTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="21" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="63" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.4" vertical-offset="213" max-vertical-offset="3450">
           <folding />
         </state>
       </provider>
