@@ -15,6 +15,10 @@ get started
 	* src/main/webapp/WEB-INF/spring/persistence-config.xml
 
 2. Start postgres server
+    * check that the postgres superuser exists
+      run "psql -c '\du'
+    * if user does not exist
+        run "createuser -s postgres" (no need to set a password, defaults to 'postgres')
     * create database trailblazers ,see persistance-config.xml
       run "db/create.sh"
     * to add some data
