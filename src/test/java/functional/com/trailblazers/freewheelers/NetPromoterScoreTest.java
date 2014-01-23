@@ -4,6 +4,7 @@ import functional.com.trailblazers.freewheelers.helpers.FeedbackType;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Created by rameshb on 1/16/14.
@@ -19,6 +20,7 @@ public class NetPromoterScoreTest extends UserJourneyBase {
     private final String passiveUser = "PassiveUser";
     private final String frame = "NPS Frame";
 
+    @Test
     @Ignore
     public void testNetPromoterSurveyFlow() {
         // TODO: Create a SQL or something to remove the entries for NPS. To be done outside of this test.
