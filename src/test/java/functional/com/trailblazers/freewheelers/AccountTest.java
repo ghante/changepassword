@@ -53,7 +53,7 @@ public class AccountTest extends UserJourneyBase {
                 .is_logged_out()
                 .visits_his_profile();
         screen
-                .shows_login();
+                .should_show_login_page();
 
         user
                 .logs_in_with(Hugo, SOME_PASSWORD)

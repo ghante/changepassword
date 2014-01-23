@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62beda4f-94c7-447d-b5f3-08c2af1556b9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/SurveyTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/freewheelers.iws" afterPath="$PROJECT_DIR$/freewheelers.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-app-context.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-app-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/AccountTest.java" afterPath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/AccountTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/ScreenApi.java" afterPath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/ScreenApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java" afterPath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/URLs.java" afterPath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/URLs.java" />
     </list>
     <ignored path="freewheelers.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,7 +86,7 @@
       <file leaf-file-name="SurveyController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="5" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0">
+            <state line="40" column="61" selection-start="1536" selection-end="1536" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,7 +97,72 @@
       <file leaf-file-name="NetPromoterScoreTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="11" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0">
+            <state line="39" column="0" selection-start="1363" selection-end="1425" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SurveyTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/SurveyTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="8" selection-start="250" selection-end="250" vertical-scroll-proportion="0.29411766">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreenApi.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/ScreenApi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="107" column="0" selection-start="3605" selection-end="3605" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="survey.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="46" selection-start="789" selection-end="789" vertical-scroll-proportion="-9.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManageItemsTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/ManageItemsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetPromoterScoreSurveyForm.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NetPromoterScoreSurveyForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="16" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserApi.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="154" column="53" selection-start="4919" selection-end="4919" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="URLs.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/URLs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="32" selection-start="590" selection-end="590" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -103,79 +173,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="36" column="41" selection-start="1515" selection-end="1515" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="security-app-context.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-app-context.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="39" selection-start="851" selection-end="851" vertical-scroll-proportion="0.35992578">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reserve.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/reserve.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="663" selection-end="663" vertical-scroll-proportion="-14.375">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="13" selection-start="1109" selection-end="1109" vertical-scroll-proportion="-19.375">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app-config.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/app-config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/header.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="104" selection-start="1688" selection-end="1688" vertical-scroll-proportion="-12.208333">
-              <folding>
-                <marker date="1390219443000" expanded="true" signature="1849:2089" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="survey.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="29" selection-start="1846" selection-end="1846" vertical-scroll-proportion="-13.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SurveyControllerTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -198,10 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NPSReportPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/BasePage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/UserJourneyBase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterSurveyTest.java" />
         <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/test/resources/com/trailblazers/freewheelers/web/ReserveControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/ReserveControllerTest.java" />
@@ -209,11 +202,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/ReserveController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/service/SurveyService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp" />
-        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-app-context.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/URLs.java" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/ScreenApi.java" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/SurveyTest.java" />
       </list>
     </option>
   </component>
@@ -617,36 +614,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="freewheelers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="freewheelers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="freewheelers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1604,29 +1571,7 @@
       <recent name="com.trailblazers.freewheelers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SurveyControllerTest">
-    <configuration default="false" name="FreeWheelersServer" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.trailblazers.freewheelers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.trailblazers.freewheelers.FreeWheelersServer" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="freewheelers" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.SurveyTest.shouldSubmitSurveyAndGetThankYouMessage">
     <configuration default="false" name="NetPromoterScoreTest.testNetPromoterSurveyFlow" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
@@ -1747,6 +1692,34 @@
         <option name="LOCAL" value="true" />
       </RunnerSettings>
       <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="SurveyTest.shouldSubmitSurveyAndGetThankYouMessage" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="functional.com.trailblazers.freewheelers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="freewheelers" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="functional.com.trailblazers.freewheelers" />
+      <option name="MAIN_CLASS_NAME" value="functional.com.trailblazers.freewheelers.SurveyTest" />
+      <option name="METHOD_NAME" value="shouldSubmitSurveyAndGetThankYouMessage" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
@@ -1980,11 +1953,11 @@
       </method>
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.FreeWheelersServer" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.NetPromoterScoreTest.testNetPromoterSurveyFlow" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest.shouldSubmitSurvey" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest.shouldShowValidationMessageIfSurveyRatingIsNull" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.NetPromoterScoreTest.testNetPromoterSurveyFlow" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest.shouldSubmitSurvey" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest.shouldShowValidationMessageIfSurveyRatingIsNull" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.SurveyTest.shouldSubmitSurveyAndGetThankYouMessage" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -2048,7 +2021,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32745314" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32745314" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39911798" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2062,7 +2035,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26842752" sideWeight="0.67254686" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32745314" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32745314" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2140,82 +2113,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib/test/spring-test-3.2.2.RELEASE.jar!/org/springframework/mock/web/MockHttpServletRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="11" selection-start="2485" selection-end="2485" vertical-scroll-proportion="-30.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="78" selection-start="2227" selection-end="2290" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/ItemControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="795" selection-end="795" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/service/SurveyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/account/create.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="5" selection-start="490" selection-end="533" vertical-scroll-proportion="-10.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/main/spring-webmvc-3.2.2.RELEASE.jar!/org/springframework/web/servlet/ModelAndView.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="11" selection-start="547" selection-end="547" vertical-scroll-proportion="-7.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="29" selection-start="1846" selection-end="1846" vertical-scroll-proportion="-13.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="11" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="5" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/reserve.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="0" selection-start="663" selection-end="663" vertical-scroll-proportion="-14.375">
@@ -2244,8 +2141,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="104" selection-start="1688" selection-end="1688" vertical-scroll-proportion="-12.208333">
           <folding>
-            <marker date="1390219443000" expanded="true" signature="1849:2089" placeholder="..." />
+            <marker date="1390219443000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-app-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="39" selection-start="851" selection-end="851" vertical-scroll-proportion="-8.818182">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/service/SurveyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2256,14 +2170,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-app-context.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="39" selection-start="851" selection-end="851" vertical-scroll-proportion="0.35992578">
+        <state line="40" column="61" selection-start="1536" selection-end="1536" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/pages/NetPromoterScoreSurveyForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="16" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1363" selection-end="1425" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/ManageItemsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/helpers/URLs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="32" selection-start="590" selection-end="590" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="46" selection-start="789" selection-end="789" vertical-scroll-proportion="-9.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/UserApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="53" selection-start="4919" selection-end="4919" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/apis/ScreenApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="0" selection-start="3605" selection-end="3605" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/SurveyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="8" selection-start="250" selection-end="250" vertical-scroll-proportion="0.29411766">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

@@ -1,6 +1,9 @@
 package functional.com.trailblazers.freewheelers.apis;
 
-import functional.com.trailblazers.freewheelers.helpers.*;
+import functional.com.trailblazers.freewheelers.helpers.HomeTable;
+import functional.com.trailblazers.freewheelers.helpers.ManageItemTable;
+import functional.com.trailblazers.freewheelers.helpers.OrderTable;
+import functional.com.trailblazers.freewheelers.helpers.URLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,11 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import static functional.com.trailblazers.freewheelers.helpers.Controls.check;
-import static functional.com.trailblazers.freewheelers.helpers.Controls.fillField;
-import static functional.com.trailblazers.freewheelers.helpers.Controls.select;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static functional.com.trailblazers.freewheelers.helpers.Controls.*;
 
 public class UserApi {
 
@@ -140,8 +139,20 @@ public class UserApi {
         }
     }
 
+    public UserApi visit_survey_page() {
+        driver.get(URLs.survey());
+        return this;
+    }
+
     // TODO - Complete after NPS pages are developed
     public UserApi visits_nps_report_page() {
+        return this;
+    }
+
+    public UserApi fills_in_survey(int rating, String comment) {
+        driver.findElement(By.id("rating_" + rating)).click();
+        driver.findElement(By.id("surveyComment")).sendKeys(comment);
+        driver.findElement(By.id("survey")).submit();
         return this;
     }
 }
