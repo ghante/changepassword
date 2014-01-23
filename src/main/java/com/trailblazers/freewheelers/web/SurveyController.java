@@ -28,7 +28,7 @@ public class SurveyController {
                              @RequestParam(value = "survey_rating", required = false) String surveyRating,
                              @RequestParam(value = "survey_comment", required = false) String surveyComment) {
         String username = principal.getName();
-        if (surveyRating == null) {
+        if (surveyRating == null || surveyRating.isEmpty()) {
             return showValidationError();
         }
         surveyService.submitSurvey(username, surveyRating, surveyComment);

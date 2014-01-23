@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62beda4f-94c7-447d-b5f3-08c2af1556b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/service/SurveyService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/freewheelers.iml" afterPath="$PROJECT_DIR$/freewheelers.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/freewheelers.ipr" afterPath="$PROJECT_DIR$/freewheelers.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/freewheelers.iws" afterPath="$PROJECT_DIR$/freewheelers.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java" afterPath="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java" />
     </list>
     <ignored path="freewheelers.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,7 +82,7 @@
       <file leaf-file-name="SurveyController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="5" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0">
+            <state line="39" column="49" selection-start="1444" selection-end="1465" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NetPromoterScoreTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="NetPromoterScoreTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="11" selection-start="753" selection-end="753" vertical-scroll-proportion="0.509839">
+            <state line="23" column="11" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -168,10 +162,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SurveyControllerTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SurveyControllerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="28" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0">
+            <state line="54" column="0" selection-start="1616" selection-end="1616" vertical-scroll-proportion="1.1550802">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -209,10 +203,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/ReserveController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/service/SurveyService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/survey.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java" />
       </list>
     </option>
   </component>
@@ -1573,30 +1567,7 @@
       <recent name="com.trailblazers.freewheelers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SurveyControllerTest.shouldSubmitSurvey">
-    <configuration default="false" name="All in freewheelers" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" runner="idea" />
-      <module name="freewheelers" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.SurveyControllerTest">
     <configuration default="false" name="FreeWheelersServer" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
@@ -1707,6 +1678,38 @@
       <patterns />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="SurveyControllerTest.shouldShowValidationMessageIfSurveyRatingIsNull" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.trailblazers.freewheelers.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="freewheelers" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.trailblazers.freewheelers.web" />
+      <option name="MAIN_CLASS_NAME" value="com.trailblazers.freewheelers.web.SurveyControllerTest" />
+      <option name="METHOD_NAME" value="shouldShowValidationMessageIfSurveyRatingIsNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
@@ -1940,11 +1943,11 @@
       </method>
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.All in freewheelers" />
-      <item index="1" class="java.lang.String" itemvalue="Application.FreeWheelersServer" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.NetPromoterScoreTest.testNetPromoterSurveyFlow" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest.shouldSubmitSurvey" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest" />
+      <item index="0" class="java.lang.String" itemvalue="Application.FreeWheelersServer" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.NetPromoterScoreTest.testNetPromoterSurveyFlow" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest.shouldSubmitSurvey" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.SurveyControllerTest.shouldShowValidationMessageIfSurveyRatingIsNull" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -2005,7 +2008,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32745314" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2021,8 +2024,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26842752" sideWeight="0.6703418" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32745314" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26842752" sideWeight="0.67254686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32745314" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2172,15 +2175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="28" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/account/create.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="5" selection-start="490" selection-end="533" vertical-scroll-proportion="-10.0">
@@ -2202,19 +2196,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="11" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/trailblazers/freewheelers/web/SurveyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="5" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0">
+        <state line="39" column="49" selection-start="1444" selection-end="1465" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/com/trailblazers/freewheelers/NetPromoterScoreTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/trailblazers/freewheelers/web/SurveyControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="11" selection-start="753" selection-end="753" vertical-scroll-proportion="0.509839">
-          <folding />
+        <state line="54" column="0" selection-start="1616" selection-end="1616" vertical-scroll-proportion="1.1550802">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
